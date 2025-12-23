@@ -1,36 +1,24 @@
-// Load environment variables
 require("dotenv").config();
 
-// Import Express framework
 const express = require("express");
-
-// Import CORS to allow frontend requests
 const cors = require("cors");
+const connectDB = require("./config/db");
 
-// Create an Express application
 const app = express();
 
-// ---------- MIDDLEWARES ----------
+// Connect to database
+connectDB();
 
-// Enable Cross-Origin Resource Sharing
+// Middlewares
 app.use(cors());
-
-// Parse incoming JSON requests
 app.use(express.json());
 
-// ---------- ROUTES ----------
-
-// Test route to check if server is running
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
 });
 
-// ---------- SERVER ----------
+const PORT = process.env.PORT || 5000;
 
-// Define port number
-const PORT = 5000;
-
-// Start the server and listen on the port
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
