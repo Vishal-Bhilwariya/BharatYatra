@@ -5,7 +5,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const placeRoutes = require("./routes/placeRoutes");
 const foodRoutes = require("./routes/foodRoutes");
-const transportRoutes = require("./routes/transportRoutes");
+const translatorRoutes = require("./routes/translatorRoutes");
 
 const app = express();
 
@@ -17,8 +17,8 @@ const cityRoutes = require("./routes/cityRoutes");
 // Routes
 app.use("/api/cities", cityRoutes);
 app.use("/api/places", placeRoutes);
-app.use("/api/transports", transportRoutes);
 app.use("/api/foods", foodRoutes);
+app.use("/api/translate", translatorRoutes);
 
 // Middlewares
 app.use(cors());
