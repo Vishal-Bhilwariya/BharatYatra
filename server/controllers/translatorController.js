@@ -23,4 +23,15 @@ const translateText = async (req, res) => {
   }
 };
 
-module.exports = { translateText };
+const getPresetPhrases = (req, res) => {
+  res.json([
+    "Where is the railway station?",
+    "How much is the ticket?",
+    "I need help",
+    "Is this food spicy?",
+    "Please take me to this place",
+    "What is the bus fare?",
+  ]);
+};
+
+module.exports = { translateText, getPresetPhrases };
