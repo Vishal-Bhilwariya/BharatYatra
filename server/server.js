@@ -9,12 +9,12 @@ const app = express();
 // Connect to database
 connectDB();
 
+app.use(express.json());
 const cityRoutes = require("./routes/cityRoutes");
 // Routes
 app.use("/api/cities", cityRoutes);
 // Middlewares
 app.use(cors());
-app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
