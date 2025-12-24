@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const placeRoutes = require("./routes/placeRoutes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 const cityRoutes = require("./routes/cityRoutes");
 // Routes
 app.use("/api/cities", cityRoutes);
+app.use("/api/places", placeRoutes);
 // Middlewares
 app.use(cors());
 
