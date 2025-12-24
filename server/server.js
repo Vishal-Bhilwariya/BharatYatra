@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const placeRoutes = require("./routes/placeRoutes");
+const foodRoutes = require("./routes/foodRoutes");
 
 const app = express();
 
@@ -15,6 +16,8 @@ const cityRoutes = require("./routes/cityRoutes");
 // Routes
 app.use("/api/cities", cityRoutes);
 app.use("/api/places", placeRoutes);
+app.use("/api/foods", foodRoutes);
+
 // Middlewares
 app.use(cors());
 
