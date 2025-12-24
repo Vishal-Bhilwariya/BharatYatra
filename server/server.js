@@ -9,6 +9,9 @@ const app = express();
 // Connect to database
 connectDB();
 
+const cityRoutes = require("./routes/cityRoutes");
+// Routes
+app.use("/api/cities", cityRoutes);
 // Middlewares
 app.use(cors());
 app.use(express.json());
