@@ -29,7 +29,12 @@ const Home = () => {
           </div>
         ))
       )}
+      <Link to="/translator">
+  <button>🌐 Translator</button>
+</Link>
+
     </div>
+    
   );
 };
 
