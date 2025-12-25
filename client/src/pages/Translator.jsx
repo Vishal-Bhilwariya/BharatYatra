@@ -25,7 +25,7 @@ const Translator = () => {
   };
 
   return (
-    <div>
+    <div className="bg-white p-6 rounded shadow w-full max-w-md">
       <h1>🌍 Language Translator</h1>
 
       <textarea
@@ -47,7 +47,7 @@ const Translator = () => {
 
       <br /><br />
 
-      <button onClick={handleTranslate}>
+      <button className="bg-green-600 text-white px-4 py-2 rounded w-full" onClick={handleTranslate}>
         {loading ? "Translating..." : "Translate"}
       </button>
 

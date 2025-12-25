@@ -29,26 +29,26 @@ const CityDetails = () => {
   if (!cityData) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="bg-white p-4 rounded shadow mb-4">
       <h1>{cityData.city.name}</h1>
       <p>{cityData.city.description}</p>
 
       <hr />
 
       {/* PLACES */}
-      <h2>📍 Places</h2>
+      <h2 className="text-2xl font-bold mt-6">📍 Places</h2>
       {cityData.places.map((place) => (
-        <div key={place._id}>
-          <h3>{place.name}</h3>
-          <p>{place.description}</p>
-          <p>{place.entryFee}</p>
+        <div className="bg-white p-4 rounded shadow mb-4" key={place._id}>
+          <h3 className="text-xl font-semibold">{place.name}</h3>
+          <p className="text-gray-500">{place.description}</p>
+          <p className="text-gray-700">{place.entryFee}</p>
         </div>
       ))}
 
       <hr />
 
       {/* FOOD */}
-      <h2>🍽️ Famous Food</h2>
+      <h2 className="text-2xl font-bold mt-6">🍽️ Famous Food</h2>
       {foods.length === 0 ? (
         <p>No food data</p>
       ) : (
@@ -65,16 +65,16 @@ const CityDetails = () => {
       <hr />
 
       {/* TRANSPORT */}
-      <h2>🚕 Transport</h2>
+      <h2 className="text-2xl font-bold mt-6">🚕 Transport</h2>
       {transports.length === 0 ? (
         <p>No transport info</p>
       ) : (
         transports.map((t) => (
-          <div key={t._id}>
-            <h3>{t.type}</h3>
-            <p>{t.description}</p>
-            <p>Charges: {t.charges}</p>
-            <p>Route: {t.route}</p>
+          <div className="bg-white p-4 rounded shadow mb-4" key={t._id}>
+            <h3 className="text-xl font-semibold">{t.type}</h3>
+            <p className="text-gray-500">{t.description}</p>
+            <p className="text-gray-700">Charges: {t.charges}</p>
+            <p className="text-gray-700">Route: {t.route}</p>
           </div>
         ))
       )}
