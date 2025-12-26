@@ -6,6 +6,9 @@ const connectDB = require("./config/db");
 const placeRoutes = require("./routes/placeRoutes");
 const foodRoutes = require("./routes/foodRoutes");
 const translatorRoutes = require("./routes/translatorRoutes");
+const stateRoutes = require("./routes/stateRoutes");
+const cityRoutes = require("./routes/cityRoutes");
+
 
 const app = express();
 
@@ -13,8 +16,8 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-const cityRoutes = require("./routes/cityRoutes");
 // Routes
+app.use("/api/states", stateRoutes);
 app.use("/api/cities", cityRoutes);
 app.use("/api/places", placeRoutes);
 app.use("/api/foods", foodRoutes);

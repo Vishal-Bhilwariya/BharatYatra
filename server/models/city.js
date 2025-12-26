@@ -7,10 +7,12 @@ const citySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    description: {
-      type: String,
+    stateId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "State",
+      required: true,
     },
-    state: {
+    description: {
       type: String,
     },
     image: {
