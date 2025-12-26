@@ -5,6 +5,7 @@ import Translator from "./pages/Translator";
 import StateDetails from "./pages/StateDetails";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Explore from "./pages/Explore";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path="/city/:id" element={<CityDetails />} />
           <Route path="/translator" element={<Translator />} />
           <Route path="/state/:id" element={<StateDetails />} />
+          <Route path="/explore" element={<Explore />} />
+
         </Routes>
       </div>
       <Footer />
