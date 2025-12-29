@@ -2,20 +2,39 @@ const mongoose = require("mongoose");
 
 const transportSchema = new mongoose.Schema(
   {
-    city: {
+    cityId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "City",
       required: true,
     },
+
     type: {
-      type: String, // Bus, Train, Metro, Auto
+      type: String,
+      enum: ["bus", "train", "flight", "taxi", "auto", "metro"],
       required: true,
     },
-    description: String,
-    charges: String,
-    route: String,
+
+    description: {
+      type: String,
+      required: true,
+    },
+
+    connectivity: {
+      type: String, // nearby cities, airports, stations
+    },
+
+    approxCost: {
+      type: String, // "₹200–₹500", "₹50", "Varies"
+    },
+
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Transport", transportSchema);

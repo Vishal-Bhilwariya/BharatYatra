@@ -1,92 +1,108 @@
-const City = require("../models/City");
-const Place = require("../models/Place");
-
-// Get cities by state
-const getCitiesByState = async (req, res) => {
+const City = require("../models/city");
+const State = require("../models/State");
+// CREATE CITY
+exports.createCity = async (req, res) => {
   try {
-    const cities = await City.find({ stateId: req.params.stateId });
-    res.json(cities);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// Get all cities
-const getCities = async (req, res) => {
-  try {
-    const cities = await City.find();
-    res.json(cities);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// Add a new city (STATE-FIRST)
-const addCity = async (req, res) => {
-  try {
-    const { name, description, stateId, image } = req.body;
-
-    const city = new City({
+    const {
       name,
-      description,
       stateId,
+      description,
+      history,
       image,
+      isPopular,
+      isActive,
+    } = req.body;
+
+    // 1️⃣ Basic validation
+    if (!name || !stateId || !description || !image) {
+      return res.status(400).json({
+        message: "Name, stateId, description and image are required",
+      });
+    }
+
+    // 2️⃣ Check if state exists
+    const stateExists = await State.findById(stateId);
+    if (!stateExists) {
+      return res.status(404).json({
+        message: "Invalid stateId. State not found.",
+      });
+    }
+
+    // 3️⃣ Generate slug from city name
+    const slug = name.toLowerCase().trim().replace(/\s+/g, "-");
+
+    // 4️⃣ Check duplicate city in SAME state
+    const existingCity = await City.findOne({ slug, stateId });
+    if (existingCity) {
+      return res.status(409).json({
+        message: "City already exists in this state",
+      });
+    }
+
+    // 5️⃣ Create city
+    const city = await City.create({
+      name,
+      slug,
+      stateId,
+      description,
+      history,
+      image,
+      isPopular,
+      isActive,
     });
 
-    const savedCity = await city.save();
-    res.status(201).json(savedCity);
+    res.status(201).json({
+      message: "City created successfully",
+      city,
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };
 
-// Get single city by ID
-const getCityById = async (req, res) => {
+// GET CITIES BY STATE ID
+exports.getCitiesByState = async (req, res) => {
   try {
-    const city = await City.findById(req.params.id);
+    const { stateId } = req.params;
+
+    const cities = await City.find({
+      stateId,
+      isActive: true,
+    }).sort({ isPopular: -1, name: 1 });
+
+    res.status(200).json(cities);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+// GET CITY BY SLUG
+exports.getCityBySlug = async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    const city = await City.findOne({
+      slug,
+      isActive: true,
+    }).populate("stateId", "name slug");
 
     if (!city) {
-      return res.status(404).json({ message: "City not found" });
+      return res.status(404).json({
+        message: "City not found",
+      });
     }
 
-    res.json(city);
+    res.status(200).json(city);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };
 
-// Get city with its places
-const getCityWithPlaces = async (req, res) => {
-  try {
-    const city = await City.findById(req.params.id);
-
-    if (!city) {
-      return res.status(404).json({ message: "City not found" });
-    }
-
-    const places = await Place.find({ city: city._id });
-
-    res.json({ city, places });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// ✅ TEMP SAFE FUNCTIONS (to prevent crash)
-const updateCity = async (req, res) => {
-  res.json({ message: "Update city not implemented yet" });
-};
-
-const deleteCity = async (req, res) => {
-  res.json({ message: "Delete city not implemented yet" });
-};
-
-module.exports = {
-  getCities,
-  addCity,
-  getCityById,
-  getCityWithPlaces,
-  updateCity,
-  deleteCity,
-  getCitiesByState,
-};
+// EXPORT CONTROLLER
+module.exports = exports; 

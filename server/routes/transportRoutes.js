@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
+
 const {
-  addTransport,
+  createTransport,
   getTransportByCity,
 } = require("../controllers/transportController");
 
-// Add transport
-router.post("/", addTransport);
+// CREATE TRANSPORT
+router.post("/", createTransport);
 
-
-// Get transport of a city
+// GET TRANSPORT BY CITY ID
 router.get("/city/:cityId", getTransportByCity);
 
 module.exports = router;

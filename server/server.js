@@ -8,7 +8,7 @@ const foodRoutes = require("./routes/foodRoutes");
 const translatorRoutes = require("./routes/translatorRoutes");
 const stateRoutes = require("./routes/stateRoutes");
 const cityRoutes = require("./routes/cityRoutes");
-
+const transportRoutes =  require("./routes/transportRoutes")
 
 const app = express();
 
@@ -21,6 +21,7 @@ app.use("/api/states", stateRoutes);
 app.use("/api/cities", cityRoutes);
 app.use("/api/places", placeRoutes);
 app.use("/api/foods", foodRoutes);
+app.use("/api/transports", transportRoutes);
 app.use("/api/translate", translatorRoutes);
 
 // Middlewares

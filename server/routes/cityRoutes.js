@@ -2,27 +2,18 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getCities,
-  addCity,
-  getCityById,
-  getCityWithPlaces,
-  updateCity,
-  deleteCity,
+  createCity,
   getCitiesByState,
+  getCityBySlug,
 } = require("../controllers/cityController");
 
-router.get("/", getCities);
-router.post("/", addCity);
+// CREATE CITY
+router.post("/", createCity);
 
-// ✅ STATE ROUTE FIRST
+// GET CITIES BY STATE ID
 router.get("/state/:stateId", getCitiesByState);
 
-// ✅ OTHER SPECIFIC ROUTES
-router.get("/:id/places", getCityWithPlaces);
-
-// ❌ GENERIC ROUTES LAST
-router.get("/:id", getCityById);
-router.put("/:id", updateCity);
-router.delete("/:id", deleteCity);
+// GET CITY BY SLUG
+router.get("/:slug", getCityBySlug);
 
 module.exports = router;
