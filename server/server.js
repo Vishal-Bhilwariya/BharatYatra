@@ -9,7 +9,8 @@ const translatorRoutes = require("./routes/translatorRoutes");
 const stateRoutes = require("./routes/stateRoutes");
 const cityRoutes = require("./routes/cityRoutes");
 const transportRoutes =  require("./routes/transportRoutes")
-
+const adminRoutes = require("./routes/adminRoutes");
+const adminStateRoutes = require("./routes/adminStateRoutes");
 const app = express();
 
 // Connect to database
@@ -23,6 +24,12 @@ app.use("/api/places", placeRoutes);
 app.use("/api/foods", foodRoutes);
 app.use("/api/transports", transportRoutes);
 app.use("/api/translate", translatorRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/admin/states", adminStateRoutes);
+app.use("/api/admin/cities", require("./routes/adminCityRoutes"));
+app.use("/api/admin/places", require("./routes/adminPlaceRoutes"));
+app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
+app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
 
 // Middlewares
 app.use(cors());
