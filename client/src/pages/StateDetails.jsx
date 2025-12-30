@@ -1,62 +1,57 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 const StateDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
+  const navigate = useNavigate();
 
   const [state, setState] = useState(null);
   const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(`/states/${id}`)
-      .then((res) => setState(res.data))
-      .catch((err) => console.error(err));
+    const fetchStateAndCities = async () => {
+      try {
+        // 1️⃣ get state by slug
+        const stateRes = await API.get(`/states/${slug}`);
+        const stateData = stateRes.data;
+        setState(stateData);
 
-    API.get(`/cities/state/${id}`)
-      .then((res) => setCities(res.data))
-      .catch((err) => console.error(err));
-  }, [id]);
+        // 2️⃣ get cities by stateId
+        const citiesRes = await API.get(
+          `/cities/state/${stateData._id}`
+        );
+        setCities(citiesRes.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!state) return <p>Loading...</p>;
+    fetchStateAndCities();
+  }, [slug]);
+
+  if (loading) return <h2>Loading...</h2>;
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      {/* STATE HEADER */}
-      <h1 className="text-3xl font-bold text-orange-600">
-        {state.name}
-      </h1>
-      <p className="text-gray-600 mb-6">
-        {state.description}
-      </p>
+    <div>
+      <h1>{state.name}</h1>
 
-      {/* CITIES */}
-      <h2 className="text-2xl font-bold mb-4">
-        Cities
-      </h2>
-
+      <h2>Cities</h2>
       {cities.length === 0 ? (
-        <p>No cities added yet.</p>
+        <p>No cities available</p>
       ) : (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {cities.map((city) => (
-            <div
-              key={city._id}
-              className="bg-white p-4 rounded shadow"
-            >
-              <h3 className="text-xl font-semibold">
-                {city.name}
-              </h3>
-
-              <a
-                href={`/city/${city._id}`}
-                className="inline-block mt-2 text-blue-600"
-              >
-                View Details →
-              </a>
-            </div>
-          ))}
-        </div>
+        cities.map((city) => (
+          <div
+            key={city._id}
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/city/${city.slug}`)}
+          >
+            {city.name}
+          </div>
+        ))
       )}
     </div>
   );

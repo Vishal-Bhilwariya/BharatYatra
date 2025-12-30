@@ -14,10 +14,10 @@ function App() {
       <div className="pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/city/:id" element={<CityDetails />} />
           <Route path="/translator" element={<Translator />} />
-          <Route path="/state/:id" element={<StateDetails />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/state/:slug" element={<StateDetails />} />
+          <Route path="/city/:slug" element={<CityDetails />} />
 
         </Routes>
       </div>
