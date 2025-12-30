@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  createFood,
+  getAllFoods,
   getFoodsByCity,
   getFoodBySlug,
 } = require("../controllers/foodController");
 
-// CREATE FOOD
-router.post("/", createFood);
 
+router.get("/", getAllFoods);
 // GET FOODS BY CITY ID
 router.get("/city/:cityId", getFoodsByCity);
 

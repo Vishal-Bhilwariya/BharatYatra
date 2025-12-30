@@ -2,13 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  createPlace,
   getPlacesByCity,
   getPlaceBySlug,
 } = require("../controllers/placeController");
-
-// CREATE PLACE
-router.post("/", createPlace);
 
 // GET PLACES BY CITY ID
 router.get("/city/:cityId", getPlacesByCity);

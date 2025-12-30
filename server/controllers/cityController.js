@@ -1,86 +1,41 @@
 const City = require("../models/city");
 const State = require("../models/State");
-// CREATE CITY
-exports.createCity = async (req, res) => {
+const { successResponse, errorResponse } = require("../utils/apiResponse");
+
+// 🌐 GET CITIES BY STATE SLUG (PUBLIC)
+exports.getCitiesByStateSlug = async (req, res) => {
   try {
-    const {
-      name,
-      stateId,
-      description,
-      history,
-      image,
-      isPopular,
-      isActive,
-    } = req.body;
+    const { stateSlug } = req.params;
 
-    // 1️⃣ Basic validation
-    if (!name || !stateId || !description || !image) {
-      return res.status(400).json({
-        message: "Name, stateId, description and image are required",
-      });
-    }
-
-    // 2️⃣ Check if state exists
-    const stateExists = await State.findById(stateId);
-    if (!stateExists) {
-      return res.status(404).json({
-        message: "Invalid stateId. State not found.",
-      });
-    }
-
-    // 3️⃣ Generate slug from city name
-    const slug = name.toLowerCase().trim().replace(/\s+/g, "-");
-
-    // 4️⃣ Check duplicate city in SAME state
-    const existingCity = await City.findOne({ slug, stateId });
-    if (existingCity) {
-      return res.status(409).json({
-        message: "City already exists in this state",
-      });
-    }
-
-    // 5️⃣ Create city
-    const city = await City.create({
-      name,
-      slug,
-      stateId,
-      description,
-      history,
-      image,
-      isPopular,
-      isActive,
-    });
-
-    res.status(201).json({
-      message: "City created successfully",
-      city,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-};
-
-// GET CITIES BY STATE ID
-exports.getCitiesByState = async (req, res) => {
-  try {
-    const { stateId } = req.params;
-
-    const cities = await City.find({
-      stateId,
+    // 1️⃣ Find state by slug
+    const state = await State.findOne({
+      slug: stateSlug,
       isActive: true,
-    }).sort({ isPopular: -1, name: 1 });
-
-    res.status(200).json(cities);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
     });
+
+    if (!state) {
+      return errorResponse(res, "State not found", 404);
+    }
+
+    // 2️⃣ Find active cities for that state
+    const cities = await City.find({
+      stateId: state._id,
+      isActive: true,
+    })
+      .select("name slug description image isPopular")
+      .sort({ isPopular: -1, name: 1 });
+
+    return successResponse(
+      res,
+      "Cities fetched successfully",
+      cities
+    );
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
   }
 };
 
-// GET CITY BY SLUG
+// 🌐 GET CITY BY SLUG (PUBLIC)
 exports.getCityBySlug = async (req, res) => {
   try {
     const { slug } = req.params;
@@ -88,21 +43,20 @@ exports.getCityBySlug = async (req, res) => {
     const city = await City.findOne({
       slug,
       isActive: true,
-    }).populate("stateId", "name slug");
+    })
+      .select("name slug description history image isPopular")
+      .populate("stateId", "name slug");
 
     if (!city) {
-      return res.status(404).json({
-        message: "City not found",
-      });
+      return errorResponse(res, "City not found", 404);
     }
 
-    res.status(200).json(city);
+    return successResponse(
+      res,
+      "City fetched successfully",
+      city
+    );
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+    return errorResponse(res, error.message, 500);
   }
 };
-
-// EXPORT CONTROLLER
-module.exports = exports; 

@@ -1,88 +1,37 @@
 const Food = require("../models/Food");
 const City = require("../models/city");
-// CREATE FOOD
-exports.createFood = async (req, res) => {
-  try {
-    const {
-      name,
-      cityId,
-      type,
-      description,
-      famousFor,
-      approxPrice,
-      image,
-      isActive,
-    } = req.body;
+const { successResponse, errorResponse } = require("../utils/apiResponse");
 
-    // 1️⃣ Basic validation
-    if (!name || !cityId || !type || !description || !image) {
-      return res.status(400).json({
-        message: "Name, cityId, type, description and image are required",
-      });
-    }
-
-    // 2️⃣ Check if city exists
-    const cityExists = await City.findById(cityId);
-    if (!cityExists) {
-      return res.status(404).json({
-        message: "Invalid cityId. City not found.",
-      });
-    }
-
-    // 3️⃣ Generate slug from food name
-    const slug = name.toLowerCase().trim().replace(/\s+/g, "-");
-
-    // 4️⃣ Prevent duplicate food in same city
-    const existingFood = await Food.findOne({ slug, cityId });
-    if (existingFood) {
-      return res.status(409).json({
-        message: "Food item already exists in this city",
-      });
-    }
-
-    // 5️⃣ Create food
-    const food = await Food.create({
-      name,
-      slug,
-      cityId,
-      type,
-      description,
-      famousFor,
-      approxPrice,
-      image,
-      isActive,
-    });
-
-    res.status(201).json({
-      message: "Food created successfully",
-      food,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-};
-
-// GET FOODS BY CITY ID
+// 🌐 GET FOODS BY CITY ID (PUBLIC)
 exports.getFoodsByCity = async (req, res) => {
   try {
     const { cityId } = req.params;
 
+    // 1️⃣ Check city exists & active
+    const city = await City.findOne({ _id: cityId, isActive: true });
+    if (!city) {
+      return errorResponse(res, "City not found", 404);
+    }
+
+    // 2️⃣ Fetch active foods
     const foods = await Food.find({
       cityId,
       isActive: true,
-    }).sort({ createdAt: -1 });
+    })
+      .select("name slug type description famousFor approxPrice image")
+      .sort({ name: 1 });
 
-    res.status(200).json(foods);
+    return successResponse(
+      res,
+      "Foods fetched successfully",
+      foods
+    );
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+    return errorResponse(res, error.message, 500);
   }
 };
 
-// GET FOOD BY SLUG
+// 🌐 GET FOOD BY SLUG (PUBLIC)
 exports.getFoodBySlug = async (req, res) => {
   try {
     const { slug } = req.params;
@@ -90,29 +39,37 @@ exports.getFoodBySlug = async (req, res) => {
     const food = await Food.findOne({
       slug,
       isActive: true,
-    }).populate("cityId", "name slug");
+    })
+      .select("name slug type description famousFor approxPrice image")
+      .populate("cityId", "name slug");
 
     if (!food) {
-      return res.status(404).json({
-        message: "Food item not found",
-      });
+      return errorResponse(res, "Food item not found", 404);
     }
 
-    res.status(200).json(food);
+    return successResponse(
+      res,
+      "Food fetched successfully",
+      food
+    );
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+    return errorResponse(res, error.message, 500);
   }
 };
-// GET ALL FOODS (Only Active)
+
+// 🌐 GET ALL FOODS (PUBLIC)
 exports.getAllFoods = async (req, res) => {
   try {
-    const foods = await Food.find({ isActive: true }).sort({ createdAt: -1 });
-    res.status(200).json(foods);
+    const foods = await Food.find({ isActive: true })
+      .select("name slug type image approxPrice")
+      .sort({ name: 1 });
+
+    return successResponse(
+      res,
+      "Foods fetched successfully",
+      foods
+    );
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+    return errorResponse(res, error.message, 500);
   }
 };
