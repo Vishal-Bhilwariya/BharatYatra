@@ -6,8 +6,12 @@ const {
   createFood,
   updateFood,
   deleteFood,
+  getAllFoods,
+  getFoodById,
 } = require("../controllers/adminFoodController");
 
+router.get("/", verifyAdmin, getAllFoods);
+router.get("/:id", verifyAdmin, getFoodById);
 router.post("/", verifyAdmin, createFood);
 router.put("/:id", verifyAdmin, updateFood);
 router.delete("/:id", verifyAdmin, deleteFood);

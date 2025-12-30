@@ -2,30 +2,21 @@ import { Link } from "react-router-dom";
 
 const CityCard = ({ city }) => {
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
-      {/* City Image */}
-      <img
-        src={
-          city.image ||
-          "https://images.unsplash.com/photo-1548013146-72479768bada"
-        }
-        alt={city.name}
-        className="h-40 w-full object-cover"
-      />
-
-      {/* City Info */}
-      <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-800">
-          {city.name}
-        </h3>
-
-        <Link to={`/city/${city._id}`}>
-          <button className="mt-3 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">
-            View Details
-          </button>
-        </Link>
+    <Link to={`/city/${city.slug}`}>
+      <div className="border rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img
+          src={city.image}
+          alt={city.name}
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-4">
+          <h3 className="text-xl font-semibold">{city.name}</h3>
+          <p className="text-sm text-gray-600 mt-2">
+            {city.description}
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

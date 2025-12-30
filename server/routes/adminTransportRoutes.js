@@ -6,8 +6,12 @@ const {
   createTransport,
   updateTransport,
   deleteTransport,
+  getAllTransports,
+  getTransportById,
 } = require("../controllers/adminTransportController");
 
+router.get("/", verifyAdmin, getAllTransports);
+router.get("/:id", verifyAdmin, getTransportById);
 router.post("/", verifyAdmin, createTransport);
 router.put("/:id", verifyAdmin, updateTransport);
 router.delete("/:id", verifyAdmin, deleteTransport);

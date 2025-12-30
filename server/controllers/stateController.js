@@ -1,4 +1,6 @@
 const State = require("../models/State");
+const City = require("../models/city");
+
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
 // 🌐 GET ALL ACTIVE STATES (PUBLIC)
@@ -37,5 +39,35 @@ exports.getStateBySlug = async (req, res) => {
     );
   } catch (error) {
     return errorResponse(res, error.message, 500);
+  }
+};
+
+// GET CITIES BY STATE SLUG
+exports.getCitiesByStateSlug = async (req, res) => {
+  try {
+    const { stateSlug } = req.params;
+
+    const state = await State.findOne({ slug: stateSlug, isActive: true });
+    if (!state) {
+      return res.status(404).json({
+        success: false,
+        message: "State not found",
+      });
+    }
+
+    const cities = await City.find({
+      stateId: state._id,
+      isActive: true,
+    }).sort({ isPopular: -1, name: 1 });
+
+    res.status(200).json({
+      success: true,
+      data: cities,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };

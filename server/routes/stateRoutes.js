@@ -4,13 +4,14 @@ const router = express.Router();
 const {
   getAllStates,
   getStateBySlug,
+  getCitiesByStateSlug, // 👈 add this
 } = require("../controllers/stateController");
 
-
-// GET ALL STATES
+// Existing routes
 router.get("/", getAllStates);
-
-// GET STATE BY SLUG
 router.get("/:slug", getStateBySlug);
+
+// ✅ ADD THIS
+router.get("/:stateSlug/cities", getCitiesByStateSlug);
 
 module.exports = router;

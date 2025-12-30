@@ -71,6 +71,32 @@ exports.updateFood = async (req, res) => {
   }
 };
 
+// ✅ GET ALL FOODS (ADMIN)
+exports.getAllFoods = async (req, res) => {
+  try {
+    const foods = await Food.find()
+      .populate("cityId", "name slug stateId")
+      .sort({ createdAt: -1 });
+    return successResponse(res, "Foods fetched successfully", foods);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ GET SINGLE FOOD (ADMIN)
+exports.getFoodById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const food = await Food.findById(id).populate("cityId", "name slug");
+    if (!food) {
+      return errorResponse(res, "Food not found", 404);
+    }
+    return successResponse(res, "Food fetched successfully", food);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
 // ✅ SOFT DELETE FOOD
 exports.deleteFood = async (req, res) => {
   try {

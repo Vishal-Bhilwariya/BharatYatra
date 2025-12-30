@@ -1,196 +1,107 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../services/api";
-const DEFAULT_IMAGE =
-  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee";
+import { useParams } from "react-router-dom";
+import api from "../api/api";
+
+import PlaceCard from "../components/PlaceCard";
+import FoodCard from "../components/FoodCard";
+import TransportCard from "../components/TransportCard";
 
 const CityDetails = () => {
-  const { id } = useParams();
+  const { slug: citySlug } = useParams();
 
-  const [cityData, setCityData] = useState(null);
+  const [city, setCity] = useState(null);
+  const [places, setPlaces] = useState([]);
   const [foods, setFoods] = useState([]);
   const [transports, setTransports] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(`/cities/${id}/places`)
-      .then((res) => setCityData(res.data))
-      .catch((err) => console.error(err));
+    const fetchCityData = async () => {
+      try {
+        // 1️⃣ Fetch city
+        const cityRes = await api.get(`/cities/${citySlug}`);
+        const cityData = cityRes.data.data;
+        setCity(cityData);
 
-    API.get(`/foods/city/${id}`)
-      .then((res) => setFoods(res.data))
-      .catch((err) => console.error(err));
+        const cityId = cityData._id;
 
-    API.get(`/transports/city/${id}`)
-      .then((res) => setTransports(res.data))
-      .catch((err) => console.error(err));
-  }, [id]);
+        // 2️⃣ Fetch related data in parallel
+        const [placesRes, foodsRes, transportsRes] = await Promise.all([
+          api.get(`/places/city/${cityId}`),
+          api.get(`/foods/city/${cityId}`),
+          api.get(`/transports/city/${cityId}`),
+        ]);
 
-  // 🔗 Google Maps helper
-  const openInMaps = (query) => {
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      query
-    )}`;
-    window.open(url, "_blank");
-  };
+        setPlaces(placesRes.data.data);
+        setFoods(foodsRes.data.data);
+        setTransports(transportsRes.data.data);
+      } catch (error) {
+        console.error("Error loading city details", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!cityData) {
-    return (
-      <p className="text-center mt-10 text-gray-500">Loading city details...</p>
-    );
+    fetchCityData();
+  }, [citySlug]);
+
+  if (loading) {
+    return <p className="text-center mt-10">Loading city details...</p>;
   }
 
-  const { city, places } = cityData;
+  if (!city) {
+    return <p className="text-center mt-10">City not found</p>;
+  }
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 md:px-8 py-8 space-y-8">
-      {/* ================= CITY GREETING ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-orange-600">
-          Welcome to {city.name}
-        </h1>
+    <div className="p-6 space-y-12">
+      {/* City Info */}
+      <section>
+        <h1 className="text-3xl font-bold">{city.name}</h1>
+        <p className="mt-2 text-gray-700">{city.description}</p>
+      </section>
 
-        <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-4xl text-lg leading-relaxed">
-          {city.description ||
-            "Discover the culture, food, transport and attractions of this beautiful city."}
-        </p>
-
-        {/* City Map Button */}
-        <button
-          onClick={() => openInMaps(city.name)}
-          className="mt-6 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg transition"
-        >
-          📍 View {city.name} on Google Maps
-        </button>
-      </div>
-
-      {/* ================= PLACES ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold mb-6">📍 Places to Visit</h2>
+      {/* Places */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Places to Visit</h2>
         {places.length === 0 ? (
-          <p className="text-gray-500">No places added yet.</p>
+          <p>No places available</p>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {places.map((place) => (
-              <div
-                key={place._id}
-                className="bg-white dark:bg-slate-800 border rounded-2xl overflow-hidden hover:shadow-lg transition"
-              >
-                {/* Image */}
-                <img
-                  src={place.image || DEFAULT_IMAGE}
-                  alt={place.name}
-                  className="h-48 w-full object-cover"
-                />
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold">{place.name}</h3>
-
-                  <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-                    {place.description}
-                  </p>
-
-                  <button
-                    onClick={() => openInMaps(`${place.name}, ${city.name}`)}
-                    className="mt-4 inline-flex items-center gap-2 text-sm bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"
-                  >
-                    🗺️ View on Map
-                  </button>
-                </div>
-              </div>
+              <PlaceCard key={place.slug} place={place} />
             ))}
           </div>
         )}
-        
-      </div>
+      </section>
 
-      {/* ================= BEST TIME ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold mb-4">🌤️ Best Time to Visit</h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-          {city.bestTimeToVisit ||
-            "October to March is considered the best time to visit due to pleasant weather and cultural festivals."}
-        </p>
-      </div>
-
-      {/* ================= FOOD ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold mb-6">🍽️ Famous Food</h2>
-
+      {/* Food */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Local Food</h2>
         {foods.length === 0 ? (
-          <p className="text-gray-500">No food data available.</p>
+          <p>No food data available</p>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {foods.map((food) => (
-              <div
-                key={food._id}
-                className="bg-white dark:bg-slate-800 border rounded-2xl overflow-hidden hover:shadow-lg transition"
-              >
-                {/* Image */}
-                <img
-                  src={food.image || DEFAULT_IMAGE}
-                  alt={food.name}
-                  className="h-48 w-full object-cover"
-                />
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold">{food.name}</h3>
-
-                  <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-                    {food.description}
-                  </p>
-
-                  {food.bestPlace && (
-                    <p className="text-sm text-gray-500 mt-2">
-                      Best place:{" "}
-                      <span className="font-medium">{food.bestPlace}</span>
-                    </p>
-                  )}
-                </div>
-              </div>
+              <FoodCard key={food.slug} food={food} />
             ))}
           </div>
         )}
-      </div>
+      </section>
 
-      {/* ================= TRANSPORT ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold mb-6">🚕 Transport</h2>
-
+      {/* Transport */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Transport</h2>
         {transports.length === 0 ? (
-          <p className="text-gray-500">No transport information.</p>
+          <p>No transport info available</p>
         ) : (
-          <div className="space-y-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {transports.map((t) => (
-              <div
-                key={t._id}
-                className="border border-gray-200 dark:border-slate-700 rounded-xl p-5 hover:shadow-md transition"
-              >
-                <h3 className="text-xl font-semibold">{t.type}</h3>
-
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
-                  {t.description}
-                </p>
-
-                <p className="text-sm text-gray-500 mt-2">
-                  Charges: <span className="font-medium">{t.charges}</span>
-                </p>
-              </div>
+              <TransportCard key={t._id} transport={t} />
             ))}
           </div>
         )}
-      </div>
-
-      {/* ================= CULTURE ================= */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold mb-4">🧿 Culture & Traditions</h2>
-
-        <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-          {city.culture ||
-            "This city is known for its rich traditions, festivals, local art forms and cultural heritage that reflect the true spirit of India."}
-        </p>
-      </div>
+      </section>
     </div>
   );
 };

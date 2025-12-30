@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Sun, Moon, Search } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../services/api";
+import api from "../api/api";
 import logo from "../assets/logo/logo.jpeg";
 
 const Header = () => {
@@ -27,9 +27,9 @@ const Header = () => {
 
   // 📡 Fetch all searchable data
   useEffect(() => {
-    API.get("/states").then(res => setStates(res.data));
-    API.get("/cities").then(res => setCities(res.data));
-    API.get("/places").then(res => setPlaces(res.data));
+    api.get("/states").then(res => setStates(res.data.data || res.data));
+    api.get("/cities").then(res => setCities(res.data.data || res.data));
+    api.get("/places").then(res => setPlaces(res.data.data || res.data));
   }, []);
 
   // 🔎 Search logic
@@ -185,6 +185,40 @@ const Header = () => {
             )}
           </div>
         )}
+      </div>
+
+      {/* Navigation Links */}
+      <div className="hidden md:flex items-center gap-4">
+        <Link
+          to="/"
+          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+        >
+          Home
+        </Link>
+        <Link
+          to="/explore-culture"
+          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+        >
+          Explore Culture
+        </Link>
+        <Link
+          to="/recommendations"
+          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+        >
+          Recommendations
+        </Link>
+        <Link
+          to="/translator"
+          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+        >
+          Translator
+        </Link>
+        <Link
+          to="/itinerary"
+          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+        >
+          Itinerary
+        </Link>
       </div>
 
       {/* ⚙️ Right Controls */}

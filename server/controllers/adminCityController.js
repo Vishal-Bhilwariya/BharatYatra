@@ -60,6 +60,30 @@ exports.updateCity = async (req, res) => {
   }
 };
 
+// ✅ GET ALL CITIES (ADMIN)
+exports.getAllCities = async (req, res) => {
+  try {
+    const cities = await City.find().populate("stateId", "name slug").sort({ name: 1 });
+    return successResponse(res, "Cities fetched successfully", cities);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ GET SINGLE CITY (ADMIN)
+exports.getCityById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const city = await City.findById(id).populate("stateId", "name slug");
+    if (!city) {
+      return errorResponse(res, "City not found", 404);
+    }
+    return successResponse(res, "City fetched successfully", city);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
 // ✅ SOFT DELETE CITY
 exports.deleteCity = async (req, res) => {
   try {

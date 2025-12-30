@@ -73,6 +73,32 @@ exports.updatePlace = async (req, res) => {
   }
 };
 
+// ✅ GET ALL PLACES (ADMIN)
+exports.getAllPlaces = async (req, res) => {
+  try {
+    const places = await Place.find()
+      .populate("cityId", "name slug stateId")
+      .sort({ createdAt: -1 });
+    return successResponse(res, "Places fetched successfully", places);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ GET SINGLE PLACE (ADMIN)
+exports.getPlaceById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const place = await Place.findById(id).populate("cityId", "name slug");
+    if (!place) {
+      return errorResponse(res, "Place not found", 404);
+    }
+    return successResponse(res, "Place fetched successfully", place);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
 // ✅ SOFT DELETE PLACE
 exports.deletePlace = async (req, res) => {
   try {

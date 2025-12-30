@@ -16,4 +16,13 @@ router.get("/test", verifyAdmin, (req, res) => {
   });
 });
 
+// 🔒 GET ADMIN INFO
+router.get("/me", verifyAdmin, (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Admin authenticated",
+    adminId: req.adminId,
+  });
+});
+
 module.exports = router;

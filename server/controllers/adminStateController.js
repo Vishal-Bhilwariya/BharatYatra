@@ -52,6 +52,30 @@ exports.updateState = async (req, res) => {
   }
 };
 
+// ✅ GET ALL STATES (ADMIN - INCLUDES INACTIVE)
+exports.getAllStates = async (req, res) => {
+  try {
+    const states = await State.find().sort({ name: 1 });
+    return successResponse(res, "States fetched successfully", states);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ GET SINGLE STATE (ADMIN)
+exports.getStateById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const state = await State.findById(id);
+    if (!state) {
+      return errorResponse(res, "State not found", 404);
+    }
+    return successResponse(res, "State fetched successfully", state);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
 // ✅ SOFT DELETE STATE
 exports.deleteState = async (req, res) => {
   try {

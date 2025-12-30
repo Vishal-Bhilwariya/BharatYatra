@@ -6,8 +6,12 @@ const {
   createPlace,
   updatePlace,
   deletePlace,
+  getAllPlaces,
+  getPlaceById,
 } = require("../controllers/adminPlaceController");
 
+router.get("/", verifyAdmin, getAllPlaces);
+router.get("/:id", verifyAdmin, getPlaceById);
 router.post("/", verifyAdmin, createPlace);
 router.put("/:id", verifyAdmin, updatePlace);
 router.delete("/:id", verifyAdmin, deletePlace);

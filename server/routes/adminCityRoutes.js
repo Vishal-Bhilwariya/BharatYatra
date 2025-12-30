@@ -6,8 +6,12 @@ const {
   createCity,
   updateCity,
   deleteCity,
+  getAllCities,
+  getCityById,
 } = require("../controllers/adminCityController");
 
+router.get("/", verifyAdmin, getAllCities);
+router.get("/:id", verifyAdmin, getCityById);
 router.post("/", verifyAdmin, createCity);
 router.put("/:id", verifyAdmin, updateCity);
 router.delete("/:id", verifyAdmin, deleteCity);

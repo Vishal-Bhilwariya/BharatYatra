@@ -78,6 +78,32 @@ exports.updateTransport = async (req, res) => {
   }
 };
 
+// ✅ GET ALL TRANSPORTS (ADMIN)
+exports.getAllTransports = async (req, res) => {
+  try {
+    const transports = await Transport.find()
+      .populate("cityId", "name slug stateId")
+      .sort({ createdAt: -1 });
+    return successResponse(res, "Transports fetched successfully", transports);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ GET SINGLE TRANSPORT (ADMIN)
+exports.getTransportById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const transport = await Transport.findById(id).populate("cityId", "name slug");
+    if (!transport) {
+      return errorResponse(res, "Transport not found", 404);
+    }
+    return successResponse(res, "Transport fetched successfully", transport);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
 // ✅ SOFT DELETE TRANSPORT
 exports.deleteTransport = async (req, res) => {
   try {

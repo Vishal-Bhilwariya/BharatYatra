@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getTransportByCity,
+  getTransportsByCity,
 } = require("../controllers/transportController");
 
-// GET TRANSPORT BY CITY ID
-router.get("/city/:cityId", getTransportByCity);
+// 🌐 PUBLIC ROUTE
+router.get("/city/:cityId", getTransportsByCity);
 
 module.exports = router;
