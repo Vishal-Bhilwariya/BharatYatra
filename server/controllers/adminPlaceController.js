@@ -1,4 +1,4 @@
-const City = require("../models/city");
+const City = require("../models/City");
 const Place = require("../models/Place");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
@@ -115,6 +115,25 @@ exports.deletePlace = async (req, res) => {
     }
 
     return successResponse(res, "Place deleted successfully", place);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ TOGGLE PLACE ACTIVE STATUS
+exports.togglePlaceActive = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const place = await Place.findById(id);
+    if (!place) {
+      return errorResponse(res, "Place not found", 404);
+    }
+
+    place.isActive = !place.isActive;
+    await place.save();
+
+    return successResponse(res, `Place ${place.isActive ? "activated" : "deactivated"} successfully`, place);
   } catch (error) {
     return errorResponse(res, error.message, 500);
   }

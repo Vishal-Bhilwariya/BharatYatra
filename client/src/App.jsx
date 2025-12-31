@@ -18,6 +18,7 @@ import AdminCities from "./pages/admin/AdminCities";
 import AdminPlaces from "./pages/admin/AdminPlaces";
 import AdminFoods from "./pages/admin/AdminFoods";
 import AdminTransports from "./pages/admin/AdminTransports";
+import AdminCulture from "./pages/admin/AdminCulture";
 
 function App() {
   return (
@@ -72,6 +73,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminTransports />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/culture"
+            element={
+              <ProtectedRoute>
+                <AdminCulture />
               </ProtectedRoute>
             }
           />

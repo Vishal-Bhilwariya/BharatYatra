@@ -1,4 +1,4 @@
-const City = require("../models/city");
+const City = require("../models/City");
 const State = require("../models/State");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
@@ -100,6 +100,25 @@ exports.deleteCity = async (req, res) => {
     }
 
     return successResponse(res, "City deleted successfully", city);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ TOGGLE CITY ACTIVE STATUS
+exports.toggleCityActive = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const city = await City.findById(id);
+    if (!city) {
+      return errorResponse(res, "City not found", 404);
+    }
+
+    city.isActive = !city.isActive;
+    await city.save();
+
+    return successResponse(res, `City ${city.isActive ? "activated" : "deactivated"} successfully`, city);
   } catch (error) {
     return errorResponse(res, error.message, 500);
   }

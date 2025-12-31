@@ -27,9 +27,15 @@ const Header = () => {
 
   // 📡 Fetch all searchable data
   useEffect(() => {
-    api.get("/states").then(res => setStates(res.data.data || res.data));
-    api.get("/cities").then(res => setCities(res.data.data || res.data));
-    api.get("/places").then(res => setPlaces(res.data.data || res.data));
+    api.get("/states")
+      .then(res => setStates(res.data.data || res.data))
+      .catch(err => console.error("Error fetching states:", err));
+    api.get("/cities")
+      .then(res => setCities(res.data.data || res.data))
+      .catch(err => console.error("Error fetching cities:", err));
+    api.get("/places")
+      .then(res => setPlaces(res.data.data || res.data))
+      .catch(err => console.error("Error fetching places:", err));
   }, []);
 
   // 🔎 Search logic
@@ -85,10 +91,10 @@ const Header = () => {
 
     navigate(
       item.type === "state"
-        ? `/state/${item._id}`
+        ? `/state/${item.slug}`
         : item.type === "city"
-        ? `/city/${item._id}`
-        : `/place/${item._id}`
+        ? `/city/${item.slug}`
+        : `/place/${item.slug}`
     );
   };
 

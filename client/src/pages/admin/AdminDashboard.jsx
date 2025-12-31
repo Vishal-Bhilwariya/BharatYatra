@@ -134,52 +134,37 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
       <AdminNav />
-      {/* Stats Overview */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
-          {menuItems.slice(0, 5).map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow p-6 border border-gray-200"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">{item.title}</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-2">
-                    {item.count}
-                  </p>
-                </div>
-                <div className={`${item.color} p-3 rounded-lg`}>
-                  <item.icon className="text-white" size={24} />
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Main Content */}
+      <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        {/* Welcome Section */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard Overview</h1>
+          <p className="text-gray-600">Manage your content and explore the statistics</p>
         </div>
 
         {/* Management Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {menuItems.map((item, index) => (
             <Link
               key={index}
               to={item.link}
-              className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow p-6 border border-gray-200 group"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 group transform hover:-translate-y-1"
             >
               <div className="flex items-center gap-4">
-                <div className={`${item.color} p-4 rounded-lg group-hover:scale-110 transition-transform`}>
+                <div className={`${item.color} p-4 rounded-xl group-hover:scale-110 transition-transform shadow-lg`}>
                   <item.icon className="text-white" size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    {item.count} items
+                    {item.count} {item.count === 1 ? 'item' : 'items'}
                   </p>
                 </div>
-                <div className="text-gray-400 group-hover:text-indigo-600 transition-colors">
+                <div className="text-gray-400 group-hover:text-indigo-600 transition-colors text-2xl">
                   →
                 </div>
               </div>
@@ -188,29 +173,29 @@ const AdminDashboard = () => {
         </div>
 
         {/* Quick Actions */}
-        <div className="mt-8 bg-white rounded-lg shadow p-6 border border-gray-200">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <BarChart3 size={20} />
+            <BarChart3 size={20} className="text-indigo-600" />
             Quick Actions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               to="/admin/states"
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors font-medium shadow-sm hover:shadow-md"
             >
               <Plus size={18} />
               Add New State
             </Link>
             <Link
               to="/admin/cities"
-              className="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors font-medium shadow-sm hover:shadow-md"
             >
               <Plus size={18} />
               Add New City
             </Link>
             <Link
               to="/admin/places"
-              className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors font-medium shadow-sm hover:shadow-md"
             >
               <Plus size={18} />
               Add New Place
@@ -218,6 +203,15 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <p className="text-center text-sm text-gray-600">
+            © {new Date().getFullYear()} BharatYatra. All rights reserved to Vishal.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

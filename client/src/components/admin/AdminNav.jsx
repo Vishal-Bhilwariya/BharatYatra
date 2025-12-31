@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAdmin } from "../../context/AdminContext";
 import { LogOut, LayoutDashboard, MapPin, Building2, Camera, Utensils, Bus, BookOpen } from "lucide-react";
+import logo from "../../assets/logo/logo.jpeg";
 
 const AdminNav = () => {
   const { logout } = useAdmin();
@@ -17,15 +18,20 @@ const AdminNav = () => {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm">
+    <nav className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <Link
               to="/admin/dashboard"
-              className="text-xl font-bold text-indigo-600"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              Admin Panel
+              <img 
+                src={logo} 
+                alt="BharatYatra Logo" 
+                className="h-10 w-10 object-contain rounded"
+              />
+              <span className="text-xl font-bold text-indigo-600">BharatYatra</span>
             </Link>
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => {

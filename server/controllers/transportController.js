@@ -1,6 +1,6 @@
 const Transport = require("../models/Transport");
-const City = require("../models/city");
-const { successResponse, errorReponse } = require("../utils/apiResponse");
+const City = require("../models/City");
+const { successResponse, errorResponse } = require("../utils/apiResponse");
 
 // 🌐 GET TRANSPORT BY CITY ID (PUBLIC)
 exports.getTransportsByCity = async (req, res) => {

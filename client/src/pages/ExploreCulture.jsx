@@ -14,14 +14,23 @@ const ExploreCulture = () => {
       try {
         if (stateSlug) {
           const res = await api.get(`/cultures/state/${stateSlug}`);
-          setCulture(res.data.data);
+          if (res.data.success && res.data.data) {
+            setCulture(res.data.data);
+          } else {
+            setCulture(null);
+          }
         } else {
           // Fetch all cultures
           const res = await api.get("/cultures");
-          setCulture(res.data.data);
+          if (res.data.success && res.data.data) {
+            setCulture(res.data.data);
+          } else {
+            setCulture(null);
+          }
         }
       } catch (error) {
         console.error("Error loading culture", error);
+        setCulture(null);
       } finally {
         setLoading(false);
       }

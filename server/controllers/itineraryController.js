@@ -1,5 +1,5 @@
 const Itinerary = require("../models/Itinerary");
-const City = require("../models/city");
+const City = require("../models/City");
 const Place = require("../models/Place");
 const Food = require("../models/Food");
 const { successResponse, errorResponse } = require("../utils/apiResponse");

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api/api";
-import { Plus, Edit, Trash2, Search, X, Bus, Train, Plane, Car } from "lucide-react";
+import { Plus, Edit, Trash2, Search, X, Bus, Train, Plane, Car, ToggleLeft, ToggleRight, FileSpreadsheet } from "lucide-react";
 import AdminNav from "../../components/admin/AdminNav";
 
 const AdminTransports = () => {
@@ -10,6 +10,9 @@ const AdminTransports = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editingTransport, setEditingTransport] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState(null);
+  const [selectedCityForUpload, setSelectedCityForUpload] = useState("");
   const [formData, setFormData] = useState({
     cityId: "",
     type: "bus",
@@ -120,6 +123,73 @@ const AdminTransports = () => {
     }
   };
 
+  const handleToggleActive = async (id) => {
+    try {
+      const token = localStorage.getItem("adminToken");
+      await api.patch(`/admin/transports/${id}/toggle-active`, {}, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchTransports();
+    } catch (error) {
+      alert("Error toggling transport status");
+    }
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!selectedCityForUpload) {
+      alert("Please select a city first");
+      e.target.value = "";
+      return;
+    }
+
+    const validTypes = [
+      "application/vnd.ms-excel",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "text/csv",
+    ];
+    if (!validTypes.includes(file.type) && !file.name.endsWith(".csv")) {
+      alert("Please upload an Excel (.xlsx, .xls) or CSV file");
+      return;
+    }
+
+    setUploading(true);
+    setUploadResult(null);
+
+    try {
+      const token = localStorage.getItem("adminToken");
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("cityId", selectedCityForUpload);
+
+      const response = await fetch("http://localhost:5000/api/admin/transports/bulk-upload", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setUploadResult(data.data);
+        alert(`File uploaded successfully! ${data.data.created} transports created, ${data.data.skipped} skipped.`);
+        fetchTransports();
+      } else {
+        alert(data.message || "Error uploading file");
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file. Please try again.");
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
+
   const resetForm = () => {
     setFormData({
       cityId: "",
@@ -166,17 +236,68 @@ const AdminTransports = () => {
               </h1>
               <p className="text-gray-600 mt-1">Add, edit, or delete transports</p>
             </div>
-            <button
-              onClick={() => {
-                resetForm();
-                setShowModal(true);
-              }}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              <Plus size={20} />
-              Add Transport
-            </button>
+            <div className="flex gap-3">
+              <div className="flex items-center gap-2">
+                <select
+                  value={selectedCityForUpload}
+                  onChange={(e) => setSelectedCityForUpload(e.target.value)}
+                  className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
+                >
+                  <option value="">Select City</option>
+                  {cities.map((city) => (
+                    <option key={city._id} value={city._id}>
+                      {city.name}
+                    </option>
+                  ))}
+                </select>
+                <label className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors cursor-pointer">
+                  <FileSpreadsheet size={18} />
+                  {uploading ? "Uploading..." : "Bulk Upload"}
+                  <input
+                    type="file"
+                    accept=".xlsx,.xls,.csv"
+                    onChange={handleFileUpload}
+                    disabled={uploading || !selectedCityForUpload}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+              <button
+                onClick={() => {
+                  resetForm();
+                  setShowModal(true);
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                <Plus size={20} />
+                Add Transport
+              </button>
+            </div>
           </div>
+
+          {/* Upload Results */}
+          {uploadResult && (
+            <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 className="font-semibold text-blue-900 mb-2">Upload Results:</h3>
+              <div className="text-sm text-blue-800">
+                <div>✓ {uploadResult.created} transports created</div>
+                <div>⊘ {uploadResult.skipped} transports skipped (already exist)</div>
+                {uploadResult.errors && uploadResult.errors.length > 0 && (
+                  <div className="mt-2 text-red-700">
+                    <strong>Errors:</strong>
+                    <ul className="list-disc list-inside mt-1">
+                      {uploadResult.errors.slice(0, 5).map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                      ))}
+                      {uploadResult.errors.length > 5 && (
+                        <li>... and {uploadResult.errors.length - 5} more errors</li>
+                      )}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="mb-6">
             <div className="relative">
@@ -225,20 +346,42 @@ const AdminTransports = () => {
                       {transport.connectivity}
                     </p>
                   )}
-                  <div className="flex gap-2">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleEdit(transport)}
+                        className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+                      >
+                        <Edit size={16} />
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDelete(transport._id)}
+                        className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-colors"
+                      >
+                        <Trash2 size={16} />
+                        Delete
+                      </button>
+                    </div>
                     <button
-                      onClick={() => handleEdit(transport)}
-                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+                      onClick={() => handleToggleActive(transport._id)}
+                      className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-colors ${
+                        transport.isActive !== false
+                          ? "bg-green-50 text-green-700 hover:bg-green-100"
+                          : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                      }`}
                     >
-                      <Edit size={16} />
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(transport._id)}
-                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-colors"
-                    >
-                      <Trash2 size={16} />
-                      Delete
+                      {transport.isActive !== false ? (
+                        <>
+                          <ToggleRight size={16} />
+                          Active
+                        </>
+                      ) : (
+                        <>
+                          <ToggleLeft size={16} />
+                          Inactive
+                        </>
+                      )}
                     </button>
                   </div>
                 </div>

@@ -25,7 +25,9 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
+// Don't use express.json() for file upload routes - multer handles multipart/form-data
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Routes
 app.use("/api/states", stateRoutes);
@@ -37,16 +39,12 @@ app.use("/api/translate", translatorRoutes);
 app.use("/api/cultures", cultureRoutes);
 app.use("/api/recommendations", recommendationRoutes);
 app.use("/api/itineraries", itineraryRoutes);
-// Admin routes - specific routes first to avoid conflicts
+app.use("/api/admin", adminRoutes);
 app.use("/api/admin/states", adminStateRoutes);
 app.use("/api/admin/cities", require("./routes/adminCityRoutes"));
 app.use("/api/admin/places", require("./routes/adminPlaceRoutes"));
 app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
 app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
-app.use("/api/admin", adminRoutes);
-
-// Middlewares
-app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");

@@ -1,6 +1,6 @@
 const Recommendation = require("../models/Recommendation");
 const Place = require("../models/Place");
-const City = require("../models/city");
+const City = require("../models/City");
 const Food = require("../models/Food");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 

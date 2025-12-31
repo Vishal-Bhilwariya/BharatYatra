@@ -1,5 +1,5 @@
 const Food = require("../models/Food");
-const City = require("../models/city");
+const City = require("../models/City");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
 // ✅ CREATE FOOD (ADMIN)
@@ -113,6 +113,25 @@ exports.deleteFood = async (req, res) => {
     }
 
     return successResponse(res, "Food deleted successfully", food);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ TOGGLE FOOD ACTIVE STATUS
+exports.toggleFoodActive = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const food = await Food.findById(id);
+    if (!food) {
+      return errorResponse(res, "Food not found", 404);
+    }
+
+    food.isActive = !food.isActive;
+    await food.save();
+
+    return successResponse(res, `Food ${food.isActive ? "activated" : "deactivated"} successfully`, food);
   } catch (error) {
     return errorResponse(res, error.message, 500);
   }

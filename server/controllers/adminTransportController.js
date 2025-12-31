@@ -1,5 +1,5 @@
 const Transport = require("../models/Transport");
-const City = require("../models/city");
+const City = require("../models/City");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
 // ✅ CREATE TRANSPORT (ADMIN)
@@ -124,6 +124,25 @@ exports.deleteTransport = async (req, res) => {
       "Transport deleted successfully",
       transport
     );
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
+
+// ✅ TOGGLE TRANSPORT ACTIVE STATUS
+exports.toggleTransportActive = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const transport = await Transport.findById(id);
+    if (!transport) {
+      return errorResponse(res, "Transport not found", 404);
+    }
+
+    transport.isActive = !transport.isActive;
+    await transport.save();
+
+    return successResponse(res, `Transport ${transport.isActive ? "activated" : "deactivated"} successfully`, transport);
   } catch (error) {
     return errorResponse(res, error.message, 500);
   }

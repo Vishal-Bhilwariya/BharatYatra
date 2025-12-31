@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api/api";
-import { Plus, Edit, Trash2, Search, X } from "lucide-react";
+import { Plus, Edit, Trash2, Search, X, ToggleLeft, ToggleRight, Upload, FileSpreadsheet } from "lucide-react";
 import AdminNav from "../../components/admin/AdminNav";
 
 const AdminStates = () => {
@@ -9,6 +9,8 @@ const AdminStates = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editingState, setEditingState] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -79,6 +81,78 @@ const AdminStates = () => {
     }
   };
 
+  const handleToggleActive = async (id, currentStatus) => {
+    try {
+      const token = localStorage.getItem("adminToken");
+      await api.patch(`/admin/states/${id}/toggle-active`, {}, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchStates();
+    } catch (error) {
+      alert("Error toggling state status");
+    }
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const validTypes = [
+      "application/vnd.ms-excel",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "text/csv",
+    ];
+    if (!validTypes.includes(file.type) && !file.name.endsWith(".csv")) {
+      alert("Please upload an Excel (.xlsx, .xls) or CSV file");
+      return;
+    }
+
+    setUploading(true);
+    setUploadResult(null);
+
+    try {
+      const token = localStorage.getItem("adminToken");
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://localhost:5000/api/admin/states/bulk-upload", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      // Check if response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const text = await response.text();
+        console.error("Server returned non-JSON response:", text);
+        throw new Error(`Server error (${response.status}): Expected JSON but got ${contentType || 'unknown'}`);
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || `Server error: ${response.status}`);
+      }
+
+      if (data.success) {
+        setUploadResult(data.data);
+        alert(`File uploaded successfully! ${data.data.created} states created, ${data.data.skipped} skipped.`);
+        fetchStates();
+      } else {
+        alert(data.message || "Error uploading file");
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert(`Error uploading file: ${error.message || "Please try again."}`);
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
+
   const resetForm = () => {
     setFormData({ name: "", description: "", image: "", culturalSummary: "" });
     setEditingState(null);
@@ -110,17 +184,54 @@ const AdminStates = () => {
             <h1 className="text-3xl font-bold text-gray-900">Manage States</h1>
             <p className="text-gray-600 mt-1">Add, edit, or delete states</p>
           </div>
-          <button
-            onClick={() => {
-              resetForm();
-              setShowModal(true);
-            }}
-            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-          >
-            <Plus size={20} />
-            Add State
-          </button>
+          <div className="flex gap-3">
+            <label className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors cursor-pointer">
+              <FileSpreadsheet size={18} />
+              {uploading ? "Uploading..." : "Bulk Upload"}
+              <input
+                type="file"
+                accept=".xlsx,.xls,.csv"
+                onChange={handleFileUpload}
+                disabled={uploading}
+                className="hidden"
+              />
+            </label>
+            <button
+              onClick={() => {
+                resetForm();
+                setShowModal(true);
+              }}
+              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            >
+              <Plus size={20} />
+              Add State
+            </button>
+          </div>
         </div>
+
+        {/* Upload Results */}
+        {uploadResult && (
+          <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 className="font-semibold text-blue-900 mb-2">Upload Results:</h3>
+            <div className="text-sm text-blue-800">
+              <div>✓ {uploadResult.created} states created</div>
+              <div>⊘ {uploadResult.skipped} states skipped (already exist)</div>
+              {uploadResult.errors && uploadResult.errors.length > 0 && (
+                <div className="mt-2 text-red-700">
+                  <strong>Errors:</strong>
+                  <ul className="list-disc list-inside mt-1">
+                    {uploadResult.errors.slice(0, 5).map((error, idx) => (
+                      <li key={idx}>{error}</li>
+                    ))}
+                    {uploadResult.errors.length > 5 && (
+                      <li>... and {uploadResult.errors.length - 5} more errors</li>
+                    )}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Search */}
         <div className="mb-6">
@@ -166,20 +277,42 @@ const AdminStates = () => {
                 <p className="text-sm text-gray-600 line-clamp-2 mb-4">
                   {state.description}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEdit(state)}
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+                    >
+                      <Edit size={16} />
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(state._id)}
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-colors"
+                    >
+                      <Trash2 size={16} />
+                      Delete
+                    </button>
+                  </div>
                   <button
-                    onClick={() => handleEdit(state)}
-                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+                    onClick={() => handleToggleActive(state._id, state.isActive)}
+                    className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-colors ${
+                      state.isActive
+                        ? "bg-green-50 text-green-700 hover:bg-green-100"
+                        : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                    }`}
                   >
-                    <Edit size={16} />
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(state._id)}
-                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-colors"
-                  >
-                    <Trash2 size={16} />
-                    Delete
+                    {state.isActive ? (
+                      <>
+                        <ToggleRight size={16} />
+                        Active
+                      </>
+                    ) : (
+                      <>
+                        <ToggleLeft size={16} />
+                        Inactive
+                      </>
+                    )}
                   </button>
                 </div>
               </div>

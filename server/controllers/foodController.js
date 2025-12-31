@@ -1,5 +1,5 @@
 const Food = require("../models/Food");
-const City = require("../models/city");
+const City = require("../models/City");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
 // 🌐 GET FOODS BY CITY ID (PUBLIC)

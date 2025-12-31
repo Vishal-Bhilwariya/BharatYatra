@@ -96,3 +96,22 @@ exports.deleteState = async (req, res) => {
     return errorResponse(res, error.message, 500);
   }
 };
+
+// ✅ TOGGLE STATE ACTIVE STATUS
+exports.toggleStateActive = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const state = await State.findById(id);
+    if (!state) {
+      return errorResponse(res, "State not found", 404);
+    }
+
+    state.isActive = !state.isActive;
+    await state.save();
+
+    return successResponse(res, `State ${state.isActive ? "activated" : "deactivated"} successfully`, state);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};

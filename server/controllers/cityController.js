@@ -1,6 +1,20 @@
-const City = require("../models/city");
+const City = require("../models/City");
 const State = require("../models/State");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
+
+// 🌐 GET ALL CITIES (PUBLIC - FOR SEARCH)
+exports.getAllCities = async (req, res) => {
+  try {
+    const cities = await City.find({ isActive: true })
+      .select("name slug description image stateId")
+      .populate("stateId", "name slug")
+      .sort({ name: 1 });
+
+    return successResponse(res, "Cities fetched successfully", cities);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};
 
 // 🌐 GET CITIES BY STATE SLUG (PUBLIC)
 exports.getCitiesByStateSlug = async (req, res) => {

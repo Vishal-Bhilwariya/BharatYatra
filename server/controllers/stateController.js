@@ -1,5 +1,5 @@
 const State = require("../models/State");
-const City = require("../models/city");
+const City = require("../models/City");
 
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
