@@ -80,7 +80,7 @@ const Footer = () => {
             Legal
           </h3>
           <p className="text-sm text-gray-400">
-            © {2025} BharatYatra
+            © {new Date().getFullYear()} BharatYatra
           </p>
           <p className="text-sm text-gray-400 mt-1">
             All rights reserved to Vishal.
