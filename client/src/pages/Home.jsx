@@ -1,39 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../api/api";
-import StateCard from "../components/StateCard";
 import { Search, Globe, Utensils, Bus, MapPin, BookOpen, ArrowRight, CheckCircle } from "lucide-react";
 
 const Home = () => {
-  const [states, setStates] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchStates = async () => {
-      try {
-        const res = await api.get("/states");
-        setStates(res.data.data || []);
-      } catch (error) {
-        console.error("Failed to load states", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStates();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-orange-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
+ 
   return (
     <div className="min-h-screen bg-white">
       {/* 🌄 B. Hero Section */}
@@ -66,7 +36,7 @@ const Home = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="#explore-destinations"
+                  to="/explore"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-600 text-white rounded-lg font-semibold text-lg hover:bg-orange-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Search size={24} />
@@ -295,7 +265,7 @@ const Home = () => {
             Discover amazing destinations, cultures, and experiences across India
           </p>
           <Link
-            to="#explore-destinations"
+            to="/explore"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Explore Destinations
@@ -304,35 +274,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 🗺️ G. Explore Destinations (States Grid) */}
-      <section id="explore-destinations" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Explore India by State
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Select a state to discover its cities, places, culture, food, and transport
-            </p>
-          </div>
-
-          {states.length === 0 ? (
-            <div className="text-center py-12">
-              <MapPin className="mx-auto text-gray-400 mb-4" size={48} />
-              <p className="text-gray-600 text-lg">No states available yet.</p>
-              <p className="text-gray-500 text-sm mt-2">
-                Please check if the backend server is running and MongoDB is connected.
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {states.map((state) => (
-                <StateCard key={state.slug || state._id} state={state} />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+     
     </div>
   );
 };
