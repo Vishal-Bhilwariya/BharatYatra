@@ -27,15 +27,18 @@ const Header = () => {
 
   // 📡 Fetch all searchable data
   useEffect(() => {
-    api.get("/states")
-      .then(res => setStates(res.data.data || res.data))
-      .catch(err => console.error("Error fetching states:", err));
-    api.get("/cities")
-      .then(res => setCities(res.data.data || res.data))
-      .catch(err => console.error("Error fetching cities:", err));
-    api.get("/places")
-      .then(res => setPlaces(res.data.data || res.data))
-      .catch(err => console.error("Error fetching places:", err));
+    api
+      .get("/states")
+      .then((res) => setStates(res.data.data || res.data))
+      .catch((err) => console.error("Error fetching states:", err));
+    api
+      .get("/cities")
+      .then((res) => setCities(res.data.data || res.data))
+      .catch((err) => console.error("Error fetching cities:", err));
+    api
+      .get("/places")
+      .then((res) => setPlaces(res.data.data || res.data))
+      .catch((err) => console.error("Error fetching places:", err));
   }, []);
 
   // 🔎 Search logic
@@ -49,16 +52,16 @@ const Header = () => {
     const q = query.toLowerCase();
 
     const stateResults = states
-      .filter(s => s.name.toLowerCase().includes(q))
-      .map(s => ({ ...s, type: "state" }));
+      .filter((s) => s.name.toLowerCase().includes(q))
+      .map((s) => ({ ...s, type: "state" }));
 
     const cityResults = cities
-      .filter(c => c.name.toLowerCase().includes(q))
-      .map(c => ({ ...c, type: "city" }));
+      .filter((c) => c.name.toLowerCase().includes(q))
+      .map((c) => ({ ...c, type: "city" }));
 
     const placeResults = places
-      .filter(p => p.name.toLowerCase().includes(q))
-      .map(p => ({ ...p, type: "place" }));
+      .filter((p) => p.name.toLowerCase().includes(q))
+      .map((p) => ({ ...p, type: "place" }));
 
     setResults([...stateResults, ...cityResults, ...placeResults]);
     setActiveIndex(-1);
@@ -69,13 +72,11 @@ const Header = () => {
     if (!results.length) return;
 
     if (e.key === "ArrowDown") {
-      setActiveIndex(prev =>
-        prev < results.length - 1 ? prev + 1 : prev
-      );
+      setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
     }
 
     if (e.key === "ArrowUp") {
-      setActiveIndex(prev => (prev > 0 ? prev - 1 : prev));
+      setActiveIndex((prev) => (prev > 0 ? prev - 1 : prev));
     }
 
     if (e.key === "Enter" && activeIndex >= 0) {
@@ -108,8 +109,7 @@ const Header = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // ✨ Highlight matched text
@@ -129,8 +129,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-slate-900 shadow-md px-6 py-3 flex items-center justify-between">
-
+    <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 text-gray-300 shadow-md px-6 py-3 flex items-center justify-between">
       {/* 🔵 Logo */}
       <Link to="/" className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-300">
@@ -140,17 +139,15 @@ const Header = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <span className="text-xl font-bold text-orange-600">
-          BharatYatra
-        </span>
+        <span className="text-xl font-bold text-orange-400">BharatYatra</span>
       </Link>
 
       {/* 🔍 Search Bar */}
       <div
         ref={searchRef}
-        className="relative hidden md:flex items-center bg-gray-100 dark:bg-slate-800 rounded-full px-4 py-2 w-[35%]"
+        className="relative hidden md:flex items-center bg-gray-800 rounded-full px-4 py-2 w-[35%]"
       >
-        <Search className="text-gray-500 mr-2" size={18} />
+        <Search className="text-gray-400 mr-2" size={18} />
 
         <input
           type="text"
@@ -158,12 +155,12 @@ const Header = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="bg-transparent outline-none w-full text-gray-700 dark:text-gray-200"
+          className="bg-transparent outline-none w-full text-gray-200 placeholder-gray-400"
         />
 
         {/* Results */}
         {query && (
-          <div className="absolute top-12 left-0 w-full bg-white dark:bg-slate-900 border rounded-lg shadow-lg max-h-64 overflow-y-auto z-50">
+          <div className="absolute top-12 left-0 w-full bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
             {results.length === 0 ? (
               <div className="px-4 py-3 text-gray-500">
                 ❌ No state, city or place available
@@ -209,13 +206,14 @@ const Header = () => {
         </Link>
         <Link
           to="/recommendations"
-          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+          className="px-3 py-1.5 text-gray-300 hover:text-orange-400
+ transition-colors"
         >
           Recommendations
         </Link>
         <Link
           to="/translator"
-          className="px-3 py-1.5 text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors"
+          className="px-3 py-1.5 text-gray-300 hover:text-orange-400 transition-colors"
         >
           Translator
         </Link>
@@ -229,12 +227,11 @@ const Header = () => {
 
       {/* ⚙️ Right Controls */}
       <div className="flex items-center gap-4">
-
         {/* Language */}
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
-          className="px-3 py-1 rounded-md bg-gray-100 dark:bg-slate-800"
+          className="px-3 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700"
         >
           <option value="en">English</option>
           <option value="hi">हिंदी</option>
@@ -245,7 +242,7 @@ const Header = () => {
         {/* Theme */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-100 dark:bg-slate-800"
+          className="p-2 rounded-full bg-gray-800 hover:bg-gray-700"
         >
           {darkMode ? (
             <Sun className="text-yellow-400" size={18} />
@@ -255,11 +252,11 @@ const Header = () => {
         </button>
 
         {/* Auth */}
-        <button className="px-4 py-1.5 border border-teal-600 text-teal-600 rounded-md">
+        <button className="px-4 py-1.5 border border-orange-400 text-orange-400 rounded-md hover:bg-orange-400 hover:text-gray-900 transition">
           Login
         </button>
 
-        <button className="px-4 py-1.5 bg-orange-500 text-white rounded-md">
+        <button className="px-4 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-md transition">
           Sign Up
         </button>
       </div>
