@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api/api";
-import { Search, BookOpen, AlertCircle } from "lucide-react";
+import { Search, BookOpen, AlertCircle, Plus } from "lucide-react";
 import AdminNav from "../../components/admin/AdminNav";
 
 const AdminCulture = () => {
@@ -17,22 +17,57 @@ const AdminCulture = () => {
   const fetchStates = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await api.get("/admin/states", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setStates(res.data?.data || res.data || []);
+      
+      if (!token) {
+        console.warn("No admin token found, using public route for states");
+        const res = await api.get("/states");
+        setStates(res.data?.data || res.data || []);
+        return;
+      }
+
+      try {
+        const res = await api.get("/admin/states", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setStates(res.data?.data || res.data || []);
+      } catch (error) {
+        console.error("Admin states route failed, trying public route:", error.response?.data || error.message);
+        // Fallback to public route
+        const res = await api.get("/states");
+        setStates(res.data?.data || res.data || []);
+      }
     } catch (error) {
       console.error("Error fetching states", error);
+      setStates([]);
     }
   };
 
   const fetchCultures = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await api.get("/cultures", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setCultures(res.data?.data || res.data || []);
+      
+      // Try public route first since cultures might not need admin auth
+      try {
+        const res = await api.get("/cultures");
+        setCultures(res.data?.data || res.data || []);
+      } catch (error) {
+        console.error("Public cultures route failed:", error.response?.data || error.message);
+        
+        // If public fails and we have token, try admin route
+        if (token) {
+          try {
+            const res = await api.get("/admin/cultures", {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            setCultures(res.data?.data || res.data || []);
+          } catch (adminError) {
+            console.error("Admin cultures route also failed:", adminError.response?.data || adminError.message);
+            setCultures([]);
+          }
+        } else {
+          setCultures([]);
+        }
+      }
     } catch (error) {
       console.error("Error fetching cultures", error);
       setCultures([]);
@@ -62,9 +97,14 @@ const AdminCulture = () => {
       <AdminNav />
       <div className="p-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">Manage Culture</h1>
-            <p className="text-gray-600 mt-1">View culture information for each state</p>
+          <div className="mb-6 flex justify-between items-end">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Manage Culture</h1>
+              <p className="text-gray-600 mt-1">View and manage culture information</p>
+            </div>
+            <a href="/admin/culture/new" className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 flex items-center gap-2">
+              <Plus size={20} /> Add Culture
+            </a>
           </div>
 
           {/* Info Message */}
@@ -74,8 +114,8 @@ const AdminCulture = () => {
               <div>
                 <h3 className="font-semibold text-blue-900 mb-1">Culture Management</h3>
                 <p className="text-sm text-blue-800">
-                  Culture data has a complex nested structure (festivals, traditions, rituals, lifestyle, etc.) 
-                  and currently requires manual entry through the database or API. 
+                  Culture data has a complex nested structure (festivals, traditions, rituals, lifestyle, etc.)
+                  and currently requires manual entry through the database or API.
                   Bulk upload for culture is not available at this time.
                 </p>
               </div>
@@ -101,7 +141,7 @@ const AdminCulture = () => {
             {filteredCultures.map((culture) => (
               <div
                 key={culture._id}
-                className="bg-white rounded-lg shadow border border-gray-200 p-6"
+                className="bg-white rounded-lg shadow border border-gray-200 p-6 flex flex-col h-full"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-indigo-100 rounded-lg">
@@ -117,7 +157,7 @@ const AdminCulture = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm flex-grow">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Festivals:</span>
                     <span className="font-medium text-gray-900">
@@ -139,25 +179,30 @@ const AdminCulture = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Status:</span>
                     <span
-                      className={`px-2 py-1 text-xs rounded ${
-                        culture.isActive !== false
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
+                      className={`px-2 py-1 text-xs rounded ${culture.isActive !== false
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                        }`}
                     >
                       {culture.isActive !== false ? "Active" : "Inactive"}
                     </span>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-2">
+                  <a
+                    href={`/admin/culture/edit/${culture._id}`}
+                    className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                  >
+                    Edit Culture
+                  </a>
                   <a
                     href={`/explore-culture/${culture.stateId?.slug}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                    className="block w-full text-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
                   >
-                    View Culture Details
+                    View Public Page
                   </a>
                 </div>
               </div>

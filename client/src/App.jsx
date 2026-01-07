@@ -19,6 +19,7 @@ import AdminPlaces from "./pages/admin/AdminPlaces";
 import AdminFoods from "./pages/admin/AdminFoods";
 import AdminTransports from "./pages/admin/AdminTransports";
 import AdminCulture from "./pages/admin/AdminCulture";
+import AdminAddCulture from "./pages/admin/AdminAddCulture";
 import ExploreStates from "./pages/ExploreStates";
 
 function App() {
@@ -82,6 +83,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AdminCulture />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/culture/new"
+              element={
+                <ProtectedRoute>
+                  <AdminAddCulture />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/culture/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <AdminAddCulture />
                 </ProtectedRoute>
               }
             />

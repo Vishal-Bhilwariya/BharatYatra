@@ -8,7 +8,7 @@ const foodRoutes = require("./routes/foodRoutes");
 const translatorRoutes = require("./routes/translatorRoutes");
 const stateRoutes = require("./routes/stateRoutes");
 const cityRoutes = require("./routes/cityRoutes");
-const transportRoutes =  require("./routes/transportRoutes")
+const transportRoutes = require("./routes/transportRoutes")
 const adminRoutes = require("./routes/adminRoutes");
 const adminStateRoutes = require("./routes/adminStateRoutes");
 const cultureRoutes = require("./routes/cultureRoutes");
@@ -45,6 +45,7 @@ app.use("/api/admin/cities", require("./routes/adminCityRoutes"));
 app.use("/api/admin/places", require("./routes/adminPlaceRoutes"));
 app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
 app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
+app.use("/api/admin/culture", require("./routes/adminCultureRoutes"));
 
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");

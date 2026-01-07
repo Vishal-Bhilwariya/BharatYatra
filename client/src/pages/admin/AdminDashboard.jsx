@@ -32,6 +32,28 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem("adminToken");
+      
+      if (!token) {
+        console.warn("No admin token found, using public routes");
+        // Fallback to public routes if no token
+        const [states, cities, places, foods, transports] = await Promise.all([
+          api.get("/states").then(res => res.data?.data || res.data || []),
+          api.get("/cities").then(res => res.data?.data || res.data || []),
+          api.get("/places").then(res => res.data?.data || res.data || []),
+          api.get("/foods").then(res => res.data?.data || res.data || []),
+          api.get("/transports").then(res => res.data?.data || res.data || []),
+        ]);
+        
+        setStats({
+          states: Array.isArray(states) ? states.length : 0,
+          cities: Array.isArray(cities) ? cities.length : 0,
+          places: Array.isArray(places) ? places.length : 0,
+          foods: Array.isArray(foods) ? foods.length : 0,
+          transports: Array.isArray(transports) ? transports.length : 0,
+        });
+        return;
+      }
+
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
@@ -42,8 +64,16 @@ const AdminDashboard = () => {
           const res = await api.get(url, config);
           return res.data?.data || [];
         } catch (error) {
-          console.error(`Error fetching ${url}:`, error);
-          return [];
+          console.error(`Error fetching ${url}:`, error.response?.data || error.message);
+          // If admin route fails, try public route
+          const publicUrl = url.replace('/admin', '');
+          try {
+            const publicRes = await api.get(publicUrl);
+            return publicRes.data?.data || publicRes.data || [];
+          } catch (publicError) {
+            console.error(`Public route ${publicUrl} also failed:`, publicError.message);
+            return [];
+          }
         }
       };
 
