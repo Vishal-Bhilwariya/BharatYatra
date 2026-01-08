@@ -141,11 +141,10 @@ const Translator = () => {
               <div className="absolute bottom-3 right-3 flex gap-2">
                 <button
                   onClick={isListening ? stopListening : startListening}
-                  className={`p-2 rounded-full transition-all ${
-                    isListening
+                  className={`p-2 rounded-full transition-all ${isListening
                       ? "bg-red-500 text-white animate-pulse"
                       : "bg-indigo-100 text-indigo-600 hover:bg-indigo-200"
-                  }`}
+                    }`}
                   title={isListening ? "Stop listening" : "Start voice input"}
                 >
                   {isListening ? (
@@ -174,14 +173,39 @@ const Translator = () => {
               onChange={(e) => setTargetLang(e.target.value)}
               className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none"
             >
-              <option value="hi">Hindi (हिंदी)</option>
-              <option value="ta">Tamil (தமிழ்)</option>
-              <option value="te">Telugu (తెలుగు)</option>
-              <option value="kn">Kannada (ಕನ್ನಡ)</option>
-              <option value="ml">Malayalam (മലയാളം)</option>
-              <option value="bn">Bengali (বাংলা)</option>
-              <option value="gu">Gujarati (ગુજરાતી)</option>
-              <option value="mr">Marathi (मराठी)</option>
+              <optgroup label="Indian Languages">
+                <option value="hi">Hindi (हिंदी)</option>
+                <option value="ta">Tamil (தமிழ்)</option>
+                <option value="te">Telugu (తెలుగు)</option>
+                <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                <option value="ml">Malayalam (മലയാളം)</option>
+                <option value="bn">Bengali (বাংলা)</option>
+                <option value="gu">Gujarati (ગુજરાતી)</option>
+                <option value="mr">Marathi (मराठी)</option>
+                <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                <option value="ur">Urdu (اردو)</option>
+                <option value="or">Odia (ଓଡ଼ିଆ)</option>
+                <option value="as">Assamese (অসমীয়া)</option>
+                <option value="ne">Nepali (नेपाली)</option>
+                <option value="sa">Sanskrit (संस्कृतम्)</option>
+                <option value="kok">Konkani (कोंकणी)</option>
+                <option value="sd">Sindhi (सिंधी)</option>
+                <option value="mni">Manipuri (মৈতৈলোন্)</option>
+                <option value="doi">Dogri (डोगरी)</option>
+                <option value="ks">Kashmiri (कॉशुर)</option>
+              </optgroup>
+              <optgroup label="International Languages">
+                <option value="es">Spanish (Español)</option>
+                <option value="fr">French (Français)</option>
+                <option value="de">German (Deutsch)</option>
+                <option value="it">Italian (Italiano)</option>
+                <option value="pt">Portuguese (Português)</option>
+                <option value="ru">Russian (Русский)</option>
+                <option value="zh">Chinese (中文)</option>
+                <option value="ja">Japanese (日本語)</option>
+                <option value="ko">Korean (한국어)</option>
+                <option value="ar">Arabic (العربية)</option>
+              </optgroup>
             </select>
           </div>
 
