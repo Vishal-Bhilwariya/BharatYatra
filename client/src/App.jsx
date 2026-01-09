@@ -200,7 +200,18 @@ function App() {
                 </>
               }
             />
-            <Route path="/explore" element={<ExploreStates />} />
+            <Route
+              path="/explore"
+              element={
+                <>
+                  <Header />
+                  <div className="pt-20">
+                    <ExploreStates />
+                  </div>
+                  <Footer />
+                </>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </AdminProvider>
