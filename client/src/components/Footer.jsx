@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Sun, Moon } from "lucide-react";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Footer = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const darkMode = theme === "dark";
+
   return (
     <footer className="bg-gray-900 text-gray-300 mt-20 border-t border-gray-700">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -95,8 +101,25 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 text-center py-4 text-sm text-gray-400">
-        Made with ❤️ in India 🇮🇳
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700 py-6 text-sm text-gray-400">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>Made with ❤️ in India 🇮🇳</p>
+
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-orange-500 transition-colors group"
+          >
+            {darkMode ? (
+              <Sun className="text-yellow-400 group-hover:text-yellow-300 transition-colors" size={18} />
+            ) : (
+              <Moon className="text-gray-400 group-hover:text-white transition-colors" size={18} />
+            )}
+            <span className="font-medium text-gray-300 group-hover:text-white">
+              {darkMode ? "Light Mode" : "Dark Mode"}
+            </span>
+          </button>
+        </div>
       </div>
     </footer>
   );

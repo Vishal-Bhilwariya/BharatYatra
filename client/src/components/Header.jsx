@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { Sun, Moon, Search, Home, Globe, MapPin, Languages, Calendar, Menu, User, UserPlus } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api/api";
@@ -8,7 +9,9 @@ const Header = () => {
   const navigate = useNavigate();
   const searchRef = useRef(null);
 
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const darkMode = theme === "dark";
+
   const [language, setLanguage] = useState("en");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -20,11 +23,7 @@ const Header = () => {
   const [results, setResults] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  // 🌙 Theme toggle
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
+  // 🌙 Theme toggle logic is now handled by ThemeContext
 
   // 📡 Fetch all searchable data
   useEffect(() => {
@@ -95,8 +94,8 @@ const Header = () => {
       item.type === "state"
         ? `/state/${item.slug}`
         : item.type === "city"
-        ? `/city/${item.slug}`
-        : `/place/${item.slug}`
+          ? `/city/${item.slug}`
+          : `/place/${item.slug}`
     );
   };
 
@@ -172,11 +171,10 @@ const Header = () => {
                   <div
                     key={item._id}
                     onClick={() => handleSelect(item)}
-                    className={`px-4 py-3 cursor-pointer border-b border-gray-700 last:border-b-0 ${
-                      index === activeIndex
+                    className={`px-4 py-3 cursor-pointer border-b border-gray-700 last:border-b-0 ${index === activeIndex
                         ? "bg-orange-500/10 border-orange-500/20"
                         : "hover:bg-gray-700"
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-medium text-gray-200">
@@ -298,7 +296,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-orange-500 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
