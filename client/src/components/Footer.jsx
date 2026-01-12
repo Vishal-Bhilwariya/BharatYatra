@@ -8,15 +8,15 @@ const Footer = () => {
   const darkMode = theme === "dark";
 
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-20 border-t border-gray-700">
+    <footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 mt-20 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
 
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-orange-500">
+          <h2 className="text-2xl font-bold text-orange-600 dark:text-orange-500">
             BharatYatra
           </h2>
-          <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+          <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Explore India state by state — culture, cities, food,
             transport and language, all in one platform.
           </p>
@@ -24,7 +24,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Quick Links
           </h3>
           <ul className="space-y-3 text-sm">
@@ -53,7 +53,7 @@ const Footer = () => {
 
         {/* Features */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Features
           </h3>
           <ul className="space-y-3 text-sm">
@@ -82,17 +82,17 @@ const Footer = () => {
 
         {/* Legal */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Legal
           </h3>
           <div className="text-sm space-y-2">
-            <p className="text-gray-400">
+            <p className="text-gray-600 dark:text-gray-400">
               © {new Date().getFullYear()} BharatYatra
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-600 dark:text-gray-400">
               All rights reserved to Vishal.
             </p>
-            <p className="text-orange-400 font-medium">
+            <p className="text-orange-600 dark:text-orange-400 font-medium">
               Built & Owned by Vishal
             </p>
           </div>
@@ -101,21 +101,20 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-700 py-6 text-sm text-gray-400">
+      <div className="border-t border-gray-200 dark:border-gray-700 py-6 text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>Made with ❤️ in India 🇮🇳</p>
 
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-orange-500 transition-colors group"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:border-orange-500 dark:hover:border-orange-500 transition-colors group"
           >
             {darkMode ? (
               <Sun className="text-yellow-400 group-hover:text-yellow-300 transition-colors" size={18} />
             ) : (
-              <Moon className="text-gray-400 group-hover:text-white transition-colors" size={18} />
+              <Moon className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" size={18} />
             )}
-            <span className="font-medium text-gray-300 group-hover:text-white">
+            <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">
               {darkMode ? "Light Mode" : "Dark Mode"}
             </span>
           </button>
