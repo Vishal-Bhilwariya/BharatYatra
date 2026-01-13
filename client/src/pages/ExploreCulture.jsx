@@ -1,481 +1,506 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import api from "../api/api";
-import { Calendar, Music, Users, BookOpen, Image as ImageIcon, Video } from "lucide-react";
+import {
+  Calendar, Music, Users, BookOpen, MapPin,
+  ShoppingBag, Utensils, Shirt, Palette, Globe,
+  ChevronRight, ArrowLeft, Star
+} from "lucide-react";
+
+// Hardcoded Region Mapping since Backend doesn't have it yet
+const REGIONS = {
+  "North India": ["Jammu and Kashmir", "Himachal Pradesh", "Punjab", "Haryana", "Delhi", "Uttar Pradesh", "Uttarakhand", "Rajasthan"],
+  "South India": ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh", "Telangana"],
+  "East India": ["West Bengal", "Odisha", "Bihar", "Jharkhand"],
+  "West India": ["Maharashtra", "Gujarat", "Goa"],
+  "Central India": ["Madhya Pradesh", "Chhattisgarh"],
+  "North East India": ["Assam", "Sikkim", "Meghalaya", "Arunachal Pradesh", "Nagaland", "Manipur", "Mizoram", "Tripura"]
+};
+
+// Section Icons Map
+const ICONS = {
+  overview: Globe,
+  food: Utensils,
+  shops: ShoppingBag,
+  dance: Music,
+  clothing: Shirt,
+  festivals: Calendar,
+  art: Palette,
+  heritage: Users,
+  places: MapPin,
+  extras: BookOpen
+};
 
 const ExploreCulture = () => {
   const { stateSlug } = useParams();
-  const [culture, setCulture] = useState(null);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("festivals");
+
+  // Data States
+  const [allStates, setAllStates] = useState([]);
+  const [culture, setCulture] = useState(null);
+  const [stateInfo, setStateInfo] = useState(null); // Basic state info (name, etc)
+
+  // View States
+  const [selectedRegion, setSelectedRegion] = useState("North India");
 
   useEffect(() => {
-    const fetchCulture = async () => {
-      try {
-        if (stateSlug) {
-          const res = await api.get(`/cultures/state/${stateSlug}`);
-          if (res.data.success && res.data.data) {
-            setCulture(res.data.data);
-          } else {
-            setCulture(null);
-          }
-        } else {
-          // Fetch all cultures
-          const res = await api.get("/cultures");
-          if (res.data.success && res.data.data) {
-            setCulture(res.data.data);
-          } else {
-            setCulture(null);
-          }
-        }
-      } catch (error) {
-        console.error("Error loading culture", error);
-        setCulture(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCulture();
+    if (stateSlug) {
+      fetchCultureBySlug();
+    } else {
+      fetchAllStates();
+    }
   }, [stateSlug]);
+
+  const fetchAllStates = async () => {
+    setLoading(true);
+    try {
+      const res = await api.get("/states");
+      if (res.data?.data) {
+        setAllStates(res.data.data);
+      }
+    } catch (error) {
+      console.error("Error fetching states", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCultureBySlug = async () => {
+    setLoading(true);
+    try {
+      // 1. Fetch Culture Data
+      const res = await api.get(`/cultures/state/${stateSlug}`);
+      if (res.data?.data) {
+        setCulture(res.data.data);
+        setStateInfo(res.data.data.stateId); // Populated state info
+      } else {
+        setCulture(null);
+      }
+    } catch (error) {
+      console.error("Error fetching culture", error);
+      setCulture(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // --- RENDERERS ---
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-xl">Loading culture information...</p>
+      <div className="min-h-screen flex items-center justify-center bg-orange-50">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-orange-600"></div>
       </div>
     );
   }
+
+  // --- VIEW 1: LANDING PAGE (HIERARCHY) ---
+  if (!stateSlug) {
+    return (
+      <div className="min-h-screen bg-orange-50 py-10 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-orange-900 mb-4 font-serif">
+              Discover Cultural India
+            </h1>
+            <p className="text-lg text-orange-800 max-w-2xl mx-auto">
+              Explore the diverse traditions, cuisines, and heritage of India, region by region.
+            </p>
+          </div>
+
+          {/* Region Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {Object.keys(REGIONS).map((region) => (
+              <button
+                key={region}
+                onClick={() => setSelectedRegion(region)}
+                className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedRegion === region
+                    ? "bg-orange-600 text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 hover:bg-orange-100 border border-orange-200"
+                  }`}
+              >
+                {region}
+              </button>
+            ))}
+          </div>
+
+          {/* States Grid */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-orange-900 mb-6 flex items-center">
+              <MapPin className="mr-2" /> States in {selectedRegion}
+            </h2>
+
+            {/* Filter States for Region */}
+            {(() => {
+              const regionStatesNames = REGIONS[selectedRegion];
+              const statesInRegion = allStates.filter(s => regionStatesNames.includes(s.name));
+
+              if (statesInRegion.length === 0) {
+                return <p className="text-gray-500 italic">No states found for this region in our database yet.</p>;
+              }
+
+              return (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {statesInRegion.map(state => (
+                    <Link to={`/explore-culture/${state.slug}`} key={state._id} className="group">
+                      <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border border-orange-100">
+                        <div className="h-40 overflow-hidden">
+                          <img src={state.image} alt={state.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        <div className="p-4">
+                          <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
+                            {state.name}
+                          </h3>
+                          <p className="text-sm text-gray-600 line-clamp-2 mt-2">{state.description}</p>
+                          <div className="mt-4 flex items-center text-orange-600 font-medium text-sm">
+                            Explore Culture <ChevronRight size={16} />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              );
+            })()}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --- VIEW 2: STATE DETAILED CULTURE PAGE ---
 
   if (!culture) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-xl text-gray-600">
-          Culture information not available for this state.
-        </p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-orange-50 p-4">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Culture Not Found</h2>
+          <p className="text-gray-600 mb-6">We haven't documented the detailed culture for this state yet.</p>
+          <Link to="/explore-culture" className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700">Explore Other States</Link>
+        </div>
       </div>
     );
   }
 
-  const hinduCulture = culture.hinduCulture || {};
-  const generalCulture = culture.generalCulture || {};
+  // Determine Region for breadcrumb
+  const currentRegion = Object.keys(REGIONS).find(r => REGIONS[r].includes(stateInfo?.name)) || "India";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50 py-8 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-orange-900 mb-4">
-            🕉️ Explore Culture
-          </h1>
-          <p className="text-lg text-gray-700">
-            Discover the rich cultural heritage and traditions
-          </p>
+    <div className="min-h-screen bg-amber-50 font-sans">
+      {/* Navigation / Breadcrumbs */}
+      <div className="bg-orange-900 text-orange-100 py-3 px-4 shadow-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center text-sm md:text-base overflow-x-auto whitespace-nowrap">
+          <Link to="/" className="hover:text-white">Home</Link>
+          <ChevronRight size={16} className="mx-2" />
+          <Link to="/explore-culture" className="hover:text-white">Culture</Link>
+          <ChevronRight size={16} className="mx-2" />
+          <span className="opacity-80 cursor-default">{currentRegion}</span>
+          <ChevronRight size={16} className="mx-2" />
+          <span className="font-semibold text-white">{stateInfo?.name}</span>
         </div>
+      </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 justify-center">
+      {/* Hero Section */}
+      <div className="relative h-[60vh] md:h-[70vh]">
+        <img
+          src={culture.overview?.images?.[0] || stateInfo?.image}
+          alt={`${stateInfo?.name} Culture`}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 pb-12 w-full">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 font-serif">{stateInfo?.name}</h1>
+            <p className="text-xl md:text-2xl text-orange-200 max-w-3xl leading-relaxed">
+              {culture.overview?.introduction}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 space-y-16">
+
+        {/* 1. Overview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { id: "festivals", label: "Festivals", icon: Calendar },
-            { id: "traditions", label: "Traditions", icon: Users },
-            { id: "rituals", label: "Rituals", icon: BookOpen },
-            { id: "lifestyle", label: "Lifestyle", icon: Users },
-            { id: "history", label: "Cultural History", icon: BookOpen },
-            { id: "general", label: "General Culture", icon: Music },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                activeTab === tab.id
-                  ? "bg-orange-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-orange-100"
-              }`}
-            >
-              <tab.icon className="inline mr-2" size={18} />
-              {tab.label}
-            </button>
+            { title: "Lifestyle", content: culture.overview?.lifestyle, icon: Users },
+            { title: "Traditions", content: culture.overview?.traditions, icon: BookOpen },
+            { title: "History", content: culture.overview?.history, icon: Globe },
+          ].filter(item => item.content).map((item, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500 hover:shadow-lg transition">
+              <item.icon className="text-orange-600 mb-4 h-8 w-8" />
+              <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-sm md:text-base">{item.content}</p>
+            </div>
           ))}
         </div>
 
-        {/* Content */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-          {/* Festivals Tab */}
-          {activeTab === "festivals" && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                🎉 Festivals
-              </h2>
-              {hinduCulture.festivals && hinduCulture.festivals.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {hinduCulture.festivals.map((festival, index) => (
-                    <div
-                      key={index}
-                      className="border border-orange-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
-                    >
-                      <h3 className="text-2xl font-semibold text-orange-800 mb-3">
-                        {festival.name}
-                      </h3>
-                      <p className="text-gray-700 mb-3">{festival.description}</p>
-                      {festival.significance && (
-                        <p className="text-sm text-gray-600 mb-2">
-                          <strong>Significance:</strong> {festival.significance}
-                        </p>
-                      )}
-                      {festival.celebrationPeriod && (
-                        <p className="text-sm text-orange-600 mb-4">
-                          <Calendar className="inline mr-1" size={16} />
-                          {festival.celebrationPeriod}
-                        </p>
-                      )}
-                      {festival.images && festival.images.length > 0 && (
-                        <div className="grid grid-cols-2 gap-2 mb-3">
-                          {festival.images.slice(0, 4).map((img, idx) => (
-                            <img
-                              key={idx}
-                              src={img}
-                              alt={`${festival.name} ${idx + 1}`}
-                              className="w-full h-32 object-cover rounded-lg"
-                            />
-                          ))}
-                        </div>
-                      )}
-                      {festival.videos && festival.videos.length > 0 && (
-                        <div className="flex gap-2 flex-wrap">
-                          {festival.videos.map((video, idx) => (
-                            <a
-                              key={idx}
-                              href={video}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-orange-600 hover:text-orange-800 text-sm flex items-center"
-                            >
-                              <Video className="mr-1" size={16} />
-                              Watch Video {idx + 1}
-                            </a>
-                          ))}
-                        </div>
-                      )}
+        {/* 2. Famous Food */}
+        {culture.cuisine?.dishes?.length > 0 && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <Utensils className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Famous Cuisine</h2>
+            </div>
+            <p className="text-gray-700 mb-8 max-w-4xl text-lg">{culture.cuisine.description}</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {culture.cuisine.dishes.map((dish, idx) => (
+                <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                  {dish.image && <div className="h-48 overflow-hidden"><img src={dish.image} alt={dish.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" /></div>}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
+                      {dish.type && <span className={`text-xs px-2 py-1 rounded-full ${dish.type === 'Veg' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{dish.type}</span>}
                     </div>
-                  ))}
+                    <p className="text-gray-600 text-sm mb-4">{dish.description}</p>
+                    <div className="text-orange-600 font-semibold">{dish.priceRange}</div>
+                  </div>
                 </div>
-              ) : (
-                <p className="text-gray-600">Festival information coming soon...</p>
-              )}
+              ))}
             </div>
-          )}
-
-          {/* Traditions Tab */}
-          {activeTab === "traditions" && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                🙏 Traditions
-              </h2>
-              {hinduCulture.traditions && hinduCulture.traditions.length > 0 ? (
-                <div className="space-y-6">
-                  {hinduCulture.traditions.map((tradition, index) => (
-                    <div
-                      key={index}
-                      className="border-l-4 border-orange-500 pl-6 py-4 bg-orange-50 rounded-r-lg"
-                    >
-                      <h3 className="text-xl font-semibold text-orange-800 mb-2">
-                        {tradition.name}
-                      </h3>
-                      <p className="text-gray-700 mb-2">{tradition.description}</p>
-                      {tradition.practice && (
-                        <p className="text-sm text-gray-600">
-                          <strong>Practice:</strong> {tradition.practice}
-                        </p>
-                      )}
-                      {tradition.images && tradition.images.length > 0 && (
-                        <div className="flex gap-2 mt-3">
-                          {tradition.images.slice(0, 3).map((img, idx) => (
-                            <img
-                              key={idx}
-                              src={img}
-                              alt={`${tradition.name} ${idx + 1}`}
-                              className="w-24 h-24 object-cover rounded-lg"
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-600">Tradition information coming soon...</p>
-              )}
-            </div>
-          )}
-
-          {/* Rituals Tab */}
-          {activeTab === "rituals" && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                🕯️ Rituals
-              </h2>
-              {hinduCulture.rituals && hinduCulture.rituals.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {hinduCulture.rituals.map((ritual, index) => (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-200"
-                    >
-                      <h3 className="text-xl font-semibold text-orange-800 mb-3">
-                        {ritual.name}
-                      </h3>
-                      <p className="text-gray-700 mb-3">{ritual.description}</p>
-                      {ritual.whenPerformed && (
-                        <p className="text-sm text-gray-600 mb-2">
-                          <strong>When:</strong> {ritual.whenPerformed}
-                        </p>
-                      )}
-                      {ritual.importance && (
-                        <p className="text-sm text-gray-600">
-                          <strong>Importance:</strong> {ritual.importance}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-600">Ritual information coming soon...</p>
-              )}
-            </div>
-          )}
-
-          {/* Lifestyle Tab */}
-          {activeTab === "lifestyle" && hinduCulture.lifestyle && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                🏠 Lifestyle
-              </h2>
-              <div className="space-y-4">
-                <p className="text-lg text-gray-700">
-                  {hinduCulture.lifestyle.description}
-                </p>
-                {hinduCulture.lifestyle.dailyPractices &&
-                  hinduCulture.lifestyle.dailyPractices.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-2">
-                        Daily Practices:
-                      </h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {hinduCulture.lifestyle.dailyPractices.map((practice, idx) => (
-                          <li key={idx}>{practice}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                {hinduCulture.lifestyle.familyStructure && (
-                  <div>
-                    <h4 className="font-semibold text-orange-800 mb-2">
-                      Family Structure:
-                    </h4>
-                    <p className="text-gray-700">
-                      {hinduCulture.lifestyle.familyStructure}
-                    </p>
-                  </div>
-                )}
-                {hinduCulture.lifestyle.socialCustoms &&
-                  hinduCulture.lifestyle.socialCustoms.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-2">
-                        Social Customs:
-                      </h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {hinduCulture.lifestyle.socialCustoms.map((custom, idx) => (
-                          <li key={idx}>{custom}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-              </div>
-            </div>
-          )}
-
-          {/* Cultural History Tab */}
-          {activeTab === "history" && hinduCulture.culturalHistory && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                📜 Cultural History
-              </h2>
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700">
-                  {hinduCulture.culturalHistory.description}
-                </p>
-                {hinduCulture.culturalHistory.historicalEvents &&
-                  hinduCulture.culturalHistory.historicalEvents.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-4 text-xl">
-                        Historical Events:
-                      </h4>
-                      <div className="space-y-4">
-                        {hinduCulture.culturalHistory.historicalEvents.map(
-                          (event, idx) => (
-                            <div
-                              key={idx}
-                              className="border-l-4 border-orange-500 pl-4 py-2 bg-orange-50 rounded-r"
-                            >
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className="font-semibold text-orange-800">
-                                  {event.event}
-                                </span>
-                                {event.year && (
-                                  <span className="text-sm text-gray-600">
-                                    ({event.year})
-                                  </span>
-                                )}
-                              </div>
-                              {event.significance && (
-                                <p className="text-gray-700 text-sm">
-                                  {event.significance}
-                                </p>
-                              )}
-                            </div>
-                          )
-                        )}
-                      </div>
-                    </div>
-                  )}
-                {hinduCulture.culturalHistory.ancientPractices &&
-                  hinduCulture.culturalHistory.ancientPractices.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-2">
-                        Ancient Practices:
-                      </h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {hinduCulture.culturalHistory.ancientPractices.map(
-                          (practice, idx) => (
-                            <li key={idx}>{practice}</li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                  )}
-              </div>
-            </div>
-          )}
-
-          {/* General Culture Tab */}
-          {activeTab === "general" && (
-            <div>
-              <h2 className="text-3xl font-bold text-orange-900 mb-6">
-                🎨 General Culture
-              </h2>
-              <div className="space-y-6">
-                {generalCulture.languages &&
-                  generalCulture.languages.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-2 text-xl">
-                        Languages:
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {generalCulture.languages.map((lang, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full"
-                          >
-                            {lang}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                {generalCulture.artForms &&
-                  generalCulture.artForms.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold text-orange-800 mb-4 text-xl">
-                        Art Forms:
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {generalCulture.artForms.map((art, idx) => (
-                          <div
-                            key={idx}
-                            className="border border-orange-200 rounded-lg p-4"
-                          >
-                            <h5 className="font-semibold text-orange-800 mb-2">
-                              {art.name}
-                            </h5>
-                            <p className="text-gray-700 text-sm">{art.description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                {generalCulture.music && (
-                  <div>
-                    <h4 className="font-semibold text-orange-800 mb-2 text-xl">
-                      Music:
-                    </h4>
-                    <p className="text-gray-700 mb-2">
-                      {generalCulture.music.description}
-                    </p>
-                    {generalCulture.music.instruments &&
-                      generalCulture.music.instruments.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {generalCulture.music.instruments.map((instrument, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm"
-                            >
-                              {instrument}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                  </div>
-                )}
-
-                {generalCulture.dance && (
-                  <div>
-                    <h4 className="font-semibold text-orange-800 mb-2 text-xl">
-                      Dance:
-                    </h4>
-                    <p className="text-gray-700">{generalCulture.dance.description}</p>
-                  </div>
-                )}
-
-                {generalCulture.cuisine && (
-                  <div>
-                    <h4 className="font-semibold text-orange-800 mb-2 text-xl">
-                      Cuisine:
-                    </h4>
-                    <p className="text-gray-700 mb-2">
-                      {generalCulture.cuisine.description}
-                    </p>
-                    {generalCulture.cuisine.specialties &&
-                      generalCulture.cuisine.specialties.length > 0 && (
-                        <ul className="list-disc list-inside space-y-1 text-gray-700">
-                          {generalCulture.cuisine.specialties.map((specialty, idx) => (
-                            <li key={idx}>{specialty}</li>
-                          ))}
-                        </ul>
-                      )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Back Button */}
-        {stateSlug && (
-          <div className="mt-8 text-center">
-            <Link
-              to={`/state/${stateSlug}`}
-              className="inline-block px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
-            >
-              ← Back to State
-            </Link>
-          </div>
+          </section>
         )}
+
+        {/* 3. Famous Shops */}
+        {culture.foodShops?.length > 0 && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <ShoppingBag className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Iconic Food Spots</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {culture.foodShops.map((shop, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm hover:shadow-md flex flex-col md:flex-row gap-4 items-start">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">{shop.name}</h3>
+                    <p className="text-gray-500 text-sm mb-2"><MapPin size={14} className="inline mr-1" />{shop.location}</p>
+                    <div className="space-y-1 text-sm text-gray-700">
+                      <p><span className="font-semibold text-orange-700">Famous for:</span> {shop.famousDish}</p>
+                      <p><span className="font-semibold text-orange-700">Price:</span> {shop.priceRange}</p>
+                      {shop.timings && <p><span className="font-semibold text-orange-700">Open:</span> {shop.timings}</p>}
+                    </div>
+                  </div>
+                  {shop.rating > 0 && (
+                    <div className="bg-green-100 text-green-800 px-3 py-1 rounded-lg font-bold flex items-center gap-1">
+                      {shop.rating} <Star size={14} fill="currentColor" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 4. Dance & Music */}
+        {(culture.danceAndMusic?.dances?.length > 0 || culture.danceAndMusic?.music?.length > 0) && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <Music className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Dance & Music</h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Dances */}
+              {culture.danceAndMusic.dances.length > 0 && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-orange-500 pl-4">Folk & Classical Dance</h3>
+                  <div className="space-y-6">
+                    {culture.danceAndMusic.dances.map((dance, idx) => (
+                      <div key={idx} className="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm">
+                        {dance.image ? (
+                          <img src={dance.image} alt={dance.name} className="w-24 h-24 rounded-lg object-cover" />
+                        ) : (
+                          <div className="w-24 h-24 rounded-lg bg-orange-100 flex items-center justify-center text-orange-300"><Music /></div>
+                        )}
+                        <div>
+                          <h4 className="text-lg font-bold text-gray-800">{dance.name}</h4>
+                          <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded text-uppercase tracking-wider">{dance.type || 'Dance'}</span>
+                          <p className="text-sm text-gray-600 mt-2">{dance.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Music & Instruments */}
+              {culture.danceAndMusic.instruments?.length > 0 && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-orange-500 pl-4">Music & Instruments</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {culture.danceAndMusic.instruments.map((inst, idx) => (
+                      <div key={idx} className="bg-white p-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                        <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                          <Music size={20} />
+                        </div>
+                        <h4 className="font-bold text-gray-800">{inst.name}</h4>
+                        <p className="text-xs text-gray-500 mt-1">{inst.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* 5. Traditional Clothing */}
+        {culture.traditionalAttire && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <Shirt className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Traditional Attire</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Men */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-600">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">For Men</h3>
+                <p className="text-gray-600 text-center mb-6">{culture.traditionalAttire.men?.description}</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {culture.traditionalAttire.men?.attire?.map((item, idx) => (
+                    <span key={idx} className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full font-medium">{typeof item === 'string' ? item : item.name || item}</span>
+                  ))}
+                </div>
+              </div>
+              {/* Women */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-pink-500">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">For Women</h3>
+                <p className="text-gray-600 text-center mb-6">{culture.traditionalAttire.women?.description}</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {culture.traditionalAttire.women?.attire?.map((item, idx) => (
+                    <span key={idx} className="px-4 py-2 bg-pink-50 text-pink-700 rounded-full font-medium">{typeof item === 'string' ? item : item.name || item}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 6. Festivals */}
+        {culture.festivals?.length > 0 && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <Calendar className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Festivals & Celebrations</h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {culture.festivals.map((fest, idx) => (
+                <div key={idx} className="bg-gradient-to-br from-white to-orange-50 rounded-xl overflow-hidden shadow-md border border-orange-100">
+                  {fest.images?.[0] && <div className="h-40 overflow-hidden"><img src={fest.images[0]} alt={fest.name} className="w-full h-full object-cover" /></div>}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-bold text-orange-900">{fest.name}</h3>
+                    </div>
+                    <div className="text-sm text-orange-600 font-medium mb-3 flex items-center gap-1">
+                      <Calendar size={14} /> {fest.celebrationTime}
+                    </div>
+                    <p className="text-gray-600 text-sm">{fest.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 7. Art & Handicrafts */}
+        {culture.artAndHandicrafts?.length > 0 && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <Palette className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Art, Handicrafts & Local Products</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {culture.artAndHandicrafts.map((art, idx) => (
+                <div key={idx} className="flex gap-6 items-center bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition">
+                  {art.images?.[0] && <img src={art.images[0]} alt={art.name} className="w-24 h-24 rounded-full object-cover border-4 border-orange-100" />}
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800">{art.name}</h3>
+                    <span className="text-sm text-gray-500 block mb-2">{art.type}</span>
+                    <p className="text-gray-600 text-sm">{art.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 8. Heritage */}
+        {culture.heritageAndTraditions && (
+          <section className="bg-orange-900 text-white rounded-3xl p-8 md:p-12">
+            <div className="flex items-center gap-3 mb-8">
+              <Users className="text-orange-300 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold">Heritage & Values</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold text-orange-200 mb-6">Customs & Rituals</h3>
+                <ul className="space-y-4">
+                  {culture.heritageAndTraditions.customs?.map((c, idx) => (
+                    <li key={idx} className="border-l-4 border-orange-500 pl-4 py-1">
+                      <h4 className="font-bold text-lg">{c.title}</h4>
+                      <p className="text-orange-100 opacity-80">{c.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-orange-200 mb-6">Daily Life & Values</h3>
+                <div className="space-y-6">
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <h4 className="font-bold text-lg mb-2 text-white">Daily Life</h4>
+                    <p className="text-orange-100 leading-relaxed">{culture.heritageAndTraditions.dailyLife}</p>
+                  </div>
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <h4 className="font-bold text-lg mb-2 text-white">Community Values</h4>
+                    <p className="text-orange-100 leading-relaxed">{culture.heritageAndTraditions.values}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 9. Cultural Places */}
+        {culture.culturalPlaces?.length > 0 && (
+          <section>
+            <div className="flex items-center gap-3 mb-8">
+              <MapPin className="text-orange-600 h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Cultural Places</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {culture.culturalPlaces.map((place, idx) => (
+                <div key={idx} className="group relative overflow-hidden rounded-2xl shadow-lg h-64">
+                  <img src={place.image} alt={place.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                  <div className="absolute bottom-0 left-0 p-6 text-white">
+                    <h3 className="text-xl font-bold mb-1">{place.name}</h3>
+                    <p className="text-xs text-orange-300 mb-2 uppercase tracking-wide">{place.type} • {place.location}</p>
+                    <p className="text-sm opacity-90 line-clamp-2">{place.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 10. Extras */}
+        {culture.extraSections?.map((section, idx) => (
+          <section key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-orange-100">
+            <h2 className="text-2xl font-bold text-orange-900 mb-4">{section.title}</h2>
+            <div className="prose prose-orange max-w-none text-gray-700">
+              {/* Simple markdown rendering or direct text */}
+              {section.content}
+            </div>
+          </section>
+        ))}
+
       </div>
     </div>
   );
 };
 
 export default ExploreCulture;
-
