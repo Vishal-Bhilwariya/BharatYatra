@@ -140,6 +140,50 @@ const cultureSchema = new mongoose.Schema(
       },
     ],
 
+    // 11. Cultural Experience Planner
+    culturalExperience: {
+      liveEvents: [
+        {
+          name: { type: String, required: true },
+          location: { type: String },
+          date: { type: Date },
+          entryFee: { type: String },
+          image: { type: String },
+          audience: [{ type: String }], // e.g. ["Tourist", "Family"]
+        },
+      ],
+      foodTrails: [
+        {
+          name: { type: String, required: true },
+          type: { type: String },
+          description: { type: String },
+          priceRange: { type: String },
+          duration: { type: String },
+          audience: [{ type: String }],
+        },
+      ],
+      workshops: [
+        {
+          name: { type: String, required: true },
+          type: { type: String },
+          duration: { type: String },
+          price: { type: String },
+          skillLevel: { type: String },
+          audience: [{ type: String }],
+        },
+      ],
+      festivalCalendar: [
+        {
+          name: { type: String, required: true },
+          priority: { type: Number, default: 0 }, // For sorting importance
+          date: { type: Date },
+          significance: { type: String },
+          images: [{ type: String }],
+          audience: [{ type: String }],
+        },
+      ],
+    },
+
     isActive: {
       type: Boolean,
       default: true,

@@ -87,7 +87,57 @@ const seedCulture = async () => {
             ],
             extraSections: [
                 { title: "Languages", content: "Hindi and Urdu are the official and most widely spoken languages using the Devanagari and Perso-Arabic scripts respectively. Awadhi, Braj, and Bhojpuri are popular dialects." }
-            ]
+            ],
+            culturalExperience: {
+                liveEvents: [
+                    {
+                        name: "Kathak Dance Performance",
+                        location: "Bhatkhande Music Institute, Lucknow",
+                        date: new Date("2024-11-20T18:00:00"),
+                        entryFee: "₹500",
+                        image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Kathak_Dance.jpg",
+                        audience: ["Tourist", "Family", "Music Lover"]
+                    },
+                    {
+                        name: "Ganga Aarti Live",
+                        location: "Dashashwamedh Ghat, Varanasi",
+                        date: new Date("2024-11-21T18:30:00"),
+                        entryFee: "Free",
+                        image: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Varanasi_Ghats.jpg",
+                        audience: ["Tourist", "Family", "Photographer"]
+                    }
+                ],
+                foodTrails: [
+                    {
+                        name: "Lucknow Street Food Walk",
+                        type: "Food Walk",
+                        description: "Explore the best Tunday Kababs and Chaat in Aminabad.",
+                        priceRange: "₹800",
+                        duration: "3 Hours",
+                        audience: ["Tourist", "Foodie"]
+                    }
+                ],
+                workshops: [
+                    {
+                        name: "Pottery Making Workshop",
+                        type: "Craft",
+                        duration: "2 Hours",
+                        price: "₹1200",
+                        skillLevel: "Beginner",
+                        audience: ["Student", "Family"]
+                    }
+                ],
+                festivalCalendar: [
+                    {
+                        name: "Kumbh Mela",
+                        priority: 1,
+                        date: new Date("2025-01-14"),
+                        significance: "Largest human gathering",
+                        images: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kumbh_Mela_Allahabad_2013.jpg/1200px-Kumbh_Mela_Allahabad_2013.jpg"],
+                        audience: ["Tourist", "Researcher"]
+                    }
+                ]
+            }
         };
 
         // 3. Update or Insert Culture
