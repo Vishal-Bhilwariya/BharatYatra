@@ -226,7 +226,7 @@ const Header = () => {
         </nav>
 
         {/* Navigation Icons - Tablet */}
-        <nav className="hidden lg:flex xl:hidden items-center gap-4">
+        <nav className="hidden md:flex xl:hidden items-center gap-4">
           <Link to="/" className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Home">
             <Home size={18} className="text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400" />
           </Link>
