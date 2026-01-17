@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ThemeProvider from "./context/ThemeContext";
+import ScrollToTop from "./components/ScrollToTop";
 import { AdminProvider } from "./context/AdminContext";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import ErrorBoundary from "./components/admin/ErrorBoundary";
@@ -29,6 +30,7 @@ function App() {
       <AdminProvider>
         <ThemeProvider>
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               {/* Admin Routes - No Header/Footer */}
               <Route path="/admin/login" element={<AdminLogin />} />
