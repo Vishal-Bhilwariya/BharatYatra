@@ -2,7 +2,9 @@ const axios = require("axios");
 
 const translateText = async (req, res) => {
   try {
-    const { text, targetLang } = req.body;
+    const { text, targetLang, sourceLang = "en" } = req.body;
+    console.log("Translate Request Body:", req.body);
+    console.log("Constructed Langpair:", `${sourceLang}|${targetLang}`);
 
     if (!text || !targetLang) {
       return res.status(400).json({ message: "Text and targetLang are required" });
@@ -10,7 +12,7 @@ const translateText = async (req, res) => {
 
     const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
       text
-    )}&langpair=en|${targetLang}`;
+    )}&langpair=${sourceLang}|${targetLang}`;
 
     const response = await axios.get(url);
 
