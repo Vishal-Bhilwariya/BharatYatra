@@ -142,13 +142,14 @@ const Translator = () => {
     setTranslatedText(text);
   };
 
+  /* Custom Cosmic Language Options */
   const LanguageOptions = () => (
     <>
-      <optgroup label="Common">
+      <optgroup label="Common" className="bg-slate-900 text-white">
         <option value="en">English (English)</option>
         <option value="hi">Hindi (हिंदी)</option>
       </optgroup>
-      <optgroup label="Indian Languages">
+      <optgroup label="Indian Languages" className="bg-slate-900 text-white">
         <option value="ta">Tamil (தமிழ்)</option>
         <option value="te">Telugu (తెలుగు)</option>
         <option value="kn">Kannada (ಕನ್ನಡ)</option>
@@ -157,7 +158,7 @@ const Translator = () => {
         <option value="gu">Gujarati (ગુજરાતી)</option>
         <option value="mr">Marathi (मराठी)</option>
         <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
-        <option value="ur">Urdu (اردو)</option>
+        <option value="ur">Urdu (اردু)</option>
         <option value="or">Odia (ଓଡ଼ିଆ)</option>
         <option value="as">Assamese (অসমীয়া)</option>
         <option value="ne">Nepali (नेपाली)</option>
@@ -168,7 +169,7 @@ const Translator = () => {
         <option value="doi">Dogri (डोगरी)</option>
         <option value="ks">Kashmiri (कॉशुर)</option>
       </optgroup>
-      <optgroup label="International Languages">
+      <optgroup label="International Languages" className="bg-slate-900 text-white">
         <option value="es">Spanish (Español)</option>
         <option value="fr">French (Français)</option>
         <option value="de">German (Deutsch)</option>
@@ -184,174 +185,175 @@ const Translator = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-orange-100 via-blue-100 to-indigo-100 py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      <div className="max-w-5xl w-full mx-auto space-y-6">
+    <div className="min-h-screen bg-[#050B14] py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative overflow-hidden font-sans">
+
+      {/* Cosmic Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-[#050B14] to-[#050B14] pointer-events-none"></div>
+      <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute top-[20%] right-[20%] w-[200px] h-[200px] bg-pink-600/20 rounded-full blur-[80px] pointer-events-none mix-blend-screen animate-pulse"></div>
+
+      {/* Stars Effect (Simple CSS dots implementation could go here, relying on simple dots for now) */}
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
+
+
+      <div className="max-w-5xl w-full mx-auto space-y-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center p-2 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm mb-2">
-            <Languages className="w-6 h-6 text-indigo-600 mr-2" />
-            <h1 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div className="text-center space-y-2 mb-6">
+          <div className="inline-flex items-center justify-center gap-3 mb-2">
+            <Languages className="w-8 h-8 text-indigo-400 drop-shadow-[0_0_10px_rgba(129,140,248,0.5)]" />
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg">
               AI Translator
             </h1>
           </div>
         </div>
 
-        {/* Extended Card */}
-        <div className="bg-gradient-to-br from-white/90 via-indigo-50/50 to-white/90 backdrop-blur-3xl rounded-3xl shadow-2xl border border-white/60 overflow-hidden relative z-10 ring-1 ring-indigo-100">
+        {/* Main Glass Card */}
+        <div className="bg-white/5 backdrop-blur-2xl rounded-[2rem] border border-white/10 shadow-2xl shadow-indigo-900/20 overflow-hidden relative ring-1 ring-white/5">
 
-          {/* Top Toolbar (Language Selectors) */}
-          <div className="bg-white/40 border-b border-indigo-100/50 p-3 flex flex-col md:flex-row items-center justify-between gap-3">
+          {/* Top Toolbar */}
+          <div className="p-6 grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] gap-4 items-center border-b border-white/5">
 
-            {/* Source Language */}
-            <div className="flex-1 w-full md:w-auto">
-              <div className="relative group">
-                <select
-                  value={sourceLang}
-                  onChange={(e) => setSourceLang(e.target.value)}
-                  className="w-full appearance-none bg-indigo-50/80 hover:bg-indigo-100/80 border-0 rounded-xl px-4 py-2.5 font-bold text-gray-700 cursor-pointer focus:ring-2 focus:ring-indigo-500/20 transition-all shadow-sm"
-                >
-                  <LanguageOptions />
-                </select>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-indigo-400">
-                  <span className="text-xs">▼</span>
-                </div>
+            {/* Source Select */}
+            <div className="relative group">
+              <select
+                value={sourceLang}
+                onChange={(e) => setSourceLang(e.target.value)}
+                className="w-full appearance-none bg-[#0F172A]/80 hover:bg-[#1E293B] border border-indigo-500/30 rounded-xl px-5 py-4 font-semibold text-white cursor-pointer focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-lg transition-all shadow-lg"
+              >
+                <LanguageOptions />
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-indigo-400">
+                <span className="text-sm">▼</span>
               </div>
             </div>
 
             {/* Swap Button */}
             <button
               onClick={handleSwapLanguages}
-              className="p-2 bg-white rounded-full shadow-md border border-gray-100 text-indigo-500 hover:text-indigo-700 hover:rotate-180 hover:bg-indigo-50 transition-all duration-300 z-20"
-              title="Swap Languages"
+              className="p-3 mx-auto bg-white/5 hover:bg-white/10 rounded-full border border-white/10 text-indigo-300 hover:text-white hover:rotate-180 transition-all duration-300 backdrop-blur-md shadow-lg group"
             >
-              <ArrowRightLeft size={18} />
+              <ArrowRightLeft size={20} className="group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
             </button>
 
-            {/* Target Language */}
-            <div className="flex-1 w-full md:w-auto">
-              <div className="relative group">
-                <select
-                  value={targetLang}
-                  onChange={(e) => setTargetLang(e.target.value)}
-                  className="w-full appearance-none bg-indigo-600 hover:bg-indigo-700 border-0 rounded-xl px-4 py-2.5 font-bold text-white cursor-pointer focus:ring-2 focus:ring-indigo-500/40 transition-all shadow-md shadow-indigo-200"
-                >
-                  <LanguageOptions />
-                </select>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-indigo-200">
-                  <span className="text-xs">▼</span>
-                </div>
+            {/* Target Select */}
+            <div className="relative group">
+              <select
+                value={targetLang}
+                onChange={(e) => setTargetLang(e.target.value)}
+                className="w-full appearance-none bg-gradient-to-r from-indigo-900/80 to-purple-900/80 hover:from-indigo-800 hover:to-purple-800 border border-purple-500/30 rounded-xl px-5 py-4 font-semibold text-white cursor-pointer focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 text-lg transition-all shadow-lg"
+              >
+                <LanguageOptions />
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-purple-200">
+                <span className="text-sm">▼</span>
               </div>
             </div>
           </div>
 
           {/* Content Area */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-indigo-100/50 min-h-[280px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/5 min-h-[350px]">
 
             {/* SOURCE INPUT */}
-            <div className="p-5 md:p-6 flex flex-col relative group">
+            <div className="p-6 md:p-8 flex flex-col relative">
               <textarea
-                rows="6"
-                placeholder={`Type in ${sourceLang === 'en' ? 'English' : 'selected language'} or use voice...`}
+                rows="8"
+                placeholder="Enter text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                className="w-full flex-1 bg-transparent border-0 resize-none focus:ring-0 text-xl text-gray-800 placeholder:text-gray-400 leading-relaxed font-medium"
+                className="w-full flex-1 bg-transparent border-0 resize-none focus:ring-0 text-2xl md:text-3xl text-white placeholder:text-slate-500 leading-relaxed font-normal z-10"
                 spellCheck="false"
               />
 
               {/* Source Actions */}
-              <div className="flex items-center justify-between mt-2">
-                <div className="flex items-center gap-2 h-8">
-                  {isListening && (
-                    <span className="flex items-center gap-2 text-xs font-bold text-red-500 animate-pulse bg-red-50 px-3 py-1 rounded-full border border-red-100">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                      Listening...
-                    </span>
+              <div className="flex items-center justify-between mt-6 relative z-10">
+                <div className="flex items-center gap-3">
+                  {/* Listening Indicator */}
+                  {isListening ? (
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 text-red-300 animate-pulse">
+                      <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                      <span className="text-sm font-bold tracking-wide">LISTENING</span>
+                    </div>
+                  ) : (
+                    <div className="h-9"></div> // Spacer
                   )}
                 </div>
-                <div className="flex items-center gap-2">
+
+                <div className="flex items-center gap-3">
                   {text && (
                     <button
                       onClick={() => speakText(text, sourceLang)}
-                      className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors"
-                      title="Listen to input"
+                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      <Volume2 size={18} />
+                      <Volume2 size={24} />
                     </button>
                   )}
                   <button
                     onClick={isListening ? stopListening : startListening}
-                    className={`p-2.5 rounded-full transition-all shadow-sm ${isListening
-                        ? "bg-red-500 text-white shadow-red-200 scale-110"
-                        : "bg-white border border-gray-100 text-gray-500 hover:text-indigo-600 hover:shadow-md hover:scale-105"
+                    className={`p-4 rounded-full transition-all shadow-lg border ${isListening
+                        ? "bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.4)] scale-110"
+                        : "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:border-indigo-400 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)]"
                       }`}
-                    title={isListening ? "Stop Listening" : `Speak in ${sourceLang}`}
                   >
-                    {isListening ? <MicOff size={20} /> : <Mic size={20} />}
+                    {isListening ? <MicOff size={24} /> : <Mic size={24} />}
                   </button>
                 </div>
               </div>
             </div>
 
             {/* TARGET OUTPUT */}
-            <div className="p-5 md:p-6 bg-indigo-50/40 flex flex-col justify-between relative overflow-hidden">
-              {/* Decorative Background Element */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-
+            <div className="p-6 md:p-8 flex flex-col justify-between relative bg-white/[0.02]">
               {translatedText ? (
                 <>
-                  <div className="flex-1 relative z-10">
-                    <p className="text-xl text-indigo-900 font-medium leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-500">
+                  <div className="flex-1 relative z-10 overflow-y-auto">
+                    <p className="text-2xl md:text-3xl font-normal text-indigo-100 leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-500">
                       {translatedText}
                     </p>
                   </div>
 
                   {/* Target Actions */}
-                  <div className="flex items-center justify-end gap-2 mt-2 pt-3 border-t border-indigo-100/50 relative z-10">
+                  <div className="flex items-center justify-end gap-3 mt-6 relative z-10">
                     <button
                       onClick={() => speakText(translatedText, targetLang)}
-                      className="p-2 text-indigo-400 hover:text-indigo-700 hover:bg-indigo-100 rounded-full transition-colors"
-                      title="Listen to translation"
+                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      <Volume2 size={20} />
+                      <Volume2 size={24} />
                     </button>
                     <button
                       onClick={() => copyToClipboard(translatedText)}
-                      className="p-2 text-indigo-400 hover:text-indigo-700 hover:bg-indigo-100 rounded-full transition-colors"
-                      title="Copy translation"
+                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      {copied ? <Check size={20} className="text-green-500" /> : <Copy size={20} />}
+                      {copied ? <Check size={24} className="text-green-400" /> : <Copy size={24} />}
                     </button>
                   </div>
                 </>
               ) : (
-                <div className="flex-1 flex flex-col items-center justify-center text-gray-300 space-y-3 select-none relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center">
-                    <Sparkles size={24} className="text-indigo-200" />
-                  </div>
-                  <p className="font-medium text-base text-indigo-200/80">Translation appears here</p>
+                <div className="flex-1 flex flex-col items-center justify-center text-slate-600 space-y-4 select-none">
+                  {/* Optional empty state graphic */}
+                  <p className="font-medium text-lg tracking-wide opacity-50">Translation will appear here</p>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Translate Button Bar */}
-          <div className="p-3 bg-white/40 border-t border-indigo-50/50">
+          {/* Translate Button Area */}
+          <div className="p-4 bg-white/5 border-t border-white/5 backdrop-blur-md">
             <button
               onClick={handleTranslate}
               disabled={loading || !text.trim()}
-              className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white text-lg font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-200/50 transform transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group"
+              className="w-full bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-600 hover:from-fuchsia-500 hover:via-purple-500 hover:to-indigo-500 text-white text-lg font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(192,38,211,0.3)] transform transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 group relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               {loading ? (
                 <>
-                  <div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin" />
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   <span>Translating...</span>
                 </>
               ) : (
                 <>
-                  <span>Translate</span>
-                  <ArrowRightLeft size={18} className="group-hover:rotate-180 transition-transform duration-500" />
+                  <span className="tracking-wide">Translate</span>
+                  <ArrowRightLeft size={20} className="group-hover:rotate-180 transition-transform duration-500" />
                 </>
               )}
             </button>
@@ -360,22 +362,22 @@ const Translator = () => {
 
         {/* Quick Phrases */}
         {presetPhrases.length > 0 && (
-          <div className="space-y-3 pt-2">
-            <h3 className="text-lg font-bold text-gray-800 ml-1 flex items-center gap-2 opacity-80">
-              <span className="text-xl">✨</span> Quick Phrases
+          <div className="pt-6">
+            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 ml-1 flex items-center gap-2">
+              <Sparkles size={16} className="text-yellow-400" /> Quick Phrases
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {presetPhrases.map((phrase, index) => (
                 <button
                   key={index}
                   onClick={() => handlePhraseClick(phrase)}
-                  className="group relative p-3 bg-white/60 backdrop-blur-sm hover:bg-white rounded-xl shadow-sm hover:shadow-indigo-100 border border-white/50 transition-all text-left duration-200"
+                  className="group relative p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all text-left duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-900/20 backdrop-blur-sm"
                 >
-                  <p className="font-semibold text-gray-800 group-hover:text-indigo-700 transition-colors text-sm">
+                  <p className="font-semibold text-indigo-100 group-hover:text-white transition-colors text-lg">
                     {phrase.english}
                   </p>
                   {phrase.hindi && (
-                    <p className="text-xs text-gray-500 mt-0.5 truncate">{phrase.hindi}</p>
+                    <p className="text-sm text-slate-400 mt-2 font-light">{phrase.hindi}</p>
                   )}
                 </button>
               ))}
