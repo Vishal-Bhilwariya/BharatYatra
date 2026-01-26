@@ -213,7 +213,7 @@ const Translator = () => {
         <div className="bg-white/5 backdrop-blur-2xl rounded-[2rem] border border-white/10 shadow-2xl shadow-indigo-900/20 overflow-hidden relative ring-1 ring-white/5">
 
           {/* Top Toolbar */}
-          <div className="p-6 grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] gap-4 items-center border-b border-white/5">
+          <div className="p-4 md:p-6 grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] gap-4 items-center border-b border-white/5">
 
             {/* Source Select */}
             <div className="relative group">
@@ -253,85 +253,85 @@ const Translator = () => {
           </div>
 
           {/* Content Area */}
-          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/5 min-h-[350px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-white/5 min-h-[50vh] lg:min-h-[400px]">
 
             {/* SOURCE INPUT */}
-            <div className="p-6 md:p-8 flex flex-col relative">
+            <div className="p-4 md:p-6 lg:p-8 flex flex-col relative h-full">
               <textarea
-                rows="8"
+                rows="6"
                 placeholder="Enter text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                className="w-full flex-1 bg-transparent border-0 resize-none focus:ring-0 text-2xl md:text-3xl text-white placeholder:text-slate-500 leading-relaxed font-normal z-10"
+                className="w-full flex-1 bg-transparent border-0 resize-none focus:ring-0 text-xl md:text-2xl lg:text-3xl text-white placeholder:text-slate-500 leading-relaxed font-normal z-10 min-h-[150px]"
                 spellCheck="false"
               />
 
               {/* Source Actions */}
-              <div className="flex items-center justify-between mt-6 relative z-10">
+              <div className="flex items-center justify-between mt-4 md:mt-6 relative z-10">
                 <div className="flex items-center gap-3">
                   {/* Listening Indicator */}
                   {isListening ? (
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 text-red-300 animate-pulse">
-                      <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                      <span className="text-sm font-bold tracking-wide">LISTENING</span>
+                    <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-red-500/20 border border-red-500/50 text-red-300 animate-pulse">
+                      <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500"></span>
+                      <span className="text-xs md:text-sm font-bold tracking-wide">LISTENING</span>
                     </div>
                   ) : (
-                    <div className="h-9"></div> // Spacer
+                    <div className="h-8 md:h-9"></div> // Spacer
                   )}
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-3">
                   {text && (
                     <button
                       onClick={() => speakText(text, sourceLang)}
-                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                      className="p-2 md:p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      <Volume2 size={24} />
+                      <Volume2 size={20} className="md:w-6 md:h-6" />
                     </button>
                   )}
                   <button
                     onClick={isListening ? stopListening : startListening}
-                    className={`p-4 rounded-full transition-all shadow-lg border ${isListening
-                        ? "bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.4)] scale-110"
-                        : "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:border-indigo-400 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)]"
+                    className={`p-3 md:p-4 rounded-full transition-all shadow-lg border ${isListening
+                      ? "bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.4)] scale-110"
+                      : "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:border-indigo-400 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)]"
                       }`}
                   >
-                    {isListening ? <MicOff size={24} /> : <Mic size={24} />}
+                    {isListening ? <MicOff size={20} className="md:w-6 md:h-6" /> : <Mic size={20} className="md:w-6 md:h-6" />}
                   </button>
                 </div>
               </div>
             </div>
 
             {/* TARGET OUTPUT */}
-            <div className="p-6 md:p-8 flex flex-col justify-between relative bg-white/[0.02]">
+            <div className="p-4 md:p-6 lg:p-8 flex flex-col justify-between relative bg-white/[0.02] min-h-[200px] lg:min-h-auto">
               {translatedText ? (
                 <>
-                  <div className="flex-1 relative z-10 overflow-y-auto">
-                    <p className="text-2xl md:text-3xl font-normal text-indigo-100 leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-500">
+                  <div className="flex-1 relative z-10 overflow-y-auto max-h-[40vh] lg:max-h-full">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-normal text-indigo-100 leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-500">
                       {translatedText}
                     </p>
                   </div>
 
                   {/* Target Actions */}
-                  <div className="flex items-center justify-end gap-3 mt-6 relative z-10">
+                  <div className="flex items-center justify-end gap-2 md:gap-3 mt-4 md:mt-6 relative z-10">
                     <button
                       onClick={() => speakText(translatedText, targetLang)}
-                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                      className="p-2 md:p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      <Volume2 size={24} />
+                      <Volume2 size={20} className="md:w-6 md:h-6" />
                     </button>
                     <button
                       onClick={() => copyToClipboard(translatedText)}
-                      className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                      className="p-2 md:p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
-                      {copied ? <Check size={24} className="text-green-400" /> : <Copy size={24} />}
+                      {copied ? <Check size={20} className="text-green-400 md:w-6 md:h-6" /> : <Copy size={20} className="md:w-6 md:h-6" />}
                     </button>
                   </div>
                 </>
               ) : (
                 <div className="flex-1 flex flex-col items-center justify-center text-slate-600 space-y-4 select-none">
                   {/* Optional empty state graphic */}
-                  <p className="font-medium text-lg tracking-wide opacity-50">Translation will appear here</p>
+                  <p className="font-medium text-base md:text-lg tracking-wide opacity-50">Translation will appear here</p>
                 </div>
               )}
             </div>
