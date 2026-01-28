@@ -94,15 +94,32 @@ const AdminAddCulture = () => {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (res.data?.data) {
-                const mergedData = { ...initialFormState, ...res.data.data };
-                if (typeof mergedData.stateId === "object") {
+                // Deep merge or manual mapping to ensure structure exists
+                const fetchedData = res.data.data;
+                const mergedData = {
+                    ...initialFormState,
+                    ...fetchedData,
+                    overview: { ...initialFormState.overview, ...fetchedData.overview },
+                    cuisine: { ...initialFormState.cuisine, ...fetchedData.cuisine },
+                    danceAndMusic: { ...initialFormState.danceAndMusic, ...fetchedData.danceAndMusic },
+                    traditionalAttire: { ...initialFormState.traditionalAttire, ...fetchedData.traditionalAttire },
+                    heritageAndTraditions: { ...initialFormState.heritageAndTraditions, ...fetchedData.heritageAndTraditions },
+                };
+
+                if (typeof mergedData.stateId === "object" && mergedData.stateId) {
                     mergedData.stateId = mergedData.stateId._id;
                 }
                 setFormData(mergedData);
             }
         } catch (error) {
             console.error("Error fetching culture data", error);
-            alert("Error loading culture data");
+            if (error.response && error.response.status === 401) {
+                alert("Session expired. Please log in again.");
+                localStorage.removeItem("adminToken");
+                navigate("/admin/login");
+            } else {
+                alert(`Error loading culture data: ${error.response?.data?.message || error.message}`);
+            }
         } finally {
             setDataLoading(false);
         }

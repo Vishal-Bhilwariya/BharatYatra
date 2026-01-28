@@ -28,6 +28,7 @@ const seedCulture = async () => {
         // 2. Prepare Dummy Data
         const dummyData = {
             stateId: state._id,
+            stateName: stateName,
             overview: {
                 introduction: "Uttar Pradesh is the rainbow land where the multi-hued Indian Culture has blossomed from times immemorial. Blessed with a variety of geographical land and many cultural biodiversities, UP has been the area of activity of historical heroes like Rama, Krishna, Buddha, Taj Mahal and the British Raj.",
                 lifestyle: "The lifestyle is deeply rooted in tradition, with a blend of rural simplicity and urban modernization. Family values are paramount, and hospitality (Mehman-nawazi) is a way of life.",

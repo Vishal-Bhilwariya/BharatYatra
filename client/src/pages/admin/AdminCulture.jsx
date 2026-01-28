@@ -17,7 +17,7 @@ const AdminCulture = () => {
   const fetchStates = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      
+
       if (!token) {
         console.warn("No admin token found, using public route for states");
         const res = await api.get("/states");
@@ -45,14 +45,14 @@ const AdminCulture = () => {
   const fetchCultures = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      
+
       // Try public route first since cultures might not need admin auth
       try {
         const res = await api.get("/cultures");
         setCultures(res.data?.data || res.data || []);
       } catch (error) {
         console.error("Public cultures route failed:", error.response?.data || error.message);
-        
+
         // If public fails and we have token, try admin route
         if (token) {
           try {
@@ -161,19 +161,19 @@ const AdminCulture = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Festivals:</span>
                     <span className="font-medium text-gray-900">
-                      {culture.hinduCulture?.festivals?.length || 0}
+                      {culture.festivals?.length || 0}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Traditions:</span>
                     <span className="font-medium text-gray-900">
-                      {culture.hinduCulture?.traditions?.length || 0}
+                      {culture.heritageAndTraditions?.customs?.length || 0}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Rituals:</span>
                     <span className="font-medium text-gray-900">
-                      {culture.hinduCulture?.rituals?.length || 0}
+                      {culture.heritageAndTraditions?.rituals?.length || 0}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">

@@ -8,6 +8,10 @@ const cultureSchema = new mongoose.Schema(
       required: true,
       unique: true, // One culture entry per state
     },
+    stateName: { // Added for easier identification in info
+      type: String,
+      required: true,
+    },
 
     // 1. Short Cultural Summary (Overview)
     overview: {
