@@ -3,32 +3,49 @@ const mongoose = require("mongoose");
 const connectDB = require("../config/db");
 const State = require("../models/State");
 const Culture = require("../models/Culture");
+const fs = require('fs');
 
 const seedCulture = async () => {
     try {
+        const log = (msg) => fs.appendFileSync('seed_log_internal.txt', msg + '\n');
+        fs.writeFileSync('seed_log_internal.txt', 'Starting Seeding...\n');
+
         await connectDB();
 
         // 1. Find or Create Bihar State
         const stateName = "BIHAR"; // STRICTLY as requested
-        let state = await State.findOne({ name: stateName });
+        const stateSlug = "bihar";
+
+        // Try to find by slug OR name
+        let state = await State.findOne({
+            $or: [
+                { slug: stateSlug },
+                { name: stateName },
+                { name: "Bihar" } // Check "Bihar" too just in case
+            ]
+        });
 
         if (!state) {
-            console.log(`State '${stateName}' not found. Creating it...`);
+            log(`State '${stateName}' not found. Creating it...`);
             state = await State.create({
                 name: stateName,
-                slug: "bihar",
+                slug: stateSlug,
                 description: "The land of monasteries, ancient universities, and the birthplace of Buddhism and Jainism.",
                 image: "https://placehold.co/600x400?text=Bihar+State",
                 isActive: true
             });
         } else {
-            // Update existing state basic info if needed
+            log(`Found State by existing entry: ${state.name} (${state.slug})`);
+            // Update existing state basic info and ensure Name is capitalized if we want consistency
+            state.name = stateName;
+            state.slug = stateSlug;
             state.description = "The land of monasteries, ancient universities, and the birthplace of Buddhism and Jainism.";
             state.image = "https://placehold.co/600x400?text=Bihar+State";
+            state.isActive = true;
             await state.save();
         }
 
-        console.log(`Found State: ${state.name} (${state._id})`);
+        log(`Found State: ${state.name} (${state._id})`);
 
         // 2. Prepare Bihar Data
         const biharData = {
@@ -154,12 +171,12 @@ const seedCulture = async () => {
             { upsert: true, new: true, setDefaultsOnInsert: true }
         );
 
-        console.log(`SUCCESS: Culture data for ${stateName} seeded successfully!`);
-        console.log("Culture ID:", result._id);
+        log(`SUCCESS: Culture data for ${stateName} seeded successfully!`);
+        log("Culture ID: " + result._id);
 
         process.exit(0);
     } catch (error) {
-        console.error("ERROR Seeding Data:", error);
+        fs.appendFileSync('seed_log_internal.txt', 'ERROR: ' + error.message + '\nStack: ' + error.stack);
         process.exit(1);
     }
 };
