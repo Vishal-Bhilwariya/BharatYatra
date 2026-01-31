@@ -1,5 +1,0 @@
-Starting Seeding...
-Found State by existing entry: Bihar (bihar)
-Found State: BIHAR (6955591a637f7ff7271e2adc)
-SUCCESS: Culture data for BIHAR seeded successfully!
-Culture ID: 697d74c4ae8653633041443f

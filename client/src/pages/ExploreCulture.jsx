@@ -9,12 +9,27 @@ import {
 
 // Hardcoded Region Mapping since Backend doesn't have it yet
 const REGIONS = {
-  "North India": ["Jammu and Kashmir", "Himachal Pradesh", "Punjab", "Haryana", "Delhi", "Uttar Pradesh", "Uttarakhand", "Rajasthan"],
-  "South India": ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh", "Telangana"],
-  "East India": ["West Bengal", "Odisha", "Bihar", "Jharkhand"],
-  "West India": ["Maharashtra", "Gujarat", "Goa"],
-  "Central India": ["Madhya Pradesh", "Chhattisgarh"],
-  "North East India": ["Assam", "Sikkim", "Meghalaya", "Arunachal Pradesh", "Nagaland", "Manipur", "Mizoram", "Tripura"]
+  "North India": [
+    "Jammu and Kashmir", "Himachal Pradesh", "Punjab", "Haryana", "Delhi",
+    "Uttar Pradesh", "Uttarakhand", "Rajasthan", "Chandigarh", "Ladakh"
+  ],
+  "South India": [
+    "Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh", "Telangana",
+    "Lakshadweep", "Puducherry", "Andaman and Nicobar Islands"
+  ],
+  "East India": [
+    "West Bengal", "Odisha", "Bihar", "Jharkhand"
+  ],
+  "West India": [
+    "Maharashtra", "Gujarat", "Goa", "Dadra and Nagar Haveli and Daman and Diu"
+  ],
+  "Central India": [
+    "Madhya Pradesh", "Chhattisgarh"
+  ],
+  "North East India": [
+    "Assam", "Sikkim", "Meghalaya", "Arunachal Pradesh", "Nagaland",
+    "Manipur", "Mizoram", "Tripura"
+  ]
 };
 
 // Section Icons Map
@@ -132,10 +147,12 @@ const ExploreCulture = () => {
               <MapPin className="mr-2" /> States in {selectedRegion}
             </h2>
 
-            {/* Filter States for Region */}
+            {/* Filter States for Region - Case Insensitive */}
             {(() => {
               const regionStatesNames = REGIONS[selectedRegion];
-              const statesInRegion = allStates.filter(s => regionStatesNames.includes(s.name));
+              const statesInRegion = allStates.filter(s =>
+                regionStatesNames.some(rName => rName.toLowerCase() === s.name.toLowerCase())
+              );
 
               if (statesInRegion.length === 0) {
                 return <p className="text-gray-500 italic">No states found for this region in our database yet.</p>;

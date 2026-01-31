@@ -1,7 +1,0 @@
-Starting Verification...
-VERIFICATION SUCCESS: Found BIHAR State.
-State ID: 6955591a637f7ff7271e2adc
-Is Active: true
-Slug: bihar
-VERIFICATION SUCCESS: Found BIHAR Culture data.
-OVERALL SUCCESS
