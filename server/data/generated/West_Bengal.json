@@ -1,0 +1,1076 @@
+{
+    "state": {
+        "name": "West Bengal",
+        "slug": "west-bengal",
+        "description": "West Bengal, the 'Cultural Capital of India', is famous for its literature, Durga Puja, sweets, and the Sundarbans.",
+        "culturalSummary": "Bengali culture is synonymous with art, music (Rabindra Sangeet), literature, theater (Jatra), and an immense love for football and food.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Victoria_Memorial_Kolkata_1.jpg/800px-Victoria_Memorial_Kolkata_1.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "West Bengal",
+        "overview": {
+            "introduction": "A land of intellectuals, revolutionaries, and artists.",
+            "lifestyle": "Adda (intellectual exchange) is a way of life.",
+            "traditions": "Celebrate 13 festivals in 12 months (Baro Mashi Tero Parbon).",
+            "history": "Bengal Renaissance shaped modern Indian thought.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Victoria_Memorial_Kolkata_1.jpg/800px-Victoria_Memorial_Kolkata_1.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Famous for Maach-Bhaat (Fish and Rice) and sweets. Mustard oil and Panch Phoron spice mix are essential.",
+            "dishes": [
+                {
+                    "name": "Ilish Bhapa",
+                    "type": "Non-Veg",
+                    "priceRange": "₹400",
+                    "description": "Steamed Hilsa fish in mustard sauce.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Shoshey_Ilish_Bhapa.jpg/800px-Shoshey_Ilish_Bhapa.jpg"
+                },
+                {
+                    "name": "Rosogolla",
+                    "type": "Sweet",
+                    "priceRange": "₹15",
+                    "description": "Spongy cottage cheese balls in syrup.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Rasgullas.jpg/800px-Rasgullas.jpg"
+                },
+                {
+                    "name": "Mishti Doi",
+                    "type": "Sweet",
+                    "priceRange": "₹30",
+                    "description": "Sweet fermented yogurt.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mishti_Doi.jpg/800px-Mishti_Doi.jpg"
+                },
+                {
+                    "name": "Luchi Alur Dum",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Fried bread with potato curry.",
+                    "image": ""
+                },
+                {
+                    "name": "Kosha Mangsho",
+                    "type": "Non-Veg",
+                    "priceRange": "₹300",
+                    "description": "Spicy mutton curry.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Balaram Mullick",
+                "location": "Kolkata",
+                "famousFor": "Baked Rosogolla",
+                "priceRange": "₹100",
+                "rating": 4.8,
+                "timings": "7 AM - 10 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Chhau",
+                    "type": "Folk",
+                    "description": "Mask dance of Purulia.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chhau_Dance.jpg/800px-Chhau_Dance.jpg"
+                },
+                {
+                    "name": "Gaudiya Nritya",
+                    "type": "Classical",
+                    "description": "Bengal classical dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Rabindra Sangeet",
+                    "description": "Songs of Tagore.",
+                    "image": ""
+                },
+                {
+                    "name": "Baul",
+                    "description": "Mystic folk songs.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Ektara",
+                    "description": "One tring instrument.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Panjabi (Kurta) and Dhoti.",
+                "attire": [
+                    {
+                        "name": "Dhoti",
+                        "description": "White cloth."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Saree (Tant, Baluchari).",
+                "attire": [
+                    {
+                        "name": "Laal Paar Saree",
+                        "description": "White saree with red border."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Tant",
+                    "description": "Cotton."
+                },
+                {
+                    "name": "Baluchari",
+                    "description": "Silk with stories."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Durga Puja",
+                "celebrationTime": "September/October",
+                "significance": "Victory",
+                "description": "Grandest festival of Bengal.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Durga_Puja_Kolkata.jpg/800px-Durga_Puja_Kolkata.jpg"
+                ]
+            },
+            {
+                "name": "Poila Boishakh",
+                "celebrationTime": "April",
+                "significance": "New Year",
+                "description": "Bengali New Year.",
+                "images": []
+            },
+            {
+                "name": "Saraswati Puja",
+                "celebrationTime": "January/February",
+                "significance": "Learning",
+                "description": "Worship of Goddess of Knowledge.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Terracotta",
+                "type": "Clay",
+                "description": "Burnt clay art.",
+                "famousFor": "Bishnupur",
+                "images": []
+            },
+            {
+                "name": "Sholapith",
+                "type": "Craft",
+                "description": "Sponge wood craft.",
+                "famousFor": "Idols",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Annaprasan",
+                    "description": "First rice eating ceremony."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Sindoor Khela",
+                    "description": "Women play with vermilion on Dashami."
+                }
+            ],
+            "dailyLife": "Visiting fish market in morning.",
+            "values": "Intellectualism and art."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Victoria Memorial",
+                "type": "Monument",
+                "location": "Kolkata",
+                "description": "British landmark.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Victoria_Memorial_Kolkata_1.jpg/800px-Victoria_Memorial_Kolkata_1.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Nobel Laureates",
+                "content": "Bengal has produced multiple Nobel laureates including Rabindranath Tagore and Amartya Sen."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Durga Puja",
+                    "priority": 1,
+                    "date": "2025-09-28",
+                    "significance": "Cultural",
+                    "images": [],
+                    "audience": [
+                        "Everyone"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Kolkata",
+            "slug": "kolkata",
+            "description": "City of Joy.",
+            "history": "British Capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Victoria_Memorial_Kolkata_1.jpg/800px-Victoria_Memorial_Kolkata_1.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Victoria Memorial",
+                    "category": "heritage",
+                    "description": "White marble museum.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹30",
+                    "location": "Maidan",
+                    "isActive": true
+                },
+                {
+                    "name": "Howrah Bridge",
+                    "category": "heritage",
+                    "description": "Cantilever bridge.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "River Hooghly",
+                    "isActive": true
+                },
+                {
+                    "name": "Dakshineswar Kali Temple",
+                    "category": "temple",
+                    "description": "Ramakrishna Paramhansa.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "Free",
+                    "location": "Dakshineswar",
+                    "isActive": true
+                },
+                {
+                    "name": "Belur Math",
+                    "category": "temple",
+                    "description": "Ramakrishna Mission HQ.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Belur",
+                    "isActive": true
+                },
+                {
+                    "name": "Indian Museum",
+                    "category": "museum",
+                    "description": "Oldest museum.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Park Street",
+                    "isActive": true
+                },
+                {
+                    "name": "Eden Gardens",
+                    "category": "other",
+                    "description": "Cricket stadium.",
+                    "images": [],
+                    "bestTimeToVisit": "Match Day",
+                    "entryFee": "Ticket",
+                    "location": "Maidan",
+                    "isActive": true
+                },
+                {
+                    "name": "College Street",
+                    "category": "culture",
+                    "description": "Book market.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "College Square",
+                    "isActive": true
+                },
+                {
+                    "name": "Eco Park",
+                    "category": "nature",
+                    "description": "Urban park.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹30",
+                    "location": "New Town",
+                    "isActive": true
+                },
+                {
+                    "name": "Kalighat Temple",
+                    "category": "temple",
+                    "description": "Shakti Peeth.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Kalighat",
+                    "isActive": true
+                },
+                {
+                    "name": "Princep Ghat",
+                    "category": "nature",
+                    "description": "Riverfront.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "River",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Kathi Roll",
+                    "type": "non-veg",
+                    "description": "Wrap.",
+                    "famousFor": "Nizam's",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Phuchka",
+                    "type": "veg",
+                    "description": "Spicy water balls.",
+                    "famousFor": "Vivekananda Park",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Biryani",
+                    "type": "non-veg",
+                    "description": "With potato.",
+                    "famousFor": "Arsalan",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Rosogolla",
+                    "type": "sweet",
+                    "description": "K.C. Das.",
+                    "famousFor": "K.C. Das",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Telebhaja",
+                    "type": "veg",
+                    "description": "Fritters.",
+                    "famousFor": "Kalika",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "CCU Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Howrah/Sealdah",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Kolkata Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹15",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "Tram/Bus",
+                    "connectivity": "City",
+                    "approxCost": "₹10",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Yellow Taxi",
+                    "connectivity": "City",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Darjeeling",
+            "slug": "darjeeling",
+            "description": "Queen of Hills.",
+            "history": "Tea.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Darjeeling_Toy_Train.jpg/800px-Darjeeling_Toy_Train.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tiger Hill",
+                    "category": "nature",
+                    "description": "Sunrise.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Batasia Loop",
+                    "category": "heritage",
+                    "description": "War memorial.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Himalayan Mountaineering Institute",
+                    "category": "museum",
+                    "description": "Mountaineering.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Padmaja Naidu Zoo",
+                    "category": "nature",
+                    "description": "Red Panda.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Happy Valley Tea Estate",
+                    "category": "nature",
+                    "description": "Tea garden.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Darjeeling Tea",
+                    "type": "beverage",
+                    "description": "Champagne of teas.",
+                    "famousFor": "Nathmulls",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Momos",
+                    "type": "non-veg",
+                    "description": "Pork/Chicken.",
+                    "famousFor": "Kunga",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Thukpa",
+                    "type": "non-veg",
+                    "description": "Soup.",
+                    "famousFor": "Dekevas",
+                    "approxPrice": "₹120",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Toy Train",
+                    "connectivity": "NJP",
+                    "approxCost": "₹1000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Siliguri",
+            "slug": "siliguri",
+            "description": "Gateway to NE.",
+            "history": "Trade.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Coronation_Bridge.jpg/800px-Coronation_Bridge.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Coronation Bridge",
+                    "category": "heritage",
+                    "description": "Sevoke.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Hong Kong Market",
+                    "category": "other",
+                    "description": "Cheap electronics.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bengal Safari",
+                    "category": "nature",
+                    "description": "Wildlife park.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Salugara Monastery",
+                    "category": "temple",
+                    "description": "Stupa.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Momos",
+                    "type": "veg",
+                    "description": "Street.",
+                    "famousFor": "Bidhan Market",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bengali Thali",
+                    "type": "veg",
+                    "description": "Rice fish.",
+                    "famousFor": "Kalpana",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "NJP Station",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "flight",
+                    "description": "Bagdogra Airport",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Digha",
+            "slug": "digha",
+            "description": "Beach Town.",
+            "history": "Resort.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/New_Digha_Beach.jpg/800px-New_Digha_Beach.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "New Digha Beach",
+                    "category": "nature",
+                    "description": "Sea.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Marine Aquarium",
+                    "category": "museum",
+                    "description": "Fish.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Udaipur Beach",
+                    "category": "nature",
+                    "description": "Quiet.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Amarabati Park",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Fried Fish",
+                    "type": "non-veg",
+                    "description": "Fresh catch.",
+                    "famousFor": "Beach",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Crab Curry",
+                    "type": "non-veg",
+                    "description": "Spicy.",
+                    "famousFor": "Hotel",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Digha Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Murshidabad",
+            "slug": "murshidabad",
+            "description": "Nawabi History.",
+            "history": "Siraj-ud-Daulah.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hazarduari_Palace.jpg/800px-Hazarduari_Palace.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Hazarduari Palace",
+                    "category": "heritage",
+                    "description": "1000 doors.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Katra Mosque",
+                    "category": "heritage",
+                    "description": "Tomb.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kathgola Gardens",
+                    "category": "heritage",
+                    "description": "Garden.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Motijheel",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Chanabora",
+                    "type": "sweet",
+                    "description": "Burnt sweet.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mughlai Paratha",
+                    "type": "non-veg",
+                    "description": "Egg stuffed.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Murshidabad Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹100",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Shantiniketan",
+            "slug": "shantiniketan",
+            "description": "Abode of Peace.",
+            "history": "Tagore.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Upasana_Griha.jpg/800px-Upasana_Griha.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Visva Bharati University",
+                    "category": "heritage",
+                    "description": "Open air school.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Upasana Griha",
+                    "category": "temple",
+                    "description": "Prayer hall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kala Bhavana",
+                    "category": "culture",
+                    "description": "Art college.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sonajhuri Haat",
+                    "category": "culture",
+                    "description": "Market.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Baul Gan",
+                    "type": "other",
+                    "description": "Food for soul.",
+                    "famousFor": "Haat",
+                    "approxPrice": "N/A",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pithe",
+                    "type": "sweet",
+                    "description": "Rice cake.",
+                    "famousFor": "Winter",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Bolpur Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Bishnupur",
+            "slug": "bishnupur",
+            "description": "Terracotta City.",
+            "history": "Malla Kings.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Rasmancha_Bishnupur.jpg/800px-Rasmancha_Bishnupur.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Rasmancha",
+                    "category": "heritage",
+                    "description": "Stage.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jorebangla Temple",
+                    "category": "temple",
+                    "description": "Terracotta.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Madan Mohan Temple",
+                    "category": "temple",
+                    "description": "Krishna.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mecha Sandesh",
+                    "type": "sweet",
+                    "description": "Traditional.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Bishnupur Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Kalimpong",
+            "slug": "kalimpong",
+            "description": "Orchid Town.",
+            "history": "Colonial.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Deolo_Hill.jpg/800px-Deolo_Hill.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Deolo Hill",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Cactus Nursery",
+                    "category": "nature",
+                    "description": "Succulents.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Durpin Monastery",
+                    "category": "temple",
+                    "description": "Zang Dhok Palri.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Lollipop",
+                    "type": "sweet",
+                    "description": "Candy.",
+                    "famousFor": "Lark's",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Cheese",
+                    "type": "veg",
+                    "description": "Kalimpong Cheese.",
+                    "famousFor": "Dairy",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Cab",
+                    "connectivity": "Siliguri",
+                    "approxCost": "₹2000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Malda",
+            "slug": "malda",
+            "description": "Mango City.",
+            "history": "Gaur.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Adina_Mosque.jpg/800px-Adina_Mosque.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Adina Mosque",
+                    "category": "heritage",
+                    "description": "Ruins.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Gaur",
+                    "category": "heritage",
+                    "description": "Ancient capital.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Firoz Minar",
+                    "category": "heritage",
+                    "description": "Tower.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mango",
+                    "type": "veg",
+                    "description": "Himsagar/Langra.",
+                    "famousFor": "Summer",
+                    "approxPrice": "₹40/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Rosakadamba",
+                    "type": "sweet",
+                    "description": "Sweet.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Malda Town",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Cooch Behar",
+            "slug": "cooch-behar",
+            "description": "Royal City.",
+            "history": "Koch dynasty.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cooch_Behar_Palace.jpg/800px-Cooch_Behar_Palace.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Cooch Behar Palace",
+                    "category": "heritage",
+                    "description": "Italian style.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Madan Mohan Bari",
+                    "category": "temple",
+                    "description": "Temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sagar Dighi",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Momo",
+                    "type": "non-veg",
+                    "description": "Local.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "New Cooch Behar",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Sundarbans",
+            "slug": "sundarbans",
+            "description": "Mangrove Forest.",
+            "history": "Tiger.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Royal_Bengal_Tiger_at_Sundarbans.jpg/800px-Royal_Bengal_Tiger_at_Sundarbans.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Sajnekhali",
+                    "category": "nature",
+                    "description": "Watchtower.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sudhanyakhali",
+                    "category": "nature",
+                    "description": "Tiger spotting.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dobanki",
+                    "category": "nature",
+                    "description": "Canopy walk.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Crab",
+                    "type": "non-veg",
+                    "description": "Fresh.",
+                    "famousFor": "Boat",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Honey",
+                    "type": "veg",
+                    "description": "Wild.",
+                    "famousFor": "Forest",
+                    "approxPrice": "₹300/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "other",
+                    "description": "Boat",
+                    "connectivity": "Gadkhali",
+                    "approxCost": "Package",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

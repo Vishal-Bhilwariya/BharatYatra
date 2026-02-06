@@ -1,0 +1,1241 @@
+{
+    "state": {
+        "name": "Rajasthan",
+        "slug": "rajasthan",
+        "description": "Rajasthan, the 'Land of Kings', is India's largest state, renowned for its majestic forts, palaces, desert landscapes, and vibrant culture.",
+        "culturalSummary": "Rajasthan's culture is a colorful tapestry of royalty, folk music (Kalbeliya, Ghoomar), exquisite handicrafts, and spicy cuisine.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Hawa_Mahal_2011.jpg/800px-Hawa_Mahal_2011.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Rajasthan",
+        "overview": {
+            "introduction": "A land of chivalry and romance, Rajasthan is famous for its golden sands and historical grandeur.",
+            "lifestyle": "Traditional yet adapting to modern tourism.",
+            "traditions": "Atithi Devo Bhava (Guest is God) is deeply ingrained.",
+            "history": "Ruled by Rajput clans like Rathores, Chauhans, and Sisodias.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Hawa_Mahal_2011.jpg/800px-Hawa_Mahal_2011.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Spicy and rich, designed to last in desert conditions. Use of milk, buttermilk, and ghee is prominent.",
+            "dishes": [
+                {
+                    "name": "Dal Baati Churma",
+                    "type": "Veg",
+                    "priceRange": "₹250",
+                    "description": "Lentils, wheat balls, and sweetened cereal.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Dal_batti_churma.jpg/800px-Dal_batti_churma.jpg"
+                },
+                {
+                    "name": "Laal Maas",
+                    "type": "Non-Veg",
+                    "priceRange": "₹350",
+                    "description": "Fiery mutton curry.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Laal_Maas.jpg/800px-Laal_Maas.jpg"
+                },
+                {
+                    "name": "Gatte ki Sabzi",
+                    "type": "Veg",
+                    "priceRange": "₹150",
+                    "description": "Gram flour dumplings in yogurt gravy.",
+                    "image": ""
+                },
+                {
+                    "name": "Ker Sangri",
+                    "type": "Veg",
+                    "priceRange": "₹200",
+                    "description": "Desert berry and bean vegetable.",
+                    "image": ""
+                },
+                {
+                    "name": "Ghevar",
+                    "type": "Sweet",
+                    "priceRange": "₹300/kg",
+                    "description": "Disc-shaped sweet cake.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Laxmi Mishthan Bhandar",
+                "location": "Jaipur",
+                "famousFor": "Ghevar",
+                "priceRange": "₹500",
+                "rating": 4.8,
+                "timings": "8 AM - 10 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Ghoomar",
+                    "type": "Folk",
+                    "description": "Women twirling in skirts.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ghoomar_dance.jpg/800px-Ghoomar_dance.jpg"
+                },
+                {
+                    "name": "Kalbeliya",
+                    "type": "Folk",
+                    "description": "Snake charmer dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Maand",
+                    "description": "Folk singing style.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Ravanahatha",
+                    "description": "Ancient string instrument.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Dhoti, Kurta, and Pagri (Turban).",
+                "attire": [
+                    {
+                        "name": "Bandhgala",
+                        "description": "Jodhpuri suit."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Ghagra Choli and Odhni.",
+                "attire": [
+                    {
+                        "name": "Ghagra",
+                        "description": "Long skirt."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Bandhani",
+                    "description": "Tie and dye."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Pushkar Camel Fair",
+                "celebrationTime": "November",
+                "significance": "Trade",
+                "description": "Largest camel fair.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pushkar_Camel_Fair.jpg/800px-Pushkar_Camel_Fair.jpg"
+                ]
+            },
+            {
+                "name": "Teej",
+                "celebrationTime": "August",
+                "significance": "Monsoon",
+                "description": "Women's festival.",
+                "images": []
+            },
+            {
+                "name": "Gangaur",
+                "celebrationTime": "March/April",
+                "significance": "Marriage",
+                "description": "Worship of Gauri.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Blue Pottery",
+                "type": "Pottery",
+                "description": "Turquoise glazed pottery.",
+                "famousFor": "Jaipur",
+                "images": []
+            },
+            {
+                "name": "Block Printing",
+                "type": "Textile",
+                "description": "Bagru and Sanganer prints.",
+                "famousFor": "Fabrics",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Manuhaar",
+                    "description": "Insisting guests to eat more."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Sati",
+                    "description": "Historical practice (now banned)."
+                }
+            ],
+            "dailyLife": "Artisanal work and tourism.",
+            "values": "Honor (Aan-Baan-Shan) and bravery."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Amber Fort",
+                "type": "Fort",
+                "location": "Jaipur",
+                "description": "Hilltop fort.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Amber_Fort_Jaipur.jpg/800px-Amber_Fort_Jaipur.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Palace on Wheels",
+                "content": "Rajasthan is home to one of the most luxurious trains in the world, the Palace on Wheels."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Pushkar Fair",
+                    "priority": 1,
+                    "date": "2025-11-04",
+                    "significance": "Cultural",
+                    "images": [],
+                    "audience": [
+                        "Tourist"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Jaipur",
+            "slug": "jaipur",
+            "description": "Pink City.",
+            "history": "Maharaja Sawai Jai Singh II.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Hawa_Mahal_2011.jpg/800px-Hawa_Mahal_2011.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Hawa Mahal",
+                    "category": "heritage",
+                    "description": "Palace of Winds.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "₹50",
+                    "location": "Badi Choupad",
+                    "isActive": true
+                },
+                {
+                    "name": "Amber Fort",
+                    "category": "fort",
+                    "description": "Maota Lake view.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹100",
+                    "location": "Amer",
+                    "isActive": true
+                },
+                {
+                    "name": "City Palace",
+                    "category": "heritage",
+                    "description": "Royal residence.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹200",
+                    "location": "Old City",
+                    "isActive": true
+                },
+                {
+                    "name": "Jantar Mantar",
+                    "category": "heritage",
+                    "description": "Observatory.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "City Palace",
+                    "isActive": true
+                },
+                {
+                    "name": "Nahargarh Fort",
+                    "category": "fort",
+                    "description": "Sunset view.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹50",
+                    "location": "Hills",
+                    "isActive": true
+                },
+                {
+                    "name": "Albert Hall Museum",
+                    "category": "museum",
+                    "description": "State museum.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹40",
+                    "location": "Ram Niwas Garden",
+                    "isActive": true
+                },
+                {
+                    "name": "Jal Mahal",
+                    "category": "heritage",
+                    "description": "Water palace.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free (View)",
+                    "location": "Man Sagar Lake",
+                    "isActive": true
+                },
+                {
+                    "name": "Patrika Gate",
+                    "category": "heritage",
+                    "description": "Instagram spot.",
+                    "images": [],
+                    "bestTimeToVisit": "Always",
+                    "entryFee": "Free",
+                    "location": "Airport Road",
+                    "isActive": true
+                },
+                {
+                    "name": "Birla Mandir",
+                    "category": "temple",
+                    "description": "White marble.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Tilak Nagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Bapu Bazar",
+                    "category": "other",
+                    "description": "Shopping.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Old City",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Pyaaz Kachori",
+                    "type": "veg",
+                    "description": "Onion pastry.",
+                    "famousFor": "Rawat",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Lassi",
+                    "type": "beverage",
+                    "description": "Clay pot yogurt.",
+                    "famousFor": "Lassiwala",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Dal Baati",
+                    "type": "veg",
+                    "description": "Traditional meal.",
+                    "famousFor": "Chokhi Dhani",
+                    "approxPrice": "₹500",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Ghevar",
+                    "type": "sweet",
+                    "description": "Honeycomb sweet.",
+                    "famousFor": "LMB",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Laal Maas",
+                    "type": "non-veg",
+                    "description": "Spicy mutton.",
+                    "famousFor": "Handi",
+                    "approxPrice": "₹400",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Jaipur International Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Jaipur Junction",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "RSRTC",
+                    "connectivity": "State",
+                    "approxCost": "₹100",
+                    "isActive": true
+                },
+                {
+                    "type": "auto",
+                    "description": "E-Rickshaw",
+                    "connectivity": "City",
+                    "approxCost": "₹20",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Jaipur Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹15",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Udaipur",
+            "slug": "udaipur",
+            "description": "City of Lakes.",
+            "history": "Mewar.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/City_Palace_Udaipur.jpg/800px-City_Palace_Udaipur.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "City Palace",
+                    "category": "heritage",
+                    "description": "Largest in Rajasthan.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lake Pichola",
+                    "category": "nature",
+                    "description": "Boating.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jag Mandir",
+                    "category": "heritage",
+                    "description": "Island palace.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Saheliyon Ki Bari",
+                    "category": "nature",
+                    "description": "Garden of maids.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bagore Ki Haveli",
+                    "category": "museum",
+                    "description": "Puppet show.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Dal Baati",
+                    "type": "veg",
+                    "description": "Thali.",
+                    "famousFor": "Krishna",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kachori",
+                    "type": "veg",
+                    "description": "Breakfast.",
+                    "famousFor": "Paliwal",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Jalebi",
+                    "type": "sweet",
+                    "description": "Hot sweet.",
+                    "famousFor": "Bhole Nath",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mutton Curry",
+                    "type": "non-veg",
+                    "description": "Spicy.",
+                    "famousFor": "Tribute",
+                    "approxPrice": "₹400",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Coffee",
+                    "type": "beverage",
+                    "description": "Lake view.",
+                    "famousFor": "Jheel",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Maharana Pratap Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Udaipur City",
+                    "connectivity": "Rail",
+                    "approxCost": "₹250",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Jodhpur",
+            "slug": "jodhpur",
+            "description": "Blue City.",
+            "history": "Marwar.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Mehrangarh_Fort.jpg/800px-Mehrangarh_Fort.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Mehrangarh Fort",
+                    "category": "fort",
+                    "description": "Massive fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jaswant Thada",
+                    "category": "heritage",
+                    "description": "White marble cenotaph.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Umaid Bhawan Palace",
+                    "category": "heritage",
+                    "description": "Hotel and museum.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mandore Gardens",
+                    "category": "nature",
+                    "description": "Ancient capital.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Toorji Ka Jhalra",
+                    "category": "heritage",
+                    "description": "Stepwell.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mirchi Bada",
+                    "type": "veg",
+                    "description": "Chilli fritter.",
+                    "famousFor": "Janta",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Makhaniya Lassi",
+                    "type": "beverage",
+                    "description": "Saffron yogurt.",
+                    "famousFor": "Mishrilal",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pyaaz Kachori",
+                    "type": "veg",
+                    "description": "Onion snack.",
+                    "famousFor": "Surya",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Gulab Jamun ki Sabzi",
+                    "type": "veg",
+                    "description": "Unique curry.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mawa Kachori",
+                    "type": "sweet",
+                    "description": "Sweet pastry.",
+                    "famousFor": "Jodhpur",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Jodhpur Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Jodhpur Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Jaisalmer",
+            "slug": "jaisalmer",
+            "description": "Golden City.",
+            "history": "Desert.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Jaisalmer_Fort.jpg/800px-Jaisalmer_Fort.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Jaisalmer Fort",
+                    "category": "fort",
+                    "description": "Living fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Patwon Ki Haveli",
+                    "category": "heritage",
+                    "description": "Architecutre.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sam Sand Dunes",
+                    "category": "nature",
+                    "description": "Safari.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Gadisar Lake",
+                    "category": "nature",
+                    "description": "Reservoir.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bada Bagh",
+                    "category": "heritage",
+                    "description": "Cenotaphs.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Ker Sangri",
+                    "type": "veg",
+                    "description": "Desert bean.",
+                    "famousFor": "Trio",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Gatte ki Sabzi",
+                    "type": "veg",
+                    "description": "Gram flour.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Murgh-e-Subz",
+                    "type": "non-veg",
+                    "description": "Chicken.",
+                    "famousFor": "Restaurant",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bhang Lassi",
+                    "type": "beverage",
+                    "description": "Legal here.",
+                    "famousFor": "Govt Shop",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Churma",
+                    "type": "sweet",
+                    "description": "Crumbled wheat.",
+                    "famousFor": "Thali",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Jaisalmer Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹250",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Pushkar",
+            "slug": "pushkar",
+            "description": "Rose Garden.",
+            "history": "Brahma.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Pushkar_Lake.jpg/800px-Pushkar_Lake.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Brahma Temple",
+                    "category": "temple",
+                    "description": "Rare temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pushkar Lake",
+                    "category": "nature",
+                    "description": "Holy water.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Savitri Temple",
+                    "category": "temple",
+                    "description": "Hilltop view.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Varaha Temple",
+                    "category": "temple",
+                    "description": "Ancient.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Camel Fair Ground",
+                    "category": "culture",
+                    "description": "Fair venue.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Malpua",
+                    "type": "sweet",
+                    "description": "Pancake.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kadhi Kachori",
+                    "type": "veg",
+                    "description": "Breakfast.",
+                    "famousFor": "Halwai",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Poha",
+                    "type": "veg",
+                    "description": "Flattened rice.",
+                    "famousFor": "Pushkar",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Falafel",
+                    "type": "veg",
+                    "description": "Israeli food.",
+                    "famousFor": "Ganga",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Lassi",
+                    "type": "beverage",
+                    "description": "Rose lassi.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Ajmer",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Ajmer",
+            "slug": "ajmer",
+            "description": "Heart of Rajasthan.",
+            "history": "Sufi.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Ajmer_Sharif_Dargah.jpg/800px-Ajmer_Sharif_Dargah.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Ajmer Sharif Dargah",
+                    "category": "temple",
+                    "description": "Sufi shrine.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ana Sagar Lake",
+                    "category": "nature",
+                    "description": "Artificial lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Adhai Din Ka Jhonpra",
+                    "category": "heritage",
+                    "description": "Mosque.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Taragarh Fort",
+                    "category": "fort",
+                    "description": "Hill fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nareli Jain Temple",
+                    "category": "temple",
+                    "description": "Modern architecture.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Sohan Halwa",
+                    "type": "sweet",
+                    "description": "Hard caramel.",
+                    "famousFor": "Dargah",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kadi Pakora",
+                    "type": "veg",
+                    "description": "Spicy.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Biryani",
+                    "type": "non-veg",
+                    "description": "Dargah style.",
+                    "famousFor": "Degh",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Ajmer Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Bikaner",
+            "slug": "bikaner",
+            "description": "Camel Country.",
+            "history": "Rao Bika.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Junagarh_Fort_Bikaner.jpg/800px-Junagarh_Fort_Bikaner.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Junagarh Fort",
+                    "category": "fort",
+                    "description": "Not hilltop.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Karni Mata Temple",
+                    "category": "temple",
+                    "description": "Rat temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "National Research Centre on Camel",
+                    "category": "nature",
+                    "description": "Camels.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lalgarh Palace",
+                    "category": "heritage",
+                    "description": "Red sandstone.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rampuria Haveli",
+                    "category": "heritage",
+                    "description": "Architecture.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Bikaneri Bhujia",
+                    "type": "veg",
+                    "description": "Crispy snack.",
+                    "famousFor": "Haldiram",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Rasgulla",
+                    "type": "sweet",
+                    "description": "Sponge.",
+                    "famousFor": "Chhotu Motu",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Raj Kachori",
+                    "type": "veg",
+                    "description": "King size.",
+                    "famousFor": "Bhikharam",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Bikaner Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mount Abu",
+            "slug": "mount-abu",
+            "description": "Hill Station.",
+            "history": "Oasis.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nakki_Lake_Mount_Abu.jpg/800px-Nakki_Lake_Mount_Abu.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Dilwara Temples",
+                    "category": "temple",
+                    "description": "Marble carving.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nakki Lake",
+                    "category": "nature",
+                    "description": "Boating.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Guru Shikhar",
+                    "category": "nature",
+                    "description": "Highest peak.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sunset Point",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Achalgarh Fort",
+                    "category": "fort",
+                    "description": "Ruins.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Rabri",
+                    "type": "sweet",
+                    "description": "Milk sweet.",
+                    "famousFor": "Abu",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Ice Cream",
+                    "type": "sweet",
+                    "description": "Soft serve.",
+                    "famousFor": "Lake",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Corn",
+                    "type": "veg",
+                    "description": "Roasted.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Abu Road Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Chittorgarh",
+            "slug": "chittorgarh",
+            "description": "Land of Valor.",
+            "history": "Sacrifice.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Chittorgarh_Fort_View.jpg/800px-Chittorgarh_Fort_View.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Chittorgarh Fort",
+                    "category": "fort",
+                    "description": "Largest fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Vijay Stambh",
+                    "category": "heritage",
+                    "description": "Victory tower.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kirti Stambh",
+                    "category": "heritage",
+                    "description": "Fame tower.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rani Padmini Palace",
+                    "category": "heritage",
+                    "description": "Legend.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Meera Temple",
+                    "category": "temple",
+                    "description": "Devotion.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Thali",
+                    "type": "veg",
+                    "description": "Rajasthani.",
+                    "famousFor": "Hotel",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Peda",
+                    "type": "sweet",
+                    "description": "Milk sweet.",
+                    "famousFor": "Station",
+                    "approxPrice": "₹300/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Chittorgarh Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Alwar",
+            "slug": "alwar",
+            "description": "Tiger Gate.",
+            "history": "Oldest.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Bala_Quila_Alwar.jpg/800px-Bala_Quila_Alwar.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Bala Quila",
+                    "category": "fort",
+                    "description": "Young fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sariska Tiger Reserve",
+                    "category": "nature",
+                    "description": "Wildlife.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Siliserh Lake",
+                    "category": "nature",
+                    "description": "Palace lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bhangarh Fort",
+                    "category": "fort",
+                    "description": "Haunted.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "City Palace",
+                    "category": "heritage",
+                    "description": "Museum.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Kalakand",
+                    "type": "sweet",
+                    "description": "Milk cake.",
+                    "famousFor": "Baba Thakur Das",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kachori",
+                    "type": "veg",
+                    "description": "Spicy.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Alwar Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

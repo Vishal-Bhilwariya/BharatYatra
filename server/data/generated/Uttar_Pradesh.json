@@ -1,0 +1,506 @@
+{
+    "state": {
+        "name": "Uttar Pradesh",
+        "slug": "uttar-pradesh",
+        "description": "Uttar Pradesh is culturally and historically significant.",
+        "culturalSummary": "Hindu traditions, festivals, and classical arts define culture.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Uttar Pradesh",
+        "overview": {
+            "introduction": "Uttar Pradesh is the rainbow land where the multi-hued Indian Culture has blossomed from times immemorial. Blessed with a variety of geographical land and many cultural biodiversities, UP has been the area of activity of historical heroes like Rama, Krishna, Buddha, Taj Mahal and the British Raj.",
+            "lifestyle": "The lifestyle is deeply rooted in tradition, with a blend of rural simplicity and urban modernization. Family values are paramount, and hospitality (Mehman-nawazi) is a way of life.",
+            "traditions": "From the Ganga Aarti in Varanasi to the Tehzeeb (etiquette) of Lucknow, UP is a melting pot of Hindu and Mughal traditions.",
+            "history": "Uttar Pradesh has been the cradle of Indian civilization, witnessing the rise and fall of empires like the Mauryas, Guptas, and Mughals.",
+            "images": [
+                "https://www.holidify.com/images/bgImages/UTTAR-PRADESH.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Awadhi and Mughlai cuisines are the jewels of UP. The state offers a royal feast of kebabs, biryanis, and rich vegetarian dishes.",
+            "dishes": [
+                {
+                    "name": "Galouti Kebab",
+                    "type": "Non-Veg",
+                    "priceRange": "₹250–₹500",
+                    "description": "Melt-in-the-mouth minced meat kebabs, originally made for a toothless Nawab.",
+                    "image": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Shaheen_Ali/Galouti_Kebab__Minced_Meat_Kebab.jpg"
+                },
+                {
+                    "name": "Peda",
+                    "type": "Sweet",
+                    "priceRange": "₹200–₹400/kg",
+                    "description": "A famous sweet from Mathura made of khoya and cardamom.",
+                    "image": "https://www.cookwithmanali.com/wp-content/uploads/2016/10/Kesar-Peda-Recipe-500x500.jpg"
+                },
+                {
+                    "name": "Tehri",
+                    "type": "Veg",
+                    "priceRange": "₹100–₹200",
+                    "description": "A yellow rice dish cooked with potatoes and vegetables, a staple in every household.",
+                    "image": "https://www.secondrecipe.com/wp-content/uploads/2017/08/tehri-recipe.jpg"
+                }
+            ]
+        },
+        "culturalPlaces": [
+            {
+                "name": "Taj Mahal",
+                "type": "Monument",
+                "location": "Agra",
+                "description": "An immense mausoleum of white marble, built in Agra between 1631 and 1648.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1200px-Taj_Mahal_%28Edited%29.jpeg"
+            },
+            {
+                "name": "Varanasi Ghats",
+                "type": "Religious Site",
+                "location": "Varanasi",
+                "description": "Riverfront steps leading to the banks of the River Ganges.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Varanasi_Ghats.jpg"
+            },
+            {
+                "name": "Bara Imambara",
+                "type": "Monument",
+                "location": "Lucknow",
+                "description": "A large complex built by Asaf-ud-Daula, Nawab of Awadh, in 1784.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Bara_Imambara_Lucknow.jpg"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Kathak",
+                    "type": "Classical",
+                    "description": "One of the eight major forms of Indian classical dance, originating from the bards of ancient northern India.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Kathak_Dance.jpg"
+                },
+                {
+                    "name": "Charkula",
+                    "type": "Folk",
+                    "description": "A dance performed in the Braj region where women balance oil lamps on their heads.",
+                    "image": "https://i.pinimg.com/736x/8d/f3/0f/8df30f8983637e72b435211993206412.jpg"
+                }
+            ],
+            "music": [
+                {
+                    "name": "Thumri",
+                    "description": "A semi-classical music form that originated in UP, often revolving around the love of Radha and Krishna."
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Tabla",
+                    "description": "A membranophone percussion instrument associated with Kathak and Hindustani classical music."
+                },
+                {
+                    "name": "Shehnai",
+                    "description": "Made famous by Ustad Bismillah Khan of Varanasi, played during weddings and auspicious occasions."
+                }
+            ]
+        },
+        "extraSections": [
+            {
+                "title": "Languages",
+                "content": "Hindi and Urdu are the official and most widely spoken languages using the Devanagari and Perso-Arabic scripts respectively. Awadhi, Braj, and Bhojpuri are popular dialects."
+            }
+        ],
+        "festivals": [
+            {
+                "name": "Kumbh Mela",
+                "celebrationTime": "Every 12 years",
+                "significance": "Largest peaceful gathering in the world.",
+                "description": "Millions of devotees gather to bathe in the sacred rivers.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kumbh_Mela_Allahabad_2013.jpg/1200px-Kumbh_Mela_Allahabad_2013.jpg"
+                ]
+            },
+            {
+                "name": "Holi in Braj",
+                "celebrationTime": "March",
+                "significance": "Festival of Colors",
+                "description": "Lathmar Holi in Barsana is particularly famous.",
+                "images": [
+                    "https://static.toiimg.com/photo/63080277.cms"
+                ]
+            },
+            {
+                "name": "Diwali in Ayodhya",
+                "celebrationTime": "October/November",
+                "significance": "Return of Lord Rama",
+                "description": "The city is lit up with millions of diyas (lamps).",
+                "images": [
+                    "https://i.ytimg.com/vi/Wk9L2j2Xf9Q/maxresdefault.jpg"
+                ]
+            }
+        ],
+        "foodShops": [
+            {
+                "name": "Tunday Kababi",
+                "location": "Lucknow",
+                "famousFor": "Galouti Kebab",
+                "priceRange": "₹150–₹300",
+                "rating": 5,
+                "timings": "11 AM - 11 PM"
+            },
+            {
+                "name": "Kashi Chat Bhandar",
+                "location": "Varanasi",
+                "famousFor": "Tamatar Chaat",
+                "priceRange": "₹50–₹150",
+                "rating": 4.8,
+                "timings": "12 PM - 10 PM"
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Ganga Aarti",
+                    "description": "Performed daily at dusk at the Dashashwamedh Ghat in Varanasi."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Mundan",
+                    "description": "First haircut ceremony for children, often performed at river banks."
+                }
+            ],
+            "dailyLife": "Many people start their day with visits to temples. In cities, the culture is a mix of modern hustle and traditional values.",
+            "values": "Respect for elders and communal harmony (Ganga-Jamuni Tehzeeb) are core values."
+        },
+        "isActive": true,
+        "traditionalAttire": {
+            "men": {
+                "description": "Traditional dress includes Kurta-Pajama or Dhoti-Kurta, often accompanied by a Gamcha or Topi.",
+                "attire": [
+                    {
+                        "name": "Kurta Pajama",
+                        "description": "Loose comfortable cotton wear."
+                    }
+                ]
+            },
+            "women": {
+                "description": "Sarees are the most common, especially the Banarasi Silk Saree which is world-famous.",
+                "attire": [
+                    {
+                        "name": "Banarasi Saree",
+                        "description": "Opulent silk sarees with gold and silver brocade."
+                    }
+                ]
+            },
+            "fabrics": [
+                {
+                    "name": "Chikankari",
+                    "description": "Delicate and shadow work embroidery from Lucknow."
+                }
+            ]
+        },
+        "culturalExperience": {
+            "liveEvents": [
+                {
+                    "name": "Kathak Dance Performance",
+                    "location": "Bhatkhande Music Institute, Lucknow",
+                    "date": "2024-11-20T12:30:00.000Z",
+                    "entryFee": "₹500",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Kathak_Dance.jpg",
+                    "audience": [
+                        "Tourist",
+                        "Family",
+                        "Music Lover"
+                    ]
+                },
+                {
+                    "name": "Ganga Aarti Live",
+                    "location": "Dashashwamedh Ghat, Varanasi",
+                    "date": "2024-11-21T13:00:00.000Z",
+                    "entryFee": "Free",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Varanasi_Ghats.jpg",
+                    "audience": [
+                        "Tourist",
+                        "Family",
+                        "Photographer"
+                    ]
+                }
+            ],
+            "foodTrails": [
+                {
+                    "name": "Lucknow Street Food Walk",
+                    "type": "Food Walk",
+                    "description": "Explore the best Tunday Kababs and Chaat in Aminabad.",
+                    "priceRange": "₹800",
+                    "duration": "3 Hours",
+                    "audience": [
+                        "Tourist",
+                        "Foodie"
+                    ]
+                }
+            ],
+            "workshops": [
+                {
+                    "name": "Pottery Making Workshop",
+                    "type": "Craft",
+                    "duration": "2 Hours",
+                    "price": "₹1200",
+                    "skillLevel": "Beginner",
+                    "audience": [
+                        "Student",
+                        "Family"
+                    ]
+                }
+            ],
+            "festivalCalendar": [
+                {
+                    "name": "Kumbh Mela",
+                    "priority": 1,
+                    "date": "2025-01-14T00:00:00.000Z",
+                    "significance": "Largest human gathering",
+                    "images": [
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kumbh_Mela_Allahabad_2013.jpg/1200px-Kumbh_Mela_Allahabad_2013.jpg"
+                    ],
+                    "audience": [
+                        "Tourist",
+                        "Researcher"
+                    ]
+                }
+            ]
+        },
+        "artAndHandicrafts": [
+            {
+                "name": "Chikankari",
+                "type": "Embroidery",
+                "description": "A traditional embroidery style from Lucknow.",
+                "famousFor": "Kurtas and Sarees",
+                "images": [
+                    "https://textilevaluechain.in/wp-content/uploads/2021/08/Chikankari-Embroidery.jpg"
+                ]
+            },
+            {
+                "name": "Brassware",
+                "type": "Metal Work",
+                "description": "Moradabad is known as the 'Brass City' for its famous brass handicrafts.",
+                "famousFor": "Vases and artifacts",
+                "images": []
+            }
+        ]
+    },
+    "cities": [
+        {
+            "name": "Lucknow",
+            "slug": "lucknow",
+            "description": "Lucknow is the capital city of Uttar Pradesh and a major cultural, administrative, and educational center known for its Nawabi heritage and refined lifestyle.",
+            "history": "Lucknow rose to prominence under the Nawabs of Awadh and played a significant role during the 1857 revolt.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Bara_Imambara_Lucknow.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Bara Imambara",
+                    "category": "heritage",
+                    "description": "Grand hall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rumi Darwaza",
+                    "category": "heritage",
+                    "description": "Gateway.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Tunday Kabab",
+                    "type": "non-veg",
+                    "description": "Soft meat kebab.",
+                    "famousFor": "Aminabad",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "CCSI Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Lucknow Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹30",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Varanasi",
+            "slug": "varanasi",
+            "description": "Varanasi is one of the oldest living cities in the world and a major spiritual hub situated on the banks of the Ganga River.",
+            "history": "Varanasi has been a center of learning and spirituality for over 3000 years.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Varanasi_Ghats_Ganga.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Kashi Vishwanath Temple",
+                    "category": "temple",
+                    "description": "Jyotirlinga.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sarnath",
+                    "category": "heritage",
+                    "description": "Buddha's first sermon.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Banarasi Paan",
+                    "type": "veg",
+                    "description": "Betel leaf.",
+                    "famousFor": "Shops",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Varanasi Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Agra",
+            "slug": "agra",
+            "description": "Agra is a historic city globally famous for the Taj Mahal.",
+            "history": "Mughal Capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Taj Mahal",
+                    "category": "heritage",
+                    "description": "Symbol of love.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Tajganj",
+                    "isActive": true
+                },
+                {
+                    "name": "Agra Fort",
+                    "category": "fort",
+                    "description": "Red sandstone fort.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹40",
+                    "location": "Rakabganj",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Petha",
+                    "type": "veg",
+                    "description": "Ash gourd sweet.",
+                    "famousFor": "Panchi Petha",
+                    "approxPrice": "₹200/kg",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Agra_Petha.jpg",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Agra Cantt",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Prayagraj",
+            "slug": "prayagraj",
+            "description": "Prayagraj is a sacred city located at the confluence of the Ganga, Yamuna, and Saraswati rivers.",
+            "history": "Formerly Allahabad.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Triveni_Sangam_Prayaagraj.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Triveni Sangam",
+                    "category": "nature",
+                    "description": "Confluence.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [],
+            "transports": []
+        },
+        {
+            "name": "Ayodhya",
+            "slug": "ayodhya",
+            "description": "Ayodhya is a revered religious city believed to be the birthplace of Lord Rama.",
+            "history": "Ramayana.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ram_Mandir_Ayodhya.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Ram Janmabhoomi",
+                    "category": "temple",
+                    "description": "Ram Mandir.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [],
+            "transports": []
+        },
+        {
+            "name": "Mathura",
+            "slug": "mathura",
+            "description": "Mathura is a holy city associated with the birth of Lord Krishna.",
+            "history": "Krishna Janmabhoomi.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Krishna_Janmabhoomi_Mathura.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Krishna Janmabhoomi",
+                    "category": "temple",
+                    "description": "Birthplace.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Peda",
+                    "type": "sweet",
+                    "description": "Milk sweet.",
+                    "famousFor": "Brijwasi",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": []
+        }
+    ]
+}

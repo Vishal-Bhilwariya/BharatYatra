@@ -1,0 +1,301 @@
+const fs = require('fs');
+const path = require('path');
+
+const stateData = {
+    state: {
+        name: "Madhya Pradesh",
+        slug: "madhya-pradesh",
+        description: "Madhya Pradesh, the 'Heart of India', is a land of tigers, temples, and historical marvels ranging from Sanchi Stupa to Khajuraho.",
+        culturalSummary: "The culture of MP is a melting pot of tribal traditions (Gond, Bhil) and rich Hindu heritage, celebrated in festivals like Khajuraho Dance Festival.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sanchi_Stupa_from_North.jpg/800px-Sanchi_Stupa_from_North.jpg",
+        isActive: true
+    },
+    culture: {
+        stateName: "Madhya Pradesh",
+        overview: {
+            introduction: "Centrally located, MP is dotted with forts, palaces, and nature reserves.",
+            lifestyle: "Slow-paced and hospitable.",
+            traditions: "Tribal arts and crafts are very prominent.",
+            history: "Ruled by Mauryas, Guptas, and Marathas, leaving behind a rich architectural legacy.",
+            images: ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sanchi_Stupa_from_North.jpg/800px-Sanchi_Stupa_from_North.jpg"]
+        },
+        cuisine: {
+            description: "A mix of Rajasthani (Dal Bafla) and Gujarati influences, with a love for poha and jalebi.",
+            dishes: [
+                { name: "Dal Bafla", type: "Veg", priceRange: "₹150", description: "Wheat balls dipped in ghee and served with dal.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Dal_Bafla_Thali.jpg/800px-Dal_Bafla_Thali.jpg" },
+                { name: "Poha Jalebi", type: "Veg", priceRange: "₹40", description: "Flattened rice with sweet spirals.", image: "" },
+                { name: "Bhutte Ka Kees", type: "Veg", priceRange: "₹60", description: "Grated corn snack.", image: "" },
+                { name: "Bhopali Gosht Korma", type: "Non-Veg", priceRange: "₹300", description: "Nawabi mutton curry.", image: "" },
+                { name: "Mawa Bati", type: "Sweet", priceRange: "₹50", description: "Sweet ball.", image: "" }
+            ]
+        },
+        foodShops: [
+            { name: "Chappan Dukan", location: "Indore", famousFor: "Street Food", priceRange: "₹200", rating: 4.8, timings: "6 AM - 11 PM" }
+        ],
+        danceAndMusic: {
+            dances: [
+                { name: "Matki", type: "Folk", description: "Pot dance of Malwa.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Matki_Dance.jpg/800px-Matki_Dance.jpg" },
+                { name: "Gaur", type: "Tribal", description: "Bison horn dance.", image: "" }
+            ],
+            music: [{ name: "Dhrupad", description: "Classical vocal style.", image: "" }],
+            instruments: [{ name: "Ektara", description: "Single string instrument.", image: "" }]
+        },
+        traditionalAttire: {
+            men: { description: "Dhoti and Safa.", attire: [{ name: "Safa", description: "Turban." }], images: [] },
+            women: { description: "Lehenga Choli.", attire: [{ name: "Chanderi Saree", description: "Sheer silk saree." }, { name: "Maheshwari Saree", description: "Cotton/Silk saree with borders." }], images: [] },
+            fabrics: [{ name: "Chanderi", description: "Lightweight silk-cotton." }]
+        },
+        festivals: [
+            { name: "Khajuraho Dance Festival", celebrationTime: "February", significance: "Art", description: "Classical dance backdrop of temples.", images: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Khajuraho_Temple.jpg/800px-Khajuraho_Temple.jpg"] },
+            { name: "Simhastha Kumbh", celebrationTime: "Every 12 Years", significance: "Religious", description: "Mass pilgrimage in Ujjain.", images: [] },
+            { name: "Tansen Samaroh", celebrationTime: "December", significance: "Music", description: "Music festival in Gwalior.", images: [] }
+        ],
+        artAndHandicrafts: [
+            { name: "Gond Painting", type: "Painting", description: "Tribal dot painting.", famousFor: "Nature themes", images: [] },
+            { name: "Bagh Print", type: "Textile", description: "Block printing.", famousFor: "Natural colors", images: [] }
+        ],
+        heritageAndTraditions: {
+            customs: [{ title: "Manuyaar", description: "Respectful request." }],
+            rituals: [{ title: "Bhagoria", description: "Tribal marriage festival." }],
+            dailyLife: "Centered around markets.",
+            values: "Simplicity and valor."
+        },
+        culturalPlaces: [
+            { name: "Sanchi Stupa", type: "Monument", location: "Sanchi", description: "Oldest stone structure.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sanchi_Stupa_from_North.jpg/800px-Sanchi_Stupa_from_North.jpg" }
+        ],
+        extraSections: [
+            { title: "Tiger State", content: "Madhya Pradesh has the highest number of tigers in India, with reserves like Kanha, Bandhavgarh, and Pench." }
+        ],
+        culturalExperience: {
+            liveEvents: [],
+            foodTrails: [],
+            workshops: [],
+            festivalCalendar: [
+                { name: "Khajuraho Festival", priority: 1, date: "2025-02-20", significance: "Dance", images: [], audience: ["Art lovers"] }
+            ]
+        },
+        isActive: true
+    },
+    cities: [
+        {
+            name: "Bhopal", slug: "bhopal", description: "City of Lakes.", history: "Founded by Raja Bhoj.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Upper_Lake_Bhopal.jpg/800px-Upper_Lake_Bhopal.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Upper Lake", category: "nature", description: "Bhojtal.", images: [], bestTimeToVisit: "Evening", entryFee: "Free", location: "City", isActive: true },
+                { name: "Van Vihar National Park", category: "nature", description: "Zoo.", images: [], bestTimeToVisit: "Morning", entryFee: "₹50", location: "Lake View", isActive: true },
+                { name: "Sanchi Stupa", category: "heritage", description: "Buddhist.", images: [], bestTimeToVisit: "Day", entryFee: "₹40", location: "Nearby", isActive: true },
+                { name: "Bhimbetka", category: "heritage", description: "Caves.", images: [], bestTimeToVisit: "Day", entryFee: "₹25", location: "Nearby", isActive: true },
+                { name: "Taj-ul-Masajid", category: "temple", description: "Largest mosque.", images: [], bestTimeToVisit: "Day", entryFee: "Free", location: "Old City", isActive: true },
+                { name: "Bharat Bhavan", category: "museum", description: "Arts complex.", images: [], bestTimeToVisit: "Day", entryFee: "₹20", location: "Shamla Hills", isActive: true },
+                { name: "Tribal Museum", category: "museum", description: "Tribal life.", images: [], bestTimeToVisit: "Day", entryFee: "₹30", location: "Shamla Hills", isActive: true },
+                { name: "Lakshmi Narayana Temple", category: "temple", description: "Birla Mandir.", images: [], bestTimeToVisit: "Evening", entryFee: "Free", location: "Arera Hills", isActive: true },
+                { name: "Shaukat Mahal", category: "heritage", description: "Architecture.", images: [], bestTimeToVisit: "Day", entryFee: "View", location: "Chowk", isActive: true },
+                { name: "Manua Bhan Ki Tekri", category: "temple", description: "Jain temple.", images: [], bestTimeToVisit: "Evening", entryFee: "Free", location: "Airport Road", isActive: true }
+            ],
+            foods: [
+                { name: "Poha Jalebi", type: "veg", description: "Breakfast staple.", famousFor: "Kalyan Singh", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Bhopali Paan", type: "veg", description: "Betel leaf.", famousFor: "Digestive", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Kebabs", type: "non-veg", description: "Minced meat.", famousFor: "Chatori Gali", approxPrice: "₹100", image: "", isActive: true },
+                { name: "Biryani", type: "non-veg", description: "Bhopali style.", famousFor: "Rich", approxPrice: "₹200", image: "", isActive: true },
+                { name: "Sulaimani Chai", type: "beverage", description: "Salt tea.", famousFor: "Old City", approxPrice: "₹10", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "flight", description: "Raja Bhoj Airport", connectivity: "Domestic", approxCost: "₹3000+", isActive: true },
+                { type: "train", description: "Bhopal Junction", connectivity: "Major Hub", approxCost: "₹150+", isActive: true },
+                { type: "bus", description: "ISBT", connectivity: "Statewide", approxCost: "₹50+", isActive: true },
+                { type: "auto", description: "Auto", connectivity: "City", approxCost: "₹30+", isActive: true },
+                { type: "taxi", description: "Ola/Uber", connectivity: "City", approxCost: "₹150+", isActive: true }
+            ]
+        },
+        {
+            name: "Indore", slug: "indore", description: "Food Capital.", history: "Holkars.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Rajwada_Indore.jpg/800px-Rajwada_Indore.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Rajwada Palace", category: "heritage", description: "Holkar palace.", images: [], isActive: true },
+                { name: "Lal Bagh Palace", category: "heritage", description: "Grand palace.", images: [], isActive: true },
+                { name: "Sarafa Bazaar", category: "other", description: "Night food market.", images: [], isActive: true },
+                { name: "Patalpani Falls", category: "nature", description: "Waterfall.", images: [], isActive: true },
+                { name: "Annapurna Temple", category: "temple", description: "Grand temple.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Poha", type: "veg", description: "Steamed rice.", famousFor: "Indori", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Bhutte Ka Kees", type: "veg", description: "Spicy corn.", famousFor: "Sarafa", approxPrice: "₹50", image: "", isActive: true },
+                { name: "Dahi Vada", type: "veg", description: "Joshi Dahi Bada.", famousFor: "Flying", approxPrice: "₹60", image: "", isActive: true },
+                { name: "Garadu", type: "veg", description: "Fried yam.", famousFor: "Winter", approxPrice: "₹40", image: "", isActive: true },
+                { name: "Shikanji", type: "beverage", description: "Dry fruit milk.", famousFor: "Nagori", approxPrice: "₹50", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "flight", description: "Devi Ahilya Bai Holkar Airport", connectivity: "International", approxCost: "₹3000", isActive: true },
+                { type: "train", description: "Indore Junction", connectivity: "Rail", approxCost: "₹200", isActive: true }
+            ]
+        },
+        {
+            name: "Gwalior", slug: "gwalior", description: "Fort City.", history: "Scindias.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Gwalior_Fort_View.jpg/800px-Gwalior_Fort_View.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Gwalior Fort", category: "fort", description: "Gibraltar of India.", images: [], isActive: true },
+                { name: "Jai Vilas Palace", category: "heritage", description: "Scindia residence.", images: [], isActive: true },
+                { name: "Sas Bahu Temple", category: "temple", description: "Carvings.", images: [], isActive: true },
+                { name: "Tansen Tomb", category: "heritage", description: "Music legend.", images: [], isActive: true },
+                { name: "Sun Temple", category: "temple", description: "Surya.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Bedai", type: "veg", description: "Fried bread.", famousFor: "Breakfast", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Ladoo", type: "sweet", description: "Bahadura.", famousFor: "Sweet", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Kachori", type: "veg", description: "Crispy.", famousFor: "Snack", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Petha", type: "sweet", description: "Ash gourd.", famousFor: "Dry", approxPrice: "₹100/kg", image: "", isActive: true },
+                { name: "Gajak", type: "sweet", description: "Sesame.", famousFor: "Morena", approxPrice: "₹200/kg", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Gwalior Junction", connectivity: "Major Hub", approxCost: "₹150", isActive: true }
+            ]
+        },
+        {
+            name: "Jabalpur", slug: "jabalpur", description: "Marble Rocks.", history: "Gond.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Dhuandhar_Falls_Jabalpur.jpg/800px-Dhuandhar_Falls_Jabalpur.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Bhedaghat", category: "nature", description: "Marble rocks.", images: [], isActive: true },
+                { name: "Dhuandhar Falls", category: "nature", description: "Smoke cascade.", images: [], isActive: true },
+                { name: "Madan Mahal Fort", category: "fort", description: "Gond fort.", images: [], isActive: true },
+                { name: "Chausath Yogini Temple", category: "temple", description: "Ancient.", images: [], isActive: true },
+                { name: "Balancing Rock", category: "nature", description: "Geology.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Aloo Banda", type: "veg", description: "Potato bonda.", famousFor: "Snack", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Khoye ki Jalebi", type: "sweet", description: "Rich.", famousFor: "Dessert", approxPrice: "₹40", image: "", isActive: true },
+                { name: "Chaat", type: "veg", description: "Spicy.", famousFor: "Street", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Gakariya", type: "veg", description: "Local bread.", famousFor: "Rural", approxPrice: "₹50", image: "", isActive: true },
+                { name: "Badkul", type: "sweet", description: "Jalebi like.", famousFor: "Local", approxPrice: "₹30", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Jabalpur Junction", connectivity: "Rail", approxCost: "₹150", isActive: true }
+            ]
+        },
+        {
+            name: "Ujjain", slug: "ujjain", description: "Temple City.", history: "Avanti.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mahakaleshwar_Temple_Ujjain.jpg/800px-Mahakaleshwar_Temple_Ujjain.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Mahakaleshwar Jyotirlinga", category: "temple", description: "Shiva.", images: [], isActive: true },
+                { name: "Kal Bhairav Temple", category: "temple", description: "Liquor offering.", images: [], isActive: true },
+                { name: "Ram Ghat", category: "culture", description: "River bank.", images: [], isActive: true },
+                { name: "Harsiddhi Temple", category: "temple", description: "Shakti Peeth.", images: [], isActive: true },
+                { name: "Vedh Shala", category: "museum", description: "Observatory.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Poha", type: "veg", description: "Breakfast.", famousFor: "Street", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Dal Bafla", type: "veg", description: "Meal.", famousFor: "Lunch", approxPrice: "₹150", image: "", isActive: true },
+                { name: "Kulfi", type: "sweet", description: "Ice cream.", famousFor: "Tower", approxPrice: "₹40", image: "", isActive: true },
+                { name: "Rabri", type: "sweet", description: "Milk.", famousFor: "Thick", approxPrice: "₹50", image: "", isActive: true },
+                { name: "Bhang Thandai", type: "beverage", description: "Spiced milk.", famousFor: "Mahakal", approxPrice: "₹50", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Ujjain Junction", connectivity: "Rail", approxCost: "₹100", isActive: true }
+            ]
+        },
+        {
+            name: "Khajuraho", slug: "khajuraho", description: "Erotic Temples.", history: "Chandela.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Khajuraho_Temple.jpg/800px-Khajuraho_Temple.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Western Group of Temples", category: "temple", description: "Kandariya Mahadeva.", images: [], isActive: true },
+                { name: "Eastern Group of Temples", category: "temple", description: "Jain temples.", images: [], isActive: true },
+                { name: "Raneh Falls", category: "nature", description: "Canyon.", images: [], isActive: true },
+                { name: "Panna National Park", category: "nature", description: "Tiger.", images: [], isActive: true },
+                { name: "State Museum", category: "museum", description: "Tribal art.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Thali", type: "veg", description: "Full meal.", famousFor: "Tourist", approxPrice: "₹200", image: "", isActive: true },
+                { name: "Moong Dal Halwa", type: "sweet", description: "Lentil sweet.", famousFor: "Dessert", approxPrice: "₹80", image: "", isActive: true },
+                { name: "Bafla", type: "veg", description: "Wheat ball.", famousFor: "Local", approxPrice: "₹100", image: "", isActive: true },
+                { name: "Kaju Curry", type: "veg", description: "Cashew.", famousFor: "Rich", approxPrice: "₹250", image: "", isActive: true },
+                { name: "Lassi", type: "beverage", description: "Yogurt drink.", famousFor: "Cool", approxPrice: "₹40", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "flight", description: "Khajuraho Airport", connectivity: "Limited", approxCost: "₹4000", isActive: true },
+                { type: "train", description: "Khajuraho Station", connectivity: "Rail", approxCost: "₹150", isActive: true }
+            ]
+        },
+        {
+            name: "Orchha", slug: "orchha", description: "Hidden Gem.", history: "Bundela.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Orchha_Cenotaphs.jpg/800px-Orchha_Cenotaphs.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Orchha Fort", category: "fort", description: "Complex.", images: [], isActive: true },
+                { name: "Jehangir Mahal", category: "heritage", description: "Palace.", images: [], isActive: true },
+                { name: "Ram Raja Temple", category: "temple", description: "Ram as King.", images: [], isActive: true },
+                { name: "Chaturbhuj Temple", category: "temple", description: "Tall.", images: [], isActive: true },
+                { name: "Chhatris", category: "heritage", description: "Cenotaphs.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Bundeli Food", type: "veg", description: "Local thali.", famousFor: "Amar Mahal", approxPrice: "₹300", image: "", isActive: true },
+                { name: "Gujiya", type: "sweet", description: "Dumpling.", famousFor: "Holi", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Puri Sabzi", type: "veg", description: "Breakfast.", famousFor: "Simple", approxPrice: "₹40", image: "", isActive: true },
+                { name: "Malpua", type: "sweet", description: "Pancake.", famousFor: "Sweet", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Tea", type: "beverage", description: "Chai.", famousFor: "River view", approxPrice: "₹10", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Jhansi Junction", connectivity: "Nearby Hub", approxCost: "₹200", isActive: true }
+            ]
+        },
+        {
+            name: "Pachmarhi", slug: "pachmarhi", description: "Queen of Satpura.", history: "Pandavas.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Bee_Falls_Pachmarhi.jpg/800px-Bee_Falls_Pachmarhi.jpg", isPopular: true, isActive: true,
+            places: [
+                { name: "Bee Falls", category: "nature", description: "Waterfall.", images: [], isActive: true },
+                { name: "Jata Shankar", category: "temple", description: "Cave.", images: [], isActive: true },
+                { name: "Pandav Caves", category: "heritage", description: "Ancient.", images: [], isActive: true },
+                { name: "Dhoopgarh", category: "nature", description: "Sunset point.", images: [], isActive: true },
+                { name: "Gupt Mahadev", category: "temple", description: "Cave.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Bhutte Ki Kees", type: "veg", description: "Corn.", famousFor: "Local", approxPrice: "₹50", image: "", isActive: true },
+                { name: "Maggi", type: "veg", description: "Noodles.", famousFor: "Hills", approxPrice: "₹40", image: "", isActive: true },
+                { name: "Pakora", type: "veg", description: "Fritters.", famousFor: "Rain", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Mawa Bati", type: "sweet", description: "Sweet.", famousFor: "Market", approxPrice: "₹30", image: "", isActive: true },
+                { name: "Coffee", type: "beverage", description: "Hot.", famousFor: "Cold", approxPrice: "₹30", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Pipariya", connectivity: "Rail", approxCost: "₹150", isActive: true }
+            ]
+        },
+        {
+            name: "Mandu", slug: "mandu", description: "City of Joy.", history: "Baz Bahadur.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jahaz_Mahal_Mandu.jpg/800px-Jahaz_Mahal_Mandu.jpg", isPopular: false, isActive: true,
+            places: [
+                { name: "Jahaz Mahal", category: "heritage", description: "Ship Palace.", images: [], isActive: true },
+                { name: "Rani Roopmati Pavilion", category: "heritage", description: "Romance.", images: [], isActive: true },
+                { name: "Hindola Mahal", category: "heritage", description: "Swing Palace.", images: [], isActive: true },
+                { name: "Hoshang Shah Tomb", category: "heritage", description: "Marble.", images: [], isActive: true },
+                { name: "Baobab Trees", category: "nature", description: "African origin.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Baobab Fruit", type: "veg", description: "Khorasani Imli.", famousFor: "Unique", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Dal Paniya", type: "veg", description: "Maize cake.", famousFor: "Tribal", approxPrice: "₹100", image: "", isActive: true },
+                { name: "Poha", type: "veg", description: "Snack.", famousFor: "Light", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Mutton", type: "non-veg", description: "Curry.", famousFor: "Spicy", approxPrice: "₹250", image: "", isActive: true },
+                { name: "Lime Juice", type: "beverage", description: "Fresh.", famousFor: "Summer", approxPrice: "₹20", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "bus", description: "Bus", connectivity: "Indore", approxCost: "₹100", isActive: true }
+            ]
+        },
+        {
+            name: "Sagar", slug: "sagar", description: "University City.", history: "British.", image: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lakha_Banjara_Lake.jpg", isPopular: false, isActive: true,
+            places: [
+                { name: "Lakha Banjara Lake", category: "nature", description: "Central lake.", images: [], isActive: true },
+                { name: "Rahatgarh Waterfall", category: "nature", description: "Falls.", images: [], isActive: true },
+                { name: "Garhphra", category: "heritage", description: "Fort.", images: [], isActive: true },
+                { name: "Eran", category: "heritage", description: "Gupta inscription.", images: [], isActive: true },
+                { name: "Dr. Hari Singh Gour University", category: "heritage", description: "Oldest.", images: [], isActive: true }
+            ],
+            foods: [
+                { name: "Chironji Ki Barfi", type: "sweet", description: "Nut sweet.", famousFor: "Special", approxPrice: "₹400/kg", image: "", isActive: true },
+                { name: "Bada", type: "veg", description: "Lentil fritter.", famousFor: "Snack", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Samosa", type: "veg", description: "Stuffed.", famousFor: "Tea", approxPrice: "₹10", image: "", isActive: true },
+                { name: "Poha", type: "veg", description: "Breakfast.", famousFor: "Morning", approxPrice: "₹20", image: "", isActive: true },
+                { name: "Jalebi", type: "sweet", description: "Sweet.", famousFor: "Hot", approxPrice: "₹20", image: "", isActive: true }
+            ],
+            transports: [
+                { type: "train", description: "Saugor Station", connectivity: "Rail", approxCost: "₹100", isActive: true }
+            ]
+        }
+    ]
+};
+
+const outputPath = path.join(__dirname, '../../data/generated/Madhya_Pradesh.json');
+const dir = path.dirname(outputPath);
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+}
+
+fs.writeFileSync(outputPath, JSON.stringify(stateData, null, 2));
+console.log(`Generated Madhya Pradesh data at ${outputPath}`);

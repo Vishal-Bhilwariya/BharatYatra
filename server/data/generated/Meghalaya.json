@@ -1,0 +1,856 @@
+{
+    "state": {
+        "name": "Meghalaya",
+        "slug": "meghalaya",
+        "description": "Meghalaya, the 'Abode of Clouds', is known for its high rainfall, subtropical forests, and unique living root bridges.",
+        "culturalSummary": "Home to the Khasis, Garos, and Jaintias, Meghalaya features a matrilineal system and vibrant harvest festivals like Wangala and Nongkrem.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Nohkalikai_Falls_Cherrapunji.jpg/800px-Nohkalikai_Falls_Cherrapunji.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Meghalaya",
+        "overview": {
+            "introduction": "Meghalaya is a state of rolling hills and cascading waterfalls, distinct for its tribal heritage.",
+            "lifestyle": "Community-centric with a strong connection to nature.",
+            "traditions": "Matrilineal society where lineage is traced through the mother.",
+            "history": "Carved out of Assam in 1972, with a history of tribal kingdoms.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Nohkalikai_Falls_Cherrapunji.jpg/800px-Nohkalikai_Falls_Cherrapunji.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Flavorful meat dishes, especially pork, plain rice, and spicy chutneys.",
+            "dishes": [
+                {
+                    "name": "Jadoh",
+                    "type": "Non-Veg",
+                    "priceRange": "₹150",
+                    "description": "Red rice with pork.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jadoh.jpg/800px-Jadoh.jpg"
+                },
+                {
+                    "name": "Doh Khleh",
+                    "type": "Non-Veg",
+                    "priceRange": "₹120",
+                    "description": "Pork salad with onions and ginger.",
+                    "image": ""
+                },
+                {
+                    "name": "Nakham Bitchi",
+                    "type": "Non-Veg",
+                    "priceRange": "₹50",
+                    "description": "Dry fish soup.",
+                    "image": ""
+                },
+                {
+                    "name": "Pukhlein",
+                    "type": "Sweet",
+                    "priceRange": "₹40",
+                    "description": "Fried rice flour and jaggery bread.",
+                    "image": ""
+                },
+                {
+                    "name": "Tungrymbai",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Fermented soybean chutney.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Trattoria",
+                "location": "Shillong",
+                "famousFor": "Jadoh",
+                "priceRange": "₹200",
+                "rating": 4.6,
+                "timings": "11 AM - 9 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Nongkrem Dance",
+                    "type": "Ritual",
+                    "description": "Thanksgiving harvest dance.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Nongkrem_Dance.jpg/800px-Nongkrem_Dance.jpg"
+                },
+                {
+                    "name": "Wangala",
+                    "type": "Festival",
+                    "description": "100 Drums Festival.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Folk Songs",
+                    "description": "Accompanied by drums and flutes.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Duitara",
+                    "description": "String instrument.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Jymphong (Vest).",
+                "attire": [
+                    {
+                        "name": "Jymphong",
+                        "description": "Long sleeveless coat."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Jainsem.",
+                "attire": [
+                    {
+                        "name": "Jainsem",
+                        "description": "Two pieces of cloth draped over shoulders."
+                    },
+                    {
+                        "name": "Dhara",
+                        "description": "Silk dress for festivals."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Eri Silk",
+                    "description": "Non-violent silk."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Wangala Festival",
+                "celebrationTime": "November",
+                "significance": "Harvest",
+                "description": "Garo harvest festival.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Wangala_Dance.jpg/800px-Wangala_Dance.jpg"
+                ]
+            },
+            {
+                "name": "Nongkrem Dance Festival",
+                "celebrationTime": "November",
+                "significance": "Thanksgiving",
+                "description": "Khasi festival.",
+                "images": []
+            },
+            {
+                "name": "Behdienkhlam",
+                "celebrationTime": "July",
+                "significance": "Health",
+                "description": "Chasing away plague.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Cane and Bamboo",
+                "type": "Craft",
+                "description": "Baskets and mats.",
+                "famousFor": "Weaving",
+                "images": []
+            },
+            {
+                "name": "Wood Carving",
+                "type": "Carving",
+                "description": "Intricate designs.",
+                "famousFor": "Decor",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Khatduh",
+                    "description": "Youngest daughter inherits property."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Naming Ceremony",
+                    "description": "Important family event."
+                }
+            ],
+            "dailyLife": "Chewing Kwai (Betel nut) is social.",
+            "values": "Hospitality and cleanliness."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Living Root Bridges",
+                "type": "Nature",
+                "location": "Cherrapunji/Mawlynnong",
+                "description": "Bio-engineering marvels.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Living_root_bridge_Nongriat.jpg/800px-Living_root_bridge_Nongriat.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Cleanest Village",
+                "content": "Mawlynnong in Meghalaya is famous as Asia's cleanest village."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Shillong Cherry Blossom Festival",
+                    "priority": 1,
+                    "date": "2025-11-15",
+                    "significance": "Nature",
+                    "images": [],
+                    "audience": [
+                        "Tourist"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Shillong",
+            "slug": "shillong",
+            "description": "Scotland of the East.",
+            "history": "Colonial hill station.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Shillong_View.jpg/800px-Shillong_View.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Umiam Lake",
+                    "category": "nature",
+                    "description": "Barapani.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Nongpoh Road",
+                    "isActive": true
+                },
+                {
+                    "name": "Elephant Falls",
+                    "category": "nature",
+                    "description": "Three steps.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Upper Shillong",
+                    "isActive": true
+                },
+                {
+                    "name": "Don Bosco Museum",
+                    "category": "museum",
+                    "description": "Indigenous cultures.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹100",
+                    "location": "Mawlai",
+                    "isActive": true
+                },
+                {
+                    "name": "Ward's Lake",
+                    "category": "nature",
+                    "description": "Artificial lake.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹10",
+                    "location": "Police Bazar",
+                    "isActive": true
+                },
+                {
+                    "name": "Shillong Peak",
+                    "category": "nature",
+                    "description": "Highest point.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹30",
+                    "location": "Peak",
+                    "isActive": true
+                },
+                {
+                    "name": "Laitlum Canyons",
+                    "category": "nature",
+                    "description": "Scenic view.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "₹20",
+                    "location": "Outskirts",
+                    "isActive": true
+                },
+                {
+                    "name": "Police Bazar",
+                    "category": "other",
+                    "description": "Shopping hub.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Center",
+                    "isActive": true
+                },
+                {
+                    "name": "Cathedral of Mary Help of Christians",
+                    "category": "temple",
+                    "description": "Blue church.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Laitumkhrah",
+                    "isActive": true
+                },
+                {
+                    "name": "Golf Links",
+                    "category": "nature",
+                    "description": "18-hole course.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Golf Links",
+                    "isActive": true
+                },
+                {
+                    "name": "Ever Living Museum",
+                    "category": "museum",
+                    "description": "Private museum.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Mawshbuit",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Jadoh",
+                    "type": "non-veg",
+                    "description": "Meat rice.",
+                    "famousFor": "Trattoria",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Momo",
+                    "type": "non-veg",
+                    "description": "Dumplings.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Tungrymbai",
+                    "type": "veg",
+                    "description": "Soybean paste.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Doh Khleh",
+                    "type": "non-veg",
+                    "description": "Pork salad.",
+                    "famousFor": "Meal",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pineapple",
+                    "type": "veg",
+                    "description": "Fresh fruit.",
+                    "famousFor": "Roadside",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Shillong Airport",
+                    "connectivity": "Limited",
+                    "approxCost": "₹4000",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Shared Sumo",
+                    "connectivity": "Guwahati",
+                    "approxCost": "₹300",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "MTC",
+                    "connectivity": "Inter-district",
+                    "approxCost": "₹100",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Local Taxi",
+                    "connectivity": "City",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Cherrapunji",
+            "slug": "cherrapunji",
+            "description": "Sohra.",
+            "history": "Rain capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Nohkalikai_Falls_Cherrapunji.jpg/800px-Nohkalikai_Falls_Cherrapunji.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Nohkalikai Falls",
+                    "category": "nature",
+                    "description": "Tallest plunge.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Double Decker Living Root Bridge",
+                    "category": "nature",
+                    "description": "Nongriat.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mawsmai Cave",
+                    "category": "nature",
+                    "description": "Limestone cave.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Seven Sisters Falls",
+                    "category": "nature",
+                    "description": "Nohsngithiang.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Eco Park",
+                    "category": "nature",
+                    "description": "Viewpoint.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Sohra Pulao",
+                    "type": "veg",
+                    "description": "Veg rice.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Orange Honey",
+                    "type": "sweet",
+                    "description": "Local produce.",
+                    "famousFor": "Souvenir",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Cinnamon",
+                    "type": "veg",
+                    "description": "Spice.",
+                    "famousFor": "Farm",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Red Tea",
+                    "type": "beverage",
+                    "description": "Lal Cha.",
+                    "famousFor": "Refresh",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Banana Flower",
+                    "type": "veg",
+                    "description": "Curry.",
+                    "famousFor": "Traditional",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Taxi",
+                    "connectivity": "Shillong",
+                    "approxCost": "₹1500",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Tura",
+            "slug": "tura",
+            "description": "Garo Hills.",
+            "history": "Garo capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tura_Peak.jpg/800px-Tura_Peak.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tura Peak",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pelga Falls",
+                    "category": "nature",
+                    "description": "Waterfall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Balpakram National Park",
+                    "category": "nature",
+                    "description": "Gorge.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Siju Cave",
+                    "category": "nature",
+                    "description": "Bat cave.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nokrek National Park",
+                    "category": "nature",
+                    "description": "Biosphere.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Minil Songa",
+                    "type": "veg",
+                    "description": "Sticky rice.",
+                    "famousFor": "Garo",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Do'o Kappa",
+                    "type": "non-veg",
+                    "description": "Chicken soda curry.",
+                    "famousFor": "Spicy",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Nakham",
+                    "type": "non-veg",
+                    "description": "Dry fish.",
+                    "famousFor": "Chutney",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bamboo Shoot",
+                    "type": "veg",
+                    "description": "Curry.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Rice Beer",
+                    "type": "beverage",
+                    "description": "Chu.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Guwahati",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mawlynnong",
+            "slug": "mawlynnong",
+            "description": "Cleanest Village.",
+            "history": "Community.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Living_root_bridge_Nongriat.jpg/800px-Living_root_bridge_Nongriat.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Living Root Bridge",
+                    "category": "nature",
+                    "description": "Single decker.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sky View",
+                    "category": "nature",
+                    "description": "Bamboo tower.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Balancing Rock",
+                    "category": "nature",
+                    "description": "Geology.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Church of Epiphany",
+                    "category": "temple",
+                    "description": "Old church.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Home Meal",
+                    "type": "veg",
+                    "description": "Rice dal.",
+                    "famousFor": "Homestay",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Papaya Salad",
+                    "type": "veg",
+                    "description": "Fresh.",
+                    "famousFor": "Locals",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chicken Curry",
+                    "type": "non-veg",
+                    "description": "Country chicken.",
+                    "famousFor": "Lunch",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Taxi",
+                    "connectivity": "Shillong",
+                    "approxCost": "₹2000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Dawki",
+            "slug": "dawki",
+            "description": "Crystal Clear River.",
+            "history": "Border.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Dawki_River.jpg/800px-Dawki_River.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Umngot River",
+                    "category": "nature",
+                    "description": "Boating.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jaflong Zero Point",
+                    "category": "heritage",
+                    "description": "Bangladesh border.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Suspension Bridge",
+                    "category": "heritage",
+                    "description": "Old bridge.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Shnongpdeng",
+                    "category": "nature",
+                    "description": "Camping.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Fish Fry",
+                    "type": "non-veg",
+                    "description": "River fish.",
+                    "famousFor": "Fresh",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Maggi",
+                    "type": "veg",
+                    "description": "Noodles.",
+                    "famousFor": "Camping",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Orange",
+                    "type": "veg",
+                    "description": "Sweet.",
+                    "famousFor": "Border",
+                    "approxPrice": "₹50/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Taxi",
+                    "connectivity": "Shillong",
+                    "approxCost": "₹2000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Jowai",
+            "slug": "jowai",
+            "description": "Jaintia Hills.",
+            "history": "Pnar.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Krang_Suri_Falls.jpg/800px-Krang_Suri_Falls.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Krang Suri Falls",
+                    "category": "nature",
+                    "description": "Blue water.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thadlaskein Lake",
+                    "category": "nature",
+                    "description": "Man made.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nartiang Monoliths",
+                    "category": "heritage",
+                    "description": "Megalithic.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Syntu Ksiar",
+                    "category": "nature",
+                    "description": "River bank.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tyrshi Falls",
+                    "category": "nature",
+                    "description": "Waterfall.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Jadoh",
+                    "type": "non-veg",
+                    "description": "Meat rice.",
+                    "famousFor": "Market",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Doh Snam",
+                    "type": "non-veg",
+                    "description": "Blood sausage.",
+                    "famousFor": "Dhaba",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Meat Ball",
+                    "type": "non-veg",
+                    "description": "Minced.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Shillong",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

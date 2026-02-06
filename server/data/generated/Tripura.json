@@ -1,0 +1,840 @@
+{
+    "state": {
+        "name": "Tripura",
+        "slug": "tripura",
+        "description": "Tripura is a hilly state in northeast India, bordered on three sides by Bangladesh, and home to a mix of tribal cultures and religious groups.",
+        "culturalSummary": "Tripura's culture is a fusion of Bengali and Tripuri traditions, known for bamboo crafts, Garia Puja, and classical music heritage.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ujjayanta_Palace_Agartala.jpg/800px-Ujjayanta_Palace_Agartala.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Tripura",
+        "overview": {
+            "introduction": "The third smallest state in India, rich in flora and fauna.",
+            "lifestyle": "Peaceful coexistence of 19 tribes and Bengali community.",
+            "traditions": "Bamboo plays a central role in life and rituals.",
+            "history": "Ruled by Manikya dynasty for centuries.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ujjayanta_Palace_Agartala.jpg/800px-Ujjayanta_Palace_Agartala.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Non-vegetarian heavy, with a love for fish and fermented fish (Berma). Influence of Bengali cuisine is strong.",
+            "dishes": [
+                {
+                    "name": "Mui Borok",
+                    "type": "Metric",
+                    "priceRange": "₹200",
+                    "description": "Traditional Tripuri platter.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tripuri_Food.jpg/800px-Tripuri_Food.jpg"
+                },
+                {
+                    "name": "Kosoi Bwtwi",
+                    "type": "Veg",
+                    "priceRange": "₹50",
+                    "description": "Beans and Berma stew.",
+                    "image": ""
+                },
+                {
+                    "name": "Wahan Mosdeng",
+                    "type": "Non-Veg",
+                    "priceRange": "₹150",
+                    "description": "Pork salad.",
+                    "image": ""
+                },
+                {
+                    "name": "Gudok",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Bamboo shoot and vegetable stew.",
+                    "image": ""
+                },
+                {
+                    "name": "Chakhwi",
+                    "type": "Veg",
+                    "priceRange": "₹50",
+                    "description": "Bamboo shoot in rice flour gravy.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Mairang",
+                "location": "Agartala",
+                "famousFor": "Traditional Thali",
+                "priceRange": "₹250",
+                "rating": 4.5,
+                "timings": "11 AM - 10 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Hojagiri",
+                    "type": "Folk",
+                    "description": "Balancing on pots.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hojagiri_Dance.jpg/800px-Hojagiri_Dance.jpg"
+                },
+                {
+                    "name": "Garia",
+                    "type": "Ritual",
+                    "description": "Harvest dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Folk Songs",
+                    "description": "Based on agriculture.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Sumui",
+                    "description": "Flute.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Rikutu (Loin cloth) and Kamchwilwi borok.",
+                "attire": [
+                    {
+                        "name": "Rikutu",
+                        "description": "Towel."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Rignai and Risa.",
+                "attire": [
+                    {
+                        "name": "Rignai",
+                        "description": "Wrap around skirt."
+                    },
+                    {
+                        "name": "Risa",
+                        "description": "Chest wrap."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Cotton",
+                    "description": "Handloom."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Kharchi Puja",
+                "celebrationTime": "July",
+                "significance": "14 Gods",
+                "description": "Worship of fourteen deities.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kharchi_Puja.jpg/800px-Kharchi_Puja.jpg"
+                ]
+            },
+            {
+                "name": "Garia Puja",
+                "celebrationTime": "April",
+                "significance": "Harvest",
+                "description": "New year festival.",
+                "images": []
+            },
+            {
+                "name": "Ker Puja",
+                "celebrationTime": "August",
+                "significance": "Pest",
+                "description": "Protection from calamity.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Bamboo Crafts",
+                "type": "Wood",
+                "description": "Furniture to utensils.",
+                "famousFor": "Agartala",
+                "images": []
+            },
+            {
+                "name": "Cane work",
+                "type": "Weaving",
+                "description": "Baskets.",
+                "famousFor": "Villages",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Respect",
+                    "description": "Greeting elders."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Lampra Puja",
+                    "description": "Family welfare."
+                }
+            ],
+            "dailyLife": "Agriculture and weaving.",
+            "values": "Community living."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Ujjayanta Palace",
+                "type": "Palace",
+                "location": "Agartala",
+                "description": "Royal palace museum.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ujjayanta_Palace_Agartala.jpg/800px-Ujjayanta_Palace_Agartala.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Bamboo State",
+                "content": "Tripura is known for its vast bamboo forests and craftsmanship."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Kharchi Puja",
+                    "priority": 1,
+                    "date": "2025-07-04",
+                    "significance": "Religious",
+                    "images": [],
+                    "audience": [
+                        "Devotee"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Agartala",
+            "slug": "agartala",
+            "description": "Capital.",
+            "history": "Manikya.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ujjayanta_Palace_Agartala.jpg/800px-Ujjayanta_Palace_Agartala.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Ujjayanta Palace",
+                    "category": "heritage",
+                    "description": "State Museum.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Palace Compound",
+                    "isActive": true
+                },
+                {
+                    "name": "Neermahal",
+                    "category": "heritage",
+                    "description": "Water palace (Melaghar).",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹50",
+                    "location": "Melaghar",
+                    "isActive": true
+                },
+                {
+                    "name": "Unakoti",
+                    "category": "heritage",
+                    "description": "Rock carvings.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Kailashahar",
+                    "isActive": true
+                },
+                {
+                    "name": "Sepahijala Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Clouded Leopard.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Sepahijala",
+                    "isActive": true
+                },
+                {
+                    "name": "Tripura Sundari Temple",
+                    "category": "temple",
+                    "description": "Shakti Peeth.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Udaipur",
+                    "isActive": true
+                },
+                {
+                    "name": "Kamalasagar",
+                    "category": "nature",
+                    "description": "Kali temple and lake.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Border",
+                    "isActive": true
+                },
+                {
+                    "name": "Heritage Park",
+                    "category": "nature",
+                    "description": "Miniature Tripura.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹20",
+                    "location": "Kunjaban",
+                    "isActive": true
+                },
+                {
+                    "name": "Jagannath Bari",
+                    "category": "temple",
+                    "description": "Temple.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Agartala",
+                    "isActive": true
+                },
+                {
+                    "name": "Rose Valley Park",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Amtali",
+                    "isActive": true
+                },
+                {
+                    "name": "Akhaura Checkpost",
+                    "category": "heritage",
+                    "description": "Flag ceremony.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Border",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mui Borok",
+                    "type": "non-veg",
+                    "description": "Tripuri plate.",
+                    "famousFor": "Mairang",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Momos",
+                    "type": "non-veg",
+                    "description": "Steamed.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Fish Curry",
+                    "type": "non-veg",
+                    "description": "Bengali style.",
+                    "famousFor": "Restaurants",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Peda",
+                    "type": "sweet",
+                    "description": "Matabari.",
+                    "famousFor": "Temple",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pineapple",
+                    "type": "veg",
+                    "description": "Queen Pineapple.",
+                    "famousFor": "Fruit",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "MBB Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹4000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Agartala Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "auto",
+                    "description": "TomTom",
+                    "connectivity": "City",
+                    "approxCost": "₹20",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Udaipur",
+            "slug": "udaipur-tripura",
+            "description": "Lake City.",
+            "history": "Gomati.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tripura_Sundari_Temple.jpg/800px-Tripura_Sundari_Temple.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tripura Sundari Temple",
+                    "category": "temple",
+                    "description": "Matabari.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kalyan Sagar",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bhubaneswari Temple",
+                    "category": "heritage",
+                    "description": "Historic.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tepania Eco Park",
+                    "category": "nature",
+                    "description": "Orchid.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Peda",
+                    "type": "sweet",
+                    "description": "Prasad.",
+                    "famousFor": "Matabari",
+                    "approxPrice": "₹300/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Udaipur Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Kailashahar",
+            "slug": "kailashahar",
+            "description": "Old Capital.",
+            "history": "Unakoti.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Unakoti_Rock_Reliefs.jpg/800px-Unakoti_Rock_Reliefs.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Unakoti",
+                    "category": "heritage",
+                    "description": "Lost hill of faces.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lakhi Narayan Bari",
+                    "category": "temple",
+                    "description": "Icon.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tea Gardens",
+                    "category": "nature",
+                    "description": "Greenery.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Tea",
+                    "type": "beverage",
+                    "description": "Garden fresh.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Shared",
+                    "connectivity": "Agartala",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Dharmanagar",
+            "slug": "dharmanagar",
+            "description": "Gate of Tripura.",
+            "history": "North.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Jampui_Hills.jpg/800px-Jampui_Hills.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Jampui Hills",
+                    "category": "nature",
+                    "description": "Orange festival.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kalibari",
+                    "category": "temple",
+                    "description": "Temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rowa Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Birds.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Orange",
+                    "type": "veg",
+                    "description": "Juicy.",
+                    "famousFor": "Jampui",
+                    "approxPrice": "₹50/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Dharmanagar Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Ambassa",
+            "slug": "ambassa",
+            "description": "Dhalai HQ.",
+            "history": "Central.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Dumboor_Lake.jpg/800px-Dumboor_Lake.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Dumboor Lake",
+                    "category": "nature",
+                    "description": "Islands.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chabimura",
+                    "category": "heritage",
+                    "description": "Rock carvings on river.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rose Valley",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Small Fish",
+                    "type": "non-veg",
+                    "description": "Fried.",
+                    "famousFor": "Lake",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Ambassa Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹100",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Belonia",
+            "slug": "belonia",
+            "description": "South HQ.",
+            "history": "Border.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Pilak_Stupa.jpg/800px-Pilak_Stupa.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Pilak",
+                    "category": "heritage",
+                    "description": "Buddhist ruins.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Trishna Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Bison.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Muhuri Char",
+                    "category": "nature",
+                    "description": "River island.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Curd",
+                    "type": "veg",
+                    "description": "Thick yogurt.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹60/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Belonia Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹100",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Khowai",
+            "slug": "khowai",
+            "description": "Cultural Town.",
+            "history": "River.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Khowai_River.jpg/800px-Khowai_River.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Khowai River",
+                    "category": "nature",
+                    "description": "Scenic.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Forest Park",
+                    "category": "nature",
+                    "description": "Green.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Sweets",
+                    "type": "sweet",
+                    "description": "Rosogolla.",
+                    "famousFor": "Market",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Road",
+                    "connectivity": "Agartala",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Melaghar",
+            "slug": "melaghar",
+            "description": "Neermahal Town.",
+            "history": "Lake.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Neermahal_Palace.jpg/800px-Neermahal_Palace.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Rudrasagar Lake",
+                    "category": "nature",
+                    "description": "Surrounds palace.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pagli Masi Temple",
+                    "category": "temple",
+                    "description": "Local deity.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Fish Fry",
+                    "type": "non-veg",
+                    "description": "Lake fish.",
+                    "famousFor": "Boat ghat",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Agartala",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Bishalgarh",
+            "slug": "bishalgarh",
+            "description": "Commercial Hub.",
+            "history": "Trade.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sepahijala_entrance.jpg/800px-Sepahijala_entrance.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Sepahijala Zoo",
+                    "category": "nature",
+                    "description": "Spectacled Monkey.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Singara",
+                    "type": "veg",
+                    "description": "Samosa.",
+                    "famousFor": "Market",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Bishalgarh Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹30",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Sonamura",
+            "slug": "sonamura",
+            "description": "Border Town.",
+            "history": "Trade.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Indo-Bangla_Border.jpg/800px-Indo-Bangla_Border.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Border Haat",
+                    "category": "culture",
+                    "description": "Market.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Hilsa Fish",
+                    "type": "non-veg",
+                    "description": "River fish.",
+                    "famousFor": "Market",
+                    "approxPrice": "₹1000/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Agartala",
+                    "approxCost": "₹80",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

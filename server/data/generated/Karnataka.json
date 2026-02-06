@@ -1,0 +1,1361 @@
+{
+    "state": {
+        "name": "Karnataka",
+        "slug": "karnataka",
+        "description": "Karnataka, the 'Silicon State of India', seamlessly blends ancient heritage with modern technology, featuring grand palaces, beaches, and coffee plantations.",
+        "culturalSummary": "Karnataka's culture is a rich mix of Carnatic music, Yakshagana dance drama, and diverse festivals like Mysore Dasara.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Vidhana_Soudha_Bangalore.jpg/800px-Vidhana_Soudha_Bangalore.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Karnataka",
+        "overview": {
+            "introduction": "From the ruins of Hampi to the tech hubs of Bengaluru, Karnataka is a state of diverse landscapes and history.",
+            "lifestyle": "A blend of cosmopolitan urban life and traditional rural values.",
+            "traditions": "Kodavas have distinct customs; North Karnataka has strong Lingayat influence.",
+            "history": "Rule of Chalukyas, Hoysalas, and Vijayanagara Empire left a treasure trove of monuments.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Vidhana_Soudha_Bangalore.jpg/800px-Vidhana_Soudha_Bangalore.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Diverse cuisine ranging from Udupi vegetarian to spicy Coorgi pork and coastal seafood.",
+            "dishes": [
+                {
+                    "name": "Bisi Bele Bath",
+                    "type": "Veg",
+                    "priceRange": "₹80",
+                    "description": "Spicy rice and lentil dish with vegetables.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bisi_Bele_Bath.jpg/800px-Bisi_Bele_Bath.jpg"
+                },
+                {
+                    "name": "Mysore Pak",
+                    "type": "Sweet",
+                    "priceRange": "₹400/kg",
+                    "description": "Rich sweet made of ghee, sugar, and gram flour.",
+                    "image": ""
+                },
+                {
+                    "name": "Ragi Mudde",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Finger millet balls served with sambar.",
+                    "image": ""
+                },
+                {
+                    "name": "Pandime Curry",
+                    "type": "Non-Veg",
+                    "priceRange": "₹300",
+                    "description": "Kodava style pork curry.",
+                    "image": ""
+                },
+                {
+                    "name": "Neer Dosa",
+                    "type": "Veg",
+                    "priceRange": "₹50",
+                    "description": "Soft rice crepes.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "MTR (Mavalli Tiffin Room)",
+                "location": "Bengaluru",
+                "famousFor": "Rava Idli",
+                "priceRange": "₹200",
+                "rating": 4.8,
+                "timings": "6:30 AM - 9 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Yakshagana",
+                    "type": "Folk",
+                    "description": "Traditional theatre form with elaborate costumes.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Yakshagana.jpg/800px-Yakshagana.jpg"
+                },
+                {
+                    "name": "Dollu Kunitha",
+                    "type": "Folk",
+                    "description": "Drum dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Carnatic Music",
+                    "description": "Classical music of South India.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Veena",
+                    "description": "String instrument.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Panche (Dhoti) and Shirt.",
+                "attire": [
+                    {
+                        "name": "Mysore Peta",
+                        "description": "Traditional turban."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Silk Saree.",
+                "attire": [
+                    {
+                        "name": "Ilkal Saree",
+                        "description": "Saree with Kasuti embroidery."
+                    },
+                    {
+                        "name": "Kodava Saree",
+                        "description": "Saree draped with pleats at the back."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Mysore Silk",
+                    "description": "Fine crepe silk."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Mysore Dasara",
+                "celebrationTime": "October",
+                "significance": "Victory of Truth",
+                "description": "Grand procession of elephants.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mysore_Dasara_Procession.jpg/800px-Mysore_Dasara_Procession.jpg"
+                ]
+            },
+            {
+                "name": "Ugadi",
+                "celebrationTime": "March/April",
+                "significance": "New Year",
+                "description": "Kannada New Year.",
+                "images": []
+            },
+            {
+                "name": "Hampi Utsav",
+                "celebrationTime": "November",
+                "significance": "Culture",
+                "description": "Celebrating Vijayanagara heritage.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Channapatna Toys",
+                "type": "Craft",
+                "description": "Wooden toys with natural lacquer.",
+                "famousFor": "Wooden toys",
+                "images": []
+            },
+            {
+                "name": "Bidriware",
+                "type": "Metal",
+                "description": "Metal handicraft from Bidar.",
+                "famousFor": "Inlay work",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Atithi Satkara",
+                    "description": "Honoring guests."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Buta Kola",
+                    "description": "Spirit worship in coastal region."
+                }
+            ],
+            "dailyLife": "Coffee culture is strong.",
+            "values": "Simplicity and intellectualism."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Hampi",
+                "type": "Ruins",
+                "location": "Hampi",
+                "description": "UNESCO World Heritage Site of Vijayanagara Empire.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hampi_Virupaksha_Temple.jpg/800px-Hampi_Virupaksha_Temple.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Coffee Capital",
+                "content": "Karnataka produces 70% of India's coffee, primarily in Coorg and Chikmagalur."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Mysore Dasara",
+                    "priority": 1,
+                    "date": "2025-10-02",
+                    "significance": "Heritage",
+                    "images": [],
+                    "audience": [
+                        "Tourist",
+                        "Family"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Bengaluru",
+            "slug": "bengaluru",
+            "description": "Garden City / Silicon Valley.",
+            "history": "Founded by Kempe Gowda.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Vidhana_Soudha_Bangalore.jpg/800px-Vidhana_Soudha_Bangalore.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Lalbagh Botanical Garden",
+                    "category": "nature",
+                    "description": "Glass house.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "₹25",
+                    "location": "Mavalli",
+                    "isActive": true
+                },
+                {
+                    "name": "Cubbon Park",
+                    "category": "nature",
+                    "description": "Lung space.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "Free",
+                    "location": "CBD",
+                    "isActive": true
+                },
+                {
+                    "name": "Bangalore Palace",
+                    "category": "heritage",
+                    "description": "Tudor style.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹230",
+                    "location": "Vasanth Nagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Vidhana Soudha",
+                    "category": "heritage",
+                    "description": "Legislature.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "View only",
+                    "location": "Ambedkar Veedhi",
+                    "isActive": true
+                },
+                {
+                    "name": "ISKCON Temple",
+                    "category": "temple",
+                    "description": "Krishna temple.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Rajajinagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Bannerghatta Biological Park",
+                    "category": "nature",
+                    "description": "Safari.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹300",
+                    "location": "Bannerghatta",
+                    "isActive": true
+                },
+                {
+                    "name": "Tipu Sultan's Summer Palace",
+                    "category": "heritage",
+                    "description": "Wooden palace.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Chamrajpet",
+                    "isActive": true
+                },
+                {
+                    "name": "Commercial Street",
+                    "category": "other",
+                    "description": "Shopping.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Shivajinagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Nandi Hills",
+                    "category": "nature",
+                    "description": "Sunrise view.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "₹20",
+                    "location": "Outskirts",
+                    "isActive": true
+                },
+                {
+                    "name": "Wonderla",
+                    "category": "other",
+                    "description": "Amusement park.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹1000+",
+                    "location": "Mysore Road",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Masala Dosa",
+                    "type": "veg",
+                    "description": "Crispy crepe.",
+                    "famousFor": "Vidyarthi Bhavan",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Idli Vada",
+                    "type": "veg",
+                    "description": "Breakfast combo.",
+                    "famousFor": "Darshinis",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Filter Coffee",
+                    "type": "beverage",
+                    "description": "Kaapi.",
+                    "famousFor": "Strong",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chow Chow Bath",
+                    "type": "veg",
+                    "description": "Sweet & Spicy semolina.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Donne Biryani",
+                    "type": "non-veg",
+                    "description": "Green biryani.",
+                    "famousFor": "Spicy",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Kempegowda International Airport",
+                    "connectivity": "Global",
+                    "approxCost": "₹3000+",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Namma Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹20+",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "BMTC/KSRTC",
+                    "connectivity": "Extensive",
+                    "approxCost": "₹10+",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Uber/Ola/BluSmart",
+                    "connectivity": "City",
+                    "approxCost": "₹150+",
+                    "isActive": true
+                },
+                {
+                    "type": "auto",
+                    "description": "Auto Rickshaw",
+                    "connectivity": "Local",
+                    "approxCost": "₹30+",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mysuru",
+            "slug": "mysuru",
+            "description": "City of Palaces.",
+            "history": "Wodeyar dynasty.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Mysore Palace",
+                    "category": "heritage",
+                    "description": "Grand palace.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chamundi Hill",
+                    "category": "temple",
+                    "description": "Chamundeshwari.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Brindavan Gardens",
+                    "category": "nature",
+                    "description": "Dam garden.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mysore Zoo",
+                    "category": "nature",
+                    "description": "Oldest zoo.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "St. Philomena's Cathedral",
+                    "category": "temple",
+                    "description": "Neo-Gothic.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mysore Pak",
+                    "type": "sweet",
+                    "description": "Ghee sweet.",
+                    "famousFor": "Guru Sweets",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mysore Masala Dosa",
+                    "type": "veg",
+                    "description": "Spicy paste.",
+                    "famousFor": "Vinayaka Mylari",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Churmnuri",
+                    "type": "veg",
+                    "description": "Puffed rice snack.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Set Dosa",
+                    "type": "veg",
+                    "description": "Soft dosas.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Badam Milk",
+                    "type": "beverage",
+                    "description": "Almond milk.",
+                    "famousFor": "Night",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Mysore Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹100+",
+                    "isActive": true
+                },
+                {
+                    "type": "flight",
+                    "description": "Mysore Airport",
+                    "connectivity": "Limited",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Hampi",
+            "slug": "hampi",
+            "description": "City of Ruins.",
+            "history": "Vijayanagara.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hampi_Virupaksha_Temple.jpg/800px-Hampi_Virupaksha_Temple.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Virupaksha Temple",
+                    "category": "temple",
+                    "description": "Active temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Vittala Temple",
+                    "category": "heritage",
+                    "description": "Stone chariot.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lotus Mahal",
+                    "category": "heritage",
+                    "description": "Zenana enclosure.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Elephant Stables",
+                    "category": "heritage",
+                    "description": "Royal stables.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Matanga Hill",
+                    "category": "nature",
+                    "description": "Top view.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mango Curry",
+                    "type": "veg",
+                    "description": "Local style.",
+                    "famousFor": "Mango Tree",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "South Indian Thali",
+                    "type": "veg",
+                    "description": "Banana leaf.",
+                    "famousFor": "Lunch",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Lassi",
+                    "type": "beverage",
+                    "description": "Drnk.",
+                    "famousFor": "Cool",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Israeli Food",
+                    "type": "veg",
+                    "description": "Shakshuka.",
+                    "famousFor": "Cafe",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Coconut Water",
+                    "type": "beverage",
+                    "description": "Fresh.",
+                    "famousFor": "Hydration",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Hospet Junction",
+                    "connectivity": "Nearby Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Coorg",
+            "slug": "coorg",
+            "description": "Scotland of India.",
+            "history": "Kodagu.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Coorg_hills.jpg/800px-Coorg_hills.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Abbey Falls",
+                    "category": "nature",
+                    "description": "Waterfall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Raja's Seat",
+                    "category": "nature",
+                    "description": "Viewpoint.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dubare Elephant Camp",
+                    "category": "nature",
+                    "description": "Elephants.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Golden Temple (Namdroling)",
+                    "category": "temple",
+                    "description": "Tibetan.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Talakaveri",
+                    "category": "temple",
+                    "description": "Source of Cauvery.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Pandime Curry",
+                    "type": "non-veg",
+                    "description": "Pork.",
+                    "famousFor": "Kodava",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kadambuttu",
+                    "type": "veg",
+                    "description": "Rice balls.",
+                    "famousFor": "Side",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Akki Roti",
+                    "type": "veg",
+                    "description": "Rice bread.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bamboo Shoot Curry",
+                    "type": "veg",
+                    "description": "Seasonal.",
+                    "famousFor": "Monsoon",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Coffee",
+                    "type": "beverage",
+                    "description": "Local brew.",
+                    "famousFor": "Arabica",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "KSRTC",
+                    "connectivity": "Mysore/Bangalore",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mangaluru",
+            "slug": "mangaluru",
+            "description": "Port City.",
+            "history": "Coastal hub.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mangalore_City_View.jpg/800px-Mangalore_City_View.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Panambur Beach",
+                    "category": "nature",
+                    "description": "Popular beach.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kudroli Gokarnath",
+                    "category": "temple",
+                    "description": "Modern temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "St. Aloysius Chapel",
+                    "category": "temple",
+                    "description": "Paintings.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tannirbhavi Beach",
+                    "category": "nature",
+                    "description": "Quiet beach.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kadri Manjunath Temple",
+                    "category": "temple",
+                    "description": "Old temple.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Ghee Roast",
+                    "type": "non-veg",
+                    "description": "Chicken/Prawn.",
+                    "famousFor": "Shetty Lunch Home",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Neer Dosa",
+                    "type": "veg",
+                    "description": "Water dosa.",
+                    "famousFor": "Light",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mangalore Buns",
+                    "type": "veg",
+                    "description": "Banana bread.",
+                    "famousFor": "Sweet",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Gadbad Ice Cream",
+                    "type": "sweet",
+                    "description": "Sundae.",
+                    "famousFor": "Pabbas",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Fish Curry",
+                    "type": "non-veg",
+                    "description": "Coconut gravy.",
+                    "famousFor": "Giri Manja",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Mangalore Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Mangalore Central",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Udupi",
+            "slug": "udupi",
+            "description": "Temple Town.",
+            "history": "Krishna Matha.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Udupi_Krishna_Temple.jpg/800px-Udupi_Krishna_Temple.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Sri Krishna Temple",
+                    "category": "temple",
+                    "description": "Kanakana Kindi.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Malpe Beach",
+                    "category": "nature",
+                    "description": "Sea walk.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "St. Mary's Island",
+                    "category": "nature",
+                    "description": "Basalt rock.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Manipal End Point",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kapu Beach",
+                    "category": "nature",
+                    "description": "Lighthouse.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Masala Dosa",
+                    "type": "veg",
+                    "description": "Origin.",
+                    "famousFor": "Crispy",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Goli Baje",
+                    "type": "veg",
+                    "description": "Fritters.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Udupi Sambar",
+                    "type": "veg",
+                    "description": "Sweet spicy.",
+                    "famousFor": "Lunch",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Patrode",
+                    "type": "veg",
+                    "description": "Colocasia leaves.",
+                    "famousFor": "Konkani",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Kashi Halwa",
+                    "type": "sweet",
+                    "description": "Ash gourd.",
+                    "famousFor": "Sweet",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Udupi Station",
+                    "connectivity": "Konkan Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Gokarna",
+            "slug": "gokarna",
+            "description": "Beaches & Temples.",
+            "history": "Shiva.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Om_Beach_Gokarna.jpg/800px-Om_Beach_Gokarna.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Om Beach",
+                    "category": "nature",
+                    "description": "Om shape.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mahabaleshwar Temple",
+                    "category": "temple",
+                    "description": "Atma Linga.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kudle Beach",
+                    "category": "nature",
+                    "description": "Sunset.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Paradise Beach",
+                    "category": "nature",
+                    "description": "Secluded.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Yana Rocks",
+                    "category": "nature",
+                    "description": "Limestone rocks.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Seafood",
+                    "type": "non-veg",
+                    "description": "Fresh.",
+                    "famousFor": "Shacks",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Nutella Banana Pancake",
+                    "type": "sweet",
+                    "description": "Beach food.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Prasad Meal",
+                    "type": "veg",
+                    "description": "Temple food.",
+                    "famousFor": "Free",
+                    "approxPrice": "Free",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Gadbad",
+                    "type": "sweet",
+                    "description": "Ice cream.",
+                    "famousFor": "Cool",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Prawn Ghee Roast",
+                    "type": "non-veg",
+                    "description": "Spicy.",
+                    "famousFor": "Dinner",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Gokarna Road",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Hubli-Dharwad",
+            "slug": "hubli",
+            "description": "Twin Cities.",
+            "history": "Commercial.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Unkal_Lake_Hubli.jpg/800px-Unkal_Lake_Hubli.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Unkal Lake",
+                    "category": "nature",
+                    "description": "Sunset.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nrupatunga Betta",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chandramouleshwara Temple",
+                    "category": "temple",
+                    "description": "Chalukya.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Indira Gandhi Glass House",
+                    "category": "nature",
+                    "description": "Garden.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Siddharoodha Math",
+                    "category": "temple",
+                    "description": "Ashram.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Dharwad Peda",
+                    "type": "sweet",
+                    "description": "Milk sweet.",
+                    "famousFor": "Thakur/Babu Singh",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Girmit",
+                    "type": "veg",
+                    "description": "Puffed rice.",
+                    "famousFor": "Spicy",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mirchi Bajji",
+                    "type": "veg",
+                    "description": "Chilli fritter.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Jolada Roti",
+                    "type": "veg",
+                    "description": "Sorghum bread.",
+                    "famousFor": "Meal",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Savji Mutton",
+                    "type": "non-veg",
+                    "description": "Hot curry.",
+                    "famousFor": "Savji",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Hubli Junction",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "flight",
+                    "description": "Hubli Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Belagavi",
+            "slug": "belagavi",
+            "description": "Bamboo Village.",
+            "history": "Border city.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Belgaum_Fort_Entrance.jpg/800px-Belgaum_Fort_Entrance.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Belgaum Fort",
+                    "category": "fort",
+                    "description": "Ancient.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kamal Basti",
+                    "category": "temple",
+                    "description": "Jain temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Gokak Falls",
+                    "category": "nature",
+                    "description": "Niagara of India.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kits Park",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Military Mahadeva Temple",
+                    "category": "temple",
+                    "description": "Shiva.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Kunda",
+                    "type": "sweet",
+                    "description": "Milk sweet.",
+                    "famousFor": "Purohit",
+                    "approxPrice": "₹350/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Belgaum Biryani",
+                    "type": "non-veg",
+                    "description": "Mild.",
+                    "famousFor": "Niyaz",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Aloo Bonda",
+                    "type": "veg",
+                    "description": "Potato ball.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mandige",
+                    "type": "sweet",
+                    "description": "Crepe.",
+                    "famousFor": "Wedding",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sol Kadhi",
+                    "type": "beverage",
+                    "description": "Kokum.",
+                    "famousFor": "Digestive",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Belgaum Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Chikkamagaluru",
+            "slug": "chikkamagaluru",
+            "description": "Coffee Land.",
+            "history": "Baba Budan.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Mullayanagiri",
+                    "category": "nature",
+                    "description": "Highest peak.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Baba Budangiri",
+                    "category": "nature",
+                    "description": "Shrine.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Hebbe Falls",
+                    "category": "nature",
+                    "description": "Waterfalls.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kudremukh",
+                    "category": "nature",
+                    "description": "Horse face peak.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bhadra Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Tiger reserve.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Coffee",
+                    "type": "beverage",
+                    "description": "Brew.",
+                    "famousFor": "Plantation",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Akki Roti",
+                    "type": "veg",
+                    "description": "Rice bread.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Jackfruit Idli",
+                    "type": "veg",
+                    "description": "Seasonal.",
+                    "famousFor": "Unique",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Neer Dosa",
+                    "type": "veg",
+                    "description": "Light.",
+                    "famousFor": "Soft",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pathrode",
+                    "type": "veg",
+                    "description": "Spicy roll.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Bangalore",
+                    "approxCost": "₹400",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

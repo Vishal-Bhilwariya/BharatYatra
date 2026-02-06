@@ -1,0 +1,1370 @@
+{
+    "state": {
+        "name": "Maharashtra",
+        "slug": "maharashtra",
+        "description": "Maharashtra, the 'Land of Greats', is an economic powerhouse blending Bollywood glamour, historical forts of Shivaji Maharaj, and ancient Ajanta-Ellora caves.",
+        "culturalSummary": "Maharashtra's culture is deeply rooted in Maratha history, Warkari saints, and festivals like Ganesh Chaturthi. It's a blend of cosmopolitan spirit and traditional values.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Gateway_of_India_Mumbai.jpg/800px-Gateway_of_India_Mumbai.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Maharashtra",
+        "overview": {
+            "introduction": "Spanning from the Konkan coast to the Deccan plateau, Maharashtra offers diverse experiences.",
+            "lifestyle": "Fast-paced in cities like Mumbai, relaxed in rural areas.",
+            "traditions": "Deep reverence for Vithoba (Pandharpur) and Shivaji Maharaj.",
+            "history": "Satavahanas, Rashtrakutas, Yadavas, and the Maratha Empire under Shivaji.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Gateway_of_India_Mumbai.jpg/800px-Gateway_of_India_Mumbai.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "ranges from mild Konkani seafood to spicy Kolhapuri mutton and street food like Vada Pav.",
+            "dishes": [
+                {
+                    "name": "Vada Pav",
+                    "type": "Veg",
+                    "priceRange": "₹20",
+                    "description": "Indian burger.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Vada_Pav_Mumbai.jpg/800px-Vada_Pav_Mumbai.jpg"
+                },
+                {
+                    "name": "Misal Pav",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Spicy sprout curry with bread.",
+                    "image": ""
+                },
+                {
+                    "name": "Puran Poli",
+                    "type": "Sweet",
+                    "priceRange": "₹40",
+                    "description": "Sweet lentil flatbread.",
+                    "image": ""
+                },
+                {
+                    "name": "Bombil Fry",
+                    "type": "Non-Veg",
+                    "priceRange": "₹150",
+                    "description": "Bombay Duck fish fry.",
+                    "image": ""
+                },
+                {
+                    "name": "Modak",
+                    "type": "Sweet",
+                    "priceRange": "₹30",
+                    "description": "Steamed dumpling.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Ashok Vada Pav",
+                "location": "Mumbai",
+                "famousFor": "Vada Pav",
+                "priceRange": "₹25",
+                "rating": 4.9,
+                "timings": "11 AM - 9 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Lavani",
+                    "type": "Folk",
+                    "description": "High energy dance.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lavani.jpg/800px-Lavani.jpg"
+                },
+                {
+                    "name": "Koli Dance",
+                    "type": "Folk",
+                    "description": "Fisherman dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Natya Sangeet",
+                    "description": "Musical theatre.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Dholki",
+                    "description": "Drum.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Dhoti and Gandhi Cap.",
+                "attire": [
+                    {
+                        "name": "Pheta",
+                        "description": "Turban."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Nauvari Saree.",
+                "attire": [
+                    {
+                        "name": "Paithani",
+                        "description": "Silk saree with peacock pallu."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Himroo",
+                    "description": "Fabric from Aurangabad."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Ganesh Chaturthi",
+                "celebrationTime": "August/September",
+                "significance": "God of Wisdom",
+                "description": "Grand celebration of Lord Ganesh.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Lalbaugcha_Raja.jpg/800px-Lalbaugcha_Raja.jpg"
+                ]
+            },
+            {
+                "name": "Gudi Padwa",
+                "celebrationTime": "March/April",
+                "significance": "New Year",
+                "description": "Marathi New Year.",
+                "images": []
+            },
+            {
+                "name": "Palkhi Festival",
+                "celebrationTime": "June/July",
+                "significance": "Pilgrimage",
+                "description": "Warkari procession to Pandharpur.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Warli Painting",
+                "type": "Painting",
+                "description": "Tribal art using basic shapes.",
+                "famousFor": "Simplicity",
+                "images": []
+            },
+            {
+                "name": "Kolhapuri Chappal",
+                "type": "Footwear",
+                "description": "Leather sandals.",
+                "famousFor": "Durability",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Oti Bharne",
+                    "description": "Ritual for married women."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Mangalagaur",
+                    "description": "Worship of Shiva."
+                }
+            ],
+            "dailyLife": "Suburban trains are the lifeline.",
+            "values": "Hard work and resilience."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Ajanta Caves",
+                "type": "Cave",
+                "location": "Aurangabad",
+                "description": "Buddhist paintings.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Ajanta_Caves_View.jpg/800px-Ajanta_Caves_View.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Bollywood",
+                "content": "Mumbai is the home of Hindi cinema, producing hundreds of films annually."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Ganesh Utsav",
+                    "priority": 1,
+                    "date": "2025-08-27",
+                    "significance": "Cultural",
+                    "images": [],
+                    "audience": [
+                        "Everyone"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Mumbai",
+            "slug": "mumbai",
+            "description": "City of Dreams.",
+            "history": "Seven Islands.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Gateway_of_India_Mumbai.jpg/800px-Gateway_of_India_Mumbai.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Gateway of India",
+                    "category": "heritage",
+                    "description": "Arch monument.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Colaba",
+                    "isActive": true
+                },
+                {
+                    "name": "Marine Drive",
+                    "category": "nature",
+                    "description": "Queen's Necklace.",
+                    "images": [],
+                    "bestTimeToVisit": "Night",
+                    "entryFee": "Free",
+                    "location": "South Mumbai",
+                    "isActive": true
+                },
+                {
+                    "name": "Elephanta Caves",
+                    "category": "heritage",
+                    "description": "Island caves.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹40",
+                    "location": "Island",
+                    "isActive": true
+                },
+                {
+                    "name": "Chhatrapati Shivaji Maharaj Terminus",
+                    "category": "heritage",
+                    "description": "Gothic railway station.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Fort",
+                    "isActive": true
+                },
+                {
+                    "name": "Juhu Beach",
+                    "category": "nature",
+                    "description": "Popular beach.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Juhu",
+                    "isActive": true
+                },
+                {
+                    "name": "Siddhivinayak Temple",
+                    "category": "temple",
+                    "description": "Ganesh temple.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "Free",
+                    "location": "Dadar",
+                    "isActive": true
+                },
+                {
+                    "name": "Haji Ali Dargah",
+                    "category": "temple",
+                    "description": "Floating shrine.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Worli",
+                    "isActive": true
+                },
+                {
+                    "name": "Sanjay Gandhi National Park",
+                    "category": "nature",
+                    "description": "City forest.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "₹50",
+                    "location": "Borivali",
+                    "isActive": true
+                },
+                {
+                    "name": "Colaba Causeway",
+                    "category": "other",
+                    "description": "Shopping.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Colaba",
+                    "isActive": true
+                },
+                {
+                    "name": "Bandra-Worli Sea Link",
+                    "category": "nature",
+                    "description": "Bridge.",
+                    "images": [],
+                    "bestTimeToVisit": "Drive",
+                    "entryFee": "Toll",
+                    "location": "Bandra",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Vada Pav",
+                    "type": "veg",
+                    "description": "Staple snack.",
+                    "famousFor": "Ashok",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pav Bhaji",
+                    "type": "veg",
+                    "description": "Buttery mash.",
+                    "famousFor": "Sardar",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bhelpuri",
+                    "type": "veg",
+                    "description": "Chaat.",
+                    "famousFor": "Chowpatty",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bombay Sandwich",
+                    "type": "veg",
+                    "description": "Grilled.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Falooda",
+                    "type": "sweet",
+                    "description": "Dessert drink.",
+                    "famousFor": "Badshah",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "CSM International Airport",
+                    "connectivity": "Global",
+                    "approxCost": "₹3000+",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Local Train",
+                    "connectivity": "Lifeline",
+                    "approxCost": "₹10+",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "BEST",
+                    "connectivity": "City",
+                    "approxCost": "₹5+",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Kaali Peeli",
+                    "connectivity": "City",
+                    "approxCost": "₹30+",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Mumbai Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹20+",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Pune",
+            "slug": "pune",
+            "description": "Oxford of the East.",
+            "history": "Peshwas.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Shaniwar_wada_Pune.jpg/800px-Shaniwar_wada_Pune.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Shaniwar Wada",
+                    "category": "heritage",
+                    "description": "Fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Aga Khan Palace",
+                    "category": "heritage",
+                    "description": "Gandhi memorial.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sinhagad Fort",
+                    "category": "fort",
+                    "description": "Hill fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dagdusheth Halwai Ganpati",
+                    "category": "temple",
+                    "description": "Ganesh.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Osho Ashram",
+                    "category": "other",
+                    "description": "Meditation.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Misal Pav",
+                    "type": "veg",
+                    "description": "Spicy curry.",
+                    "famousFor": "Bedekar",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bakarwadi",
+                    "type": "veg",
+                    "description": "Spiral snack.",
+                    "famousFor": "Chitale",
+                    "approxPrice": "₹300/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mastani",
+                    "type": "sweet",
+                    "description": "Thick shake.",
+                    "famousFor": "Sujata",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Amti",
+                    "type": "veg",
+                    "description": "Dal.",
+                    "famousFor": "Home",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Shrewsbury Biscuits",
+                    "type": "sweet",
+                    "description": "Cookie.",
+                    "famousFor": "Kayani",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Pune Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Pune Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Nagpur",
+            "slug": "nagpur",
+            "description": "Orange City.",
+            "history": "Zero Mile.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Deekshabhoomi_Nagpur.jpg/800px-Deekshabhoomi_Nagpur.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Deekshabhoomi",
+                    "category": "heritage",
+                    "description": "Buddhist stupa.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ambazari Lake",
+                    "category": "nature",
+                    "description": "Sunset.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ramtek Fort",
+                    "category": "temple",
+                    "description": "Rama temple.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Zero Mile Stone",
+                    "category": "heritage",
+                    "description": "Center of India.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sitabuldi Fort",
+                    "category": "fort",
+                    "description": "Battle site.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Tarri Poha",
+                    "type": "veg",
+                    "description": "Spicy poha.",
+                    "famousFor": "Breakfast",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Saoji Chicken",
+                    "type": "non-veg",
+                    "description": "Very spicy.",
+                    "famousFor": "Saoji",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Orange Barfi",
+                    "type": "sweet",
+                    "description": "Citrus sweet.",
+                    "famousFor": "Haldiram",
+                    "approxPrice": "₹400/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Samosa",
+                    "type": "veg",
+                    "description": "Snack.",
+                    "famousFor": "Priti Corner",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Param Ki Daal",
+                    "type": "veg",
+                    "description": "Garlic dal.",
+                    "famousFor": "Dhaba",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Dr. Babasaheb Ambedkar Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Nagpur Junction",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Nagpur Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹20",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Nashik",
+            "slug": "nashik",
+            "description": "Wine Capital.",
+            "history": "Kumbh Mela.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Sula_Vineyards_Nashik.jpg/800px-Sula_Vineyards_Nashik.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Trimbakeshwar",
+                    "category": "temple",
+                    "description": "Jyotirlinga.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Sula Vineyards",
+                    "category": "other",
+                    "description": "Wine tasting.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Panchvati",
+                    "category": "heritage",
+                    "description": "Ramayana site.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pandavleni Caves",
+                    "category": "heritage",
+                    "description": "Ancient caves.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ramkund",
+                    "category": "culture",
+                    "description": "Holy tank.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Misal Pav",
+                    "type": "veg",
+                    "description": "Spiciest.",
+                    "famousFor": "Sadhana",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Grapes",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Farm",
+                    "approxPrice": "₹80/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Konda",
+                    "type": "sweet",
+                    "description": "Jaggery sweet.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Vada Pav",
+                    "type": "veg",
+                    "description": "Krishna Vada Pav.",
+                    "famousFor": "Krishna",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Modak",
+                    "type": "sweet",
+                    "description": "Dumpling.",
+                    "famousFor": "Temple",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Nashik Road",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Aurangabad",
+            "slug": "aurangabad",
+            "description": "Tourism Capital.",
+            "history": "Mughal.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bibi_Ka_Maqbara.jpg/800px-Bibi_Ka_Maqbara.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Ajanta Caves",
+                    "category": "heritage",
+                    "description": "Paintings.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ellora Caves",
+                    "category": "heritage",
+                    "description": "Sculptures.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bibi Ka Maqbara",
+                    "category": "heritage",
+                    "description": "Mini Taj.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Daulatabad Fort",
+                    "category": "fort",
+                    "description": "Hill fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Panchakki",
+                    "category": "heritage",
+                    "description": "Water mill.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Naan Qalia",
+                    "type": "non-veg",
+                    "description": "Mutton curry.",
+                    "famousFor": "Heritage",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Tahri",
+                    "type": "veg",
+                    "description": "Rice dish.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Imarti",
+                    "type": "sweet",
+                    "description": "Flower jalebi.",
+                    "famousFor": "Sweet",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sheermal",
+                    "type": "veg",
+                    "description": "Saffron bread.",
+                    "famousFor": "Bakery",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Cantonese Chicken",
+                    "type": "non-veg",
+                    "description": "Tara Pan Centre.",
+                    "famousFor": "Paan",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Aurangabad Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Aurangabad Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Kolhapur",
+            "slug": "kolhapur",
+            "description": "City of Wrestlers.",
+            "history": "Sport.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rankala_Lake_Kolhapur.jpg/800px-Rankala_Lake_Kolhapur.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Mahalakshmi Temple",
+                    "category": "temple",
+                    "description": "Shakti Peeth.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rankala Lake",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Panhala Fort",
+                    "category": "fort",
+                    "description": "Hill station.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "New Palace",
+                    "category": "heritage",
+                    "description": "Museum.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jyotiba Temple",
+                    "category": "temple",
+                    "description": "Hill temple.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Kolhapuri Misal",
+                    "type": "veg",
+                    "description": "Very spicy.",
+                    "famousFor": "Phadanis",
+                    "approxPrice": "₹60",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Tambda Pandhra Rassa",
+                    "type": "non-veg",
+                    "description": "Broths.",
+                    "famousFor": "Thali",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mutton Thali",
+                    "type": "non-veg",
+                    "description": "Goat meat.",
+                    "famousFor": "Parakh",
+                    "approxPrice": "₹400",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bhadang",
+                    "type": "veg",
+                    "description": "Puffed rice snack.",
+                    "famousFor": "Tea time",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Jaggery",
+                    "type": "sweet",
+                    "description": "Pure.",
+                    "famousFor": "Market",
+                    "approxPrice": "₹50/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Kolhapur Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Shirdi",
+            "slug": "shirdi",
+            "description": "Sai Baba's Abode.",
+            "history": "Saint.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Sai_Baba_Samadhi_Mandir.jpg/800px-Sai_Baba_Samadhi_Mandir.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Sai Baba Temple",
+                    "category": "temple",
+                    "description": "Samadhi.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dwarkamai",
+                    "category": "temple",
+                    "description": "Mosque.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chavadi",
+                    "category": "heritage",
+                    "description": "Resting place.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dixit Wada Museum",
+                    "category": "museum",
+                    "description": "Belongings.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Khandoba Mandir",
+                    "category": "temple",
+                    "description": "Shrine.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Prasad Ladoo",
+                    "type": "sweet",
+                    "description": "Blessed food.",
+                    "famousFor": "My Temple",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mahaprasad",
+                    "type": "veg",
+                    "description": "Community meal.",
+                    "famousFor": "Free",
+                    "approxPrice": "Free",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Guava",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Local carts",
+                    "approxPrice": "₹40/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pomegranate",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹80/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Thali",
+                    "type": "veg",
+                    "description": "Meal.",
+                    "famousFor": "Hotels",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Shirdi Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹3000",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Sainagar Shirdi",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mahabaleshwar",
+            "slug": "mahabaleshwar",
+            "description": "Strawberry Capital.",
+            "history": "Summer capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Venna_Lake_Mahabaleshwar.jpg/800px-Venna_Lake_Mahabaleshwar.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Venna Lake",
+                    "category": "nature",
+                    "description": "Boating.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Arthur's Seat",
+                    "category": "nature",
+                    "description": "Viewpoint.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Elephant's Head Point",
+                    "category": "nature",
+                    "description": "Rock formation.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mapro Garden",
+                    "category": "other",
+                    "description": "Strawberry farm.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pratapgad Fort",
+                    "category": "fort",
+                    "description": "Nearby fort.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Strawberries",
+                    "type": "veg",
+                    "description": "Fresh fruit.",
+                    "famousFor": "Mapro",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Strawberry Cream",
+                    "type": "sweet",
+                    "description": "Dessert.",
+                    "famousFor": "Bagicha",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Corn Patties",
+                    "type": "veg",
+                    "description": "Snack.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chana",
+                    "type": "veg",
+                    "description": "Roasted gram.",
+                    "famousFor": "Lake",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Mulberry",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Season",
+                    "approxPrice": "₹100/box",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Pune/Mumbai",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Lonavala",
+            "slug": "lonavala",
+            "description": "Mist City.",
+            "history": "Weekend getaway.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lonavala_Bhushi_Dam.jpg/800px-Lonavala_Bhushi_Dam.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Bhushi Dam",
+                    "category": "nature",
+                    "description": "Steps waterfall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tiger's Leap",
+                    "category": "nature",
+                    "description": "Cliff view.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Karla Caves",
+                    "category": "heritage",
+                    "description": "Buddhist.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lohagad Fort",
+                    "category": "fort",
+                    "description": "Trek.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Imagica",
+                    "category": "other",
+                    "description": "Theme park nearby.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Chikki",
+                    "type": "sweet",
+                    "description": "Peanut brittle.",
+                    "famousFor": "Maganlal",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Fudge",
+                    "type": "sweet",
+                    "description": "Chocolate walnut.",
+                    "famousFor": "Cooper's",
+                    "approxPrice": "₹500/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Corn Bhaji",
+                    "type": "veg",
+                    "description": "Pakoda.",
+                    "famousFor": "Rain",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Masala Chai",
+                    "type": "beverage",
+                    "description": "Tea.",
+                    "famousFor": "Highway",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Vada Pav",
+                    "type": "veg",
+                    "description": "Golden Vada Pav.",
+                    "famousFor": "Highway",
+                    "approxPrice": "₹25",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Lonavala Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Alibaug",
+            "slug": "alibaug",
+            "description": "Mini Goa.",
+            "history": "Naval base.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Alibaug_Beach.jpg/800px-Alibaug_Beach.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Alibaug Beach",
+                    "category": "nature",
+                    "description": "Black sand.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kolaba Fort",
+                    "category": "fort",
+                    "description": "Sea fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Varsoli Beach",
+                    "category": "nature",
+                    "description": "Water sports.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Murud Janjira",
+                    "category": "fort",
+                    "description": "Invincible fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Nagaon Beach",
+                    "category": "nature",
+                    "description": "Clean beach.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Seafood Thali",
+                    "type": "non-veg",
+                    "description": "Konkani.",
+                    "famousFor": "Sanman",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sol Kadhi",
+                    "type": "beverage",
+                    "description": "Kokum coconut.",
+                    "famousFor": "Drink",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Fried Fish",
+                    "type": "non-veg",
+                    "description": "Surmai/Pomfret.",
+                    "famousFor": "Hotel",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Popti",
+                    "type": "veg",
+                    "description": "Pot roasted beans.",
+                    "famousFor": "Winter",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Coconut Water",
+                    "type": "beverage",
+                    "description": "Fresh.",
+                    "famousFor": "Beach",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "ferry",
+                    "description": "Ro-Ro Ferry",
+                    "connectivity": "Mumbai",
+                    "approxCost": "₹400",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

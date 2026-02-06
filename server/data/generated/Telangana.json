@@ -1,0 +1,827 @@
+{
+    "state": {
+        "name": "Telangana",
+        "slug": "telangana",
+        "description": "Telangana is a blend of rich history and modern innovation, home to the bustling city of Hyderabad and ancient dynasties.",
+        "culturalSummary": "Telangana's culture is a fusion of Telugu and Persian influences, reflected in its art, festivals like Bathukamma, and Nizami cuisine.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charminar_Hyderabad_1.jpg/800px-Charminar_Hyderabad_1.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Telangana",
+        "overview": {
+            "introduction": "India's youngest state, Telangana has a unique identity forged by the Kakatiyas and Qutb Shahis.",
+            "lifestyle": "Modern yet rooted in tradition, especially in Hyderabad.",
+            "traditions": "Floral festivals and folk arts like Oggu Katha.",
+            "history": "Ruled by Satavahanas, Kakatiyas, and Nizams.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charminar_Hyderabad_1.jpg/800px-Charminar_Hyderabad_1.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Spicy and tangy, with heavy use of tamarind, sesame, and chilies. The Hyderabadi cuisine is legendary.",
+            "dishes": [
+                {
+                    "name": "Hyderabadi Biryani",
+                    "type": "Non-Veg",
+                    "priceRange": "₹250",
+                    "description": "World famous mutton/chicken rice.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Hyderabadi_Biryani.jpg/800px-Hyderabadi_Biryani.jpg"
+                },
+                {
+                    "name": "Sarva Pindi",
+                    "type": "Veg",
+                    "priceRange": "₹50",
+                    "description": "Spicy rice flour pancake.",
+                    "image": ""
+                },
+                {
+                    "name": "Pachi Pulusu",
+                    "type": "Veg",
+                    "priceRange": "₹40",
+                    "description": "Raw tamarind rasam.",
+                    "image": ""
+                },
+                {
+                    "name": "Golichina Mamsam",
+                    "type": "Non-Veg",
+                    "priceRange": "₹300",
+                    "description": "Spicy mutton fry.",
+                    "image": ""
+                },
+                {
+                    "name": "Qubani ka Meetha",
+                    "type": "Sweet",
+                    "priceRange": "₹150",
+                    "description": "Apricot dessert.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Qubani_ka_Meetha.jpg/800px-Qubani_ka_Meetha.jpg"
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Paradise Biryani",
+                "location": "Secunderabad",
+                "famousFor": "Biryani",
+                "priceRange": "₹300",
+                "rating": 4.7,
+                "timings": "11 AM - 11 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Perini Sivatandavam",
+                    "type": "Classical",
+                    "description": "Dance of warriors.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Perini_Sivatandavam.jpg/800px-Perini_Sivatandavam.jpg"
+                },
+                {
+                    "name": "Lambadi",
+                    "type": "Folk",
+                    "description": "Tribal dance.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Oggu Katha",
+                    "description": "Folk storytelling.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Kanjira",
+                    "description": "Percussion.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Pancha (Dhoti) and Kanduva.",
+                "attire": [
+                    {
+                        "name": "Sherwani",
+                        "description": "Nizami wedding wear."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Saree and Langa Voni.",
+                "attire": [
+                    {
+                        "name": "Pochampally Saree",
+                        "description": "Ikat silk."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Pochampally Ikat",
+                    "description": "Geometric patterns."
+                },
+                {
+                    "name": "Gadwal",
+                    "description": "Cotton/Silk."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Bathukamma",
+                "celebrationTime": "September/October",
+                "significance": "Flowers",
+                "description": "Festival of flowers.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bathukamma.jpg/800px-Bathukamma.jpg"
+                ]
+            },
+            {
+                "name": "Bonalu",
+                "celebrationTime": "July/August",
+                "significance": "Goddess",
+                "description": "Offering to Mahakali.",
+                "images": []
+            },
+            {
+                "name": "Ramzan",
+                "celebrationTime": "Variable",
+                "significance": "Fasting",
+                "description": "Eid-ul-Fitr.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Bidriware",
+                "type": "Metal",
+                "description": "Silver inlay on black metal.",
+                "famousFor": "Hyderabad",
+                "images": []
+            },
+            {
+                "name": "Pochampally Ikat",
+                "type": "Textile",
+                "description": "Tie and dye weaving.",
+                "famousFor": "Pochampally",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Telangana Dialect",
+                    "description": "Distinct Telugu."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Bonalu Jatara",
+                    "description": "Procession."
+                }
+            ],
+            "dailyLife": "IT professionals and farmers.",
+            "values": "Resilience and hospitality."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Golconda Fort",
+                "type": "Fort",
+                "location": "Hyderabad",
+                "description": "Acoustic wonder.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Golconda_Fort_Hyderabad.jpg/800px-Golconda_Fort_Hyderabad.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "IT Hub",
+                "content": "Hyderabad is known as Cyberabad, a major global IT hub."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Bathukamma",
+                    "priority": 1,
+                    "date": "2025-09-22",
+                    "significance": "Cultural",
+                    "images": [],
+                    "audience": [
+                        "Women",
+                        "Family"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Hyderabad",
+            "slug": "hyderabad",
+            "description": "City of Pearls.",
+            "history": "Qutb Shahi.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charminar_Hyderabad_1.jpg/800px-Charminar_Hyderabad_1.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Charminar",
+                    "category": "heritage",
+                    "description": "Iconic mosque.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹25",
+                    "location": "Old City",
+                    "isActive": true
+                },
+                {
+                    "name": "Golconda Fort",
+                    "category": "fort",
+                    "description": "Diamond trade center.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹25",
+                    "location": "Ibrahim Bagh",
+                    "isActive": true
+                },
+                {
+                    "name": "Ramoji Film City",
+                    "category": "other",
+                    "description": "Largest film studio.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹1150",
+                    "location": "Hayathnagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Hussain Sagar Lake",
+                    "category": "nature",
+                    "description": "Buddha statue.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Tank Bund",
+                    "isActive": true
+                },
+                {
+                    "name": "Salar Jung Museum",
+                    "category": "museum",
+                    "description": "One man collection.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Darulshifa",
+                    "isActive": true
+                },
+                {
+                    "name": "Chowmahalla Palace",
+                    "category": "heritage",
+                    "description": "Nizam's palace.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹80",
+                    "location": "Motigalli",
+                    "isActive": true
+                },
+                {
+                    "name": "Birla Mandir",
+                    "category": "temple",
+                    "description": "White marble.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "Free",
+                    "location": "Adarsh Nagar",
+                    "isActive": true
+                },
+                {
+                    "name": "Nehru Zoological Park",
+                    "category": "nature",
+                    "description": "Zoo.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Bahadurpura",
+                    "isActive": true
+                },
+                {
+                    "name": "Mecca Masjid",
+                    "category": "temple",
+                    "description": "Old mosque.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Charminar",
+                    "isActive": true
+                },
+                {
+                    "name": "Shilparamam",
+                    "category": "culture",
+                    "description": "Arts village.",
+                    "images": [],
+                    "bestTimeToVisit": "Evening",
+                    "entryFee": "₹50",
+                    "location": "Hitech City",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Hyderabadi Biryani",
+                    "type": "non-veg",
+                    "description": "Dum cooked.",
+                    "famousFor": "Paradise",
+                    "approxPrice": "₹300",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Haleem",
+                    "type": "non-veg",
+                    "description": "Ramzan special.",
+                    "famousFor": "Pista House",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Double Ka Meetha",
+                    "type": "sweet",
+                    "description": "Bread pudding.",
+                    "famousFor": "Wedding",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Osmania Biscuit",
+                    "type": "sweet",
+                    "description": "Tea snack.",
+                    "famousFor": "Nimrah",
+                    "approxPrice": "₹5",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Irani Chai",
+                    "type": "beverage",
+                    "description": "Milky tea.",
+                    "famousFor": "Cafes",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "RGIA Airport",
+                    "connectivity": "International",
+                    "approxCost": "₹3500",
+                    "isActive": true
+                },
+                {
+                    "type": "train",
+                    "description": "Secunderabad Junction",
+                    "connectivity": "Major Hub",
+                    "approxCost": "₹200",
+                    "isActive": true
+                },
+                {
+                    "type": "metro",
+                    "description": "Hyderabad Metro",
+                    "connectivity": "City",
+                    "approxCost": "₹30",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "TSRTC",
+                    "connectivity": "City",
+                    "approxCost": "₹20",
+                    "isActive": true
+                },
+                {
+                    "type": "auto",
+                    "description": "Auto",
+                    "connectivity": "City",
+                    "approxCost": "₹50",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Warangal",
+            "slug": "warangal",
+            "description": "Cultural Capital.",
+            "history": "Kakatiya.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Warangal_Fort%2C_Warangal.jpg/800px-Warangal_Fort%2C_Warangal.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Warangal Fort",
+                    "category": "fort",
+                    "description": "Thorana arch.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thousand Pillar Temple",
+                    "category": "temple",
+                    "description": "1163 AD.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bhadrakali Temple",
+                    "category": "temple",
+                    "description": "Goddess.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Ramappa Temple",
+                    "category": "heritage",
+                    "description": "UNESCO (Palampet).",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pakhal Lake",
+                    "category": "nature",
+                    "description": "Wildlife.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Sarva Pindi",
+                    "type": "veg",
+                    "description": "Rice pancakes.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Garijalu",
+                    "type": "sweet",
+                    "description": "Stuffed.",
+                    "famousFor": "Sweets",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Warangal Junction",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Nizamabad",
+            "slug": "nizamabad",
+            "description": "City of Nizams.",
+            "history": "Indur.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nizamabad_Fort.jpg/800px-Nizamabad_Fort.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Nizamabad Fort",
+                    "category": "fort",
+                    "description": "Hilltop.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Alisagar Dam",
+                    "category": "nature",
+                    "description": "Garden.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Neelakanteshwara Temple",
+                    "category": "temple",
+                    "description": "Jain.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Mutton Curry",
+                    "type": "non-veg",
+                    "description": "Spicy.",
+                    "famousFor": "Dhaba",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Jowar Roti",
+                    "type": "veg",
+                    "description": "Sorghum bread.",
+                    "famousFor": "Home",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Nizamabad Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Karimnagar",
+            "slug": "karimnagar",
+            "description": "City of Granites.",
+            "history": "Satavahana.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lower_Manair_Dam_Karimnagar.jpg/800px-Lower_Manair_Dam_Karimnagar.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Lower Manair Dam",
+                    "category": "nature",
+                    "description": "Reservoir.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Elgandal Fort",
+                    "category": "fort",
+                    "description": "Hill fort.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Deer Park",
+                    "category": "nature",
+                    "description": "Wildlife.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Silver Filigree",
+                    "type": "other",
+                    "description": "Not food, craft.",
+                    "famousFor": "Craft",
+                    "approxPrice": "N/A",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sakinalu",
+                    "type": "veg",
+                    "description": "Snack.",
+                    "famousFor": "Festival",
+                    "approxPrice": "₹200/kg",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Karimnagar Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Khammam",
+            "slug": "khammam",
+            "description": "Historical City.",
+            "history": "Kakatiya.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Khammam_Fort.jpg/800px-Khammam_Fort.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Khammam Fort",
+                    "category": "fort",
+                    "description": "1000 years old.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lakaram Lake",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kinnerasani Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Nearby.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Gongura Mutton",
+                    "type": "non-veg",
+                    "description": "Sorrel leaves.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹250",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Khammam Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Nalgonda",
+            "slug": "nalgonda",
+            "description": "Black Hills.",
+            "history": "Mauryas.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nagarjuna_Sagar_Dam.jpg/800px-Nagarjuna_Sagar_Dam.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Nagarjuna Sagar Dam",
+                    "category": "nature",
+                    "description": "Masonry dam.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Bhongir Fort",
+                    "category": "fort",
+                    "description": "Monolithic rock.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Panagal",
+                    "category": "temple",
+                    "description": "Chaya Someswara.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Chepala Pulusu",
+                    "type": "non-veg",
+                    "description": "Fish curry.",
+                    "famousFor": "Dam",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Nalgonda Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Adilabad",
+            "slug": "adilabad",
+            "description": "White Gold City.",
+            "history": "Cotton.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kuntala_Waterfall.jpg/800px-Kuntala_Waterfall.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Kuntala Waterfall",
+                    "category": "nature",
+                    "description": "Highest in state.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pochera Falls",
+                    "category": "nature",
+                    "description": "Falls.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kawal Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Tiger reserve.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Jowar Roti",
+                    "type": "veg",
+                    "description": "Staple.",
+                    "famousFor": "Home",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Adilabad Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mahbubnagar",
+            "slug": "mahbubnagar",
+            "description": "Palamoor.",
+            "history": "Chalukya.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pillalamarri_Banyan_Tree.jpg/800px-Pillalamarri_Banyan_Tree.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Pillalamarri",
+                    "category": "nature",
+                    "description": "Old Banyan tree.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Jurala Project",
+                    "category": "nature",
+                    "description": "Dam.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Koilsagar",
+                    "category": "nature",
+                    "description": "Dam.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Ragi Sankati",
+                    "type": "veg",
+                    "description": "Millet ball.",
+                    "famousFor": "Rural",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Mahbubnagar Station",
+                    "connectivity": "Rail",
+                    "approxCost": "₹150",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}

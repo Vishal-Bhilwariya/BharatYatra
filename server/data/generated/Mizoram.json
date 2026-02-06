@@ -1,0 +1,1231 @@
+{
+    "state": {
+        "name": "Mizoram",
+        "slug": "mizoram",
+        "description": "Mizoram, the 'Land of Blue Mountains', is known for its rolling hills, pleasant climate, and vibrant festivals.",
+        "culturalSummary": "Mizo culture is characterized by the Cheraw dance (Bamboo Dance), high literacy, and a community-oriented lifestyle revolving around 'Tlawmngaihna'.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aizawl_View.jpg/800px-Aizawl_View.jpg",
+        "isActive": true
+    },
+    "culture": {
+        "stateName": "Mizoram",
+        "overview": {
+            "introduction": "Mizoram is a land of rolling hills, rivers, and lakes, with a close-knit tribal society.",
+            "lifestyle": "Westernized yet deeply traditional, with a love for music and sports.",
+            "traditions": "Code of ethics known as 'Tlawmngaihna' (selfless service).",
+            "history": "Inhabited by various Kuki-Chin groups, formerly known as Lushai Hills.",
+            "images": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aizawl_View.jpg/800px-Aizawl_View.jpg"
+            ]
+        },
+        "cuisine": {
+            "description": "Boiled foods, smoked meats, and local herbs. Less oil and spices.",
+            "dishes": [
+                {
+                    "name": "Bai",
+                    "type": "Veg",
+                    "priceRange": "₹60",
+                    "description": "Vegetable stew with pork sauce.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Mizo_Bai.jpg/800px-Mizo_Bai.jpg"
+                },
+                {
+                    "name": "Voken",
+                    "type": "Non-Veg",
+                    "priceRange": "₹150",
+                    "description": "Smoked pork.",
+                    "image": ""
+                },
+                {
+                    "name": "Sawhchiar",
+                    "type": "Non-Veg",
+                    "priceRange": "₹100",
+                    "description": "Rice porridge with meat.",
+                    "image": ""
+                },
+                {
+                    "name": "Chhangban",
+                    "type": "Sweet",
+                    "priceRange": "₹30",
+                    "description": "Sticky rice cake.",
+                    "image": ""
+                },
+                {
+                    "name": "Bekang",
+                    "type": "Veg",
+                    "priceRange": "₹40",
+                    "description": "Fermented soybean.",
+                    "image": ""
+                }
+            ]
+        },
+        "foodShops": [
+            {
+                "name": "Red Pepper",
+                "location": "Aizawl",
+                "famousFor": "Mizo Thali",
+                "priceRange": "₹200",
+                "rating": 4.5,
+                "timings": "10 AM - 8 PM"
+            }
+        ],
+        "danceAndMusic": {
+            "dances": [
+                {
+                    "name": "Cheraw",
+                    "type": "Folk",
+                    "description": "Bamboo dance.",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cheraw_Dance.jpg/800px-Cheraw_Dance.jpg"
+                },
+                {
+                    "name": "Khuallam",
+                    "type": "Folk",
+                    "description": "Dance of guests.",
+                    "image": ""
+                }
+            ],
+            "music": [
+                {
+                    "name": "Gospel",
+                    "description": "Choir singing.",
+                    "image": ""
+                }
+            ],
+            "instruments": [
+                {
+                    "name": "Drum",
+                    "description": "Khwang.",
+                    "image": ""
+                }
+            ]
+        },
+        "traditionalAttire": {
+            "men": {
+                "description": "Puan.",
+                "attire": [
+                    {
+                        "name": "Puan",
+                        "description": "Wrap around cloth."
+                    }
+                ],
+                "images": []
+            },
+            "women": {
+                "description": "Puanchei.",
+                "attire": [
+                    {
+                        "name": "Puanchei",
+                        "description": "Colorful wrap."
+                    },
+                    {
+                        "name": "Kawrechi",
+                        "description": "Blouse."
+                    }
+                ],
+                "images": []
+            },
+            "fabrics": [
+                {
+                    "name": "Mizo Puan",
+                    "description": "Handloom."
+                }
+            ]
+        },
+        "festivals": [
+            {
+                "name": "Chapchar Kut",
+                "celebrationTime": "March",
+                "significance": "Spring",
+                "description": "Harvest festival.",
+                "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chapchar_Kut.jpg/800px-Chapchar_Kut.jpg"
+                ]
+            },
+            {
+                "name": "Mim Kut",
+                "celebrationTime": "August/September",
+                "significance": "Maize",
+                "description": "Maize harvest.",
+                "images": []
+            },
+            {
+                "name": "Pawl Kut",
+                "celebrationTime": "December",
+                "significance": "Harvest",
+                "description": "Straw harvest.",
+                "images": []
+            }
+        ],
+        "artAndHandicrafts": [
+            {
+                "name": "Bamboo Crafts",
+                "type": "Craft",
+                "description": "Furniture and baskets.",
+                "famousFor": "Utility",
+                "images": []
+            },
+            {
+                "name": "Weaving",
+                "type": "Textile",
+                "description": "Puan weaving.",
+                "famousFor": "Patterns",
+                "images": []
+            }
+        ],
+        "heritageAndTraditions": {
+            "customs": [
+                {
+                    "title": "Nungrim",
+                    "description": "Character building."
+                }
+            ],
+            "rituals": [
+                {
+                    "title": "Man In Hlan",
+                    "description": "Bride price ceremony."
+                }
+            ],
+            "dailyLife": "Church activities are central.",
+            "values": "Honesty and bravery."
+        },
+        "culturalPlaces": [
+            {
+                "name": "Solomon's Temple",
+                "type": "Church",
+                "location": "Aizawl",
+                "description": "Grand church.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Solomon_Temple_Aizawl.jpg/800px-Solomon_Temple_Aizawl.jpg"
+            }
+        ],
+        "extraSections": [
+            {
+                "title": "Bamboo Flowering",
+                "content": "Mautam, the cyclic flowering of bamboo, is a significant ecological event."
+            }
+        ],
+        "culturalExperience": {
+            "liveEvents": [],
+            "foodTrails": [],
+            "workshops": [],
+            "festivalCalendar": [
+                {
+                    "name": "Chapchar Kut",
+                    "priority": 1,
+                    "date": "2025-03-07",
+                    "significance": "Culture",
+                    "images": [],
+                    "audience": [
+                        "Tourist"
+                    ]
+                }
+            ]
+        },
+        "isActive": true
+    },
+    "cities": [
+        {
+            "name": "Aizawl",
+            "slug": "aizawl",
+            "description": "Hill Capital.",
+            "history": "Fortified city.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aizawl_View.jpg/800px-Aizawl_View.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Durtlang Hills",
+                    "category": "nature",
+                    "description": "Viewpoint.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "North Aizawl",
+                    "isActive": true
+                },
+                {
+                    "name": "Solomon's Temple",
+                    "category": "temple",
+                    "description": "Church.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Chawlhhmun",
+                    "isActive": true
+                },
+                {
+                    "name": "Mizoram State Museum",
+                    "category": "museum",
+                    "description": "History.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Zarkawt",
+                    "isActive": true
+                },
+                {
+                    "name": "Reiek Tlang",
+                    "category": "nature",
+                    "description": "Peak.",
+                    "images": [],
+                    "bestTimeToVisit": "Morning",
+                    "entryFee": "Free",
+                    "location": "Outskirts",
+                    "isActive": true
+                },
+                {
+                    "name": "Bara Bazar",
+                    "category": "other",
+                    "description": "Main market.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "Dawrpui",
+                    "isActive": true
+                },
+                {
+                    "name": "Berawtlang Tourist Complex",
+                    "category": "nature",
+                    "description": "Picnic.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Zemabawk",
+                    "isActive": true
+                },
+                {
+                    "name": "KV Paradise",
+                    "category": "heritage",
+                    "description": "Taj Mahal of Mizoram.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "Durtlang",
+                    "isActive": true
+                },
+                {
+                    "name": "Infinite Ainawn Park",
+                    "category": "nature",
+                    "description": "Park.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹50",
+                    "location": "Outskirts",
+                    "isActive": true
+                },
+                {
+                    "name": "Falkawn Village",
+                    "category": "culture",
+                    "description": "Model village.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "₹20",
+                    "location": "South",
+                    "isActive": true
+                },
+                {
+                    "name": "Hmuifang",
+                    "category": "nature",
+                    "description": "Hill resort.",
+                    "images": [],
+                    "bestTimeToVisit": "Day",
+                    "entryFee": "Free",
+                    "location": "South",
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Bai",
+                    "type": "veg",
+                    "description": "Mixed stew.",
+                    "famousFor": "Red Pepper",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sawhchiar",
+                    "type": "non-veg",
+                    "description": "Meat porridge.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chhangban",
+                    "type": "sweet",
+                    "description": "Rice cake.",
+                    "famousFor": "Street",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Koat Pitha",
+                    "type": "sweet",
+                    "description": "Banana fritter.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bekang",
+                    "type": "veg",
+                    "description": "Soybean.",
+                    "famousFor": "Side",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "flight",
+                    "description": "Lengpui Airport",
+                    "connectivity": "Domestic",
+                    "approxCost": "₹4000",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Local Taxi",
+                    "connectivity": "City",
+                    "approxCost": "₹50",
+                    "isActive": true
+                },
+                {
+                    "type": "bus",
+                    "description": "City Bus",
+                    "connectivity": "Local",
+                    "approxCost": "₹10",
+                    "isActive": true
+                },
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Inter-district",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Champhai",
+            "slug": "champhai",
+            "description": "Rice Bowl.",
+            "history": "Valley.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Champhai_Valley.jpg/800px-Champhai_Valley.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Rih Dil",
+                    "category": "nature",
+                    "description": "Run shaped lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Murlen National Park",
+                    "category": "nature",
+                    "description": "Wildlife.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thasiama Seno Neihna",
+                    "category": "nature",
+                    "description": "Plateau.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Kungawrhi Puk",
+                    "category": "nature",
+                    "description": "Cave.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Fiara Tui",
+                    "category": "nature",
+                    "description": "Water source.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Rice",
+                    "type": "veg",
+                    "description": "Local.",
+                    "famousFor": "Staple",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Smoked Pork",
+                    "type": "non-veg",
+                    "description": "Vawksa.",
+                    "famousFor": "Curry",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Passion Fruit",
+                    "type": "veg",
+                    "description": "Juice.",
+                    "famousFor": "Orchard",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Grape Wine",
+                    "type": "beverage",
+                    "description": "Zawlaidi.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Miso",
+                    "type": "veg",
+                    "description": "Bamboo shoot.",
+                    "famousFor": "Pickle",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹500",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Lunglei",
+            "slug": "lunglei",
+            "description": "Bridge of Rock.",
+            "history": "Second capital.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Lunglei_View.jpg/800px-Lunglei_View.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Khawnglung Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Animals.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Saikuti Hall",
+                    "category": "museum",
+                    "description": "Arts.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thuangtheih Tlang",
+                    "category": "nature",
+                    "description": "Legend.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thuamluaia Mual",
+                    "category": "nature",
+                    "description": "Stadium.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Serkawn",
+                    "category": "heritage",
+                    "description": "Missionary.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Sanpiau",
+                    "type": "veg",
+                    "description": "Rice porridge.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Arsa Buchiar",
+                    "type": "non-veg",
+                    "description": "Chicken rice.",
+                    "famousFor": "Meal",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chchow",
+                    "type": "veg",
+                    "description": "Mixed salad.",
+                    "famousFor": "Fresh",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Wild Banana",
+                    "type": "veg",
+                    "description": "Flower.",
+                    "famousFor": "Curry",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Zu",
+                    "type": "beverage",
+                    "description": "Rice beer.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹300",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Serchhip",
+            "slug": "serchhip",
+            "description": "Citrus City.",
+            "history": "Poverty free.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Vantawng_Falls.jpg/800px-Vantawng_Falls.jpg",
+            "isPopular": true,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Vantawng Falls",
+                    "category": "nature",
+                    "description": "Highest fall.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Thenzawl",
+                    "category": "heritage",
+                    "description": "Handloom.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chhingpuii Thlan",
+                    "category": "heritage",
+                    "description": "Memorial.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Zoluti Hriatrengna Lung",
+                    "category": "heritage",
+                    "description": "Stone.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tuirau River",
+                    "category": "nature",
+                    "description": "Fishing.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Bal",
+                    "type": "veg",
+                    "description": "Yam.",
+                    "famousFor": "Boiled",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Antam",
+                    "type": "veg",
+                    "description": "Mustard leaf.",
+                    "famousFor": "Stew",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Samtawte",
+                    "type": "veg",
+                    "description": "Bitter brinjal.",
+                    "famousFor": "Fry",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pork Momos",
+                    "type": "non-veg",
+                    "description": "Dumpling.",
+                    "famousFor": "Highway",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Lemon Tea",
+                    "type": "beverage",
+                    "description": "Citrus.",
+                    "famousFor": "Refresh",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹250",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Kolasib",
+            "slug": "kolasib",
+            "description": "Gateway.",
+            "history": "Border.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kolasib_View.jpg/800px-Kolasib_View.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tam Dil",
+                    "category": "nature",
+                    "description": "Mustard lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Tlawng River",
+                    "category": "nature",
+                    "description": "Fishing.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Horticulture Farm",
+                    "category": "nature",
+                    "description": "Fruits.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Rengtekawn",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Fish Curry",
+                    "type": "non-veg",
+                    "description": "Fresh water.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bamboo Pickle",
+                    "type": "veg",
+                    "description": "Spicy.",
+                    "famousFor": "Jar",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Paanch Phoron",
+                    "type": "veg",
+                    "description": "Mixed spice.",
+                    "famousFor": "Assam influence",
+                    "approxPrice": "₹5",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Masor Tenga",
+                    "type": "non-veg",
+                    "description": "Sour fish.",
+                    "famousFor": "Border",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Tea",
+                    "type": "beverage",
+                    "description": "Chai.",
+                    "famousFor": "Dhaba",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "train",
+                    "description": "Bairabi Station",
+                    "connectivity": "Rail head",
+                    "approxCost": "₹100",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Mamit",
+            "slug": "mamit",
+            "description": "Orange Garden.",
+            "history": "Dampa.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Dampa_Tiger_Reserve.jpg/800px-Dampa_Tiger_Reserve.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Dampa Tiger Reserve",
+                    "category": "nature",
+                    "description": "Wildlife.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Saitlaw",
+                    "category": "nature",
+                    "description": "Orange orchard.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Pukzing Cave",
+                    "category": "nature",
+                    "description": "Big cave.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "West Phaileng",
+                    "category": "nature",
+                    "description": "Scenic.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Orange",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Sweet",
+                    "approxPrice": "₹40/kg",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Wild Boar",
+                    "type": "non-veg",
+                    "description": "Curry.",
+                    "famousFor": "Rare",
+                    "approxPrice": "₹200",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Sticky Rice",
+                    "type": "veg",
+                    "description": "Steamed.",
+                    "famousFor": "Packets",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Maian",
+                    "type": "veg",
+                    "description": "Pumpkin leaves.",
+                    "famousFor": "Stew",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chow",
+                    "type": "veg",
+                    "description": "Noodles.",
+                    "famousFor": "Simple",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Siaha",
+            "slug": "siaha",
+            "description": "Mara Land.",
+            "history": "South.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pala_Tipo.jpg/800px-Pala_Tipo.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Pala Tipo",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Phawngpui",
+                    "category": "nature",
+                    "description": "Blue Mountain.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mt. Mawma",
+                    "category": "nature",
+                    "description": "Peak.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lorrain Ville",
+                    "category": "heritage",
+                    "description": "Missionary.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Beino Castle",
+                    "category": "nature",
+                    "description": "Rock formation.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Crab",
+                    "type": "non-veg",
+                    "description": "River crab.",
+                    "famousFor": "Curry",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Awka",
+                    "type": "veg",
+                    "description": "Bitter bean.",
+                    "famousFor": "Healthy",
+                    "approxPrice": "₹30",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chhim Sawhchiar",
+                    "type": "non-veg",
+                    "description": "Southern style.",
+                    "famousFor": "Spicy",
+                    "approxPrice": "₹80",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Zawngtah",
+                    "type": "veg",
+                    "description": "Stink bean.",
+                    "famousFor": "Pungent",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Coffee",
+                    "type": "beverage",
+                    "description": "Local.",
+                    "famousFor": "Mara",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹700",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Lawngtlai",
+            "slug": "lawngtlai",
+            "description": "Lai District.",
+            "history": "Remote.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Lawngtlai.jpg/800px-Lawngtlai.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Ngengpui Wildlife Sanctuary",
+                    "category": "nature",
+                    "description": "Elephants.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mampui",
+                    "category": "nature",
+                    "description": "Hills.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Chawngte",
+                    "category": "culture",
+                    "description": "Chakma.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Mullianpui",
+                    "category": "nature",
+                    "description": "View.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Fish",
+                    "type": "non-veg",
+                    "description": "River.",
+                    "famousFor": "Smoked",
+                    "approxPrice": "₹100",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Bamboo",
+                    "type": "veg",
+                    "description": "Dry.",
+                    "famousFor": "Winter",
+                    "approxPrice": "₹50",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Chana",
+                    "type": "veg",
+                    "description": "Peas.",
+                    "famousFor": "Boil",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Egg",
+                    "type": "non-veg",
+                    "description": "Boiled.",
+                    "famousFor": "Snack",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Tea",
+                    "type": "beverage",
+                    "description": "Sweet.",
+                    "famousFor": "Stall",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "bus",
+                    "description": "Bus",
+                    "connectivity": "Aizawl",
+                    "approxCost": "₹600",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Hnahthial",
+            "slug": "hnahthial",
+            "description": "New District.",
+            "history": "Leilet.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hnahthial.jpg/800px-Hnahthial.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tuipui River",
+                    "category": "nature",
+                    "description": "Fishing.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Lungleng",
+                    "category": "heritage",
+                    "description": "Old.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Leitet",
+                    "category": "nature",
+                    "description": "Valley.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Banana",
+                    "type": "veg",
+                    "description": "Fruit.",
+                    "famousFor": "Farm",
+                    "approxPrice": "₹20",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Pork",
+                    "type": "non-veg",
+                    "description": "Curry.",
+                    "famousFor": "Feast",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Rice",
+                    "type": "veg",
+                    "description": "Red.",
+                    "famousFor": "Local",
+                    "approxPrice": "₹40",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Lunglei",
+                    "approxCost": "₹200",
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "name": "Khawzawl",
+            "slug": "khawzawl",
+            "description": "Eastern Town.",
+            "history": "Strategic.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Khawzawl.jpg/800px-Khawzawl.jpg",
+            "isPopular": false,
+            "isActive": true,
+            "places": [
+                {
+                    "name": "Tualchang",
+                    "category": "heritage",
+                    "description": "Monolith.",
+                    "images": [],
+                    "isActive": true
+                },
+                {
+                    "name": "Dilpui",
+                    "category": "nature",
+                    "description": "Lake.",
+                    "images": [],
+                    "isActive": true
+                }
+            ],
+            "foods": [
+                {
+                    "name": "Vawksa Rep",
+                    "type": "non-veg",
+                    "description": "Smoked pork.",
+                    "famousFor": "Tasty",
+                    "approxPrice": "₹150",
+                    "image": "",
+                    "isActive": true
+                },
+                {
+                    "name": "Hmarcha",
+                    "type": "veg",
+                    "description": "Chilli.",
+                    "famousFor": "Hot",
+                    "approxPrice": "₹10",
+                    "image": "",
+                    "isActive": true
+                }
+            ],
+            "transports": [
+                {
+                    "type": "taxi",
+                    "description": "Sumo",
+                    "connectivity": "Champhai",
+                    "approxCost": "₹100",
+                    "isActive": true
+                }
+            ]
+        }
+    ]
+}
