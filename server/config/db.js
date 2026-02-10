@@ -13,10 +13,15 @@ const connectDB = async () => {
       socketTimeoutMS: 45000,
       family: 4,
     });
-    console.log("MongoDB connected");
+    console.log("✅ MongoDB connected successfully");
   } catch (error) {
-    console.error("MongoDB connection failed:", error.message);
-    process.exit(1);
+    console.error("❌ MongoDB connection failed:", error.message);
+    console.log("\n⚠️  Server will continue running but database operations will fail");
+    console.log("\nTroubleshooting:");
+    console.log("1. Check MongoDB Atlas cluster status (might be paused)");
+    console.log("2. Add 0.0.0.0/0 to Network Access in MongoDB Atlas");
+    console.log("3. Verify credentials in .env file");
+    console.log("4. Change Windows DNS to 8.8.8.8\n");
   }
 };
 

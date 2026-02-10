@@ -5,13 +5,21 @@ const api = axios.create({
 });
 
 
-// Add token to admin requests automatically
+// Add token to requests automatically
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("adminToken");
-    if (token && config.url?.includes("/admin")) {
-      config.headers.Authorization = `Bearer ${token}`;
+    // Admin token for admin routes
+    const adminToken = localStorage.getItem("adminToken");
+    if (adminToken && config.url?.includes("/admin")) {
+      config.headers.Authorization = `Bearer ${adminToken}`;
     }
+
+    // User token for user profile route
+    const userToken = localStorage.getItem("userToken");
+    if (userToken && config.url?.includes("/user/profile")) {
+      config.headers.Authorization = `Bearer ${userToken}`;
+    }
+
     return config;
   },
   (error) => {
@@ -24,11 +32,14 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Token expired or invalid
-      localStorage.removeItem("adminToken");
-      // Only redirect if we are in an admin route (to avoid affecting public users if we ever use this api instance for them)
-      if (window.location.pathname.startsWith("/admin")) {
-        window.location.href = "/admin/login";
+      const url = error.config?.url || "";
+      if (url.includes("/admin")) {
+        localStorage.removeItem("adminToken");
+        if (window.location.pathname.startsWith("/admin")) {
+          window.location.href = "/admin/login";
+        }
+      } else if (url.includes("/user")) {
+        localStorage.removeItem("userToken");
       }
     }
     return Promise.reject(error);
@@ -36,3 +47,4 @@ api.interceptors.response.use(
 );
 
 export default api;
+

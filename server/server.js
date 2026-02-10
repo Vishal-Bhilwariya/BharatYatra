@@ -14,6 +14,7 @@ const adminStateRoutes = require("./routes/adminStateRoutes");
 const cultureRoutes = require("./routes/cultureRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const itineraryRoutes = require("./routes/itineraryRoutes");
+const userRoutes = require("./routes/userRoutes");
 const app = express();
 
 // Connect to database
@@ -39,6 +40,7 @@ app.use("/api/translate", translatorRoutes);
 app.use("/api/cultures", cultureRoutes);
 app.use("/api/recommendations", recommendationRoutes);
 app.use("/api/itineraries", itineraryRoutes);
+app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/states", adminStateRoutes);
 app.use("/api/admin/cities", require("./routes/adminCityRoutes"));
@@ -49,6 +51,14 @@ app.use("/api/admin/culture", require("./routes/adminCultureRoutes"));
 
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
+});
+
+app.get("/api/health", (req, res) => {
+  res.json({ 
+    success: true, 
+    message: "Server is running",
+    mongodb: require('mongoose').connection.readyState === 1 ? "Connected" : "Disconnected"
+  });
 });
 
 const PORT = process.env.PORT || 5000;
