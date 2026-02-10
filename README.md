@@ -585,3 +585,5 @@ For questions or support, please refer to the documentation in the `Documentatio
 ---
 
 **Made with ❤️ for exploring Incredible India**
+
+© 2025 BharatYatra. All Rights Reserved to Vishal.
