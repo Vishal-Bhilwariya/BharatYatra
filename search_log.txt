@@ -1,7 +1,0 @@
-Searching for node.exe in C:\Users\hp... 
-C:\Users\hp\AppData\Local\aws\toolkits\language-servers\AmazonQ\1.56.0\servers\node.exe
-C:\Users\hp\AppData\Local\aws\toolkits\language-servers\AmazonQ\1.57.0\servers\node.exe
-C:\Users\hp\AppData\Local\ms-playwright-go\1.50.1\node.exe
-======================================== 
-Searching for node.exe in C:\Program Files... 
-INFO: Could not find files for the given pattern(s).
