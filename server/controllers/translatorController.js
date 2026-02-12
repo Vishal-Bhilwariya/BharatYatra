@@ -74,7 +74,7 @@ const getPresetPhrases = (req, res) => {
     },
     {
       english: "Can you speak English?",
-      hindi: "क्या आप अंग्रेजी बोल सकते हैं?",
+      hindi: "क्या आप अंग्रेज़ी बोल सकते हैं?",
       category: "general",
     },
   ];

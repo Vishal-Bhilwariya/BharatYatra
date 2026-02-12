@@ -158,14 +158,14 @@ const Translator = () => {
         <option value="gu">Gujarati (ગુજરાતી)</option>
         <option value="mr">Marathi (मराठी)</option>
         <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
-        <option value="ur">Urdu (اردু)</option>
+        <option value="ur">Urdu (اردو)</option>
         <option value="or">Odia (ଓଡ଼ିଆ)</option>
         <option value="as">Assamese (অসমীয়া)</option>
         <option value="ne">Nepali (नेपाली)</option>
         <option value="sa">Sanskrit (संस्कृतम्)</option>
         <option value="kok">Konkani (कोंकणी)</option>
-        <option value="sd">Sindhi (सिंधी)</option>
-        <option value="mni">Manipuri (মৈতৈলোন্)</option>
+        <option value="sd">Sindhi (सिन्धी)</option>
+        <option value="mni">Manipuri (মৈতৈলোন)</option>
         <option value="doi">Dogri (डोगरी)</option>
         <option value="ks">Kashmiri (कॉशुर)</option>
       </optgroup>
@@ -225,7 +225,7 @@ const Translator = () => {
                 <LanguageOptions />
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-indigo-400">
-                <span className="text-sm">▼</span>
+                <span className="text-sm">Ã¢â€“Â¼</span>
               </div>
             </div>
 
@@ -247,7 +247,7 @@ const Translator = () => {
                 <LanguageOptions />
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-purple-200">
-                <span className="text-sm">▼</span>
+                <span className="text-sm">Ã¢â€“Â¼</span>
               </div>
             </div>
           </div>
