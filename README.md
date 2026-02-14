@@ -644,6 +644,83 @@ See [EXCEL_UPLOAD_GUIDE.md](./EXCEL_UPLOAD_GUIDE.md) for bulk upload instruction
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 🚀 Deployment
+
+### Backend Deployment (Render/Railway/Heroku)
+
+1. **Prepare for Production**
+   ```bash
+   cd server
+   # Ensure package.json has start script
+   "scripts": {
+     "start": "node server.js"
+   }
+   ```
+
+2. **Environment Variables**
+   Set these in your hosting platform:
+   ```
+   PORT=5000
+   MONGO_URI=your_mongodb_atlas_connection_string
+   JWT_SECRET=your_production_jwt_secret
+   GOOGLE_CLIENT_ID=your_google_client_id
+   CLIENT_URL=https://your-frontend-domain.com
+   ```
+
+3. **Deploy Commands**
+   - **Render**: Connect GitHub repo, set build command: `npm install`, start command: `npm start`
+   - **Railway**: `railway up` or connect GitHub repo
+   - **Heroku**: `git push heroku main`
+
+### Frontend Deployment (Vercel/Netlify)
+
+1. **Update API URL**
+   ```javascript
+   // client/src/api/axios.js or api files
+   const API_BASE_URL = 'https://your-backend-domain.com';
+   ```
+
+2. **Environment Variables**
+   Set in hosting platform:
+   ```
+   VITE_GOOGLE_CLIENT_ID=your_google_client_id
+   ```
+
+3. **Build Settings**
+   - Build command: `npm run build`
+   - Output directory: `dist`
+   - Install command: `npm install`
+
+4. **Deploy Commands**
+   - **Vercel**: `vercel --prod` or connect GitHub repo
+   - **Netlify**: `netlify deploy --prod` or connect GitHub repo
+
+### Google OAuth Production Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Update OAuth Client ID:
+   - Add production URLs to **Authorized JavaScript origins**:
+     - `https://your-frontend-domain.com`
+   - Add production URLs to **Authorized redirect URIs**:
+     - `https://your-frontend-domain.com`
+
+### MongoDB Atlas Production
+
+1. Update Network Access:
+   - Add `0.0.0.0/0` (allow from anywhere) or specific IPs
+2. Ensure connection string is updated in backend environment variables
+
+### Post-Deployment Checklist
+
+- [ ] Backend API is accessible
+- [ ] Frontend can connect to backend
+- [ ] Google OAuth works with production URLs
+- [ ] MongoDB connection is stable
+- [ ] Environment variables are set correctly
+- [ ] CORS is configured for production domain
+- [ ] Admin account is created
+- [ ] Test user registration and login
+
 ## 📝 License
 
 This project is licensed under the ISC License.
