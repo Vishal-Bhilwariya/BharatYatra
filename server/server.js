@@ -20,9 +20,22 @@ const app = express();
 // Connect to database
 connectDB();
 
+const defaultOrigin = "http://localhost:5173";
+const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || defaultOrigin)
+  .split(",")
+  .map((o) => o.trim().replace(/\/$/, ""))
+  .filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      const normalized = origin.replace(/\/$/, "");
+      if (allowedOrigins.includes(normalized)) {
+        return callback(null, true);
+      }
+      return callback(new Error("CORS not allowed"), false);
+    },
     credentials: true,
   })
 );
