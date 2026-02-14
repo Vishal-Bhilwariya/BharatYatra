@@ -1,11 +1,71 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Globe, Utensils, Bus, MapPin, BookOpen, ArrowRight, CheckCircle } from "lucide-react";
+import { Search, Globe, Utensils, Bus, MapPin, BookOpen, ArrowRight, CheckCircle, User, Mail, Calendar } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      {/* 👤 Profile Section */}
+      <section className="py-12 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                {user?.avatar ? (
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="w-32 h-32 rounded-full border-4 border-orange-500 shadow-lg"
+                  />
+                ) : (
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center border-4 border-orange-500 shadow-lg">
+                    <span className="text-5xl font-bold text-white">
+                      {user?.name?.charAt(0)?.toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* User Info */}
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+                  Welcome, {user?.name}! 🙏
+                </h1>
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+                  Ready to explore the incredible diversity of India?
+                </p>
+
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                    <Mail className="text-orange-600 dark:text-orange-400" size={20} />
+                    <span className="text-gray-700 dark:text-gray-300">{user?.email}</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                    <User className="text-blue-600 dark:text-blue-400" size={20} />
+                    <span className="text-gray-700 dark:text-gray-300">Traveler</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="flex gap-4">
+                <div className="text-center px-6 py-4 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl text-white shadow-lg">
+                  <div className="text-3xl font-bold">28+</div>
+                  <div className="text-sm opacity-90">States</div>
+                </div>
+                <div className="text-center px-6 py-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl text-white shadow-lg">
+                  <div className="text-3xl font-bold">700+</div>
+                  <div className="text-sm opacity-90">Cities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* 🌄 B. Hero Section */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
         {/* Background Image with Overlay */}

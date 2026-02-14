@@ -1,104 +1,118 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
-const { successResponse, errorResponse } = require("../utils/apiResponse");
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
-// POST /api/user/signup
-exports.signup = async (req, res) => {
-    try {
-        const { name, email, password } = req.body;
-
-        if (!name || !email || !password) {
-            return errorResponse(res, "Name, email, and password are required", 400);
-        }
-
-        if (password.length < 6) {
-            return errorResponse(res, "Password must be at least 6 characters", 400);
-        }
-
-        // Check if email already registered
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return errorResponse(res, "Email is already registered", 409);
-        }
-
-        const user = await User.create({ name, email, password });
-
-        const token = jwt.sign(
-            { userId: user._id },
-            process.env.JWT_SECRET,
-            { expiresIn: "7d" }
-        );
-
-        return successResponse(
-            res,
-            "Account created successfully",
-            {
-                token,
-                user: {
-                    id: user._id,
-                    name: user.name,
-                    email: user.email,
-                },
-            },
-            201
-        );
-    } catch (error) {
-        return errorResponse(res, error.message, 500);
-    }
+const generateToken = (userId) => {
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
 
-// POST /api/user/login
+exports.register = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email already registered' });
+    }
+
+    const user = await User.create({ name, email, password });
+    
+    // ✅ Console log for verification
+    console.log('✅ NEW USER REGISTERED:');
+    console.log('   Name:', user.name);
+    console.log('   Email:', user.email);
+    console.log('   ID:', user._id);
+    console.log('   Password Hashed:', user.password.startsWith('$2b$'));
+    console.log('   Created At:', user.createdAt);
+    console.log('-----------------------------------');
+    
+    const token = generateToken(user._id);
+
+    res.status(201).json({
+      success: true,
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.login = async (req, res) => {
-    try {
-        const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-        if (!email || !password) {
-            return errorResponse(res, "Email and password are required", 400);
-        }
-
-        const user = await User.findOne({ email });
-        if (!user) {
-            return errorResponse(res, "Invalid email or password", 401);
-        }
-
-        const isMatch = await user.comparePassword(password);
-        if (!isMatch) {
-            return errorResponse(res, "Invalid email or password", 401);
-        }
-
-        const token = jwt.sign(
-            { userId: user._id },
-            process.env.JWT_SECRET,
-            { expiresIn: "7d" }
-        );
-
-        return successResponse(res, "Login successful", {
-            token,
-            user: {
-                id: user._id,
-                name: user.name,
-                email: user.email,
-            },
-        });
-    } catch (error) {
-        return errorResponse(res, error.message, 500);
+    const user = await User.findOne({ email });
+    if (!user || !await user.comparePassword(password)) {
+      console.log('❌ LOGIN FAILED:', email);
+      return res.status(401).json({ message: 'Invalid credentials' });
     }
+
+    // ✅ Console log for verification
+    console.log('✅ USER LOGGED IN:');
+    console.log('   Name:', user.name);
+    console.log('   Email:', user.email);
+    console.log('   ID:', user._id);
+    console.log('   Last Login:', new Date().toISOString());
+    console.log('-----------------------------------');
+
+    const token = generateToken(user._id);
+
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-// GET /api/user/profile  (protected)
-exports.getProfile = async (req, res) => {
-    try {
-        const user = await User.findById(req.userId).select("-password");
-        if (!user) {
-            return errorResponse(res, "User not found", 404);
-        }
+exports.googleAuth = async (req, res) => {
+  try {
+    const { name, email, googleId, avatar } = req.body;
 
-        return successResponse(res, "Profile fetched", {
-            id: user._id,
-            name: user.name,
-            email: user.email,
-        });
-    } catch (error) {
-        return errorResponse(res, error.message, 500);
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      user = await User.create({ name, email, googleId, avatar });
+    } else if (!user.googleId) {
+      user.googleId = googleId;
+      user.avatar = avatar || user.avatar;
+      await user.save();
     }
+
+    const token = generateToken(user._id);
+
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json({ success: true, user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };

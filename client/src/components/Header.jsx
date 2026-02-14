@@ -277,56 +277,30 @@ const Header = () => {
             )}
           </button>
 
-          {/* Auth Buttons - Desktop */}
+          {/* User Profile - Desktop */}
           <div className="hidden lg:flex items-center gap-2">
-            {isAuthenticated ? (
-              <>
-                <div className="flex items-center gap-2 px-3 py-2 bg-orange-50 dark:bg-orange-500/10 rounded-lg border border-orange-200 dark:border-orange-500/20">
-                  <div className="w-7 h-7 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                    {user?.name?.charAt(0)?.toUpperCase()}
-                  </div>
-                  <span className="text-sm font-medium text-gray-800 dark:text-gray-200 max-w-[100px] truncate">{user?.name}</span>
-                </div>
-                <button
-                  onClick={logout}
-                  className="px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-red-50 hover:border-red-300 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:border-red-500/30 dark:hover:text-red-400 transition-colors"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="px-4 py-2 text-sm font-medium border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
-                  Login
-                </Link>
-                <Link to="/signup" className="px-4 py-2 text-sm font-medium bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors">
-                  Sign Up
-                </Link>
-              </>
-            )}
+            <div className="flex items-center gap-2 px-3 py-2 bg-orange-50 dark:bg-orange-500/10 rounded-lg border border-orange-200 dark:border-orange-500/20">
+              <div className="w-7 h-7 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                {user?.name?.charAt(0)?.toUpperCase()}
+              </div>
+              <span className="text-sm font-medium text-gray-800 dark:text-gray-200 max-w-[100px] truncate">{user?.name}</span>
+            </div>
+            <button
+              onClick={logout}
+              className="px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-red-50 hover:border-red-300 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:border-red-500/30 dark:hover:text-red-400 transition-colors"
+            >
+              Logout
+            </button>
           </div>
 
-          {/* Auth Icons - Tablet */}
+          {/* User Profile - Tablet */}
           <div className="hidden md:flex lg:hidden items-center gap-2">
-            {isAuthenticated ? (
-              <>
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold" title={user?.name}>
-                  {user?.name?.charAt(0)?.toUpperCase()}
-                </div>
-                <button onClick={logout} className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-red-50 hover:border-red-300 dark:hover:bg-red-500/10 dark:hover:border-red-500/30 transition-colors" title="Logout">
-                  <LogOut size={16} className="text-gray-500 dark:text-gray-400 hover:text-red-500" />
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="p-2 rounded-lg border border-orange-500 hover:bg-orange-500 transition-colors" title="Login">
-                  <User size={16} className="text-orange-500 hover:text-white" />
-                </Link>
-                <Link to="/signup" className="p-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition-colors" title="Sign Up">
-                  <UserPlus size={16} className="text-white" />
-                </Link>
-              </>
-            )}
+            <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold" title={user?.name}>
+              {user?.name?.charAt(0)?.toUpperCase()}
+            </div>
+            <button onClick={logout} className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-red-50 hover:border-red-300 dark:hover:bg-red-500/10 dark:hover:border-red-500/30 transition-colors" title="Logout">
+              <LogOut size={16} className="text-gray-500 dark:text-gray-400 hover:text-red-500" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -359,31 +333,18 @@ const Header = () => {
               Itinerary
             </Link>
             <div className="pt-3 border-t border-gray-700 space-y-2">
-              {isAuthenticated ? (
-                <>
-                  <div className="flex items-center gap-2 px-3 py-2 mb-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      {user?.name?.charAt(0)?.toUpperCase()}
-                    </div>
-                    <span className="text-sm font-medium text-gray-200">{user?.name}</span>
-                  </div>
-                  <button
-                    onClick={() => { logout(); setMobileMenuOpen(false); }}
-                    className="w-full text-left px-3 py-2 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/10 transition-colors"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left px-3 py-2 text-orange-500 border border-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
-                    Login
-                  </Link>
-                  <Link to="/signup" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors">
-                    Sign Up
-                  </Link>
-                </>
-              )}
+              <div className="flex items-center gap-2 px-3 py-2 mb-2">
+                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  {user?.name?.charAt(0)?.toUpperCase()}
+                </div>
+                <span className="text-sm font-medium text-gray-200">{user?.name}</span>
+              </div>
+              <button
+                onClick={() => { logout(); setMobileMenuOpen(false); }}
+                className="w-full text-left px-3 py-2 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/10 transition-colors"
+              >
+                Logout
+              </button>
             </div>
           </nav>
         </div>

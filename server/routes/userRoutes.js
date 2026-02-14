@@ -1,13 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { signup, login, getProfile } = require("../controllers/userController");
-const { verifyUser } = require("../middlewares/auth.middleware");
+const { register, login, googleAuth, getProfile } = require('../controllers/userController');
+const { protect } = require('../middlewares/userAuth.middleware');
 
-// PUBLIC ROUTES
-router.post("/signup", signup);
-router.post("/login", login);
-
-// PROTECTED ROUTES
-router.get("/profile", verifyUser, getProfile);
+router.post('/register', register);
+router.post('/login', login);
+router.post('/google', googleAuth);
+router.get('/profile', protect, getProfile);
 
 module.exports = router;

@@ -3,7 +3,8 @@ import ThemeProvider from "./context/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
 import { AdminProvider } from "./context/AdminContext";
 import { AuthProvider } from "./context/AuthContext";
-import ProtectedRoute from "./components/admin/ProtectedRoute";
+import UserProtectedRoute from "./components/ProtectedRoute";
+import AdminProtectedRoute from "./components/admin/ProtectedRoute";
 import ErrorBoundary from "./components/admin/ErrorBoundary";
 import Home from "./pages/Home";
 import CityDetails from "./pages/CityDetails";
@@ -41,73 +42,73 @@ function App() {
                 <Route
                   path="/admin/dashboard"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminDashboard />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/states"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminStates />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/cities"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminCities />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/places"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminPlaces />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/foods"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminFoods />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/transports"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminTransports />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/culture"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminCulture />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/culture/new"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminAddCulture />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
                 <Route
                   path="/admin/culture/edit/:id"
                   element={
-                    <ProtectedRoute>
+                    <AdminProtectedRoute>
                       <AdminAddCulture />
-                    </ProtectedRoute>
+                    </AdminProtectedRoute>
                   }
                 />
 
@@ -119,13 +120,13 @@ function App() {
                 <Route
                   path="/"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <Home />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
