@@ -152,7 +152,7 @@ const AdminCities = () => {
       formData.append("file", file);
       formData.append("stateId", selectedStateForUpload);
 
-      const response = await fetch("http://localhost:5000/api/admin/cities/bulk-upload", {
+      const response = await fetch("http://https://bharatyatra-bu47.onrender.com/api/admin/cities/bulk-upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
