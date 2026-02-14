@@ -25,6 +25,14 @@ BharatYatra bridges the gap between travelers and authentic Indian experiences b
 
 ## ✨ Features
 
+### 🔐 User Authentication
+- **User Registration & Login**: Secure email/password authentication with bcrypt hashing
+- **Google OAuth Integration**: One-click login/signup with Google account
+- **JWT Token Authentication**: Secure token-based session management (30-day expiry)
+- **Protected Routes**: Login required to access the platform
+- **User Profile Management**: Personalized user dashboard with profile information
+- **Separate User Database**: User accounts stored separately from admin accounts
+
 ### 🗺️ Exploration Features
 - **State & City Explorer**: Browse 28 Indian states with detailed descriptions, cultural summaries, and high-quality images. Each state contains multiple cities with historical context and popularity ratings
 - **Tourist Places**: Discover 1000+ destinations categorized by type (temples, forts, palaces, museums, nature spots). Includes entry fees, best visiting times, location details, and historical significance
@@ -51,6 +59,8 @@ BharatYatra bridges the gap between travelers and authentic Indian experiences b
 - **React Router DOM v7** - Client-side routing with nested routes and dynamic navigation
 - **Tailwind CSS** - Utility-first CSS framework for responsive, modern UI design
 - **Axios** - Promise-based HTTP client for API communication with interceptors for auth
+- **@react-oauth/google** - Official Google OAuth library for React applications
+- **jwt-decode** - Decode JWT tokens on the client side
 - **Recharts** - Composable charting library for admin analytics and data visualization
 - **Lucide React** - Beautiful, consistent icon set with 1000+ icons
 - **Context API** - State management for user authentication and global app state
@@ -60,10 +70,11 @@ BharatYatra bridges the gap between travelers and authentic Indian experiences b
 - **Express.js v5** - Minimalist web framework with robust routing and middleware support
 - **MongoDB Atlas** - Cloud-hosted NoSQL database for flexible, document-based data storage
 - **Mongoose v7** - Elegant MongoDB ODM with schema validation, middleware, and query building
-- **JWT (jsonwebtoken)** - Secure token-based authentication for admin routes
+- **JWT (jsonwebtoken)** - Secure token-based authentication for user and admin routes
+- **Passport.js** - Authentication middleware for Node.js with Google OAuth strategy
+- **Bcrypt** - Industry-standard password hashing with salt rounds for security
 - **Multer** - Middleware for handling multipart/form-data for Excel file uploads
 - **XLSX** - Parse and process Excel files for bulk data import
-- **Bcrypt** - Industry-standard password hashing with salt rounds for security
 - **CORS** - Cross-Origin Resource Sharing configuration for frontend-backend communication
 - **Dotenv** - Environment variable management for secure configuration
 
@@ -94,7 +105,9 @@ BharatYatra/
 │   │   │   └── ThemeContext.jsx   # Theme preferences
 │   │   │
 │   │   ├── pages/                  # Page-level components
-│   │   │   ├── Home.jsx           # Landing page
+│   │   │   ├── Home.jsx           # Landing page with user profile
+│   │   │   ├── Login.jsx          # User login page
+│   │   │   ├── Signup.jsx         # User registration page
 │   │   │   ├── States.jsx         # All states listing
 │   │   │   ├── StateDetail.jsx    # Individual state page
 │   │   │   ├── CityDetail.jsx     # City information page
@@ -123,6 +136,7 @@ BharatYatra/
 │   │   └── db.js                   # MongoDB connection setup
 │   │
 │   ├── models/                      # Mongoose schemas
+│   │   ├── User.js                 # User schema (name, email, password, googleId)
 │   │   ├── State.js                # State schema (name, description, image)
 │   │   ├── City.js                 # City schema (linked to state)
 │   │   ├── Place.js                # Tourist place schema (category, fees, timings)
@@ -134,6 +148,7 @@ BharatYatra/
 │   │   └── Admin.js                # Admin user schema (hashed password)
 │   │
 │   ├── controllers/                 # Business logic handlers
+│   │   ├── userController.js       # User auth (register, login, Google OAuth)
 │   │   ├── stateController.js      # State CRUD operations
 │   │   ├── cityController.js       # City operations
 │   │   ├── placeController.js      # Place operations
@@ -147,6 +162,7 @@ BharatYatra/
 │   │   └── adminBulkUpload*.js     # Excel bulk upload handlers
 │   │
 │   ├── routes/                      # Express route definitions
+│   │   ├── userRoutes.js           # POST /api/user/register, /login, /google
 │   │   ├── stateRoutes.js          # GET /api/states
 │   │   ├── cityRoutes.js           # GET /api/cities
 │   │   ├── placeRoutes.js          # GET /api/places
@@ -160,7 +176,8 @@ BharatYatra/
 │   │   └── admin*.js               # Protected admin routes
 │   │
 │   ├── middlewares/
-│   │   └── auth.middleware.js      # JWT verification middleware
+│   │   ├── auth.middleware.js      # JWT verification for admin
+│   │   └── userAuth.middleware.js  # JWT verification for users
 │   │
 │   ├── scripts/                     # Utility scripts
 │   │   ├── createAdmin.js          # Create admin user CLI
@@ -236,10 +253,36 @@ PORT=5000
 # Get this from MongoDB Atlas: Clusters > Connect > Connect your application
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/bharatyatra?retryWrites=true&w=majority
 
-# JWT Secret for Admin Authentication
+# JWT Secret for Authentication
 # Generate a strong random string (e.g., using: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
 JWT_SECRET=your_super_secret_jwt_key_min_32_characters
+
+# Google OAuth Configuration
+# Get from: https://console.cloud.google.com/apis/credentials
+GOOGLE_CLIENT_ID=your_google_client_id_here
 ```
+
+### Frontend Environment Variables
+
+Create a `.env` file in the `client` directory:
+
+```env
+# Google OAuth Client ID
+VITE_GOOGLE_CLIENT_ID=your_google_client_id_here
+```
+
+### Google OAuth Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Enable Google+ API
+4. Go to **Credentials** > **Create Credentials** > **OAuth Client ID**
+5. Configure OAuth consent screen
+6. Create OAuth Client ID:
+   - Application type: **Web application**
+   - Authorized JavaScript origins: `http://localhost:5173`
+   - Authorized redirect URIs: `http://localhost:5173`
+7. Copy the **Client ID** and paste in both `.env` files
 
 ### MongoDB Atlas Setup
 
@@ -295,6 +338,20 @@ http://localhost:5000/api
 ```
 
 ### Public Endpoints (No Authentication Required)
+
+#### User Authentication
+- `POST /user/register` - Register new user
+  - Body: `{ "name": "John Doe", "email": "john@example.com", "password": "password123" }`
+  - Returns: JWT token and user data
+- `POST /user/login` - User login
+  - Body: `{ "email": "john@example.com", "password": "password123" }`
+  - Returns: JWT token and user data
+- `POST /user/google` - Google OAuth login/signup
+  - Body: `{ "name": "...", "email": "...", "googleId": "...", "avatar": "..." }`
+  - Returns: JWT token and user data
+- `GET /user/profile` - Get user profile (requires JWT token)
+  - Header: `Authorization: Bearer <token>`
+  - Returns: User profile data
 
 #### States
 - `GET /states` - Get all active states with pagination
@@ -563,6 +620,19 @@ See [EXCEL_UPLOAD_GUIDE.md](./EXCEL_UPLOAD_GUIDE.md) for bulk upload instruction
   isActive: Boolean (default: true),
   lastLogin: Date,
   timestamps: true
+}
+```
+
+### User Schema
+```javascript
+{
+  name: String (required),                // User full name
+  email: String (required, unique),       // User email
+  password: String,                       // Bcrypt hashed (not required for Google OAuth)
+  googleId: String,                       // Google OAuth ID
+  avatar: String,                         // Profile picture URL
+  isActive: Boolean (default: true),
+  timestamps: true                        // createdAt, updatedAt
 }
 ```
 
