@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 const Admin = require("../models/Admin");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
@@ -12,7 +13,14 @@ exports.loginAdmin = async (req, res) => {
 
     const admin = await Admin.findOne({ username, isActive: true });
 
-    if (!admin || admin.password !== password) {
+    if (!admin) {
+      return errorResponse(res, "Invalid credentials", 401);
+    }
+
+    // Compare password with bcrypt
+    const isPasswordValid = await bcrypt.compare(password, admin.password);
+    
+    if (!isPasswordValid) {
       return errorResponse(res, "Invalid credentials", 401);
     }
 
