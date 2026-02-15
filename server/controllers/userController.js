@@ -47,8 +47,19 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    if (!user || !await user.comparePassword(password)) {
-      console.log('❌ LOGIN FAILED:', email);
+    if (!user) {
+      console.log('❌ LOGIN FAILED: User not found -', email);
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    if (!user.password) {
+      console.log('❌ LOGIN FAILED: No password set (Google user) -', email);
+      return res.status(401).json({ message: 'Please login with Google' });
+    }
+
+    const isPasswordValid = await user.comparePassword(password);
+    if (!isPasswordValid) {
+      console.log('❌ LOGIN FAILED: Wrong password -', email);
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
