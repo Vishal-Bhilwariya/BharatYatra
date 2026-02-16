@@ -132,97 +132,97 @@ function App() {
                 <Route
                   path="/translator"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <Translator />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/explore-culture"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <ExploreCulture />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/explore-culture/:stateSlug"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <ExploreCulture />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/recommendations"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <Recommendations />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/itinerary"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <Itinerary />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/state/:slug"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <StateDetails />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/city/:slug"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <CityDetails />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
                 <Route
                   path="/explore"
                   element={
-                    <>
+                    <UserProtectedRoute>
                       <Header />
                       <div className="pt-20">
                         <ExploreStates />
                       </div>
                       <Footer />
-                    </>
+                    </UserProtectedRoute>
                   }
                 />
               </Routes>
