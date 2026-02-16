@@ -20,43 +20,24 @@ const app = express();
 // Connect to database
 connectDB();
 
-const defaultOrigin = "http://localhost:5173";
-const rawOrigins = process.env.CLIENT_URLS || process.env.CLIENT_URL || defaultOrigin;
-const allowedOriginEntries = rawOrigins
-  .split(/[\s,]+/)
-  .map((o) => o.trim().replace(/\/$/, ""))
-  .filter(Boolean);
-
-const allowAllOrigins = allowedOriginEntries.includes("*");
-const allowedOriginMatchers = allowedOriginEntries
-  .filter((o) => o !== "*")
-  .map((o) => {
-    if (o.includes("*")) {
-      const escaped = o.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
-      return new RegExp(`^${escaped}$`);
-    }
-    return o;
-  });
+const allowedOrigins = process.env.CLIENT_URLS
+  ? process.env.CLIENT_URLS.split(",")
+  : [];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin: function (origin, callback) {
       if (!origin) return callback(null, true);
-      const normalized = origin.replace(/\/$/, "");
-      if (allowAllOrigins) {
-        return callback(null, true);
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS not allowed for origin: " + origin));
       }
-      const isAllowed = allowedOriginMatchers.some((matcher) => {
-        if (typeof matcher === "string") return matcher === normalized;
-        return matcher.test(normalized);
-      });
-      if (isAllowed) {
-        return callback(null, true);
-      }
-      return callback(new Error(`CORS not allowed for origin: ${origin}`), false);
     },
-    credentials: true,
-    optionsSuccessStatus: 204,
+    credentials: true
   })
 );
 // Don't use express.json() for file upload routes - multer handles multipart/form-data
@@ -99,7 +80,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🔥 Server running on port ${PORT}`);
   console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`✅ Allowed Origins: ${allowedOriginEntries.join(", ")}`);
+  console.log(`✅ Allowed Origins: ${allowedOrigins.join(", ")}`);
 });
+
 
 
