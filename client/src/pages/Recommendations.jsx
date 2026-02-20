@@ -54,16 +54,32 @@ const Recommendations = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-purple-900 mb-2">
-            🎯 Personalized Recommendations
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+      {/* Hero Section with HD Background */}
+      <div className="relative overflow-hidden py-16 md:py-24">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90"
+            alt="India Travel Recommendations"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/90 via-purple-900/80 to-pink-900/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-50 via-transparent to-transparent"></div>
+        </div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-purple-100 text-sm font-semibold mb-6">
+            🎯 AI-Powered Recommendations
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+            Personalized <span className="text-pink-300">Recommendations</span>
           </h1>
-          <p className="text-gray-600">
-            Get travel recommendations tailored to your interests
+          <p className="text-purple-100 text-lg max-w-2xl mx-auto drop-shadow">
+            Get travel recommendations tailored perfectly to your interests and dreams
           </p>
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 pb-8 -mt-8">
 
         {!recommendations ? (
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6">
@@ -77,11 +93,10 @@ const Recommendations = () => {
                   <button
                     key={option.id}
                     onClick={() => toggleInterest(option.id)}
-                    className={`p-4 rounded-lg border-2 transition-all ${
-                      interests.includes(option.id)
+                    className={`p-4 rounded-lg border-2 transition-all ${interests.includes(option.id)
                         ? "border-purple-500 bg-purple-100 text-purple-900"
                         : "border-gray-200 bg-white text-gray-700 hover:border-purple-300"
-                    }`}
+                      }`}
                   >
                     <span className="text-2xl mb-2 block">{option.icon}</span>
                     <span className="font-medium">{option.label}</span>
@@ -100,11 +115,10 @@ const Recommendations = () => {
                   <button
                     key={opt}
                     onClick={() => setBudget(opt)}
-                    className={`flex-1 p-3 rounded-lg border-2 font-medium capitalize ${
-                      budget === opt
+                    className={`flex-1 p-3 rounded-lg border-2 font-medium capitalize ${budget === opt
                         ? "border-purple-500 bg-purple-100 text-purple-900"
                         : "border-gray-200 bg-white text-gray-700 hover:border-purple-300"
-                    }`}
+                      }`}
                   >
                     {opt}
                   </button>

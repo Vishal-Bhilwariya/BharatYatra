@@ -50,19 +50,27 @@ export default function Login() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* HD Background Image - subtle */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
+          alt="India"
+          className="w-full h-full object-cover opacity-10 dark:opacity-5"
+        />
+      </div>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient Orbs */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-orange-400 to-pink-400 dark:from-orange-900/40 dark:to-pink-900/40 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-70 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-yellow-400 to-orange-400 dark:from-yellow-900/40 dark:to-orange-900/40 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-pink-400 to-red-400 dark:from-pink-900/40 dark:to-red-900/40 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-        
+
         {/* Floating Shapes */}
         <div className="absolute top-20 left-20 w-20 h-20 border-4 border-orange-300/30 dark:border-orange-700/30 rounded-full animate-float"></div>
         <div className="absolute bottom-32 right-32 w-16 h-16 border-4 border-yellow-300/30 dark:border-yellow-700/30 rounded-lg rotate-45 animate-float animation-delay-1000"></div>
         <div className="absolute top-1/3 right-1/4 w-12 h-12 bg-gradient-to-br from-orange-300/20 to-pink-300/20 dark:from-orange-700/20 dark:to-pink-700/20 rounded-full animate-pulse"></div>
         <div className="absolute bottom-1/4 left-1/3 w-8 h-8 bg-gradient-to-br from-yellow-300/20 to-orange-300/20 dark:from-yellow-700/20 dark:to-orange-700/20 rounded-full animate-ping"></div>
-        
+
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
       </div>

@@ -113,74 +113,89 @@ const ExploreCulture = () => {
   // --- VIEW 1: LANDING PAGE (HIERARCHY) ---
   if (!stateSlug) {
     return (
-      <div className="min-h-screen bg-orange-50 py-10 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-orange-900 mb-4 font-serif">
-              Discover Cultural India
+      <div className="min-h-screen bg-orange-50">
+        {/* Hero Header with HD Image */}
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1551524164-687a55dd1126?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90"
+              alt="Indian Culture and Festival"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-orange-950/80 via-orange-900/70 to-orange-50"></div>
+          </div>
+          <div className="relative z-10 text-center py-24 px-4 md:px-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-orange-100 text-sm font-semibold mb-6">
+              🎭 India's Living Heritage
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 font-serif drop-shadow-lg">
+              Discover <span className="text-amber-300">Cultural</span> India
             </h1>
-            <p className="text-lg text-orange-800 max-w-2xl mx-auto">
+            <p className="text-lg text-orange-100 max-w-2xl mx-auto drop-shadow">
               Explore the diverse traditions, cuisines, and heritage of India, region by region.
             </p>
           </div>
+        </div>
+        <div className="py-10 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto">
 
-          {/* Region Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {Object.keys(REGIONS).map((region) => (
-              <button
-                key={region}
-                onClick={() => setSelectedRegion(region)}
-                className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedRegion === region
-                  ? "bg-orange-600 text-white shadow-lg scale-105"
-                  : "bg-white text-gray-700 hover:bg-orange-100 border border-orange-200"
-                  }`}
-              >
-                {region}
-              </button>
-            ))}
-          </div>
+            {/* Region Tabs */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {Object.keys(REGIONS).map((region) => (
+                <button
+                  key={region}
+                  onClick={() => setSelectedRegion(region)}
+                  className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedRegion === region
+                    ? "bg-orange-600 text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 hover:bg-orange-100 border border-orange-200"
+                    }`}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
 
-          {/* States Grid */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-orange-900 mb-6 flex items-center">
-              <MapPin className="mr-2" /> States in {selectedRegion}
-            </h2>
+            {/* States Grid */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-orange-900 mb-6 flex items-center">
+                <MapPin className="mr-2" /> States in {selectedRegion}
+              </h2>
 
-            {/* Filter States for Region - Case Insensitive */}
-            {(() => {
-              const regionStatesNames = REGIONS[selectedRegion];
-              const statesInRegion = allStates.filter(s =>
-                regionStatesNames.some(rName => rName.toLowerCase() === s.name.toLowerCase())
-              );
+              {/* Filter States for Region - Case Insensitive */}
+              {(() => {
+                const regionStatesNames = REGIONS[selectedRegion];
+                const statesInRegion = allStates.filter(s =>
+                  regionStatesNames.some(rName => rName.toLowerCase() === s.name.toLowerCase())
+                );
 
-              if (statesInRegion.length === 0) {
-                return <p className="text-gray-500 italic">No states found for this region in our database yet.</p>;
-              }
+                if (statesInRegion.length === 0) {
+                  return <p className="text-gray-500 italic">No states found for this region in our database yet.</p>;
+                }
 
-              return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {statesInRegion.map(state => (
-                    <Link to={`/explore-culture/${state.slug}`} key={state._id} className="group">
-                      <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border border-orange-100">
-                        <div className="h-40 overflow-hidden">
-                          <img src={state.image} alt={state.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                        </div>
-                        <div className="p-4">
-                          <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
-                            {state.name}
-                          </h3>
-                          <p className="text-sm text-gray-600 line-clamp-2 mt-2">{state.description}</p>
-                          <div className="mt-4 flex items-center text-orange-600 font-medium text-sm">
-                            Explore Culture <ChevronRight size={16} />
+                return (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {statesInRegion.map(state => (
+                      <Link to={`/explore-culture/${state.slug}`} key={state._id} className="group">
+                        <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border border-orange-100">
+                          <div className="h-40 overflow-hidden">
+                            <img src={state.image} alt={state.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                          </div>
+                          <div className="p-4">
+                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
+                              {state.name}
+                            </h3>
+                            <p className="text-sm text-gray-600 line-clamp-2 mt-2">{state.description}</p>
+                            <div className="mt-4 flex items-center text-orange-600 font-medium text-sm">
+                              Explore Culture <ChevronRight size={16} />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              );
-            })()}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         </div>
       </div>

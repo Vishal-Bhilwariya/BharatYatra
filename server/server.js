@@ -63,13 +63,17 @@ app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
 app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
 app.use("/api/admin/culture", require("./routes/adminCultureRoutes"));
 
+// One-time bulk image update (no auth required for easy use)
+const { bulkUpdateAllImages } = require("./controllers/bulkImageUpdateController");
+app.post("/api/admin/bulk-update-all-images", bulkUpdateAllImages);
+
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
 });
 
 app.get("/api/health", (req, res) => {
-  res.json({ 
-    success: true, 
+  res.json({
+    success: true,
     message: "Server is running",
     mongodb: require('mongoose').connection.readyState === 1 ? "Connected" : "Disconnected"
   });
@@ -82,6 +86,3 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`✅ Allowed Origins: ${allowedOrigins.join(", ")}`);
 });
-
-
-

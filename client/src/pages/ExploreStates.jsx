@@ -46,16 +46,27 @@ const ExploreStates = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50">
       {/* Hero Section */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-          <div className="inline-flex items-center justify-center p-2 bg-orange-100 rounded-full text-orange-700 mb-6 animate-fade-in-up">
-            <Compass size={20} className="mr-2" />
-            <span className="text-sm font-semibold tracking-wide uppercase">Discover Incredible India</span>
+      <div className="relative overflow-hidden">
+        {/* HD Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90"
+            alt="Incredible India"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/85 via-orange-800/70 to-amber-900/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-orange-50/80 via-transparent to-transparent"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full text-white mb-6">
+            <Compass size={18} className="text-orange-300" />
+            <span className="text-sm font-semibold tracking-wide uppercase text-orange-100">Discover Incredible India</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
-            Explore <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">India</span> by State
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+            Explore <span className="bg-gradient-to-r from-orange-300 to-amber-200 bg-clip-text text-transparent">India</span> by State
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow">
             Embark on a journey through the diverse tapestry of India. Select a state to uncover its unique culture, heritage, cuisine, and breathtaking destinations.
           </p>
 
@@ -66,11 +77,25 @@ const ExploreStates = () => {
             </div>
             <input
               type="text"
-              className="block w-full pl-11 pr-4 py-4 border-2 border-gray-200 rounded-full leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300 shadow-sm"
+              className="block w-full pl-11 pr-4 py-4 border-2 border-transparent rounded-full leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300 shadow-xl"
               placeholder="Search for a state (e.g., Rajasthan, Kerala)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
+          </div>
+
+          {/* Quick Stats */}
+          <div className="flex justify-center gap-6 mt-8 flex-wrap">
+            {[
+              { number: "28+", label: "States" },
+              { number: "8", label: "Union Territories" },
+              { number: "700+", label: "Cities" },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl px-5 py-3 text-white text-center">
+                <div className="text-2xl font-bold text-amber-300">{stat.number}</div>
+                <div className="text-xs text-orange-100 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

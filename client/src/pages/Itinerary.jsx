@@ -92,16 +92,33 @@ const Itinerary = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-green-900 mb-2">
-            📅 Create Your Itinerary
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+      {/* Hero Section with HD Background */}
+      <div className="relative overflow-hidden py-16 md:py-24">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90"
+            alt="Travel Planning"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/90 via-emerald-900/80 to-teal-900/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-green-50 via-transparent to-transparent"></div>
+        </div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-green-100 text-sm font-semibold mb-6">
+            <Calendar size={16} className="text-green-300" />
+            Plan Your Perfect Trip
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+            Create Your <span className="text-emerald-300">Itinerary</span>
           </h1>
-          <p className="text-gray-600">
-            Plan your perfect trip with a personalized itinerary
+          <p className="text-green-100 text-lg max-w-2xl mx-auto drop-shadow">
+            Plan your perfect trip with a personalized itinerary crafted just for you
           </p>
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 pb-8 -mt-8">
 
         {!itinerary ? (
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6">
@@ -148,11 +165,10 @@ const Itinerary = () => {
                     <button
                       key={city._id}
                       onClick={() => toggleCity(city._id)}
-                      className={`p-3 rounded-lg border-2 text-left transition-all ${
-                        selectedCities.includes(city._id)
+                      className={`p-3 rounded-lg border-2 text-left transition-all ${selectedCities.includes(city._id)
                           ? "border-green-500 bg-green-100 text-green-900"
                           : "border-gray-200 bg-white text-gray-700 hover:border-green-300"
-                      }`}
+                        }`}
                     >
                       <span className="font-medium">{city.name}</span>
                     </button>
@@ -174,11 +190,10 @@ const Itinerary = () => {
                   <button
                     key={opt}
                     onClick={() => setBudget(opt)}
-                    className={`flex-1 p-3 rounded-lg border-2 font-medium capitalize ${
-                      budget === opt
+                    className={`flex-1 p-3 rounded-lg border-2 font-medium capitalize ${budget === opt
                         ? "border-green-500 bg-green-100 text-green-900"
                         : "border-gray-200 bg-white text-gray-700 hover:border-green-300"
-                    }`}
+                      }`}
                   >
                     {opt}
                   </button>
@@ -196,11 +211,10 @@ const Itinerary = () => {
                   <button
                     key={interest}
                     onClick={() => toggleInterest(interest)}
-                    className={`px-4 py-2 rounded-lg border-2 font-medium capitalize ${
-                      interests.includes(interest)
+                    className={`px-4 py-2 rounded-lg border-2 font-medium capitalize ${interests.includes(interest)
                         ? "border-green-500 bg-green-100 text-green-900"
                         : "border-gray-200 bg-white text-gray-700 hover:border-green-300"
-                    }`}
+                      }`}
                   >
                     {interest}
                   </button>
