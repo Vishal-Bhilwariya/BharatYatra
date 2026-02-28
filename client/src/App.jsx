@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import ThemeProvider from "./context/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
 import { AdminProvider } from "./context/AdminContext";
@@ -226,6 +227,7 @@ function App() {
                   }
                 />
               </Routes>
+              <Analytics />
             </BrowserRouter>
           </ThemeProvider>
         </AdminProvider>
