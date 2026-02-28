@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* @apply bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100; */
+  @apply text-gray-900 dark:text-gray-100;
+
+  /* Subtle Warm Background for BharatYatra (Light Mode) */
+  background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 100%);
+  min-height: 100vh;
+
+  /* Blue Border Accent */
+  border-top: 6px solid #a1c4fd;
+}
+
+/* Dark Mode Background */
+.dark body {
+  background: #111827;
+  /* gray-900 */
+  background-image: none;
+  /* Remove gradient */
+}
