@@ -63,10 +63,6 @@ app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
 app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
 app.use("/api/admin/culture", require("./routes/adminCultureRoutes"));
 
-// One-time bulk image update (no auth required for easy use)
-const { bulkUpdateAllImages } = require("./controllers/bulkImageUpdateController");
-app.post("/api/admin/bulk-update-all-images", bulkUpdateAllImages);
-
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
 });
