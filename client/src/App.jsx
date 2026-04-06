@@ -28,6 +28,7 @@ import AdminAddCulture from "./pages/admin/AdminAddCulture";
 import ExploreStates from "./pages/ExploreStates";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import TravelAssistant from "./components/TravelAssistant";
 
 function App() {
   return (
@@ -239,6 +240,7 @@ function App() {
                   }
                 />
               </Routes>
+              <TravelAssistant />
             </BrowserRouter>
           </ThemeProvider>
         </AdminProvider>

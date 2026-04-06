@@ -1,13 +1,48 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import api from "../api/api";
 import StateCard from "../components/StateCard";
-import { MapPin, Search, Compass, Loader2 } from "lucide-react";
+import { MapPin, Search, Compass, Loader2, Mic } from "lucide-react";
 
 const ExploreStates = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+  
   const [states, setStates] = useState([]);
   const [filteredStates, setFilteredStates] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [isListening, setIsListening] = useState(false);
+
+  const startVoiceSearch = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Your browser does not support voice search.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.onstart = () => setIsListening(true);
+    
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setSearchQuery(transcript);
+      setSearchParams({ search: transcript });
+      setIsListening(false);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Voice search error:", event.error);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => setIsListening(false);
+
+    recognition.start();
+  };
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -26,8 +61,29 @@ const ExploreStates = () => {
   }, []);
 
   useEffect(() => {
+    const stateAliases = {
+      "up": "uttar pradesh",
+      "mp": "madhya pradesh",
+      "hp": "himachal pradesh",
+      "uk": "uttarakhand",
+      "ap": "andhra pradesh",
+      "wb": "west bengal",
+      "tn": "tamil nadu",
+      "rj": "rajasthan",
+      "hr": "haryana",
+      "cg": "chhattisgarh",
+      "kl": "kerala",
+      "mh": "maharashtra",
+      "jk": "jammu and kashmir"
+    };
+
+    let searchTarget = searchQuery.toLowerCase().trim();
+    if (stateAliases[searchTarget]) {
+      searchTarget = stateAliases[searchTarget];
+    }
+
     const filtered = states.filter((state) =>
-      state.name.toLowerCase().includes(searchQuery.toLowerCase())
+      state.name.toLowerCase().includes(searchTarget)
     );
     setFilteredStates(filtered);
   }, [searchQuery, states]);
@@ -77,11 +133,26 @@ const ExploreStates = () => {
             </div>
             <input
               type="text"
-              className="block w-full pl-11 pr-4 py-4 border-2 border-transparent rounded-full leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition-all duration-300 shadow-xl"
+              className="block w-full pl-11 pr-12 py-4 border-2 border-transparent rounded-full leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition-all duration-300 shadow-xl"
               placeholder="Search for a state (e.g., Rajasthan, Kerala)..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                if (e.target.value) {
+                  setSearchParams({ search: e.target.value });
+                } else {
+                  setSearchParams({});
+                }
+              }}
             />
+            <button
+              type="button"
+              className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors ${isListening ? 'bg-red-500/20 text-red-500 animate-pulse' : 'text-gray-400 hover:text-orange-500 hover:bg-orange-50 dark:hover:bg-gray-700'}`}
+              onClick={startVoiceSearch}
+              title="Search by Voice"
+            >
+              <Mic size={20} />
+            </button>
           </div>
 
           {/* Quick Stats */}

@@ -89,3 +89,18 @@ exports.getCityBySlug = async (req, res) => {
     return errorResponse(res, error.message, 500);
   }
 };
+// 🌐 GET TRENDING CITIES (PUBLIC)
+exports.getTrendingCities = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 8;
+    const cities = await City.find({ isActive: true, isPopular: true })
+      .select("name slug image stateId")
+      .populate("stateId", "name slug")
+      .limit(limit)
+      .sort({ isPopular: -1, name: 1 });
+
+    return successResponse(res, "Trending cities fetched successfully", cities);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
+};

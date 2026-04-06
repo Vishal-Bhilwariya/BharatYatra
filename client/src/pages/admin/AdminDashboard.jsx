@@ -225,6 +225,48 @@ const AdminDashboard = () => {
           ))}
         </div>
 
+        {/* Trending Analytics Section */}
+        <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-800 shadow-2xl mb-6">
+          <h2 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
+            <div className="p-2 bg-pink-500/10 rounded-xl border border-pink-500/20 text-pink-400">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            Platform Telemetry (Trending)
+          </h2>
+          
+          <div className="space-y-6">
+            <div>
+              <div className="flex justify-between text-sm text-slate-400 mb-2">
+                <span>Jaipur (Rajasthan)</span>
+                <span className="text-emerald-400 font-bold">12,450 Visits</span>
+              </div>
+              <div className="w-full bg-slate-800 rounded-full h-2">
+                <div className="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full w-[85%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm text-slate-400 mb-2">
+                <span>Varanasi (Uttar Pradesh)</span>
+                <span className="text-blue-400 font-bold">9,200 Visits</span>
+              </div>
+              <div className="w-full bg-slate-800 rounded-full h-2">
+                <div className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full w-[65%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm text-slate-400 mb-2">
+                <span>Munnar (Kerala)</span>
+                <span className="text-pink-400 font-bold">7,800 Visits</span>
+              </div>
+              <div className="w-full bg-slate-800 rounded-full h-2">
+                <div className="bg-gradient-to-r from-pink-500 to-rose-400 h-2 rounded-full w-[45%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Quick Actions Bar */}
         <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-800 shadow-2xl relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-pink-500/5"></div>

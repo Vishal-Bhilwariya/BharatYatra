@@ -15,6 +15,7 @@ const cultureRoutes = require("./routes/cultureRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const itineraryRoutes = require("./routes/itineraryRoutes");
 const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 const app = express();
 
 // Connect to database
@@ -62,6 +63,7 @@ app.use("/api/admin/places", require("./routes/adminPlaceRoutes"));
 app.use("/api/admin/foods", require("./routes/adminFoodRoutes"));
 app.use("/api/admin/transports", require("./routes/adminTransportRoutes"));
 app.use("/api/admin/culture", require("./routes/adminCultureRoutes"));
+app.use("/api/chat", chatRoutes);
 
 app.get("/", (req, res) => {
   res.send("BharatYatra backend is running");
