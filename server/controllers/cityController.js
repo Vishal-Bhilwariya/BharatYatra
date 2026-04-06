@@ -5,12 +5,27 @@ const { successResponse, errorResponse } = require("../utils/apiResponse");
 // 🌐 GET ALL CITIES (PUBLIC - FOR SEARCH)
 exports.getAllCities = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
+
     const cities = await City.find({ isActive: true })
       .select("name slug description image stateId")
       .populate("stateId", "name slug")
-      .sort({ name: 1 });
+      .sort({ name: 1 })
+      .skip(skip)
+      .limit(limit);
 
-    return successResponse(res, "Cities fetched successfully", cities);
+    const total = await City.countDocuments({ isActive: true });
+
+    return successResponse(res, "Cities fetched successfully", {
+      data: cities,
+      pagination: {
+        total,
+        page,
+        pages: Math.ceil(total / limit)
+      }
+    });
   } catch (error) {
     return errorResponse(res, error.message, 500);
   }

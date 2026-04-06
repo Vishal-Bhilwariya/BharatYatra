@@ -34,6 +34,11 @@ const citySchema = new mongoose.Schema(
       required: true,
     },
 
+    coordinates: {
+      lat: { type: Number },
+      lng: { type: Number },
+    },
+
     isPopular: {
       type: Boolean,
       default: false,
@@ -48,5 +53,9 @@ const citySchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+// Indexes for performance
+citySchema.index({ stateId: 1, isPopular: -1 });
+citySchema.index({ slug: 1 });
 
 module.exports = mongoose.model("City", citySchema);

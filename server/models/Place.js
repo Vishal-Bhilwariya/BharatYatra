@@ -61,6 +61,11 @@ const placeSchema = new mongoose.Schema(
       type: String, // address / landmark
     },
 
+    coordinates: {
+      lat: { type: Number },
+      lng: { type: Number },
+    },
+
     isActive: {
       type: Boolean,
       default: true,
@@ -70,5 +75,9 @@ const placeSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+// Indexes for performance
+placeSchema.index({ cityId: 1, category: 1 });
+placeSchema.index({ slug: 1 });
 
 module.exports = mongoose.model("Place", placeSchema);

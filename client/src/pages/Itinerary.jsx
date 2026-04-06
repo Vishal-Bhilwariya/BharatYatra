@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import { Calendar, MapPin, Clock, DollarSign, Loader } from "lucide-react";
+import PlaceMap from "../components/Map/PlaceMap";
 
 const Itinerary = () => {
   const navigate = useNavigate();
@@ -287,6 +288,49 @@ const Itinerary = () => {
                 )}
               </div>
             </div>
+
+            {/* Interactive Map */}
+            {(() => {
+              const locationsToMap = [];
+              if (itinerary.days) {
+                itinerary.days.forEach(day => {
+                  if (day.activities) {
+                    day.activities.forEach(act => {
+                      if (act.type === 'place' && act.placeId && act.placeId.coordinates) {
+                        locationsToMap.push({
+                          name: act.placeId.name,
+                          lat: act.placeId.coordinates.lat,
+                          lng: act.placeId.coordinates.lng,
+                          description: "Day " + day.dayNumber + ": " + act.time
+                        });
+                      }
+                    });
+                  }
+                  if (day.cityId && day.cityId.coordinates) {
+                    locationsToMap.push({
+                      name: day.cityId.name,
+                      lat: day.cityId.coordinates.lat,
+                      lng: day.cityId.coordinates.lng,
+                      description: 'City marker'
+                    });
+                  }
+                });
+              }
+
+              // Mock some standard coordinates for demo if empty
+              if (locationsToMap.length === 0 && itinerary.cities?.length > 0) {
+                 locationsToMap.push({ name: itinerary.cities[0]?.cityId?.name || "Destination", lat: 26.9124, lng: 75.7873, description: "Demo City Location" });
+              }
+
+              return (
+                <div className="bg-white rounded-2xl shadow-xl p-6">
+                  <h3 className="text-2xl font-bold text-green-900 mb-4">Trip Map</h3>
+                  <div className="h-96 w-full rounded-2xl overflow-hidden shadow-inner border border-gray-100">
+                    <PlaceMap locations={locationsToMap} />
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Daily Itinerary */}
             <div className="space-y-4">

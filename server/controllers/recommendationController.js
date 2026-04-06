@@ -5,29 +5,27 @@ const City = require("../models/City");
 const Food = require("../models/Food");
 const { successResponse, errorResponse } = require("../utils/apiResponse");
 
-// 🎯 GENERATE PERSONALIZED RECOMMENDATIONS
+// 🎯 GENERATE PERSONALIZED RECOMMENDATIONS (Weighted Scoring Algorithm)
 exports.generateRecommendations = async (req, res) => {
   try {
     const { interests, budget, duration, preferredStates } = req.body;
     const userId = req.body.userId || "anonymous";
 
     if (!interests || !Array.isArray(interests) || interests.length === 0) {
-      return errorResponse(
-        res,
-        "Interests array is required",
-        400
-      );
+      return errorResponse(res, "Interests array is required", 400);
     }
 
-    // Build query based on interests
+    // 1. Define categorization mapping
     const placeCategoryMap = {
       adventure: ["nature", "other"],
       historical: ["fort", "palace", "museum", "heritage"],
-      food: [], // Handled separately
-      cultural: ["temple", "religious", "heritage"],
+      food: [], // Handled via foods collection
+      cultural: ["temple", "religious", "heritage", "museum"],
       nature: ["nature"],
       religious: ["temple", "religious"],
-      heritage: ["heritage", "fort", "palace"],
+      heritage: ["heritage", "fort", "palace", "museum"],
+      beach: ["nature"],
+      mountains: ["nature"]
     };
 
     const relevantCategories = [];
@@ -37,177 +35,135 @@ exports.generateRecommendations = async (req, res) => {
       }
     });
 
-    // Find matching places
-    const placeQuery = {
-      isActive: true,
-    };
-
-    if (relevantCategories.length > 0) {
-      placeQuery.category = { $in: relevantCategories };
-    }
-
-    if (preferredStates && preferredStates.length > 0) {
-      const cities = await City.find({
-        stateId: { $in: preferredStates },
-        isActive: true,
-      }).select("_id");
-      const cityIds = cities.map((c) => c._id);
-      placeQuery.cityId = { $in: cityIds };
-    }
-
-    const places = await Place.find(placeQuery)
-      .populate("cityId", "name slug stateId")
-      .limit(20)
-      .sort({ createdAt: -1 });
-
-    // Find matching cities
+    // 2. Fetch Base Data (Applying primary filters)
+    const placeQuery = { isActive: true };
     let cityQuery = { isActive: true };
+    let foodQuery = { isActive: true };
+
     if (preferredStates && preferredStates.length > 0) {
       cityQuery.stateId = { $in: preferredStates };
-    }
-
-    const cities = await City.find(cityQuery)
-      .populate("stateId", "name slug")
-      .limit(10)
-      .sort({ isPopular: -1 });
-
-    // Find matching foods
-    let foodQuery = { isActive: true };
-    if (preferredStates && preferredStates.length > 0) {
-      const cityIds = cities.map((c) => c._id);
+      const citiesInState = await City.find(cityQuery).select("_id");
+      const cityIds = citiesInState.map((c) => c._id);
+      
+      placeQuery.cityId = { $in: cityIds };
       foodQuery.cityId = { $in: cityIds };
     }
 
-    const foods = await Food.find(foodQuery)
-      .populate("cityId", "name slug")
-      .limit(15);
+    // Fetch significantly more records to score them properly
+    const allPlaces = await Place.find(placeQuery).populate("cityId", "name slug stateId isPopular");
+    const allCities = await City.find(cityQuery).populate("stateId", "name slug");
+    const allFoods = await Food.find(foodQuery).populate("cityId", "name slug");
 
-    // ==========================================
-    // AI GENERATION ATTEMPT
-    // ==========================================
+    // 3. WEIGHTED SCORING ALGORITHM
+    
+    // Helper to determine budget score
+    const getBudgetScore = (entryFee, userBudget) => {
+      if (!entryFee) return 0;
+      const desc = entryFee.toLowerCase();
+      if (userBudget === "budget" && (desc.includes("free") || desc.includes("not required"))) return 10;
+      if (userBudget === "luxury" && (desc.includes("expensive") || desc.includes("luxury"))) return 10;
+      return 5; // Default moderate match
+    };
 
-    let isAiGenerated = false;
-    let fallbackToStatic = false;
-    let recommendationObj = null;
+    // A) Score Places
+    const scoredPlaces = allPlaces.map((place) => {
+      let score = 0;
+      let matchReason = "Highly rated destination.";
 
-    if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.startsWith("AIza")) {
-      try {
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
-        // Prepare streamlined data for AI context
-        const contextPlaces = places.map((p) => ({ id: p._id.toString(), name: p.name, category: p.category, description: p.description?.substring(0, 50) }));
-        const contextCities = cities.map((c) => ({ id: c._id.toString(), name: c.name, state: c.stateId?.name }));
-        const contextFoods = foods.map((f) => ({ id: f._id.toString(), name: f.name, famousFor: f.famousFor?.substring(0, 50) }));
-
-        const promptText = `
-You are an expert Indian travel planner. Generate personalized travel recommendations based on the following:
-- User Interests: ${interests.join(", ")}
-- Budget: ${budget || "moderate"}
-- Duration: ${duration || 7} days
-
-Here is the database of available options:
-Cities: ${JSON.stringify(contextCities)}
-Places: ${JSON.stringify(contextPlaces)}
-Foods: ${JSON.stringify(contextFoods)}
-
-Select the most highly relevant options matching the user's criteria. You must answer ONLY with a raw JSON object adhering strictly to this schema (no markdown, no backticks, just raw JSON):
-{
-  "recommendedPlaces": [
-    { "placeId": "<place_id>", "reason": "<Short personalized 1-sentence reason why this matches their specific interests>", "priority": <number 1-5> }
-  ],
-  "recommendedCities": [
-    { "cityId": "<city_id>", "reason": "<Short personalized 1-sentence reason>", "priority": <number 1-5> }
-  ],
-  "recommendedFoods": [
-    { "foodId": "<food_id>", "reason": "<Short appetizing reason>", "priority": <number 1-5> }
-  ]
-}
-RULES:
-1. "placeId", "cityId", and "foodId" MUST be exactly matched from the database options provided. Do not make up IDs.
-2. Return up to 6 places, 3 cities, and 4 foods.
-3. Your reasons MUST be highly personalized based on their interests.
-`;
-
-        const response = await ai.models.generateContent({
-          model: "gemini-2.5-flash",
-          contents: promptText,
-        });
-
-        let jsonStr = response.text.trim();
-        if (jsonStr.startsWith("\`\`\`json")) {
-          jsonStr = jsonStr.substring(7);
-        }
-        if (jsonStr.endsWith("\`\`\`")) {
-          jsonStr = jsonStr.substring(0, jsonStr.length - 3);
-        }
-
-        const generatedData = JSON.parse(jsonStr.trim());
-
-        if (generatedData.recommendedPlaces && generatedData.recommendedCities && generatedData.recommendedFoods) {
-          recommendationObj = {
-            userId,
-            interests,
-            budget: budget || "moderate",
-            duration: duration || 7,
-            preferredStates: preferredStates || [],
-            recommendedPlaces: generatedData.recommendedPlaces,
-            recommendedCities: generatedData.recommendedCities,
-            recommendedFoods: generatedData.recommendedFoods,
-          };
-          isAiGenerated = true;
-          console.log("AI Recommendations generated successfully.");
-        } else {
-          fallbackToStatic = true;
-        }
-
-      } catch (err) {
-        console.error("AI Generation failed, falling back to static tag matching: ", err);
-        fallbackToStatic = true;
+      // Feature: Interest Match (+20)
+      if (relevantCategories.includes(place.category)) {
+        score += 20;
+        const matchedInterest = interests.find(i => placeCategoryMap[i]?.includes(place.category)) || interests[0];
+        matchReason = `Perfectly matches your interest in ${matchedInterest}.`;
       }
-    } else {
-      fallbackToStatic = true;
-      console.log("No valid GEMINI_API_KEY found. Using static recommendations fallback.");
-    }
 
-    // ==========================================
-    // STATIC FALLBACK
-    // ==========================================
-    if (fallbackToStatic) {
-      recommendationObj = {
-        userId,
-        interests,
-        budget: budget || "moderate",
-        duration: duration || 7,
-        preferredStates: preferredStates || [],
-        recommendedPlaces: places.slice(0, 10).map((place, index) => ({
-          placeId: place._id,
-          reason: `Matches your interest in ${interests.join(", ")}`,
-          priority: index + 1,
-        })),
-        recommendedCities: cities.slice(0, 5).map((city, index) => ({
-          cityId: city._id,
-          reason: `Popular destination with ${interests.join(", ")} attractions`,
-          priority: index + 1,
-        })),
-        recommendedFoods: foods.slice(0, 8).map((food, index) => ({
-          foodId: food._id,
-          reason: "Local specialty you should try",
-          priority: index + 1,
-        })),
+      // Feature: Budget Match (+10)
+      score += getBudgetScore(place.entryFee, budget || "moderate");
+
+      // Feature: Popularity Boost (+5)
+      if (place.cityId && place.cityId.isPopular) {
+        score += 5;
+      }
+
+      return {
+        placeId: place._id,
+        score,
+        reason: matchReason
       };
-    }
+    });
 
-    // Create recommendation object
+    // B) Score Cities based on aggregate Place scores
+    const cityScores = {};
+    scoredPlaces.forEach((sp) => {
+      const place = allPlaces.find(p => p._id.equals(sp.placeId));
+      if (place && place.cityId) {
+        const cId = place.cityId._id.toString();
+        if (!cityScores[cId]) cityScores[cId] = { score: 0, count: 0 };
+        cityScores[cId].score += sp.score;
+        cityScores[cId].count += 1;
+      }
+    });
+
+    const scoredCities = allCities.map((city) => {
+      const cId = city._id.toString();
+      let score = city.isPopular ? 15 : 0; // Base popularity score
+      
+      if (cityScores[cId]) {
+        score += cityScores[cId].score / cityScores[cId].count; // Add average place score
+      }
+
+      return {
+        cityId: city._id,
+        score,
+        reason: city.isPopular ? "A must-visit popular destination." : `Great hub for ${interests[0] || "exploration"}.`
+      };
+    });
+
+    // 4. SORT AND SELECT TOP N
+
+    scoredPlaces.sort((a, b) => b.score - a.score);
+    scoredCities.sort((a, b) => b.score - a.score);
+    
+    // Foods are selected generally from the top cities for simplicity in scoring
+    const topCityIdsArr = scoredCities.slice(0, 3).map(c => c.cityId.toString());
+    const matchedFoods = allFoods.filter(f => f.cityId && topCityIdsArr.includes(f.cityId._id.toString()));
+
+    const topPlaces = scoredPlaces.slice(0, 10).map((sp, idx) => ({ 
+      placeId: sp.placeId, 
+      reason: sp.reason, 
+      priority: idx + 1 
+    }));
+    
+    const topCities = scoredCities.slice(0, 5).map((sc, idx) => ({ 
+      cityId: sc.cityId, 
+      reason: sc.reason, 
+      priority: idx + 1 
+    }));
+
+    const topFoods = matchedFoods.slice(0, 8).map((f, idx) => ({
+      foodId: f._id,
+      reason: "Local delicacy you must try.",
+      priority: idx + 1
+    }));
+
+    // 5. SAVE RECOMMENDATION
+    const recommendationObj = {
+      userId,
+      interests,
+      budget: budget || "moderate",
+      duration: duration || 7,
+      preferredStates: preferredStates || [],
+      recommendedPlaces: topPlaces,
+      recommendedCities: topCities,
+      recommendedFoods: topFoods,
+    };
+
     const recommendation = new Recommendation(recommendationObj);
-
     await recommendation.save();
 
-    return successResponse(
-      res,
-      "Recommendations generated successfully",
-      recommendation
-    );
+    return successResponse(res, "Recommendations generated successfully", recommendation);
   } catch (error) {
+    console.error("Error generating recommendations:", error);
     return errorResponse(res, error.message, 500);
   }
 };
