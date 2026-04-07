@@ -31,9 +31,8 @@ const Itinerary = () => {
 
   const fetchCities = async (stateId) => {
     try {
-      // We need to get cities by state - let's use a workaround
-      const res = await api.get("/cities");
-      const allCities = res.data.data || [];
+      const res = await api.get(`/cities?stateId=${stateId}&limit=200`);
+      const allCities = res.data.data?.data || res.data.data || [];
       const stateCities = allCities.filter(
         (city) => city.stateId === stateId || city.stateId?._id === stateId
       );

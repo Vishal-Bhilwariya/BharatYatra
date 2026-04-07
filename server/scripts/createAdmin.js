@@ -1,36 +1,41 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+const crypto = require("crypto");
 const Admin = require("../models/Admin");
 
 const createAdmin = async () => {
   try {
-    // Connect to MongoDB
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ Connected to MongoDB");
 
-    // Check if admin already exists
-    const existingAdmin = await Admin.findOne({ username: "admin" });
+    // Read credentials from env vars or CLI args — never hardcoded
+    const username = process.env.ADMIN_USERNAME || process.argv[2];
+    const password = process.env.ADMIN_PASSWORD || process.argv[3];
+
+    if (!username || !password) {
+      console.error("❌ Usage: node createAdmin.js <username> <password>");
+      console.error("   Or set ADMIN_USERNAME and ADMIN_PASSWORD in .env");
+      process.exit(1);
+    }
+
+    if (password.length < 8) {
+      console.error("❌ Password must be at least 8 characters.");
+      process.exit(1);
+    }
+
+    const existingAdmin = await Admin.findOne({ username });
     if (existingAdmin) {
-      console.log("⚠️  Admin account already exists!");
-      console.log("Username: admin");
-      console.log("Password: (your existing password)");
+      console.log("⚠️  Admin account already exists for username:", username);
       process.exit(0);
     }
 
-    // Create admin account
-    const admin = await Admin.create({
-      username: "admin",
-      password: "admin123", // Change this to your secure password
-      isActive: true,
-    });
+    await Admin.create({ username, password, isActive: true });
 
     console.log("✅ Admin account created successfully!");
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("📋 Login Credentials:");
-    console.log("Username: admin");
-    console.log("Password: admin123");
+    console.log("📋 Username:", username);
+    console.log("⚠️  Keep your password safe. It is not shown again.");
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("⚠️  IMPORTANT: Change the password after first login!");
     console.log("🔗 Login URL: http://localhost:5173/admin/login");
 
     process.exit(0);
@@ -41,4 +46,3 @@ const createAdmin = async () => {
 };
 
 createAdmin();
-

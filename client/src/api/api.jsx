@@ -8,15 +8,13 @@ const api = axios.create({
 // Add token to requests automatically
 api.interceptors.request.use(
   (config) => {
-    // Admin token for admin routes
     const adminToken = localStorage.getItem("adminToken");
     if (adminToken && config.url?.includes("/admin")) {
       config.headers.Authorization = `Bearer ${adminToken}`;
     }
 
-    // User token for user profile route
     const userToken = localStorage.getItem("userToken");
-    if (userToken && config.url?.includes("/user/profile")) {
+    if (userToken && !config.url?.includes("/admin")) {
       config.headers.Authorization = `Bearer ${userToken}`;
     }
 

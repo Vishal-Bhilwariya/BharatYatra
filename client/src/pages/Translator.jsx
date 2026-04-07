@@ -3,7 +3,6 @@ import api from "../api/api";
 import { Mic, MicOff, Volume2, Copy, Check, ArrowRightLeft, Languages, Sparkles } from "lucide-react";
 
 const Translator = () => {
-  // Enhanced State Management
   const [sourceLang, setSourceLang] = useState("en");
   const [targetLang, setTargetLang] = useState("hi");
   const [text, setText] = useState("");
@@ -13,10 +12,8 @@ const Translator = () => {
   const [presetPhrases, setPresetPhrases] = useState([]);
   const [copied, setCopied] = useState(false);
 
-  // Use ref for SpeechRecognition instance to avoid re-renders and lint errors
   const recognitionRef = useRef(null);
 
-  // Initialize Speech Recognition
   useEffect(() => {
     if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
       const SpeechRecognition =
@@ -45,7 +42,6 @@ const Translator = () => {
     }
   }, []);
 
-  // Fetch preset phrases
   useEffect(() => {
     const fetchPhrases = async () => {
       try {
@@ -66,7 +62,7 @@ const Translator = () => {
       const res = await api.post("/translate", {
         text,
         targetLang,
-        sourceLang
+        sourceLang,
       });
       setTranslatedText(res.data.translatedText);
     } catch (err) {
@@ -83,19 +79,17 @@ const Translator = () => {
     }
 
     try {
-      // Set the language dynamically based on sourceLang
       const langMap = {
-        'hi': 'hi-IN',
-        'en': 'en-US',
-        'es': 'es-ES',
-        'fr': 'fr-FR',
-        'de': 'de-DE',
-        'it': 'it-IT',
-        'ja': 'ja-JP',
-        'zh': 'zh-CN',
+        hi: "hi-IN",
+        en: "en-US",
+        es: "es-ES",
+        fr: "fr-FR",
+        de: "de-DE",
+        it: "it-IT",
+        ja: "ja-JP",
+        zh: "zh-CN",
       };
       recognitionRef.current.lang = langMap[sourceLang] || sourceLang;
-
       recognitionRef.current.start();
       setIsListening(true);
     } catch (error) {
@@ -113,7 +107,7 @@ const Translator = () => {
 
   const handlePhraseClick = (phrase) => {
     setText(phrase.english);
-    setSourceLang('en');
+    setSourceLang("en");
   };
 
   const copyToClipboard = (textToCopy) => {
@@ -125,10 +119,7 @@ const Translator = () => {
   const speakText = (textToSpeak, lang) => {
     if ("speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(textToSpeak);
-      const synthLangMap = {
-        'hi': 'hi-IN',
-        'en': 'en-US',
-      };
+      const synthLangMap = { hi: "hi-IN", en: "en-US" };
       utterance.lang = synthLangMap[lang] || lang;
       window.speechSynthesis.speak(utterance);
     }
@@ -142,7 +133,6 @@ const Translator = () => {
     setTranslatedText(text);
   };
 
-  /* Custom Cosmic Language Options */
   const LanguageOptions = () => (
     <>
       <optgroup label="Common" className="bg-slate-900 text-white">
@@ -187,19 +177,14 @@ const Translator = () => {
   return (
     <div className="min-h-screen bg-[#050B14] py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative overflow-hidden font-sans">
 
-      {/* Cosmic Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-[#050B14] to-[#050B14] pointer-events-none"></div>
       <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
       <div className="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
       <div className="absolute top-[20%] right-[20%] w-[200px] h-[200px] bg-pink-600/20 rounded-full blur-[80px] pointer-events-none mix-blend-screen animate-pulse"></div>
-
-      {/* Stars Effect (Simple CSS dots implementation could go here, relying on simple dots for now) */}
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
-
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(white 1px, transparent 1px)", backgroundSize: "50px 50px" }}></div>
 
       <div className="max-w-5xl w-full mx-auto space-y-8 relative z-10">
 
-        {/* Header */}
         <div className="text-center space-y-2 mb-6">
           <div className="inline-flex items-center justify-center gap-3 mb-2">
             <Languages className="w-8 h-8 text-indigo-400 drop-shadow-[0_0_10px_rgba(129,140,248,0.5)]" />
@@ -209,7 +194,6 @@ const Translator = () => {
           </div>
         </div>
 
-        {/* Main Glass Card */}
         <div className="bg-white/5 backdrop-blur-2xl rounded-[2rem] border border-white/10 shadow-2xl shadow-indigo-900/20 overflow-hidden relative ring-1 ring-white/5">
 
           {/* Top Toolbar */}
@@ -225,7 +209,7 @@ const Translator = () => {
                 <LanguageOptions />
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-indigo-400">
-                <span className="text-sm">Ã¢â€“Â¼</span>
+                <span className="text-sm">&#9660;</span>
               </div>
             </div>
 
@@ -247,7 +231,7 @@ const Translator = () => {
                 <LanguageOptions />
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-purple-200">
-                <span className="text-sm">Ã¢â€“Â¼</span>
+                <span className="text-sm">&#9660;</span>
               </div>
             </div>
           </div>
@@ -266,17 +250,15 @@ const Translator = () => {
                 spellCheck="false"
               />
 
-              {/* Source Actions */}
               <div className="flex items-center justify-between mt-4 md:mt-6 relative z-10">
                 <div className="flex items-center gap-3">
-                  {/* Listening Indicator */}
                   {isListening ? (
                     <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-red-500/20 border border-red-500/50 text-red-300 animate-pulse">
                       <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500"></span>
                       <span className="text-xs md:text-sm font-bold tracking-wide">LISTENING</span>
                     </div>
                   ) : (
-                    <div className="h-8 md:h-9"></div> // Spacer
+                    <div className="h-8 md:h-9"></div>
                   )}
                 </div>
 
@@ -291,10 +273,11 @@ const Translator = () => {
                   )}
                   <button
                     onClick={isListening ? stopListening : startListening}
-                    className={`p-3 md:p-4 rounded-full transition-all shadow-lg border ${isListening
-                      ? "bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.4)] scale-110"
-                      : "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:border-indigo-400 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)]"
-                      }`}
+                    className={`p-3 md:p-4 rounded-full transition-all shadow-lg border ${
+                      isListening
+                        ? "bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.4)] scale-110"
+                        : "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:border-indigo-400 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)]"
+                    }`}
                   >
                     {isListening ? <MicOff size={20} className="md:w-6 md:h-6" /> : <Mic size={20} className="md:w-6 md:h-6" />}
                   </button>
@@ -307,12 +290,11 @@ const Translator = () => {
               {translatedText ? (
                 <>
                   <div className="flex-1 relative z-10 overflow-y-auto max-h-[40vh] lg:max-h-full">
-                    <p className="text-xl md:text-2xl lg:text-3xl font-normal text-indigo-100 leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-500">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-normal text-indigo-100 leading-relaxed">
                       {translatedText}
                     </p>
                   </div>
 
-                  {/* Target Actions */}
                   <div className="flex items-center justify-end gap-2 md:gap-3 mt-4 md:mt-6 relative z-10">
                     <button
                       onClick={() => speakText(translatedText, targetLang)}
@@ -330,14 +312,13 @@ const Translator = () => {
                 </>
               ) : (
                 <div className="flex-1 flex flex-col items-center justify-center text-slate-600 space-y-4 select-none">
-                  {/* Optional empty state graphic */}
                   <p className="font-medium text-base md:text-lg tracking-wide opacity-50">Translation will appear here</p>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Translate Button Area */}
+          {/* Translate Button */}
           <div className="p-4 bg-white/5 border-t border-white/5 backdrop-blur-md">
             <button
               onClick={handleTranslate}

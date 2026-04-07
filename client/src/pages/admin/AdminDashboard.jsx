@@ -58,32 +58,32 @@ const AdminDashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
 
-      // Fetch all stats with error handling
-      const fetchWithErrorHandling = async (url, config) => {
+      // Strict allowlist of permitted admin -> public fallback route pairs
+      const ROUTE_PAIRS = [
+        { admin: "/admin/states",     public: "/states"     },
+        { admin: "/admin/cities",     public: "/cities"     },
+        { admin: "/admin/places",     public: "/places"     },
+        { admin: "/admin/foods",      public: "/foods"      },
+        { admin: "/admin/transports", public: "/transports" },
+      ];
+
+      const fetchWithFallback = async ({ admin, public: pub }, config) => {
         try {
-          const res = await api.get(url, config);
+          const res = await api.get(admin, config);
           return res.data?.data || [];
-        } catch (error) {
-          console.error(`Error fetching ${url}:`, error.response?.data || error.message);
-          // If admin route fails, try public route
-          const publicUrl = url.replace('/admin', '');
+        } catch {
           try {
-            const publicRes = await api.get(publicUrl);
-            return publicRes.data?.data || publicRes.data || [];
-          } catch (publicError) {
-            console.error(`Public route ${publicUrl} also failed:`, publicError.message);
+            const res = await api.get(pub);
+            return res.data?.data || res.data || [];
+          } catch {
             return [];
           }
         }
       };
 
-      const [states, cities, places, foods, transports] = await Promise.all([
-        fetchWithErrorHandling("/admin/states", config),
-        fetchWithErrorHandling("/admin/cities", config),
-        fetchWithErrorHandling("/admin/places", config),
-        fetchWithErrorHandling("/admin/foods", config),
-        fetchWithErrorHandling("/admin/transports", config),
-      ]);
+      const [states, cities, places, foods, transports] = await Promise.all(
+        ROUTE_PAIRS.map((pair) => fetchWithFallback(pair, config))
+      );
 
       setStats({
         states: Array.isArray(states) ? states.length : 0,

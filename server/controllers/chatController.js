@@ -20,11 +20,15 @@ If you found these preferences, reply with ONLY a raw JSON object formatted like
 If you cannot find clear destination preferences, ask them casually in plain text (no markdown json). For example: "I'd love to help plan! Where do you want to go and for how long?"
 `;
 
+    const sanitizedMessage = message.replace(/[`"\\]/g, '').substring(0, 500);
+
     const response = await axios.post(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + process.env.GEMINI_API_KEY,
       {
         contents: [
-            { role: "user", parts: [{ text: systemPrompt + "\n\nUser message: " + message }] }
+            { role: "user", parts: [{ text: systemPrompt }] },
+            { role: "model", parts: [{ text: "Understood. I will analyze the user message and respond accordingly." }] },
+            { role: "user", parts: [{ text: sanitizedMessage }] }
         ],
         generationConfig: { temperature: 0.2 }
       },

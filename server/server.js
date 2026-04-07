@@ -22,8 +22,8 @@ const app = express();
 connectDB();
 
 const allowedOrigins = process.env.CLIENT_URLS
-  ? process.env.CLIENT_URLS.split(",")
-  : [];
+  ? process.env.CLIENT_URLS.split(",").map(o => o.trim())
+  : ["http://localhost:5173", "http://localhost:3000"];
 
 app.use(
   cors({

@@ -16,18 +16,25 @@ export const AdminProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if admin token exists in localStorage
     const token = localStorage.getItem("adminToken");
-    if (token) {
+    if (token && /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/.test(token)) {
       setAdminToken(token);
       setIsAuthenticated(true);
+    } else if (token) {
+      localStorage.removeItem("adminToken");
     }
     setLoading(false);
   }, []);
 
   const login = (token) => {
-    localStorage.setItem("adminToken", token);
-    setAdminToken(token);
+    if (!token || typeof token !== "string") return;
+    // Sanitize: keep only JWT-safe characters before validating
+    const sanitized = token.replace(/[^A-Za-z0-9-_.]/g, "");
+    if (!/^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/.test(sanitized)) {
+      return;
+    }
+    localStorage.setItem("adminToken", sanitized);
+    setAdminToken(sanitized);
     setIsAuthenticated(true);
   };
 

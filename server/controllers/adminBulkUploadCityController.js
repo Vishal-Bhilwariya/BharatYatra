@@ -28,7 +28,7 @@ const upload = multer({
       cb(new Error(`Invalid file type. Only Excel (.xlsx, .xls) and CSV files are allowed. Received: ${file.mimetype}`), false);
     }
   },
-}).single("file");
+});
 
 const generateSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -69,80 +69,84 @@ const parseFile = (buffer, filename) => {
 };
 
 // Bulk upload Cities for a specific state
-const bulkUploadCities = async (req, res) => {
-  upload(req, res, async (err) => {
-    if (err) {
-      return errorResponse(res, err.message, 400);
+const bulkUploadCitiesHandler = async (req, res) => {
+  if (!req.file) {
+    return errorResponse(res, "No file uploaded", 400);
+  }
+
+  const { stateId } = req.body;
+  if (!stateId) {
+    return errorResponse(res, "State ID is required", 400);
+  }
+
+  try {
+    const state = await State.findById(stateId);
+    if (!state || !state.isActive) {
+      return errorResponse(res, "Invalid or inactive state", 404);
     }
 
-    if (!req.file) {
-      return errorResponse(res, "No file uploaded", 400);
-    }
+    const { headers, data } = parseFile(req.file.buffer, req.file.originalname);
 
-    const { stateId } = req.body;
-    if (!stateId) {
-      return errorResponse(res, "State ID is required", 400);
-    }
+    const results = {
+      created: 0,
+      skipped: 0,
+      errors: [],
+    };
 
-    try {
-      // Verify state exists and is active
-      const state = await State.findById(stateId);
-      if (!state || !state.isActive) {
-        return errorResponse(res, "Invalid or inactive state", 404);
-      }
+    for (let i = 0; i < data.length; i++) {
+      const row = data[i];
+      const rowNum = i + 2;
 
-      const { headers, data } = parseFile(req.file.buffer, req.file.originalname);
-
-      const results = {
-        created: 0,
-        skipped: 0,
-        errors: [],
-      };
-
-      // Expected columns: City Name, City Description, City Image, City History, City Is Popular
-      for (let i = 0; i < data.length; i++) {
-        const row = data[i];
-        const rowNum = i + 2;
-
-        try {
-          const cityName = row["City Name"] || row["city_name"] || row["CityName"] || row["Name"];
-          if (!cityName || !cityName.trim()) {
-            results.errors.push(`Row ${rowNum}: City name is required`);
-            continue;
-          }
-
-          const citySlug = generateSlug(cityName.trim());
-          const existing = await City.findOne({ slug: citySlug, stateId });
-
-          if (existing) {
-            results.skipped++;
-            continue;
-          }
-
-          const cityData = {
-            name: cityName.trim(),
-            slug: citySlug,
-            stateId,
-            description: row["City Description"] || row["city_description"] || row["CityDescription"] || row["Description"] || "No description available",
-            image: row["City Image"] || row["city_image"] || row["CityImage"] || row["Image"] || "https://via.placeholder.com/800x400?text=" + encodeURIComponent(cityName),
-            history: row["City History"] || row["city_history"] || row["CityHistory"] || row["History"] || "",
-            isPopular: (row["City Is Popular"] || row["city_is_popular"] || row["CityIsPopular"] || row["Is Popular"] || "").toString().toLowerCase() === "true",
-            isActive: true,
-          };
-
-          await City.create(cityData);
-          results.created++;
-        } catch (rowError) {
-          results.errors.push(`Row ${rowNum}: ${rowError.message}`);
+      try {
+        const cityName = row["City Name"] || row["city_name"] || row["CityName"] || row["Name"];
+        if (!cityName || !cityName.trim()) {
+          results.errors.push(`Row ${rowNum}: City name is required`);
+          continue;
         }
-      }
 
-      return successResponse(res, "Cities bulk upload completed", results, 200);
-    } catch (error) {
-      return errorResponse(res, error.message, 500);
+        const citySlug = generateSlug(cityName.trim());
+        const existing = await City.findOne({ slug: citySlug, stateId });
+
+        if (existing) {
+          results.skipped++;
+          continue;
+        }
+
+        const cityData = {
+          name: cityName.trim(),
+          slug: citySlug,
+          stateId,
+          description: row["City Description"] || row["city_description"] || row["CityDescription"] || row["Description"] || "No description available",
+          image: row["City Image"] || row["city_image"] || row["CityImage"] || row["Image"] || "https://via.placeholder.com/800x400?text=" + encodeURIComponent(cityName),
+          history: row["City History"] || row["city_history"] || row["CityHistory"] || row["History"] || "",
+          isPopular: (row["City Is Popular"] || row["city_is_popular"] || row["CityIsPopular"] || row["Is Popular"] || "").toString().toLowerCase() === "true",
+          isActive: true,
+        };
+
+        await City.create(cityData);
+        results.created++;
+      } catch (rowError) {
+        results.errors.push(`Row ${rowNum}: ${rowError.message}`);
+      }
     }
-  });
+
+    return successResponse(res, "Cities bulk upload completed", results, 200);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
 };
+
+const handleMulterError = (err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return errorResponse(res, err.message || "File upload error", 400);
+  }
+  if (err) {
+    return errorResponse(res, err.message || "File upload error", 400);
+  }
+  next();
+};
+
+const bulkUploadCities = [upload.single("file"), handleMulterError, bulkUploadCitiesHandler];
 
 module.exports = { bulkUploadCities };
 

@@ -64,8 +64,23 @@ const AdminCities = () => {
     }
   };
 
+  const ALLOWED_IMAGE_HOSTS = ["images.unsplash.com", "res.cloudinary.com", "i.imgur.com", "upload.wikimedia.org"];
+
+  const isValidImageUrl = (url) => {
+    try {
+      const parsed = new URL(url);
+      return (parsed.protocol === "https:" && ALLOWED_IMAGE_HOSTS.some(h => parsed.hostname.endsWith(h)));
+    } catch {
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.image && !isValidImageUrl(formData.image)) {
+      alert("Image URL must be a valid HTTPS URL from an allowed host (e.g. unsplash.com, cloudinary.com).");
+      return;
+    }
     try {
       const token = localStorage.getItem("adminToken");
       const config = { headers: { Authorization: `Bearer ${token}` } };
@@ -87,7 +102,6 @@ const AdminCities = () => {
   const handleEdit = (city) => {
     setEditingCity(city);
     setFormData({
-      name: city.name,
       stateId: city.stateId?._id || city.stateId || "",
       description: city.description,
       image: city.image,
@@ -99,6 +113,12 @@ const AdminCities = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this city?")) return;
+
+    // Validate that id is a valid MongoDB ObjectId format
+    if (!id || !/^[a-f\d]{24}$/i.test(id)) {
+      alert("Invalid city ID");
+      return;
+    }
 
     try {
       const token = localStorage.getItem("adminToken");
@@ -143,6 +163,12 @@ const AdminCities = () => {
       return;
     }
 
+    if (!/^[a-f\d]{24}$/i.test(selectedStateForUpload)) {
+      alert("Invalid state selection.");
+      e.target.value = "";
+      return;
+    }
+
     setUploading(true);
     setUploadResult(null);
 
@@ -152,15 +178,14 @@ const AdminCities = () => {
       formData.append("file", file);
       formData.append("stateId", selectedStateForUpload);
 
-      const response = await fetch("http://https://bharatyatra-bu47.onrender.com/api/admin/cities/bulk-upload", {
-        method: "POST",
+      const response = await api.post("/admin/cities/bulk-upload", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        body: formData,
       });
 
-      const data = await response.json();
+      const data = response.data;
 
       if (data.success) {
         setUploadResult(data.data);

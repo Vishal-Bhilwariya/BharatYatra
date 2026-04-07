@@ -27,7 +27,7 @@ const upload = multer({
       cb(new Error(`Invalid file type. Only Excel (.xlsx, .xls) and CSV files are allowed. Received: ${file.mimetype}`), false);
     }
   },
-}).single("file");
+});
 
 const generateSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -68,83 +68,88 @@ const parseFile = (buffer, filename) => {
 };
 
 // Bulk upload Foods for a specific city
-const bulkUploadFoods = async (req, res) => {
-  upload(req, res, async (err) => {
-    if (err) {
-      return errorResponse(res, err.message, 400);
+const bulkUploadFoodsHandler = async (req, res) => {
+  if (!req.file) {
+    return errorResponse(res, "No file uploaded", 400);
+  }
+
+  const { cityId } = req.body;
+  if (!cityId) {
+    return errorResponse(res, "City ID is required", 400);
+  }
+
+  try {
+    const city = await City.findById(cityId);
+    if (!city || !city.isActive) {
+      return errorResponse(res, "Invalid or inactive city", 404);
     }
 
-    if (!req.file) {
-      return errorResponse(res, "No file uploaded", 400);
-    }
+    const { headers, data } = parseFile(req.file.buffer, req.file.originalname);
 
-    const { cityId } = req.body;
-    if (!cityId) {
-      return errorResponse(res, "City ID is required", 400);
-    }
+    const results = {
+      created: 0,
+      skipped: 0,
+      errors: [],
+    };
 
-    try {
-      const city = await City.findById(cityId);
-      if (!city || !city.isActive) {
-        return errorResponse(res, "Invalid or inactive city", 404);
-      }
+    for (let i = 0; i < data.length; i++) {
+      const row = data[i];
+      const rowNum = i + 2;
 
-      const { headers, data } = parseFile(req.file.buffer, req.file.originalname);
-
-      const results = {
-        created: 0,
-        skipped: 0,
-        errors: [],
-      };
-
-      // Expected columns: Food Name, Food Type, Food Description, Food Famous For, Food Approx Price, Food Image
-      for (let i = 0; i < data.length; i++) {
-        const row = data[i];
-        const rowNum = i + 2;
-
-        try {
-          const foodName = row["Food Name"] || row["food_name"] || row["FoodName"] || row["Name"];
-          if (!foodName || !foodName.trim()) {
-            results.errors.push(`Row ${rowNum}: Food name is required`);
-            continue;
-          }
-
-          const foodSlug = generateSlug(foodName.trim());
-          const existing = await Food.findOne({ slug: foodSlug, cityId });
-
-          if (existing) {
-            results.skipped++;
-            continue;
-          }
-
-          const foodType = (row["Food Type"] || row["food_type"] || row["FoodType"] || row["Type"] || "veg").toLowerCase();
-          const validTypes = ["veg", "non-veg", "vegan"];
-
-          const foodData = {
-            name: foodName.trim(),
-            slug: foodSlug,
-            cityId,
-            type: validTypes.includes(foodType) ? foodType : "veg",
-            description: row["Food Description"] || row["food_description"] || row["FoodDescription"] || row["Description"] || "No description available",
-            famousFor: row["Food Famous For"] || row["food_famous_for"] || row["FoodFamousFor"] || row["Famous For"] || "",
-            approxPrice: row["Food Approx Price"] || row["food_approx_price"] || row["FoodApproxPrice"] || row["Approx Price"] || "",
-            image: row["Food Image"] || row["food_image"] || row["FoodImage"] || row["Image"] || "https://via.placeholder.com/800x400?text=" + encodeURIComponent(foodName),
-            isActive: true,
-          };
-
-          await Food.create(foodData);
-          results.created++;
-        } catch (rowError) {
-          results.errors.push(`Row ${rowNum}: ${rowError.message}`);
+      try {
+        const foodName = row["Food Name"] || row["food_name"] || row["FoodName"] || row["Name"];
+        if (!foodName || !foodName.trim()) {
+          results.errors.push(`Row ${rowNum}: Food name is required`);
+          continue;
         }
-      }
 
-      return successResponse(res, "Foods bulk upload completed", results, 200);
-    } catch (error) {
-      return errorResponse(res, error.message, 500);
+        const foodSlug = generateSlug(foodName.trim());
+        const existing = await Food.findOne({ slug: foodSlug, cityId });
+
+        if (existing) {
+          results.skipped++;
+          continue;
+        }
+
+        const foodType = (row["Food Type"] || row["food_type"] || row["FoodType"] || row["Type"] || "veg").toLowerCase();
+        const validTypes = ["veg", "non-veg", "vegan"];
+
+        const foodData = {
+          name: foodName.trim(),
+          slug: foodSlug,
+          cityId,
+          type: validTypes.includes(foodType) ? foodType : "veg",
+          description: row["Food Description"] || row["food_description"] || row["FoodDescription"] || row["Description"] || "No description available",
+          famousFor: row["Food Famous For"] || row["food_famous_for"] || row["FoodFamousFor"] || row["Famous For"] || "",
+          approxPrice: row["Food Approx Price"] || row["food_approx_price"] || row["FoodApproxPrice"] || row["Approx Price"] || "",
+          image: row["Food Image"] || row["food_image"] || row["FoodImage"] || row["Image"] || "https://via.placeholder.com/800x400?text=" + encodeURIComponent(foodName),
+          isActive: true,
+        };
+
+        await Food.create(foodData);
+        results.created++;
+      } catch (rowError) {
+        results.errors.push(`Row ${rowNum}: ${rowError.message}`);
+      }
     }
-  });
+
+    return successResponse(res, "Foods bulk upload completed", results, 200);
+  } catch (error) {
+    return errorResponse(res, error.message, 500);
+  }
 };
+
+const handleMulterError = (err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return errorResponse(res, err.message || "File upload error", 400);
+  }
+  if (err) {
+    return errorResponse(res, err.message || "File upload error", 400);
+  }
+  next();
+};
+
+const bulkUploadFoods = [upload.single("file"), handleMulterError, bulkUploadFoodsHandler];
 
 module.exports = { bulkUploadFoods };
 
