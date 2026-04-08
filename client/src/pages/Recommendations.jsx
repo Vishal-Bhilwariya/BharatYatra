@@ -1,15 +1,24 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../api/api";
 import { MapPin, Utensils, Camera, Loader } from "lucide-react";
 
 const Recommendations = () => {
   const navigate = useNavigate();
-  const [interests, setInterests] = useState([]);
+  const [searchParams] = useSearchParams();
+  const initialInterest = searchParams.get("interest");
+
+  const [interests, setInterests] = useState(initialInterest ? [initialInterest] : []);
   const [budget, setBudget] = useState("moderate");
   const [duration, setDuration] = useState(7);
   const [loading, setLoading] = useState(false);
   const [recommendations, setRecommendations] = useState(null);
+
+  useEffect(() => {
+    if (initialInterest && !interests.includes(initialInterest)) {
+      setInterests([initialInterest]);
+    }
+  }, [initialInterest]);
 
   const interestOptions = [
     { id: "adventure", label: "Adventure", icon: "🏔️" },

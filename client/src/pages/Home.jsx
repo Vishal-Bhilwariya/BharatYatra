@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, MapPin, Compass, Landmark, Coffee, Heart, ChevronRight, User, Mic } from "lucide-react";
+import { Search, MapPin, Compass, Landmark, Coffee, Heart, ChevronRight, User, Mic, BookOpen, CheckCircle } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import api from "../api/api";
 
@@ -132,6 +132,56 @@ const Home = () => {
         </div>
       </section>
 
+      {/* 🛠️ HOW BHARATYATRA WORKS */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 relative">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg')", backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">How BharatYatra Works</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-16">Three simple steps to plan your perfect Indian journey</p>
+          
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12 relative max-w-5xl mx-auto">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-[40px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-orange-300 via-blue-300 to-green-300 z-0"></div>
+            
+            {/* Step 1 */}
+            <div className="flex-1 flex flex-col items-center relative z-10 w-full text-center">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-[20px] flex items-center justify-center shadow-lg shadow-orange-500/30 text-white transform hover:scale-105 transition-transform">
+                  <Search size={32} />
+                </div>
+                <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-orange-500 flex items-center justify-center text-orange-500 font-bold text-xs shadow-sm">1</div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Search Destination</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Search for any state, city, or place you want to explore. Get instant access to detailed information.</p>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="flex-1 flex flex-col items-center relative z-10 w-full text-center">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-500 rounded-[20px] flex items-center justify-center shadow-lg shadow-blue-500/30 text-white transform hover:scale-105 transition-transform">
+                  <MapPin size={32} />
+                </div>
+                <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-blue-500 flex items-center justify-center text-blue-500 font-bold text-xs shadow-sm">2</div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Explore Details</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Discover places to visit, local food, transport options, cultural information, and more.</p>
+            </div>
+            
+            {/* Step 3 */}
+            <div className="flex-1 flex flex-col items-center relative z-10 w-full text-center">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-[20px] flex items-center justify-center shadow-lg shadow-green-500/30 text-white transform hover:scale-105 transition-transform">
+                  <BookOpen size={32} />
+                </div>
+                <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-green-500 flex items-center justify-center text-green-500 font-bold text-xs shadow-sm">3</div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Travel Smart</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Use our translator, get recommendations, create itineraries, and travel with confidence.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 🏙️ TRENDING DESTINATIONS */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
@@ -181,7 +231,7 @@ const Home = () => {
       </section>
 
       {/* 🎭 EXPLORE BY CATEGORY */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-white dark:bg-[#1a222f] transition-colors">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Travel Your Way</h2>
@@ -190,22 +240,86 @@ const Home = () => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { id: 'heritage', icon: Landmark, title: "Heritage", color: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400" },
-              { id: 'nature', icon: Compass, title: "Nature & Wildlife", color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" },
-              { id: 'spiritual', icon: Heart, title: "Spiritual", color: "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400" },
-              { id: 'food', icon: Coffee, title: "Cuisine Hubs", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" }
+              { id: 'heritage', icon: Landmark, title: "Heritage", color: "bg-amber-100 text-amber-700 dark:bg-[#3d2c23] dark:text-amber-400" },
+              { id: 'nature', icon: Compass, title: "Nature & Wildlife", color: "bg-emerald-100 text-emerald-700 dark:bg-[#1b342e] dark:text-emerald-400" },
+              { id: 'religious', icon: Heart, title: "Spiritual", color: "bg-rose-100 text-rose-700 dark:bg-[#3b212f] dark:text-rose-400" },
+              { id: 'food', icon: Coffee, title: "Cuisine Hubs", color: "bg-blue-100 text-blue-700 dark:bg-[#232e4a] dark:text-blue-400" }
             ].map(cat => (
               <div 
                 key={cat.title}
-                className="group flex flex-col items-center p-8 bg-gray-50 dark:bg-gray-700/50 rounded-3xl cursor-pointer hover:-translate-y-2 hover:shadow-xl hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 border border-gray-100 dark:border-gray-600"
+                onClick={() => navigate(`/recommendations?interest=${cat.id}`)}
+                className="group flex flex-col items-center p-8 bg-gray-50 dark:bg-[#242f40] rounded-[20px] cursor-pointer hover:-translate-y-2 hover:shadow-xl hover:bg-white dark:hover:bg-[#2b3749] transition-all duration-300 border border-gray-100 dark:border-gray-700/30"
               >
-                <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform ${cat.color}`}>
-                  <cat.icon size={36} strokeWidth={1.5} />
+                <div className={`w-16 h-16 rounded-[14px] flex items-center justify-center mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-transform ${cat.color}`}>
+                  <cat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">{cat.title}</h3>
-                <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity">Explore &rarr;</span>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center tracking-wide">{cat.title}</h3>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ❓ WHY BHARATYATRA */}
+      <section className="py-24 bg-[#fffaf0] dark:bg-gray-900 border-t border-orange-50 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Why BharatYatra?</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Built specifically for Indian travelers who want more than just directions</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Card 1 */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 mt-1">
+                  <CheckCircle className="text-orange-500" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">India-First Cultural Depth</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Deep insights into regional culture, traditions, festivals, and local lifestyle.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 mt-1">
+                  <CheckCircle className="text-orange-500" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Regional Language Support</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Real-time translation in Hindi, Tamil, Bengali, and more Indian languages.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 mt-1">
+                  <CheckCircle className="text-orange-500" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Local Food & Transport Info</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Complete details about local cuisine, transport options, and connectivity.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card 4 */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 mt-1">
+                  <CheckCircle className="text-orange-500" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Built for Real Indian Travelers</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Designed by Indians, for Indians. Understand local context and travel like a local.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
