@@ -1,0 +1,1 @@
+﻿{"Status":0,"TC":false,"RD":true,"RA":true,"AD":false,"CD":false,"Question":[{"name":"bharatyatra.9v7edjt.mongodb.net.","type":16}],"Answer":[{"name":"bharatyatra.9v7edjt.mongodb.net.","type":16,"TTL":60,"data":"authSource=admin\u0026replicaSet=atlas-gj6mux-shard-0"}],"Comment":"Response from 2600:9000:5306:6f00::1."}
