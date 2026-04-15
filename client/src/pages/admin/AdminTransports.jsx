@@ -164,7 +164,7 @@ const AdminTransports = () => {
       formData.append("file", file);
       formData.append("cityId", selectedCityForUpload);
 
-      const response = await fetch("http://localhost:5000/api/admin/transports/bulk-upload", {
+      const response = await fetch("http://localhost:5001/api/admin/transports/bulk-upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -3,6 +3,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { useAuth } from "../context/AuthContext";
 import { Sun, Moon, Search, Home, Globe, MapPin, Languages, Calendar, Navigation, Menu, User, UserPlus, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import api from "../api/api";
 import logo from "../assets/logo/logo.jpeg";
 
@@ -14,7 +15,7 @@ const Header = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const darkMode = theme === "dark";
 
-  const [language, setLanguage] = useState("en");
+  const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // 🔍 Search states
@@ -154,7 +155,7 @@ const Header = () => {
 
           <input
             type="text"
-            placeholder="Search state, city, place, food etc"
+            placeholder={t('header.search_placeholder', 'Search state, city, place, food etc')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -199,37 +200,37 @@ const Header = () => {
             to="/"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Home
+            {t('header.home')}
           </Link>
           <Link
             to="/explore-culture"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Explore Culture
+            {t('header.explore_culture')}
           </Link>
           <Link
             to="/recommendations"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Recommendations
+            {t('header.recommendations')}
           </Link>
           <Link
             to="/translator"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Translator
+            {t('header.translator')}
           </Link>
           <Link
             to="/itinerary"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Itinerary
+            {t('header.itinerary')}
           </Link>
           <Link
             to="/transportation"
             className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            Transportation
+            {t('header.transportation')}
           </Link>
         </nav>
 
@@ -259,8 +260,8 @@ const Header = () => {
         <div className="flex items-center gap-4 flex-shrink-0 ml-auto">
           {/* Language Selector - Desktop */}
           <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
+            value={i18n.language}
+            onChange={(e) => i18n.changeLanguage(e.target.value)}
             className="hidden md:block px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-orange-500 dark:hover:border-orange-500 transition-colors focus:outline-none focus:border-orange-500"
           >
             <option value="en">English</option>
@@ -298,7 +299,7 @@ const Header = () => {
               onClick={logout}
               className="px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-red-50 hover:border-red-300 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:border-red-500/30 dark:hover:text-red-400 transition-colors"
             >
-              Logout
+              {t('header.logout')}
             </button>
           </div>
 
@@ -327,22 +328,22 @@ const Header = () => {
         <div className="md:hidden bg-gray-800 border-t border-gray-700">
           <nav className="px-6 py-4 space-y-3">
             <Link to="/" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Home
+              {t('header.home')}
             </Link>
             <Link to="/explore-culture" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Explore Culture
+              {t('header.explore_culture')}
             </Link>
             <Link to="/recommendations" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Recommendations
+              {t('header.recommendations')}
             </Link>
             <Link to="/translator" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Translator
+              {t('header.translator')}
             </Link>
             <Link to="/itinerary" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Itinerary
+              {t('header.itinerary')}
             </Link>
             <Link to="/transportation" className="block text-gray-300 hover:text-orange-400 transition-colors">
-              Transportation
+              {t('header.transportation')}
             </Link>
             <div className="pt-3 border-t border-gray-700 space-y-2">
               <div className="flex items-center gap-2 px-3 py-2 mb-2">
@@ -355,7 +356,7 @@ const Header = () => {
                 onClick={() => { logout(); setMobileMenuOpen(false); }}
                 className="w-full text-left px-3 py-2 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/10 transition-colors"
               >
-                Logout
+                {t('header.logout')}
               </button>
             </div>
           </nav>

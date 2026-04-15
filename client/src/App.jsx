@@ -28,6 +28,7 @@ import AdminAddCulture from "./pages/admin/AdminAddCulture";
 import ExploreStates from "./pages/ExploreStates";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
 import TravelAssistant from "./components/TravelAssistant";
 
 function App() {
@@ -117,6 +118,7 @@ function App() {
                 {/* Auth Routes - No Header/Footer */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
 
                 {/* Public Routes - With Header/Footer */}
                 <Route

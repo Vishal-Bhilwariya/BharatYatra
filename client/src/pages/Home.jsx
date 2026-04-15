@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, MapPin, Compass, Landmark, Coffee, Heart, ChevronRight, User, Mic, BookOpen, CheckCircle } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 import api from "../api/api";
 
 const Home = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [trendingCities, setTrendingCities] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -84,18 +86,18 @@ const Home = () => {
         <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center mt-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-semibold mb-6 animate-fade-in-up">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Discover the soul of India
+            {t('home.hero_badge')}
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg tracking-tight animate-fade-in-up animation-delay-100">
-            Where do you want to <br className="hidden md:block" />
+            {t('home.hero_title_1')} <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-200">
-              go today?
+              {t('home.hero_title_2')}
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl font-medium drop-shadow-md mb-12 animate-fade-in-up animation-delay-200">
-            Explore diverse cultures, hidden gems, and iconic monuments.
+            {t('home.hero_subtitle')}
           </p>
 
           {/* Centralized Glassmorphism Search */}
@@ -107,7 +109,7 @@ const Home = () => {
               <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-white/70" size={20} />
               <input
                 type="text"
-                placeholder="Search for cities, states, or places..."
+                placeholder={t('home.search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-transparent text-white placeholder:text-white/70 pl-12 pr-12 py-4 outline-none text-lg"
@@ -126,7 +128,7 @@ const Home = () => {
               className="w-full md:w-auto bg-emerald-500 hover:bg-emerald-600 outline-none text-white px-10 py-4 rounded-xl md:rounded-full font-bold text-lg transition-colors shadow-lg flex items-center justify-center gap-2"
             >
               <Search size={20} />
-              Explore
+              {t('home.search_btn')}
             </button>
           </form>
         </div>
@@ -136,8 +138,8 @@ const Home = () => {
       <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 relative">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg')", backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">How BharatYatra Works</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-16">Three simple steps to plan your perfect Indian journey</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('home.how_works_title')}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-16">{t('home.how_works_subtitle')}</p>
           
           <div className="flex flex-col md:flex-row items-start justify-between gap-12 relative max-w-5xl mx-auto">
             {/* Connecting Line */}
@@ -151,8 +153,8 @@ const Home = () => {
                 </div>
                 <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-orange-500 flex items-center justify-center text-orange-500 font-bold text-xs shadow-sm">1</div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Search Destination</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Search for any state, city, or place you want to explore. Get instant access to detailed information.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{t('home.step1_title')}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{t('home.step1_desc')}</p>
             </div>
             
             {/* Step 2 */}
@@ -163,8 +165,8 @@ const Home = () => {
                 </div>
                 <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-blue-500 flex items-center justify-center text-blue-500 font-bold text-xs shadow-sm">2</div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Explore Details</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Discover places to visit, local food, transport options, cultural information, and more.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{t('home.step2_title')}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{t('home.step2_desc')}</p>
             </div>
             
             {/* Step 3 */}
@@ -175,8 +177,8 @@ const Home = () => {
                 </div>
                 <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-white dark:bg-gray-800 border-[1.5px] border-green-500 flex items-center justify-center text-green-500 font-bold text-xs shadow-sm">3</div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Travel Smart</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Use our translator, get recommendations, create itineraries, and travel with confidence.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{t('home.step3_title')}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{t('home.step3_desc')}</p>
             </div>
           </div>
         </div>
@@ -186,11 +188,11 @@ const Home = () => {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Trending Destinations</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-lg">Most visited locations across India right now.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">{t('home.trending_title')}</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-lg">{t('home.trending_subtitle')}</p>
           </div>
           <Link to="/explore" className="hidden md:flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
-            View All <ChevronRight size={18} />
+            {t('home.view_all')} <ChevronRight size={18} />
           </Link>
         </div>
 
@@ -234,26 +236,26 @@ const Home = () => {
       <section className="py-20 bg-white dark:bg-[#1a222f] transition-colors">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Travel Your Way</h2>
-            <p className="text-lg text-gray-500 dark:text-gray-400">Find the perfect spots matching your vibe</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('home.categories_title')}</h2>
+            <p className="text-lg text-gray-500 dark:text-gray-400">{t('home.categories_subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { id: 'heritage', icon: Landmark, title: "Heritage", color: "bg-amber-100 text-amber-700 dark:bg-[#3d2c23] dark:text-amber-400" },
-              { id: 'nature', icon: Compass, title: "Nature & Wildlife", color: "bg-emerald-100 text-emerald-700 dark:bg-[#1b342e] dark:text-emerald-400" },
-              { id: 'religious', icon: Heart, title: "Spiritual", color: "bg-rose-100 text-rose-700 dark:bg-[#3b212f] dark:text-rose-400" },
-              { id: 'food', icon: Coffee, title: "Cuisine Hubs", color: "bg-blue-100 text-blue-700 dark:bg-[#232e4a] dark:text-blue-400" }
+              { id: 'heritage', icon: Landmark, titleKey: "home.cat_heritage", color: "bg-amber-100 text-amber-700 dark:bg-[#3d2c23] dark:text-amber-400" },
+              { id: 'nature', icon: Compass, titleKey: "home.cat_nature", color: "bg-emerald-100 text-emerald-700 dark:bg-[#1b342e] dark:text-emerald-400" },
+              { id: 'religious', icon: Heart, titleKey: "home.cat_spiritual", color: "bg-rose-100 text-rose-700 dark:bg-[#3b212f] dark:text-rose-400" },
+              { id: 'food', icon: Coffee, titleKey: "home.cat_cuisine", color: "bg-blue-100 text-blue-700 dark:bg-[#232e4a] dark:text-blue-400" }
             ].map(cat => (
               <div 
-                key={cat.title}
+                key={cat.titleKey}
                 onClick={() => navigate(`/recommendations?interest=${cat.id}`)}
                 className="group flex flex-col items-center p-8 bg-gray-50 dark:bg-[#242f40] rounded-[20px] cursor-pointer hover:-translate-y-2 hover:shadow-xl hover:bg-white dark:hover:bg-[#2b3749] transition-all duration-300 border border-gray-100 dark:border-gray-700/30"
               >
                 <div className={`w-16 h-16 rounded-[14px] flex items-center justify-center mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-transform ${cat.color}`}>
                   <cat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center tracking-wide">{cat.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center tracking-wide">{t(cat.titleKey)}</h3>
               </div>
             ))}
           </div>
@@ -264,8 +266,8 @@ const Home = () => {
       <section className="py-24 bg-[#fffaf0] dark:bg-gray-900 border-t border-orange-50 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Why BharatYatra?</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Built specifically for Indian travelers who want more than just directions</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('home.why_title')}</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t('home.why_subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -276,8 +278,8 @@ const Home = () => {
                   <CheckCircle className="text-orange-500" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">India-First Cultural Depth</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Deep insights into regional culture, traditions, festivals, and local lifestyle.</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('home.why1_title')}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{t('home.why1_desc')}</p>
                 </div>
               </div>
             </div>
@@ -289,8 +291,8 @@ const Home = () => {
                   <CheckCircle className="text-orange-500" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Regional Language Support</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Real-time translation in Hindi, Tamil, Bengali, and more Indian languages.</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('home.why2_title')}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{t('home.why2_desc')}</p>
                 </div>
               </div>
             </div>
@@ -302,8 +304,8 @@ const Home = () => {
                   <CheckCircle className="text-orange-500" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Local Food & Transport Info</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Complete details about local cuisine, transport options, and connectivity.</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('home.why3_title')}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{t('home.why3_desc')}</p>
                 </div>
               </div>
             </div>
@@ -315,8 +317,8 @@ const Home = () => {
                   <CheckCircle className="text-orange-500" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Built for Real Indian Travelers</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Designed by Indians, for Indians. Understand local context and travel like a local.</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('home.why4_title')}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{t('home.why4_desc')}</p>
                 </div>
               </div>
             </div>
@@ -332,15 +334,15 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Plan Your Complete Journey</h2>
-          <p className="text-xl text-emerald-50 mb-10 opacity-90 max-w-2xl mx-auto">Skip the hassle. Try our new AI-assisted Smart Itinerary generator to map out your perfect vacation day by day.</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('home.cta_title')}</h2>
+          <p className="text-xl text-emerald-50 mb-10 opacity-90 max-w-2xl mx-auto">{t('home.cta_subtitle')}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/itinerary" className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-full hover:bg-emerald-50 transition-colors shadow-2xl hover:shadow-white/20 transform hover:-translate-y-1">
-              Create Smart Itinerary
+              {t('home.cta_btn_itinerary')}
             </Link>
             {!user && (
               <Link to="/login" className="px-8 py-4 bg-transparent border-2 border-white/50 text-white font-bold rounded-full hover:bg-white/10 transition-colors">
-                Sign In to Save Trips
+                {t('home.cta_btn_signin')}
               </Link>
             )}
           </div>

@@ -1,5 +1,6 @@
 require("dotenv").config();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const express = require("express");
 const connectDB = require("./config/db");
@@ -15,6 +16,7 @@ const cultureRoutes = require("./routes/cultureRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const itineraryRoutes = require("./routes/itineraryRoutes");
 const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/authRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const app = express();
 
@@ -23,13 +25,16 @@ connectDB();
 
 const allowedOrigins = process.env.CLIENT_URLS
   ? process.env.CLIENT_URLS.split(",").map(o => o.trim())
-  : ["http://localhost:5173", "http://localhost:3000"];
+  : ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"];
 
 app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin) return callback(null, true);
+      // Allow any localhost port in development
+      const isLocalhost = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
       if (
+        isLocalhost ||
         allowedOrigins.includes(origin) ||
         origin.endsWith(".vercel.app")
       ) {
@@ -44,6 +49,7 @@ app.use(
 // Don't use express.json() for file upload routes - multer handles multipart/form-data
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(cookieParser());
 
 // Routes
 app.use("/api/states", stateRoutes);
@@ -56,6 +62,7 @@ app.use("/api/cultures", cultureRoutes);
 app.use("/api/recommendations", recommendationRoutes);
 app.use("/api/itineraries", itineraryRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/states", adminStateRoutes);
 app.use("/api/admin/cities", require("./routes/adminCityRoutes"));
@@ -77,7 +84,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🔥 Server running on port ${PORT}`);
