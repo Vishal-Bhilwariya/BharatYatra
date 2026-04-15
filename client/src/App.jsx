@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ThemeProvider from "./context/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
 import { AdminProvider } from "./context/AdminContext";
@@ -41,6 +41,7 @@ function App() {
               <ScrollToTop />
               <Routes>
                 {/* Admin Routes - No Header/Footer */}
+                <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route
                   path="/admin/dashboard"
